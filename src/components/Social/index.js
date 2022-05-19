@@ -12,7 +12,7 @@ const Social = () => {
           <Button
             variant="secondary"
             size="sm"
-            className="btn-withIcon"
+            className="btn-icon"
             href={link}
             target="_blank"
             rel="noreferrer"

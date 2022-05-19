@@ -5,7 +5,7 @@ const DATA = [
   },
   {
     name: 'telegram',
-    link: 'tg://resolve?domain=Cosmetology_Clinic_Bot',
+    link: 'https://t.me/Cosmetology_Clinic_Bot',
   },
   {
     name: 'viber',
