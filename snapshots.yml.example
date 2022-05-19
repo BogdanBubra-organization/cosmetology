@@ -1,0 +1,7 @@
+- http://localhost:9000/
+- http://localhost:9000/auction/228
+- http://localhost:9000/following
+- http://localhost:9000/creators
+- http://localhost:9000/search
+- http://localhost:9000/user/1
+- http://localhost:9000/user/2
