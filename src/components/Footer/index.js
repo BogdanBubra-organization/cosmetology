@@ -1,8 +1,7 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import PropTypes from 'prop-types'
-
-import Menu from '~components/Menu'
+import Social from '~components/Social'
 
 import * as s from './style.module.scss'
 
@@ -11,10 +10,11 @@ const Footer = ({ siteTitle }) => {
 
   return (
     <Container as="footer" className={s.footer}>
-      <div className={s.footer__logo}>{siteTitle}</div>
-      <Menu variant="footer" />
-      <div className={s.footer__copy}>
-        © {currentYear} {siteTitle}. All Rights Reserved
+      <div className={s.footer_inner}>
+        <Social />
+        <div className={s.footer_copy}>
+          © {siteTitle} {currentYear}.
+        </div>
       </div>
     </Container>
   )
