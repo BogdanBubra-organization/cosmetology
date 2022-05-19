@@ -1,7 +1,8 @@
-/*
-  Use @fontsource here
-  Example:
+/* stylelint-disable no-invalid-position-at-import-rule */
+@import '~@fontsource/inter/scss/mixins';
+@include fontFace($weight: 400, $fontName: 'Inter');
+@include fontFace($weight: 500, $fontName: 'Inter');
 
-  @import '~@fontsource/roboto/scss/mixins';
-  @include fontFace($weight: 300, $unicodeMap: $umap);
-*/
+@import '~@fontsource/cormorant/scss/mixins';
+@include fontFace($weight: 400, $fontName: 'Cormorant');
+@include fontFace($weight: 400, $fontName: 'Cormorant', $style: italic);

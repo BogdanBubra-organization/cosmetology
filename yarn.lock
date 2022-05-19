@@ -1324,6 +1324,16 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@fontsource/cormorant@^4.5.7":
+  version "4.5.7"
+  resolved "https://registry.yarnpkg.com/@fontsource/cormorant/-/cormorant-4.5.7.tgz#0814dc8b74a91d2ecc7acb596797cd56d30fd6ef"
+  integrity sha512-FqHoVbuC5+8PnwkkBVhFnLqfm5K7QbnQIQPQMTdnWnjyxPO9dxmnRH1yRvbHvPz3cQwmgePLnpUatj58746Y8w==
+
+"@fontsource/inter@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-4.5.10.tgz#c4e6839197dc4c77842eae9475ff0e036ff87fc9"
+  integrity sha512-YOt2/K8yo25MVBjrTImHxVimmyZEt0GcrWp2w7O29sdFX9SJqbGlOqjFJ1wI5yBbP6AmTeimyPE0UC/jjFRoIA==
+
 "@gatsbyjs/parcel-namer-relative-to-cwd@0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@gatsbyjs/parcel-namer-relative-to-cwd/-/parcel-namer-relative-to-cwd-0.0.2.tgz#e1586f1796aa773e53e0909025ea16e423c14391"
