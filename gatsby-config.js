@@ -11,9 +11,9 @@ module.exports = {
   trailingSlash: 'never',
   polyfill: false,
   siteMetadata: {
-    title: `Minimal Gatsby Starter`,
-    description: `Description`,
-    domain: process.env.GATSBY_VERCEL_URL || 'starter.min.studio',
+    title: `Сosmetology clinic`,
+    description: ``,
+    domain: process.env.GATSBY_VERCEL_URL || 'cosmetology.ua',
   },
   plugins: [
     // https://www.gatsbyjs.com/plugins/gatsby-plugin-webpack-bundle-analyser-v2/
@@ -32,12 +32,12 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `@gvrs/gatsby-transformer-blurhash`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/data`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/data`,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-svgr-svgo`,
       options: {
