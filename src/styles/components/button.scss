@@ -6,3 +6,75 @@ button {
   outline: none;
   appearance: none;
 }
+
+.btn {
+  &-primary {
+    &,
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+
+    &:hover {
+      background: $green-dark;
+    }
+
+    &:focus {
+      background: $green-deep;
+    }
+
+    svg {
+      color: $white;
+    }
+  }
+
+  &-secondary {
+    color: $dark;
+
+    &:hover,
+    &:focus {
+      color: $primary;
+    }
+
+    &:focus {
+      background: $green-light;
+    }
+
+    svg {
+      color: $primary;
+    }
+  }
+
+  &-withIcon {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: start;
+
+    &:not(.btn-sm) {
+      column-gap: 8px;
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+
+    &.btn-sm {
+      column-gap: 4px;
+    }
+  }
+
+  &:not(&-sm) {
+    text-transform: uppercase;
+  }
+
+  &-sm {
+    font-weight: 400;
+    line-height: 1.43;
+  }
+
+  &:focus {
+    &,
+    &:active {
+      box-shadow: none;
+    }
+  }
+}

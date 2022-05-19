@@ -1,0 +1,16 @@
+@import '~styles/mixins';
+
+.social {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 8px;
+  align-items: center;
+  justify-content: start;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  &_name {
+    text-transform: capitalize;
+  }
+}

@@ -49,3 +49,12 @@ img {
 svg {
   display: block;
 }
+
+/* stylelint-disable-next-line selector-id-pattern */
+#___gatsby,
+#gatsby-focus-wrapper,
+body,
+html,
+main {
+  height: 100%;
+}

@@ -1,0 +1,36 @@
+@import '~styles/mixins';
+
+.soon {
+  display: grid;
+  row-gap: 24px;
+  align-content: center;
+  justify-items: center;
+  height: 100%;
+  min-height: 700px;
+  padding-top: 200px;
+  padding-bottom: 200px;
+
+  &_title {
+    max-width: 920px;
+    color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -2.5px;
+    background-image: linear-gradient(89.79deg, #162113 37.69%, #2e721c 99.85%);
+    background-clip: text;
+  }
+
+  &_descr {
+    max-width: 380px;
+    font-size: 14px;
+    line-height: 1.43;
+  }
+
+  &_btns {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 12px;
+    justify-items: center;
+    margin-top: 16px;
+  }
+}
