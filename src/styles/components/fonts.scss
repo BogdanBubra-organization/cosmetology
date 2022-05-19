@@ -5,3 +5,4 @@
 
 @import '~@fontsource/cormorant/scss/mixins';
 @include fontFace($weight: 400, $fontName: 'Cormorant');
+@include fontFace($weight: 400, $fontName: 'Cormorant', $style: italic);

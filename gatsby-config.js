@@ -12,7 +12,7 @@ module.exports = {
   polyfill: false,
   siteMetadata: {
     title: `Сosmetology clinic`,
-    description: ``,
+    description: `Сайт знаходиться в розробці`,
     domain: process.env.GATSBY_VERCEL_URL || 'cosmetology.ua',
   },
   plugins: [

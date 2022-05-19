@@ -1,9 +1,8 @@
 @import '~styles/mixins';
 
 .header {
-  position: absolute;
-  inset: 0 0 auto;
   display: grid;
+  align-self: start;
   justify-content: center;
   padding-top: 40px;
   padding-bottom: 40px;

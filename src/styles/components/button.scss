@@ -9,12 +9,6 @@ button {
 
 .btn {
   &-primary {
-    &,
-    &:hover,
-    &:focus {
-      color: $white;
-    }
-
     &:hover {
       background: $green-dark;
     }
@@ -29,8 +23,6 @@ button {
   }
 
   &-secondary {
-    color: $dark;
-
     &:hover,
     &:focus {
       color: $primary;
@@ -45,7 +37,7 @@ button {
     }
   }
 
-  &-withIcon {
+  &-icon {
     display: grid;
     grid-auto-flow: column;
     align-items: center;
