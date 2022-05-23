@@ -1,0 +1,107 @@
+.modal {
+  backdrop-filter: blur(12px);
+
+  &-header {
+    display: grid;
+    row-gap: 8px;
+    justify-content: center;
+  }
+
+  &-title {
+    color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    background-image: $gradient;
+    background-clip: text;
+  }
+
+  &-descr {
+    font-size: 14px;
+    line-height: 1.333;
+    color: rgba(48, 79, 39, 60%);
+    text-align: center;
+
+    @include b-d(md) {
+      margin-bottom: -12px;
+    }
+  }
+
+  &-content {
+    z-index: 1;
+    margin-bottom: 56px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 400 380'%3E%3Cpath stroke='%232D6B1C' d='M226.4-38.8c319.8-23.5 28 316.5 0 248.4C207 162 575 231.4 0 379' opacity='.1'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    @include b-up(md) {
+      padding: 20px;
+    }
+    @include b-d(md) {
+      padding: 20px 12px 12px;
+    }
+  }
+
+  &-close {
+    position: absolute;
+    top: calc(100% + 16px);
+    left: 50%;
+    padding: 10px;
+    color: $black;
+    border-radius: 8px;
+    transform: translateX(-50%);
+
+    &:hover,
+    &:focus {
+      color: $green;
+    }
+
+    &:focus {
+      background-image: $green-light;
+    }
+  }
+
+  &-lights {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+
+    &::before,
+    &::after,
+    span {
+      position: absolute;
+      content: '';
+    }
+
+    &::before,
+    &::after {
+      left: -54px;
+      background: #569a3d;
+      filter: blur(46px);
+      border-radius: 100%;
+      opacity: 0.1;
+    }
+
+    &::before {
+      top: -13px;
+      width: 200px;
+      height: 130px;
+    }
+
+    &::after {
+      top: 148px;
+      width: 638px;
+      height: 414px;
+    }
+
+    span {
+      top: 0;
+      right: 9px;
+      width: 69px;
+      height: 69px;
+      background: #ffd542;
+      filter: blur(82px);
+      opacity: 0.7;
+    }
+  }
+}

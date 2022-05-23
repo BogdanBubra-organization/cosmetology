@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 button {
   display: block;
   padding: 0;
@@ -17,8 +18,15 @@ button {
       background: $green-deep;
     }
 
-    svg {
-      color: $white;
+    &:not(.btn-lg) {
+      color: $secondary;
+    }
+
+    &.btn-lg {
+      svg {
+        color: $primary;
+        background: $secondary;
+      }
     }
   }
 
@@ -32,8 +40,17 @@ button {
       background: $green-light;
     }
 
-    svg {
-      color: $primary;
+    &:not(.btn-lg):not(.modal-close) {
+      svg {
+        color: $primary;
+      }
+    }
+
+    &.btn-lg {
+      svg {
+        color: $secondary;
+        background: $primary;
+      }
     }
   }
 
@@ -43,14 +60,34 @@ button {
     align-items: center;
     justify-content: start;
 
+    span {
+      @include b-d(md) {
+        display: none;
+      }
+    }
+
     &:not(.btn-sm) {
-      column-gap: 8px;
       padding-right: 16px;
       padding-left: 16px;
     }
 
+    &:not(.btn-sm):not(.btn-lg) {
+      column-gap: 8px;
+    }
+
     &.btn-sm {
       column-gap: 4px;
+    }
+
+    &.btn-lg {
+      column-gap: 20px;
+
+      svg {
+        width: 32px;
+        height: 32px;
+        padding: 8px;
+        border-radius: 8px;
+      }
     }
   }
 
@@ -58,7 +95,8 @@ button {
     text-transform: uppercase;
   }
 
-  &-sm {
+  &-sm,
+  &-lg {
     font-weight: 400;
     line-height: 1.43;
   }

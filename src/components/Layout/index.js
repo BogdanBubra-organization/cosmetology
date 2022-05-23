@@ -9,9 +9,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import Header from '../Header'
-import Footer from '../Footer'
-import SVGDefs from './SVGDefs'
+import Lights from '~components/Lights'
+import Header from '~components/Header'
+import Footer from '~components/Footer'
+// import SVGDefs from './SVGDefs'
 
 import '~styles/app.scss'
 import { layout } from './style.module.scss'
@@ -32,7 +33,8 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata?.title} />
       <main className="main">{children}</main>
       <Footer siteTitle={data.site.siteMetadata?.title} />
-      <SVGDefs />
+      <Lights />
+      {/* <SVGDefs /> */}
     </div>
   )
 }
