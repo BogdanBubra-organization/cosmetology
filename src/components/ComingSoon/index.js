@@ -41,6 +41,7 @@ const ComingSoon = () => {
         alt="Room"
         placeholder="blurred"
         width={328}
+        style={{ position: 'absolute' }}
       />
       <StaticImage
         className={cn(s.soon_pic, s.bottom)}
@@ -48,6 +49,7 @@ const ComingSoon = () => {
         alt="Room"
         placeholder="blurred"
         width={318}
+        style={{ position: 'absolute' }}
       />
       <ModalCallback show={showCallback} onHide={handleCloseCallback} />
       <ModalOrder show={showOrder} onHide={handleCloseOrder} />
