@@ -39,7 +39,7 @@ const ComingSoon = () => {
         className={cn(s.soon_pic, s.top)}
         src="./img/pic1.png"
         alt="Room"
-        placeholder="blurred"
+        placeholder="none"
         width={328}
         style={{ position: 'absolute' }}
       />
@@ -47,7 +47,7 @@ const ComingSoon = () => {
         className={cn(s.soon_pic, s.bottom)}
         src="./img/pic2.png"
         alt="Room"
-        placeholder="blurred"
+        placeholder="none"
         width={318}
         style={{ position: 'absolute' }}
       />

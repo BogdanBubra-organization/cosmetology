@@ -2,9 +2,9 @@ import React from 'react'
 import { Button, Modal as M } from 'react-bootstrap'
 import Icon from '~components/Icon'
 
-const Modal = ({ show, onHide, title, descr, children }) => {
+const Modal = ({ show, onHide, onExited, title, descr, children }) => {
   return (
-    <M show={show} onHide={onHide} centered>
+    <M onExited={onExited} show={show} onHide={onHide} centered>
       {title && (
         <M.Header>
           <M.Title>{title}</M.Title>

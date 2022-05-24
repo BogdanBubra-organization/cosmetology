@@ -24,15 +24,13 @@ const ModalOrder = ({ show, onHide }) => {
     }
   }
 
-  const handleHide = () => {
-    reset()
-    onHide()
-  }
-
   return (
     <Modal
       show={show}
-      onHide={handleHide}
+      onHide={onHide}
+      onExited={() => {
+        reset()
+      }}
       title={!state.succeeded ? title : finalTitle}
       descr={!state.succeeded ? descr : finalDescr}
     >
@@ -55,6 +53,11 @@ const ModalOrder = ({ show, onHide }) => {
                   name={name}
                   placeholder={placeholder}
                   mask={mask}
+                  pattern={
+                    type === 'tel'
+                      ? '^\\+\\d{2} \\(\\d{3}\\) \\d{3}-\\d{2}-\\d{2}$'
+                      : null
+                  }
                   required={isRequired}
                 />
               </Form.Group>
