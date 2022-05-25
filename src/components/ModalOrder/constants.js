@@ -1,3 +1,5 @@
+import InputMask from 'react-input-mask'
+
 const DATA = {
   title: 'Залишіть заявку',
   descr:
@@ -5,22 +7,23 @@ const DATA = {
   fields: [
     {
       name: 'Name',
-      type: 'text',
       label: 'Ваше імʼя',
       placeholder: 'Наприклад “Тетяна”',
-      isRequired: true,
+      required: true,
     },
     {
       name: 'Phone',
+      as: InputMask,
       type: 'tel',
       label: 'Номер телефону',
       placeholder: '+38 (000) 000-00-00',
       mask: '+38 (999) 999-99-99',
-      isRequired: true,
+      pattern: '^\\+\\d{2} \\(\\d{3}\\) \\d{3}-\\d{2}-\\d{2}$',
+      required: true,
     },
     {
       name: 'Message',
-      type: 'textarea',
+      as: 'textarea',
       label: 'Що вас цікавить?',
       placeholder: 'Введіть текст',
     },

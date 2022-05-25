@@ -29,12 +29,8 @@
   }
 
   &-btn {
-    width: 100%;
+    display: grid;
     margin-top: 8px;
-
-    &[disabled] {
-      background-color: $gray-500;
-    }
   }
 }
 
@@ -50,4 +46,8 @@
 
 .was-validated .form-control:valid:focus {
   box-shadow: none;
+}
+
+textarea {
+  max-height: 120px;
 }

@@ -11,12 +11,6 @@ const ComingSoon = () => {
   const [showCallback, setShowCallback] = useState(false)
   const [showOrder, setShowOrder] = useState(false)
 
-  const handleOpenCallback = () => setShowCallback(true)
-  const handleCloseCallback = () => setShowCallback(false)
-
-  const handleOpenOrder = () => setShowOrder(true)
-  const handleCloseOrder = () => setShowOrder(false)
-
   return (
     <Container as="section" className={s.soon}>
       <h1 className={s.soon_title}>
@@ -27,11 +21,11 @@ const ComingSoon = () => {
         або напишіть в любий із месенджерів:
       </p>
       <div className={s.soon_btns}>
-        <Button className="btn-icon" onClick={handleOpenCallback}>
+        <Button className="btn-icon" onClick={() => setShowCallback(true)}>
           <Icon name="tel" size={20} />
           <span>Зателефонувати</span>
         </Button>
-        <Button variant="secondary" onClick={handleOpenOrder}>
+        <Button variant="secondary" onClick={() => setShowOrder(true)}>
           Записатись на прийом
         </Button>
       </div>
@@ -51,8 +45,11 @@ const ComingSoon = () => {
         width={318}
         style={{ position: 'absolute' }}
       />
-      <ModalCallback show={showCallback} onHide={handleCloseCallback} />
-      <ModalOrder show={showOrder} onHide={handleCloseOrder} />
+      <ModalCallback
+        show={showCallback}
+        onHide={() => setShowCallback(false)}
+      />
+      <ModalOrder show={showOrder} onHide={() => setShowOrder(false)} />
     </Container>
   )
 }

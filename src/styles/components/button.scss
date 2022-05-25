@@ -107,4 +107,8 @@ button {
       box-shadow: none;
     }
   }
+
+  &[disabled] {
+    background-color: $gray-500;
+  }
 }
