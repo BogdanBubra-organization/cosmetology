@@ -7,18 +7,11 @@ import * as s from './Social.module.scss'
 const Social = () => {
   return (
     <ul className={s.social}>
-      {DATA.map(({ name, link }) => (
-        <li key={name}>
-          <Button
-            variant="secondary"
-            size="sm"
-            className="btn-icon"
-            href={link}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Icon name={name} size={20} />
-            <span className={s.social_name}>{name}</span>
+      {DATA.map((item) => (
+        <li key={item.name}>
+          <Button {...item} variant="secondary" size="sm" className="btn-icon">
+            <Icon name={item.name} size={20} />
+            <span className={s.social_name}>{item.name}</span>
           </Button>
         </li>
       ))}
