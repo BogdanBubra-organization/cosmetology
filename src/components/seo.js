@@ -57,7 +57,9 @@ const SEO = ({ description, lang, meta, title, image }) => {
         },
         {
           property: `og:image`,
-          content: `https://${domain}${ogImage || image}`,
+          content: `${domain.includes('http') ? domain : `https://${domain}`}${
+            ogImage || image
+          }`,
         },
         {
           property: `og:width`,

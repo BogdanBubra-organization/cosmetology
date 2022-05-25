@@ -14,6 +14,7 @@
     position: absolute;
     filter: blur(154px);
     border-radius: 100%;
+    transform: translateZ(0);
   }
 
   &::before,
@@ -69,7 +70,7 @@
   }
 
   span {
-    background: #ffd542;
+    background: $yellow;
 
     @include b-up(md) {
       width: 159px;

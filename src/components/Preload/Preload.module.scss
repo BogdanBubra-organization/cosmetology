@@ -1,0 +1,68 @@
+@import '~styles/mixins';
+
+.preload {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  visibility: visible;
+  background: $white;
+  transition: opacity 500ms ease-out, visibility 500ms ease-out;
+
+  &.hide {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    filter: blur(154px);
+    border-radius: 100%;
+    transform: translateZ(0);
+  }
+
+  &::before {
+    width: 599px;
+    height: 599px;
+    background: #e2ebdf;
+
+    @include b-up(md) {
+      transform: translate(-498px, -223px);
+    }
+
+    @include b-d(md) {
+      transform: translate(-328px, -147px);
+    }
+  }
+
+  &::after {
+    width: 159px;
+    height: 159px;
+    background: $yellow;
+    @include b-up(md) {
+      transform: translate(392px, 241px);
+    }
+
+    @include b-d(md) {
+      transform: translate(252px, 159px);
+    }
+  }
+
+  &_logo {
+    width: 100%;
+
+    @include b-up(md) {
+      max-width: 399px;
+    }
+
+    @include b-d(md) {
+      max-width: 280px;
+    }
+  }
+}

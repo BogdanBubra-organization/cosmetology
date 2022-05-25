@@ -2,14 +2,14 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 import Social from '~components/Social'
-
+import cn from 'classnames'
 import * as s from './style.module.scss'
 
 const Footer = ({ siteTitle }) => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <Container as="footer" className={s.footer}>
+    <Container as="footer" className={cn(s.footer, 'animate')}>
       <div className={s.footer_inner}>
         <Social />
         <div className={s.footer_copy}>
