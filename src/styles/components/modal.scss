@@ -76,6 +76,7 @@
       filter: blur(46px);
       border-radius: 100%;
       opacity: 0.1;
+      transform: translateZ(0);
     }
 
     &::before {
@@ -95,9 +96,10 @@
       right: 9px;
       width: 69px;
       height: 69px;
-      background: #ffd542;
+      background: $yellow;
       filter: blur(82px);
       opacity: 0.7;
+      transform: translateZ(0);
     }
   }
 }

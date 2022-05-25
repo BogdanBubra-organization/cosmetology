@@ -13,14 +13,14 @@ const ComingSoon = () => {
 
   return (
     <Container as="section" className={s.soon}>
-      <h1 className={s.soon_title}>
+      <h1 className={cn(s.soon_title, 'animate')}>
         С<i>а</i>йт знах<i>о</i>диться <i>в</i> ро<i>з</i>робц<span>і</span>
       </h1>
-      <p className={s.soon_descr}>
+      <p className={cn(s.soon_descr, 'animate2')}>
         Якщо бажаєте записатися на процедуру&nbsp;- будь ласка, зателефонуйте
         або напишіть в любий із месенджерів:
       </p>
-      <div className={s.soon_btns}>
+      <div className={cn(s.soon_btns, 'animate2')}>
         <Button className="btn-icon" onClick={() => setShowCallback(true)}>
           <Icon name="tel" size={20} />
           <span>Зателефонувати</span>
@@ -30,7 +30,7 @@ const ComingSoon = () => {
         </Button>
       </div>
       <StaticImage
-        className={cn(s.soon_pic, s.top)}
+        className={cn(s.soon_pic, s.top, 'animatePic')}
         src="./img/pic1.png"
         alt="Room"
         placeholder="none"
@@ -38,7 +38,7 @@ const ComingSoon = () => {
         style={{ position: 'absolute' }}
       />
       <StaticImage
-        className={cn(s.soon_pic, s.bottom)}
+        className={cn(s.soon_pic, s.bottom, 'animatePic')}
         src="./img/pic2.png"
         alt="Room"
         placeholder="none"

@@ -5,15 +5,15 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import Lights from '~components/Lights'
 import Header from '~components/Header'
 import Footer from '~components/Footer'
-// import SVGDefs from './SVGDefs'
-
+import Lights from '~components/Lights'
+import Preload from '~components/Preload'
+import appearAnim from './anim'
 import '~styles/app.scss'
 import { layout } from './style.module.scss'
 
@@ -28,13 +28,17 @@ const Layout = ({ children }) => {
     }
   `)
 
+  useEffect(() => {
+    appearAnim()
+  }, [])
+
   return (
     <div className={layout}>
       <Header siteTitle={data.site.siteMetadata?.title} />
       <main className="main">{children}</main>
       <Footer siteTitle={data.site.siteMetadata?.title} />
       <Lights />
-      {/* <SVGDefs /> */}
+      <Preload />
     </div>
   )
 }
