@@ -1,0 +1,92 @@
+@import '~styles/mixins';
+
+.lights {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+
+  &::before,
+  &::after,
+  span {
+    position: absolute;
+    filter: blur(154px);
+    border-radius: 100%;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    background: #569a3d;
+  }
+
+  &::before {
+    opacity: 0.3;
+
+    @include b-up(md) {
+      width: 290px;
+      height: 290px;
+    }
+
+    @include b-up(lg) {
+      transform: translate(-393px, -14px);
+    }
+
+    @include b-o(md) {
+      transform: translate(-265px, -35px);
+    }
+
+    @include b-d(md) {
+      width: 184px;
+      height: 184px;
+      transform: translate(-134px, -87px);
+    }
+  }
+
+  &::after {
+    opacity: 0.2;
+
+    @include b-up(md) {
+      width: 454px;
+      height: 294px;
+    }
+
+    @include b-up(lg) {
+      transform: translate(311px, 297px);
+    }
+
+    @include b-o(md) {
+      transform: translate(149px, 313px);
+    }
+
+    @include b-d(md) {
+      width: 288px;
+      height: 186px;
+      transform: translate(127px, 133px);
+    }
+  }
+
+  span {
+    background: #ffd542;
+
+    @include b-up(md) {
+      width: 159px;
+      height: 159px;
+    }
+
+    @include b-up(lg) {
+      transform: translate(110px, -122px);
+    }
+
+    @include b-d(lg) {
+      transform: translate(106px, -174px);
+    }
+
+    @include b-d(md) {
+      width: 101px;
+      height: 101px;
+    }
+  }
+}
