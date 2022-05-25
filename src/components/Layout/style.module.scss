@@ -1,6 +1,27 @@
+@import '~styles/mixins';
+
 .layout {
+  position: relative;
   display: grid;
-  grid-template-rows: 168px 1fr 168px;
   min-width: 375px;
-  height: 100%;
+  min-height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 262 337'%3E%3Cpath stroke='%232D6B1C' d='M83.3-191.3c424.2-33.5 37.2 451.5 0 354.3C57.4 95.3 545.5 194.2-217 404.7' opacity='.1'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 447 329'%3E%3Cpath stroke='%232D6B1C' d='M29.2 427.8c-66.4-88.5-10.8-242.3 124.2-343.6C288.4-17 451.7-27.2 518.1 61.3' opacity='.1'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left top, right bottom;
+  background-size: 262px 337px, 447px 329px;
+
+  @include b-up(xl) {
+    grid-template-rows: 168px 1fr 168px;
+  }
+  @include b-o(lg) {
+    grid-template-rows: 184px 1fr 184px;
+  }
+  @include b-o(md) {
+    grid-template-rows: 152px 1fr 152px;
+  }
+  @include b-d(md) {
+    grid-template-rows: 112px 1fr 112px;
+    background-size: 150px 194px, 260px 192px;
+  }
 }

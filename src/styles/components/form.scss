@@ -1,0 +1,53 @@
+.form {
+  display: grid;
+  row-gap: 8px;
+
+  &-group {
+    position: relative;
+  }
+
+  &-label {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    pointer-events: none;
+
+    &--required {
+      &::after {
+        color: #e9cd39;
+        content: ' *';
+      }
+    }
+  }
+
+  &-control {
+    padding-top: 31px;
+
+    &:hover:not(:focus) {
+      border-color: $gray-500;
+    }
+  }
+
+  &-btn {
+    display: grid;
+    margin-top: 8px;
+  }
+}
+
+.was-validated .form-control:invalid {
+  &:not(:focus) {
+    color: $danger;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.was-validated .form-control:valid:focus {
+  box-shadow: none;
+}
+
+textarea {
+  max-height: 120px;
+}

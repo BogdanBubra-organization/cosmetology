@@ -3,20 +3,55 @@
 .footer {
   align-self: end;
   width: 100%;
-  padding-top: 32px;
-  padding-bottom: 32px;
+
+  @include b-up(md) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
 
   &_inner {
     display: grid;
-    grid-auto-flow: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px;
+
+    @include b-up(md) {
+      grid-auto-flow: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    @include b-up(xl) {
+      padding: 16px;
+    }
+
+    @include b-o(lg) {
+      padding: 8px 32px;
+    }
+
+    @include b-o(md) {
+      padding: 8px 16px;
+    }
+
+    @include b-d(md) {
+      row-gap: 16px;
+      justify-items: center;
+      padding: 16px;
+    }
   }
 
   &_copy {
-    font-size: 14px;
-    line-height: 1.43;
     color: $gray-600;
+
+    @include b-up(md) {
+      font-size: 14px;
+      line-height: 1.43;
+    }
+
+    @include b-up(lg) {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+
+    @include b-d(md) {
+      font-size: 12px;
+      line-height: 1.333;
+    }
   }
 }
