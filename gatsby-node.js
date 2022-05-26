@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -6,7 +7,7 @@
 
 const path = require('path')
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
@@ -24,6 +25,17 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       },
     },
   })
+
+  const config = getConfig()
+  const fontsRegex = /\.(eot|otf|ttf|woff(2)?)(\?.*)?$/
+  const fontsLoader = config.module.rules.find(
+    (rule) => rule.test && String(rule.test) === String(fontsRegex)
+  )
+  ;[].concat(fontsLoader.use).forEach((it) => {
+    it.options = it.options || {}
+    it.options.limit = 5_000 // Embed all Fonts into CSS to reduce outbound connections
+  })
+  actions.replaceWebpackConfig(config)
 }
 
 if (process.env.NODE_ENV === `development`) {
