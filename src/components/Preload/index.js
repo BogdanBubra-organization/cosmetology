@@ -8,6 +8,7 @@ const Preload = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoader(false)
+      sessionStorage.setItem('isPreloaded', true)
     }, 1000)
   }, [])
 

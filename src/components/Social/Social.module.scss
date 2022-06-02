@@ -1,22 +1,46 @@
 @import '~styles/mixins';
 
 .social {
+  $this: &;
+
   position: relative;
   z-index: 2;
   display: grid;
-  grid-auto-flow: column;
-  column-gap: 8px;
   align-items: center;
-  justify-content: start;
   padding: 0;
   margin: 0;
   list-style: none;
 
+  &:not(.messengers) {
+    grid-auto-flow: column;
+    column-gap: 8px;
+    justify-content: start;
+
+    #{$this}_name {
+      @include b-d(lg) {
+        display: none;
+      }
+    }
+  }
+
+  &.messengers {
+    row-gap: 12px;
+
+    a {
+      grid-template-columns: auto 1fr auto;
+      padding: 24px;
+    }
+
+    #{$this}_name {
+      padding-right: 4px;
+      padding-left: 4px;
+      font-size: 14px;
+      line-height: 0.143;
+      text-align: left;
+    }
+  }
+
   &_name {
     text-transform: capitalize;
-
-    @include b-d(lg) {
-      display: none;
-    }
   }
 }

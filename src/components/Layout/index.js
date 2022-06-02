@@ -11,13 +11,14 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import Header from '~components/Header'
 import Footer from '~components/Footer'
+import Pics from '~components/Pics'
 import Lights from '~components/Lights'
 import Preload from '~components/Preload'
 import appearAnim from './anim'
 import '~styles/app.scss'
 import { layout } from './style.module.scss'
 
-const Layout = ({ children }) => {
+const Layout = ({ isHome, children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -28,17 +29,33 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const isPreloaded =
+    typeof window !== 'undefined' && sessionStorage.getItem('isPreloaded')
+
   useEffect(() => {
-    appearAnim()
+    const handleUnload = () => sessionStorage.removeItem('isPreloaded')
+
+    window.addEventListener('beforeunload', handleUnload, false)
+    return () => {
+      window.removeEventListener('beforeunload', handleUnload, false)
+    }
+  }, [])
+
+  useEffect(() => {
+    const delay = !isPreloaded ? 2 : 0
+    appearAnim(delay, isHome)
   }, [])
 
   return (
     <div className={layout}>
       <Header siteTitle={data.site.siteMetadata?.title} />
-      <main className="main">{children}</main>
+      <main className="main">
+        {children}
+        <Pics />
+      </main>
       <Footer siteTitle={data.site.siteMetadata?.title} />
       <Lights />
-      <Preload />
+      {!isPreloaded && <Preload />}
     </div>
   )
 }

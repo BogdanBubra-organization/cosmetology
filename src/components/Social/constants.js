@@ -1,11 +1,5 @@
 const DATA = [
   {
-    name: 'instagram',
-    href: 'https://www.instagram.com/svet.cosmetolog/',
-    target: '_blank',
-    rel: 'noreferrer',
-  },
-  {
     name: 'telegram',
     href: 'https://t.me/Cosmetology_Clinic_Bot',
     target: '_blank',
@@ -14,6 +8,12 @@ const DATA = [
   {
     name: 'viber',
     href: 'viber://pa?chatURI=cosmetology_clinic',
+  },
+  {
+    name: 'instagram',
+    href: 'https://www.instagram.com/cosmetology.ua_/',
+    target: '_blank',
+    rel: 'noreferrer',
   },
 ]
 
