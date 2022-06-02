@@ -1,0 +1,52 @@
+@import '~styles/mixins';
+
+.pic {
+  position: absolute;
+  z-index: -1;
+
+  &.top {
+    @include b-up(xl) {
+      top: -152px;
+      right: 0;
+    }
+
+    @include b-o(lg) {
+      top: -82px;
+      right: 0;
+    }
+
+    @include b-o(md) {
+      top: -104px;
+      right: 0;
+    }
+
+    @include b-d(md) {
+      top: -56px;
+      right: 0;
+      max-width: 159px;
+    }
+  }
+
+  &.bottom {
+    @include b-up(xl) {
+      top: calc(100% - 302px);
+      left: 0;
+    }
+
+    @include b-o(lg) {
+      top: calc(100% - 254px);
+      left: 48px;
+    }
+
+    @include b-o(md) {
+      top: calc(100% - 226px);
+      left: 0;
+    }
+
+    @include b-d(md) {
+      top: calc(100% - 89px);
+      left: -98px;
+      max-width: 192px;
+    }
+  }
+}

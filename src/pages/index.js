@@ -4,7 +4,7 @@ import S from '~components/seo'
 import ComingSoon from '~components/ComingSoon'
 
 const IndexPage = () => (
-  <Layout>
+  <Layout isHome>
     <S />
     <ComingSoon />
   </Layout>
