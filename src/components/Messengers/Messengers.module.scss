@@ -1,0 +1,31 @@
+@import '~styles/mixins';
+
+.messengers {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  height: 100%;
+  padding-bottom: 32px;
+
+  @include b-up(md) {
+    padding-top: 56px;
+  }
+
+  @include b-d(md) {
+    padding-top: 72px;
+  }
+
+  &_inner {
+    display: grid;
+    row-gap: 24px;
+    max-width: 300px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &_descr {
+    font-size: 14px;
+    line-height: 1.43;
+    text-align: center;
+  }
+}

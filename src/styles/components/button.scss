@@ -60,7 +60,7 @@ button {
     align-items: center;
     justify-content: start;
 
-    span {
+    &-text {
       @include b-d(md) {
         display: none;
       }

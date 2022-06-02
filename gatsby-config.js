@@ -11,7 +11,7 @@ module.exports = {
   trailingSlash: 'never',
   polyfill: false,
   siteMetadata: {
-    title: `Сosmetology clinic`,
+    title: `Сosmetology Clinic`,
     description: `Сайт знаходиться в розробці`,
     domain: process.env.CF_PAGES_URL || 'cosmetology.ua',
   },
