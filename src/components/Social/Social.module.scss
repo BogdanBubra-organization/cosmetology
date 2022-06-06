@@ -11,13 +11,18 @@
   margin: 0;
   list-style: none;
 
-  &:not(.messengers) {
+  &.footer {
     grid-auto-flow: column;
     column-gap: 8px;
     justify-content: start;
 
+    @include b-btw(md, xl) {
+      grid-area: social;
+      justify-self: center;
+    }
+
     #{$this}_name {
-      @include b-d(lg) {
+      @include b-d(md) {
         display: none;
       }
     }

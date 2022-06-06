@@ -46,9 +46,17 @@
     border-radius: 8px;
     transform: translateX(-50%);
 
+    svg {
+      transition: transform 300ms ease-in-out;
+    }
+
     &:hover,
     &:focus {
       color: $green;
+
+      svg {
+        transform: rotate(90deg);
+      }
     }
 
     &:focus {

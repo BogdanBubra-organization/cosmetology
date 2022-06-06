@@ -16,12 +16,12 @@
     }
 
     @include b-o(md) {
-      top: -104px;
+      top: -124px;
       right: 0;
     }
 
     @include b-d(md) {
-      top: -56px;
+      top: -96px;
       right: 0;
       max-width: 159px;
     }
@@ -39,12 +39,12 @@
     }
 
     @include b-o(md) {
-      top: calc(100% - 226px);
+      top: calc(100% - 206px);
       left: 0;
     }
 
     @include b-d(md) {
-      top: calc(100% - 89px);
+      top: calc(100% - 59px);
       left: -98px;
       max-width: 192px;
     }
