@@ -1,35 +1,41 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import PropTypes from 'prop-types'
 import { useLocation } from '@gatsbyjs/reach-router'
+import Icon from '~components/Icon'
 import Social from '~components/Social'
 import cn from 'classnames'
 import * as s from './style.module.scss'
 
-const Footer = ({ siteTitle }) => {
-  const currentYear = new Date().getFullYear()
-
+const Footer = () => {
   const location = useLocation()
   const isMessengersPage = location.pathname === '/messengers'
 
   return (
     <Container as="footer" className={cn(s.footer, 'animate')}>
       <div className={cn(s.footer_inner, { [s.center]: isMessengersPage })}>
-        {!isMessengersPage && <Social />}
-        <div className={s.footer_copy}>
-          © {siteTitle} {currentYear}.
+        {!isMessengersPage && (
+          <>
+            <Social variant="footer" />
+            <a
+              className={s.footer_address}
+              href="/maps"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Icon name="mark" size={20} />
+              м.Чернігів, вул. Гоголя, 3
+            </a>
+          </>
+        )}
+        <div className={s.footer_author}>
+          Дизайн та розробка{' '}
+          <a href="https://min.studio" target="_blank" rel="noreferrer">
+            min.studio
+          </a>
         </div>
       </div>
     </Container>
   )
-}
-
-Footer.defaultProps = {
-  siteTitle: '',
-}
-
-Footer.propTypes = {
-  siteTitle: PropTypes.string,
 }
 
 export default Footer

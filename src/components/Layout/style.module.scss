@@ -19,10 +19,10 @@
     grid-template-rows: 184px 1fr 184px;
   }
   @include b-o(md) {
-    grid-template-rows: 152px 1fr 152px;
+    grid-template-rows: 172px 1fr 172px;
   }
   @include b-d(md) {
-    grid-template-rows: 112px 1fr 112px;
+    grid-template-rows: 152px 1fr 152px;
     background-size: 150px 194px, 260px 192px;
   }
 }
