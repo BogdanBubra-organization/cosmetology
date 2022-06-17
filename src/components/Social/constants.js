@@ -11,7 +11,7 @@ const DATA = [
   },
   {
     name: 'instagram',
-    href: 'https://www.instagram.com/cosmetology.ua_/',
+    href: 'https://www.instagram.com/_cosmetology.ua/',
     target: '_blank',
     rel: 'noreferrer',
   },
