@@ -2,18 +2,23 @@
   /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
   @extend .container-fluid;
 
+  width: 100%;
   max-width: 1440px;
 
   &-fluid {
     margin-right: auto;
     margin-left: auto;
-    @include b-up(md) {
+    @include b-up(lg) {
       padding-right: 32px;
       padding-left: 32px;
     }
-    @include b-d(md) {
+    @include b-o(md) {
       padding-right: 24px;
       padding-left: 24px;
+    }
+    @include b-d(md) {
+      padding-right: 16px;
+      padding-left: 16px;
     }
   }
 }

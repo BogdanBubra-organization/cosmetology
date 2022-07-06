@@ -1,13 +1,9 @@
 import React from 'react'
-import Layout from '~components/Layout'
-import S from '~components/seo'
-import ComingSoon from '~components/ComingSoon'
 
-const IndexPage = () => (
-  <Layout isHome>
-    <S />
-    <ComingSoon />
-  </Layout>
-)
+import Home from '~containers/Home'
 
-export default IndexPage
+const HomePage = () => {
+  return <Home />
+}
+
+export default HomePage
