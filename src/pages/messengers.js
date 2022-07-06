@@ -1,16 +1,8 @@
 import React from 'react'
-import Layout from '~components/Layout'
-import S from '~components/seo'
-import Messengers from '~components/Messengers'
+import Messengers from '~containers/Messengers'
 
-const DESCRIPTION =
-  'Напишіть нам у будь-який зручний для вас месенджер і ми з радістю вам відповімо'
-
-const MessengersPage = () => (
-  <Layout>
-    <S title="Звʼязок" description={DESCRIPTION} />
-    <Messengers title={DESCRIPTION} />
-  </Layout>
-)
+const MessengersPage = () => {
+  return <Messengers />
+}
 
 export default MessengersPage

@@ -10,11 +10,11 @@ $white: #fff !default;
 $gray-100: #f8f8f8;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
+$gray-400: #c5c5c5;
 $gray-500: #b9bdb8;
 $gray-600: #8f8f8f;
 $gray-700: #495057 !default;
-$gray-800: #343a40 !default;
+$gray-800: #3e3e3e;
 $gray-900: #212529 !default;
 $black: #162113;
 // scss-docs-end gray-color-variables
@@ -365,7 +365,7 @@ $variable-prefix: bs- !default;
 // The gradient which is added to components if `$enable-gradients` is `true`
 // This gradient is also added to elements with `.bg-gradient`
 // scss-docs-start variable-gradient
-$gradient: linear-gradient(90deg, #162113 37.69%, #2e721c 99.85%);
+$gradient: linear-gradient(89.79deg, #162113 9.67%, #2e721c 99.85%);
 // scss-docs-end variable-gradient
 
 // Spacing
@@ -613,8 +613,8 @@ $line-height-base: 1.5 !default;
 $line-height-sm: 1.25 !default;
 $line-height-lg: 2 !default;
 
-$h1-font-size: 92px;
-$h2-font-size: $font-size-base * 2 !default;
+$h1-font-size: 56px;
+$h2-font-size: 48px;
 $h3-font-size: $font-size-base * 1.75 !default;
 $h4-font-size: $font-size-base * 1.5 !default;
 $h5-font-size: $font-size-base * 1.25 !default;
@@ -636,8 +636,8 @@ $font-sizes: (
 $headings-margin-bottom: 0;
 $headings-font-family: 'Cormorant', 'Times New Roman';
 $headings-font-style: null !default;
-$headings-font-weight: 400;
-$headings-line-height: 0.956;
+$headings-font-weight: 500;
+$headings-line-height: 1.29;
 $headings-color: null !default;
 // scss-docs-end headings-variables
 
@@ -1117,8 +1117,8 @@ $zindex-tooltip: 1080 !default;
 
 // scss-docs-start nav-variables
 $nav-link-padding-y: 0.5rem !default;
-$nav-link-padding-x: 1rem !default;
-$nav-link-font-size: null !default;
+$nav-link-padding-x: 18px;
+$nav-link-font-size: 14px;
 $nav-link-font-weight: null !default;
 $nav-link-color: $link-color !default;
 $nav-link-hover-color: $link-hover-color !default;

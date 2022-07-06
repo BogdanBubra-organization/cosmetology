@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import cn from 'classnames'
+import appearAnim from './anim'
+
 import * as s from './Preload.module.scss'
 
-const Preload = () => {
+const Preload = ({ handlePreload }) => {
   const [loader, setLoader] = useState(true)
 
   useEffect(() => {
     setTimeout(() => {
       setLoader(false)
-      sessionStorage.setItem('isPreloaded', true)
+      appearAnim()
     }, 1000)
+    setTimeout(() => {
+      handlePreload()
+    }, 2000)
   }, [])
 
   return (
