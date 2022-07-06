@@ -1,0 +1,46 @@
+@import '~styles/mixins';
+
+.pics {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.pic {
+  &.top {
+    @include b-up(lg) {
+      top: 80px;
+      right: 0;
+    }
+
+    @include b-o(md) {
+      top: 60px;
+      right: -40px;
+    }
+
+    @include b-d(md) {
+      top: 10vh;
+      right: calc(50% - 182px - 21vw);
+      max-width: 159px;
+    }
+  }
+
+  &.bottom {
+    @include b-up(lg) {
+      top: calc(100% - 302px);
+      left: 0;
+    }
+
+    @include b-o(md) {
+      top: calc(100% - 270px);
+      left: -30px;
+    }
+
+    @include b-d(md) {
+      bottom: 2vh;
+      left: calc(50% - 182px - 18vw);
+      max-width: 192px;
+    }
+  }
+}

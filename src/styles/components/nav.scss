@@ -1,2 +1,21 @@
 .nav {
+  $this: &;
+
+  &--header {
+    justify-self: center;
+  }
+
+  &--footer {
+    grid-area: menu;
+    margin-left: -12px;
+
+    #{$this}-link {
+      padding-right: 12px;
+      padding-left: 12px;
+    }
+  }
+
+  &-link {
+    line-height: 1.43;
+  }
 }
