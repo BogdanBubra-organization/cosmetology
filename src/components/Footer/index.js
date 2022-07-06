@@ -1,39 +1,50 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import { useLocation } from '@gatsbyjs/reach-router'
+import cn from 'classnames'
 import Icon from '~components/Icon'
 import Social from '~components/Social'
-import cn from 'classnames'
+import Menu from '~components/Menu'
+import logo from './img/logo-min.svg'
 import * as s from './style.module.scss'
 
-const Footer = () => {
-  const location = useLocation()
-  const isMessengersPage = location.pathname === '/messengers'
+const Author = () => (
+  <div className={s.footer_author}>
+    Дизайн та розробка{' '}
+    <a href="https://min.studio" target="_blank" rel="noreferrer">
+      min.studio
+    </a>
+  </div>
+)
 
-  return (
-    <Container as="footer" className={cn(s.footer, 'animate')}>
-      <div className={cn(s.footer_inner, { [s.center]: isMessengersPage })}>
-        {!isMessengersPage && (
-          <>
-            <Social variant="footer" />
-            <a
-              className={s.footer_address}
-              href="/maps"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Icon name="mark" size={20} />
-              м.Чернігів, вул. Гоголя, 3
-            </a>
-          </>
-        )}
-        <div className={s.footer_author}>
-          Дизайн та розробка{' '}
-          <a href="https://min.studio" target="_blank" rel="noreferrer">
-            min.studio
+const Footer = ({ isMessengersPage }) => {
+  const currentYear = new Date().getFullYear()
+
+  return !isMessengersPage ? (
+    <footer className={s.footer}>
+      <div className={s.footer_inner}>
+        <div className={s.footer_info}>
+          <img src={logo} width="31" height="41" alt="Logo" />
+          <a
+            className={s.footer_address}
+            href="/maps"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Icon name="mark" size={20} />
+            м.Чернігів, вул. Гоголя, 3
           </a>
         </div>
+        <Menu variant="footer" />
+        <Social variant="footer" />
+        <div className={s.footer_copy}>
+          Всі права захищено © Клініка косметології {currentYear}
+        </div>
+        <Author />
       </div>
+    </footer>
+  ) : (
+    <Container as="footer" className={cn(s.footer, s.messengers, 'animate')}>
+      <Author />
     </Container>
   )
 }

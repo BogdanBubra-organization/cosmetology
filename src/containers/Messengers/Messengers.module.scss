@@ -5,20 +5,20 @@
   align-content: center;
   justify-items: center;
   height: 100%;
-  padding-bottom: 12px;
+  padding-top: 24px;
 
   @include b-up(md) {
-    padding-top: 56px;
+    padding-bottom: 56px;
   }
 
   @include b-d(md) {
-    padding-top: 52px;
+    padding-bottom: 64px;
   }
 
   &_inner {
     display: grid;
     row-gap: 24px;
-    max-width: 300px;
+    max-width: 320px;
     margin-right: auto;
     margin-left: auto;
   }

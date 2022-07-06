@@ -11,21 +11,11 @@
   margin: 0;
   list-style: none;
 
-  &.footer {
+  &:not(.messengers) {
+    grid-area: social;
     grid-auto-flow: column;
-    column-gap: 8px;
-    justify-content: start;
-
-    @include b-btw(md, xl) {
-      grid-area: social;
-      justify-self: center;
-    }
-
-    #{$this}_name {
-      @include b-d(md) {
-        display: none;
-      }
-    }
+    column-gap: 12px;
+    justify-content: end;
   }
 
   &.messengers {
@@ -35,17 +25,26 @@
       grid-template-columns: auto 1fr auto;
       padding: 24px;
     }
+  }
 
-    #{$this}_name {
-      padding-right: 4px;
-      padding-left: 4px;
-      font-size: 14px;
-      line-height: 0.143;
-      text-align: left;
+  &_link {
+    color: $green;
+
+    &:hover {
+      color: $green-dark;
+    }
+
+    &:focus {
+      color: $green-deep;
     }
   }
 
   &_name {
+    padding-right: 4px;
+    padding-left: 4px;
+    font-size: 14px;
+    line-height: 0.143;
+    text-align: left;
     text-transform: capitalize;
   }
 }

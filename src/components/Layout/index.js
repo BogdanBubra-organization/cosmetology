@@ -5,20 +5,17 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-
 import Header from '~components/Header'
 import Footer from '~components/Footer'
-import Pics from '~components/Pics'
 import Lights from '~components/Lights'
 import Preload from '~components/Preload'
-import appearAnim from './anim'
 import '~styles/app.scss'
-import { layout } from './style.module.scss'
+import * as s from './style.module.scss'
 
-const Layout = ({ isHome, children }) => {
+const Layout = ({ children, isMessengersPage }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -29,34 +26,30 @@ const Layout = ({ isHome, children }) => {
     }
   `)
 
-  const isPreloaded =
-    typeof window !== 'undefined' && sessionStorage.getItem('isPreloaded')
+  const [isPreloaded, setIsPreloaded] = useState(
+    typeof window !== 'undefined'
+      ? sessionStorage.getItem('isPreloaded')
+      : false
+  )
 
-  useEffect(() => {
-    const handleUnload = () => sessionStorage.removeItem('isPreloaded')
-
-    window.addEventListener('beforeunload', handleUnload, false)
-    return () => {
-      window.removeEventListener('beforeunload', handleUnload, false)
-    }
-  }, [])
-
-  useEffect(() => {
-    const delay = !isPreloaded ? 2 : 0
-    appearAnim(delay, isHome)
-  }, [])
+  const handlePreload = () => {
+    sessionStorage.setItem('isPreloaded', true)
+    setIsPreloaded(true)
+  }
 
   return (
-    <div className={layout}>
-      <Header siteTitle={data.site.siteMetadata?.title} />
-      <main className="main">
-        {children}
-        <Pics />
-      </main>
-      <Footer siteTitle={data.site.siteMetadata?.title} />
-      <Lights />
-      {!isPreloaded && <Preload />}
-    </div>
+    <>
+      <div className={s.layout}>
+        <Header siteTitle={data.site.siteMetadata?.title} />
+        <main className="main">{children}</main>
+        <Footer
+          isMessengersPage={isMessengersPage}
+          siteTitle={data.site.siteMetadata?.title}
+        />
+        <Lights />
+      </div>
+      {!isPreloaded && <Preload handlePreload={handlePreload} />}
+    </>
   )
 }
 

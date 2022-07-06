@@ -9,6 +9,8 @@ button {
 }
 
 .btn {
+  text-transform: uppercase;
+
   &-primary {
     &:hover {
       background: $green-dark;
@@ -16,17 +18,6 @@ button {
 
     &:focus {
       background: $green-deep;
-    }
-
-    &:not(.btn-lg) {
-      color: $secondary;
-    }
-
-    &.btn-lg {
-      svg {
-        color: $primary;
-        background: $secondary;
-      }
     }
   }
 
@@ -40,16 +31,9 @@ button {
       background: $green-light;
     }
 
-    &:not(.btn-lg):not(.modal-close) {
+    &:not(.modal-close) {
       svg {
         color: $primary;
-      }
-    }
-
-    &.btn-lg {
-      svg {
-        color: $secondary;
-        background: $primary;
       }
     }
   }
@@ -57,48 +41,9 @@ button {
   &-icon {
     display: grid;
     grid-auto-flow: column;
+    column-gap: 8px;
     align-items: center;
     justify-content: start;
-
-    &-text {
-      @include b-d(md) {
-        display: none;
-      }
-    }
-
-    &:not(.btn-sm) {
-      padding-right: 16px;
-      padding-left: 16px;
-    }
-
-    &:not(.btn-sm):not(.btn-lg) {
-      column-gap: 8px;
-    }
-
-    &.btn-sm {
-      column-gap: 4px;
-    }
-
-    &.btn-lg {
-      column-gap: 20px;
-
-      svg {
-        width: 32px;
-        height: 32px;
-        padding: 8px;
-        border-radius: 8px;
-      }
-    }
-  }
-
-  &:not(&-sm) {
-    text-transform: uppercase;
-  }
-
-  &-sm,
-  &-lg {
-    font-weight: 400;
-    line-height: 1.43;
   }
 
   &:focus {

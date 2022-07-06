@@ -1,14 +1,14 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
 import { useLocation } from '@gatsbyjs/reach-router'
 import { withPrefix, Link } from 'gatsby'
 import PropTypes from 'prop-types'
-
-import logo from '~img/logo.svg'
 import cn from 'classnames'
+import logo from '~img/logo.svg'
+import Menu from '~components/Menu'
 import * as s from './style.module.scss'
 
-const Logo = ({ alt }) => <img width="156" height="88" src={logo} alt={alt} />
+const Logo = ({ alt }) => <img width="244" height="52" src={logo} alt={alt} />
 
 const Header = ({ siteTitle }) => {
   const location = useLocation()
@@ -23,6 +23,10 @@ const Header = ({ siteTitle }) => {
           <Logo alt={siteTitle} />
         </Link>
       )}
+      <Menu variant="header" />
+      <div className={s.header_btn}>
+        <Button variant="secondary">Маєте питання?</Button>
+      </div>
     </Container>
   )
 }

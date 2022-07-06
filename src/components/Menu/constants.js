@@ -1,11 +1,23 @@
 const MENU = [
   {
-    name: 'Item 1',
-    link: '#item-1',
+    name: 'Послуги',
+    link: '/messengers',
   },
   {
-    name: 'Item 2',
-    link: '#item-2',
+    name: 'Про нас',
+    link: '#about',
+  },
+  {
+    name: 'Фотогалерея',
+    link: '#gallery',
+  },
+  {
+    name: 'Відгуки',
+    link: '#reviews',
+  },
+  {
+    name: 'Контакти',
+    link: '#contacts',
   },
 ]
 

@@ -5,7 +5,7 @@ import * as s from './Pics.module.scss'
 
 const Pics = () => {
   return (
-    <>
+    <div className={s.pics}>
       <StaticImage
         className={cn(s.pic, s.top, 'animatePic')}
         src="./img/pic1.png"
@@ -22,7 +22,7 @@ const Pics = () => {
         width={318}
         style={{ position: 'absolute' }}
       />
-    </>
+    </div>
   )
 }
 
