@@ -30,6 +30,7 @@ module.exports = {
     },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
     `@gvrs/gatsby-transformer-blurhash`,
     {
