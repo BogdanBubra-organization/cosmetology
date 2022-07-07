@@ -24,7 +24,6 @@
     content: '';
     filter: blur(154px);
     border-radius: 100%;
-    transform: translateZ(0);
   }
 
   &::before {
@@ -33,11 +32,11 @@
     background: #e2ebdf;
 
     @include b-up(md) {
-      transform: translate(-498px, -223px);
+      transform: translate3d(-498px, -223px, 0);
     }
 
     @include b-d(md) {
-      transform: translate(-328px, -147px);
+      transform: translate3d(-328px, -147px, 0);
     }
   }
 
@@ -46,11 +45,11 @@
     height: 159px;
     background: $yellow;
     @include b-up(md) {
-      transform: translate(392px, 241px);
+      transform: translate3d(392px, 241px, 0);
     }
 
     @include b-d(md) {
-      transform: translate(252px, 159px);
+      transform: translate3d(252px, 159px, 0);
     }
   }
 
