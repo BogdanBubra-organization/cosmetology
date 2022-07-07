@@ -48,3 +48,34 @@ if (process.env.NODE_ENV === `development`) {
     })
   }
 }
+
+exports.createPages = async ({ actions: { createPage }, graphql }) => {
+  const results = await graphql(`
+    {
+      allServicesJson {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+  if (results.error) {
+    console.error('Something went wrong!')
+    return
+  }
+
+  results.data.allServicesJson.edges.forEach(({ node }) => {
+    if (node.slug) {
+      createPage({
+        path: `/services/${node.slug}`,
+        component: path.resolve('src/containers/Product/index.js'),
+        context: {
+          slug: node.slug,
+        },
+      })
+    }
+  })
+}

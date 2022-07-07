@@ -37,6 +37,7 @@ const Brands = () => {
         {list.map(({ key, alt }) => {
           return (
             <GatsbyImage
+              key={key}
               loading="eager"
               image={images[key].childImageSharp.gatsbyImageData}
               alt={alt}

@@ -1,0 +1,8 @@
+{
+  "id": 2,
+  "slug": "facial-cleansing",
+  "name": "Чистка обличчя",
+  "duration": "1-1:15 год",
+  "preview": "../img/services/facial-cleansing.svg",
+  "isHome": true
+}

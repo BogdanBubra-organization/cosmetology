@@ -1,0 +1,8 @@
+{
+  "id": 1,
+  "slug": "botulinum-therapy",
+  "name": "Ботулінотерапія",
+  "duration": "до 30 хв",
+  "preview": "../img/services/botox.svg",
+  "isHome": true
+}
