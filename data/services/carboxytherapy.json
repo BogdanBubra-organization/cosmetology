@@ -1,0 +1,8 @@
+{
+  "id": 4,
+  "slug": "carboxytherapy",
+  "name": "Карбоксітерапія",
+  "duration": "45-60 хв",
+  "preview": "../img/services/carboxytherapy.svg",
+  "isHome": true
+}
