@@ -1,12 +1,18 @@
 @import '~styles/mixins';
 
-.lights {
+.lightsWrap {
   position: absolute;
   inset: 0;
   z-index: -1;
+  overflow: hidden;
+}
+
+.lights {
+  position: absolute;
+  inset: 0 0 auto;
   display: grid;
   place-items: center;
-  overflow: hidden;
+  height: 100vh;
 
   &::before,
   &::after,
