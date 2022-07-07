@@ -41,6 +41,11 @@ $umaplat: (
   $fontName: 'Inter',
   $unicodeMap: map-merge($umapcyr, $umaplat)
 );
+@include inter.fontFace(
+  $weight: 600,
+  $fontName: 'Inter',
+  $unicodeMap: map-merge($umapcyr, $umaplat)
+);
 
 @include cormorant.fontFace($fontName: 'Cormorant', $unicodeMap: $umapcyr);
 @include cormorant.fontFace(

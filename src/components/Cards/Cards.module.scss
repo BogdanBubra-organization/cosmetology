@@ -1,0 +1,57 @@
+@import '~styles/mixins';
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+
+  &_item {
+    position: relative;
+    display: grid;
+    align-content: space-between;
+    min-height: 392px;
+    padding: 20px;
+    background: #f0f4ee;
+    border-radius: 20px;
+  }
+
+  &_heading {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 32px;
+    align-items: start;
+    justify-content: space-between;
+  }
+
+  &_name {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.273;
+    color: black;
+    letter-spacing: -0.04em;
+  }
+
+  &_label {
+    padding: 6px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.43;
+    color: #f5f6f5;
+    background: #c1c4bf;
+    border-radius: 12px;
+  }
+
+  &_pic {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 75.3%;
+    transform: translate(-50%, -50%);
+  }
+
+  &_btns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 8px;
+  }
+}
