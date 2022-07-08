@@ -1,0 +1,123 @@
+@import '~styles/mixins';
+
+.reviews {
+  display: grid;
+  row-gap: 24px;
+  justify-items: center;
+
+  &.home {
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 32px;
+    margin-bottom: 60px;
+
+    &::before {
+      position: absolute;
+      top: 173px;
+      left: 381px;
+      z-index: -1;
+      width: 407px;
+      height: 263px;
+      content: '';
+      background: #569a3d;
+      filter: blur(154px);
+      border-radius: 100%;
+      opacity: 0.2;
+      transform: rotate(-165deg) translateZ(0);
+    }
+  }
+
+  &:not(.home) {
+    padding-top: 48px;
+    padding-bottom: 56px;
+  }
+
+  &_list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    &.home {
+      grid-gap: 16px;
+      max-width: 1304px;
+    }
+
+    &:not(.home) {
+      grid-gap: 24px;
+      max-width: 1320px;
+    }
+  }
+
+  &_item {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    row-gap: 24px;
+    padding: 32px;
+    background: $white;
+    border-radius: 14px;
+  }
+
+  &_heading {
+    display: grid;
+    grid-template-areas:
+      'pic name'
+      'pic rating';
+    grid-template-rows: auto 1fr;
+    grid-gap: 2px 16px;
+    align-items: start;
+    justify-content: start;
+  }
+
+  &_pic {
+    grid-area: pic;
+    overflow: hidden;
+    border-radius: 100%;
+    transform: translateZ(0);
+  }
+
+  &_name {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.44;
+    letter-spacing: -1px;
+  }
+
+  &_rating {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 4px;
+    justify-content: start;
+  }
+
+  &_star {
+    &:not(.empty) {
+      color: $yellow;
+    }
+
+    &.empty {
+      color: $white;
+    }
+  }
+
+  &_text {
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: normal;
+  }
+
+  &_date {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    color: $gray-600;
+    border-top: solid 1px #f2f2f2;
+
+    span {
+      font-weight: 500;
+      color: $black;
+    }
+  }
+}

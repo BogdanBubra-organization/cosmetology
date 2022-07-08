@@ -17,5 +17,13 @@
 
   &-link {
     line-height: 1.43;
+
+    &:focus {
+      color: $green-deep;
+    }
+
+    &.active {
+      font-weight: 600;
+    }
   }
 }
