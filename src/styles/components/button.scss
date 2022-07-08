@@ -22,12 +22,12 @@ button {
   }
 
   &-secondary {
-    &:hover,
-    &:focus {
-      color: $primary;
+    &:hover {
+      color: $green-dark;
     }
 
     &:focus {
+      color: $green-deep;
       background: $green-light;
     }
 
