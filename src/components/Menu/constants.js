@@ -1,7 +1,7 @@
 const MENU = [
   {
     name: 'Послуги',
-    link: '/messengers',
+    link: '#services',
   },
   {
     name: 'Про нас',
@@ -13,7 +13,7 @@ const MENU = [
   },
   {
     name: 'Відгуки',
-    link: '#reviews',
+    link: '/reviews',
   },
   {
     name: 'Контакти',
