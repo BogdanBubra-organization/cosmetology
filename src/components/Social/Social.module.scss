@@ -39,6 +39,12 @@
     }
   }
 
+  &_messengers {
+    svg {
+      color: $primary;
+    }
+  }
+
   &_name {
     padding-right: 4px;
     padding-left: 4px;
