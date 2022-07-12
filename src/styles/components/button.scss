@@ -30,12 +30,6 @@ button {
       color: $green-deep;
       background: $green-light;
     }
-
-    &:not(.modal-close) {
-      svg {
-        color: $primary;
-      }
-    }
   }
 
   &-icon {
@@ -51,6 +45,10 @@ button {
     &:active {
       box-shadow: none;
     }
+  }
+
+  &-round {
+    border-radius: 50%;
   }
 
   &[disabled] {

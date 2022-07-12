@@ -26,4 +26,63 @@
       font-weight: 600;
     }
   }
+
+  &-gallery {
+    margin-right: -13px;
+    margin-bottom: 8px;
+    margin-left: -13px;
+
+    #{$this}-link {
+      padding-right: 13px;
+      padding-left: 13px;
+      font-size: 24px;
+      line-height: 1.33;
+      color: transparent;
+      background-color: rgba(#3e3e3e, 0.5);
+      background-clip: text;
+
+      span {
+        &::before {
+          display: block;
+          height: 0;
+          font-weight: 500;
+          visibility: hidden;
+          content: attr(data-label);
+        }
+      }
+
+      &:hover {
+        background-color: rgba(#3e3e3e, 0.7);
+      }
+
+      &:focus {
+        color: transparent;
+      }
+
+      &.active {
+        font-weight: 500;
+        background-image: linear-gradient(
+          89.79deg,
+          #162113 9.67%,
+          #2e721c 99.85%
+        );
+      }
+    }
+
+    #{$this}-item {
+      &:not(:first-child) {
+        position: relative;
+
+        &::before {
+          position: absolute;
+          top: 8px;
+          left: 0;
+          width: 1px;
+          height: calc(100% - 16px);
+          content: '';
+          background: #ededed;
+        }
+      }
+    }
+  }
 }

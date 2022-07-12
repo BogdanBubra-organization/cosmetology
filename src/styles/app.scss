@@ -45,6 +45,9 @@
 // @import "~bootstrap/scss/print";
 // @import "~bootstrap/scss/images";
 
+// Swiper
+@import 'swiper/css/effect-fade';
+
 // Components
 @import 'components/base';
 @import 'components/container'; // our custom container
@@ -56,3 +59,4 @@
 // @import 'components/badge';
 @import 'components/modal';
 @import 'components/form';
+@import 'components/swiper';

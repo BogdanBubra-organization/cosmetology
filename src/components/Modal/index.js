@@ -1,10 +1,17 @@
 import React from 'react'
 import { Button, Modal as M } from 'react-bootstrap'
+import cn from 'classnames'
 import Icon from '~components/Icon'
 
-const Modal = ({ show, onHide, onExited, title, descr, children }) => {
+const Modal = ({ show, onHide, onExited, title, descr, variant, children }) => {
   return (
-    <M onExited={onExited} show={show} onHide={onHide} centered>
+    <M
+      onExited={onExited}
+      show={show}
+      onHide={onHide}
+      centered
+      className={cn({ [`modal--${variant}`]: variant })}
+    >
       {title && (
         <M.Header>
           <M.Title>{title}</M.Title>
@@ -15,9 +22,11 @@ const Modal = ({ show, onHide, onExited, title, descr, children }) => {
       <Button variant="secondary" className="modal-close" onClick={onHide}>
         <Icon name="close" size={20} />
       </Button>
-      <div className="modal-lights">
-        <span />
-      </div>
+      {variant !== 'swiper' && (
+        <div className="modal-lights">
+          <span />
+        </div>
+      )}
     </M>
   )
 }

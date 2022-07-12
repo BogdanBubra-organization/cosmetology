@@ -1,0 +1,52 @@
+.swiper {
+  $this: &;
+
+  position: relative;
+  overflow: visible;
+
+  &-wrapper {
+    display: grid;
+    grid-auto-flow: column;
+  }
+
+  &-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 64px);
+    column-gap: 8px;
+  }
+
+  &-button {
+    position: absolute;
+    top: calc(50% - 32px);
+    padding: 19px;
+    transition: background-color 250ms ease-in-out, color 250ms ease-in-out,
+      opacity 250ms ease-in-out;
+
+    &-prev {
+      left: 8px;
+      transform: scale(-1, 1);
+    }
+
+    &-next {
+      right: 8px;
+    }
+
+    &-disabled {
+      opacity: 0;
+    }
+
+    &-sm {
+      top: calc(50% - 20px);
+      padding: 10px;
+      border-radius: 8px;
+
+      &#{$this}-button-next {
+        right: calc(-40px - 26px);
+      }
+
+      &#{$this}-button-prev {
+        left: calc(-40px - 26px);
+      }
+    }
+  }
+}

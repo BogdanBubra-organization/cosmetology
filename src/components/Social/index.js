@@ -12,7 +12,9 @@ const Social = ({ isMessengers }) => {
           <a
             {...item}
             className={
-              !isMessengers ? s.social_link : 'btn btn-secondary btn-icon'
+              !isMessengers
+                ? s.social_link
+                : cn('btn btn-secondary btn-icon', [s.social_messengers])
             }
           >
             <Icon name={item.name} size={!isMessengers ? 40 : 20} />

@@ -1,5 +1,7 @@
 const rnd = () => Math.random().toString(36).substring(2, 3)
 
+require('dotenv').config()
+
 module.exports = {
   /*
   Experimental flags that increase DX and build times with different technics (may require to use `yarn clean` time to time)
