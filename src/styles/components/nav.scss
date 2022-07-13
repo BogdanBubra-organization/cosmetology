@@ -3,16 +3,47 @@
 
   &--header {
     justify-self: center;
+
+    @include b-up(xl) {
+      column-gap: 12px;
+    }
+
+    @include b-d(lg) {
+      display: none;
+    }
+
+    #{$this}-link {
+      @include b-d(xl) {
+        padding-right: 10px;
+        padding-left: 10px;
+      }
+    }
   }
 
   &--footer {
     grid-area: menu;
-    margin-left: -12px;
 
-    #{$this}-link {
-      padding-right: 12px;
-      padding-left: 12px;
+    @include b-up(xxl) {
+      margin-left: -12px;
     }
+
+    @include b-o(md) {
+      margin-left: -12px;
+    }
+
+    @include b-d(md) {
+      flex-direction: column;
+      row-gap: 8px;
+      margin-bottom: -8px;
+    }
+  }
+
+  &--dropdown {
+    flex-direction: column;
+    row-gap: 8px;
+    padding: 24px 20px;
+    background: $white;
+    border-radius: 14px;
   }
 
   &-link {

@@ -8,6 +8,11 @@
   padding-bottom: 32px;
   margin-top: 60px;
 
+  // hide on mobile
+  @include b-d(xl) {
+    display: none;
+  }
+
   &_heading {
     display: grid;
     row-gap: 16px;

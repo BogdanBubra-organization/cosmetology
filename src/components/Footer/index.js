@@ -37,7 +37,8 @@ const Footer = ({ isMessengersPage }) => {
         <Menu variant="footer" />
         <Social variant="footer" />
         <div className={s.footer_copy}>
-          Всі права захищено © Клініка косметології {currentYear}
+          <span>Всі права захищено</span>{' '}
+          <span>© Клініка косметології {currentYear}</span>
         </div>
         <Author />
       </div>
