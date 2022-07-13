@@ -1,3 +1,5 @@
+@import '~styles/mixins';
+
 .gallery {
   display: grid;
   row-gap: 24px;
@@ -6,6 +8,11 @@
   padding-bottom: 32px;
   margin-top: 60px;
   text-align: center;
+
+  // hide on mobile
+  @include b-d(xl) {
+    display: none;
+  }
 
   &_list {
     min-height: 448px + 40px;
