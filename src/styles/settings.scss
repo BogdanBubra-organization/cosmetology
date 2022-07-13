@@ -487,7 +487,7 @@ $grid-breakpoints: (
   xs: 0,
   sm: 576px,
   md: 768px,
-  lg: 992px,
+  lg: 1024px,
   xl: 1200px,
   xxl: 1400px,
 ) !default;
@@ -1134,7 +1134,7 @@ $zindex-tooltip: 1080 !default;
 
 // scss-docs-start nav-variables
 $nav-link-padding-y: 0.5rem !default;
-$nav-link-padding-x: 18px;
+$nav-link-padding-x: 12px;
 $nav-link-font-size: 14px;
 $nav-link-font-weight: null !default;
 $nav-link-color: $link-color !default;
@@ -1205,16 +1205,16 @@ $navbar-dark-brand-hover-color: $navbar-dark-active-color !default;
 // Dropdown menu container and contents.
 
 // scss-docs-start dropdown-variables
-$dropdown-min-width: 10rem !default;
-$dropdown-padding-x: 0 !default;
-$dropdown-padding-y: 0.5rem !default;
+$dropdown-min-width: 220px;
+$dropdown-padding-x: null;
+$dropdown-padding-y: null;
 $dropdown-spacer: 0.125rem !default;
 $dropdown-font-size: $font-size-base !default;
 $dropdown-color: $body-color !default;
-$dropdown-bg: $white !default;
+$dropdown-bg: null;
 $dropdown-border-color: rgba($black, 0.15) !default;
 $dropdown-border-radius: $border-radius !default;
-$dropdown-border-width: $border-width !default;
+$dropdown-border-width: 0;
 $dropdown-inner-border-radius: subtract(
   $dropdown-border-radius,
   $dropdown-border-width
@@ -1677,11 +1677,11 @@ $offcanvas-transition-duration: 0.3s !default;
 $offcanvas-border-color: $modal-content-border-color !default;
 $offcanvas-border-width: $modal-content-border-width !default;
 $offcanvas-title-line-height: $modal-title-line-height !default;
-$offcanvas-bg-color: $modal-content-bg !default;
+$offcanvas-bg-color: transparent;
 $offcanvas-color: $modal-content-color !default;
 $offcanvas-box-shadow: $modal-content-box-shadow-xs !default;
-$offcanvas-backdrop-bg: $modal-backdrop-bg !default;
-$offcanvas-backdrop-opacity: $modal-backdrop-opacity !default;
+$offcanvas-backdrop-bg: rgba(0, 0, 0, 0.4);
+$offcanvas-backdrop-opacity: 1;
 // scss-docs-end offcanvas-variables
 
 // Code

@@ -8,6 +8,11 @@
   padding-top: 86px;
   padding-bottom: 143px;
 
+  // hide on mobile
+  @include b-d(xl) {
+    display: none;
+  }
+
   &_media {
     position: relative;
     z-index: 1;

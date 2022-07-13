@@ -39,6 +39,13 @@
     }
   }
 
+  &-bottom {
+    display: grid;
+    padding: 24px 32px 0;
+    margin: 24px -32px 0;
+    border-top: 1px solid rgba($green, 10%);
+  }
+
   &-close {
     position: absolute;
     top: calc(100% + 16px);
@@ -98,7 +105,7 @@
     &::after {
       top: 148px;
       width: 638px;
-      height: 414px;
+      height: 100%;
     }
 
     span {
