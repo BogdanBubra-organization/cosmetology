@@ -3,6 +3,11 @@
 .reviews {
   $this: &;
 
+  // hide on mobile
+  @include b-d(xl) {
+    display: none;
+  }
+
   position: relative;
   display: grid;
   row-gap: 24px;
