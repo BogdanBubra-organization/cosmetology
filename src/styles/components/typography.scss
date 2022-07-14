@@ -8,6 +8,15 @@ h1 {
   color: transparent;
   background: $gradient;
   background-clip: text;
+
+  @include b-btw(md, lg) {
+    font-size: 48px;
+    line-height: 1.17;
+  }
+
+  @include b-d(md) {
+    font-size: 26px;
+  }
 }
 
 h2 {
