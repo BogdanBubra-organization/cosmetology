@@ -20,15 +20,15 @@ const Hero = () => {
           <div className={s.hero_content}>
             <h1 className={s.hero_title}>{title}</h1>
             <p className={s.hero_descr}>{descr}</p>
-            <div className={s.hero_btns}>
-              <Button className="btn-icon" onClick={() => setShowOrder(true)}>
-                <Icon name="tel" size={20} />
-                <span className="btn-icon-text">{btnOrder}</span>
-              </Button>
-              <Button as={Link} to="/services" variant="secondary">
-                {btnServices}
-              </Button>
-            </div>
+          </div>
+          <div className={s.hero_btns}>
+            <Button className="btn-icon" onClick={() => setShowOrder(true)}>
+              <Icon name="tel" size={20} />
+              <span className="btn-icon-text">{btnOrder}</span>
+            </Button>
+            <Button as={Link} to="/services" variant="secondary">
+              {btnServices}
+            </Button>
           </div>
           <div className={s.hero_ill}>
             <StaticImage
