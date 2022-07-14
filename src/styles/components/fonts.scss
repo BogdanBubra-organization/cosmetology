@@ -50,6 +50,11 @@ $umaplat: (
 @include cormorant.fontFace($fontName: 'Cormorant', $unicodeMap: $umapcyr);
 @include cormorant.fontFace(
   $fontName: 'Cormorant',
+  $weight: 500,
+  $unicodeMap: $umapcyr
+);
+@include cormorant.fontFace(
+  $fontName: 'Cormorant',
   $style: italic,
   $unicodeMap: $umapcyr
 );
