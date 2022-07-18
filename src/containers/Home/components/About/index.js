@@ -12,14 +12,16 @@ const About = () => {
   return (
     <Container as="section" className={s.about}>
       <div className={s.about_media}>
-        <StaticImage
-          src="./img/about.jpg"
-          alt="Косметологічна клініка"
-          quality={100}
-          width={680}
-          placeholder="none"
-          className={s.about_pic}
-        />
+        <div className={s.about_pic_wrapper}>
+          <StaticImage
+            src="./img/about.jpg"
+            alt="Косметологічна клініка"
+            quality={100}
+            width={680}
+            placeholder="none"
+            className={s.about_pic}
+          />
+        </div>
       </div>
       <div className={s.about_content}>
         <h2>{title}</h2>
