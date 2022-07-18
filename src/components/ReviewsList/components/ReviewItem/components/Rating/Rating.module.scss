@@ -1,0 +1,18 @@
+@import '~styles/mixins';
+
+.rating {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 4px;
+  justify-content: start;
+
+  &_star {
+    &:not(.empty) {
+      color: $yellow;
+    }
+
+    &.empty {
+      color: $white;
+    }
+  }
+}
