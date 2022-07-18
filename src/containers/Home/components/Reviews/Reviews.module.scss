@@ -1,0 +1,33 @@
+@import '~styles/mixins';
+
+.reviews {
+  $this: &;
+
+  position: relative;
+  display: grid;
+  row-gap: 24px;
+  justify-items: center;
+  padding-top: 100px;
+  padding-bottom: 32px;
+  margin-bottom: 60px;
+
+  &::before {
+    position: absolute;
+    top: 173px;
+    left: 381px;
+    z-index: -1;
+    width: 407px;
+    height: 263px;
+    content: '';
+    background: #569a3d;
+    filter: blur(154px);
+    border-radius: 100%;
+    opacity: 0.2;
+    transform: rotate(-165deg) translateZ(0);
+  }
+
+  &_list {
+    grid-gap: 16px;
+    max-width: 1304px;
+  }
+}
