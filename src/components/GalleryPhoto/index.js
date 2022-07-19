@@ -3,23 +3,24 @@ import React from 'react'
 import * as s from './GalleryPhoto.module.scss'
 
 const GalleryPhoto = ({ action, index, permalink, media_url: pic }) => {
-  if (permalink)
-    return (
-      <a
-        href={permalink}
-        target="_blank"
-        className={s.galleryphoto}
-        rel="noreferrer"
-      >
-        <img src={pic} alt="glr" className={s.galleryphoto_pic} />
-      </a>
-    )
-
-  return (
-    <button type="button" onClick={action} className={s.galleryphoto}>
+  return permalink ? (
+    <a
+      href={permalink}
+      target="_blank"
+      className={s.galleryphoto}
+      rel="noreferrer"
+    >
+      <img src={pic} alt="Gallery" className={s.galleryphoto_pic} />
+    </a>
+  ) : (
+    <button
+      type="button"
+      onClick={(e) => action(e, index)}
+      className={s.galleryphoto}
+    >
       <img
-        src={`https://picsum.photos/800/430/?${index}`}
-        alt="glr"
+        src={`https://picsum.photos/id/102${index}/800/430`}
+        alt="Gallery"
         className={s.galleryphoto_pic}
       />
     </button>

@@ -17,7 +17,7 @@ const Buttons = ({ children, className }) => {
       key={side}
       variant="secondary"
       aria-label={side}
-      className={`swiper-button swiper-button-${side} ${className}`}
+      className={cn(`swiper-button swiper-button-${side}`, className)}
     >
       {children}
     </Button>
@@ -25,8 +25,10 @@ const Buttons = ({ children, className }) => {
 }
 
 const Gallery = () => {
-  const [tab, setTab] = useState(TABS[0].name)
+  const [tab, setTab] = useState(TABS[0].key)
   const posts = usePosts(5)
+
+  const [swiperRef, setSwiperRef] = useState(null)
 
   const [modal, setModal] = useState({ show: false, active: 0 })
 
@@ -45,14 +47,14 @@ const Gallery = () => {
         <div className={s.gallery_list_wrapper}>
           <Container>
             <Nav variant="gallery">
-              {TABS.map(({ name, text }) => (
-                <Nav.Item key={name}>
+              {TABS.map(({ key, text }) => (
+                <Nav.Item key={key}>
                   <Nav.Link
                     className={cn({
-                      active: name === tab,
+                      active: key === tab,
                     })}
                     as="button"
-                    onClick={() => setTab(name)}
+                    onClick={() => setTab(key)}
                   >
                     <span data-label={text}>{text}</span>
                   </Nav.Link>
@@ -62,6 +64,7 @@ const Gallery = () => {
 
             <div className={s.gallery_list}>
               <Swiper
+                onSwiper={setSwiperRef}
                 slidesPerView="auto"
                 navigation={{
                   prevEl: '.swiper-button-prev',
@@ -73,7 +76,7 @@ const Gallery = () => {
                 }}
                 modules={[Navigation]}
               >
-                {tab === TABS[0].name
+                {tab === TABS[0].key
                   ? posts.map(({ id, ...post }) => (
                       <SwiperSlide key={id}>
                         <GalleryPhoto {...post} />
@@ -82,9 +85,9 @@ const Gallery = () => {
                   : [...Array(5)].map((_, i) => (
                       <SwiperSlide key={`p${i}`}>
                         <GalleryPhoto
-                          action={(e) => {
+                          action={(e, id) => {
                             e.preventDefault()
-                            handleModalShow(i)
+                            handleModalShow(id)
                           }}
                           index={i}
                         />
@@ -106,6 +109,9 @@ const Gallery = () => {
 
       <Modal show={modal.show} onHide={handleHideModal} variant="swiper">
         <Swiper
+          onProgress={(e) => {
+            if (e.activeIndex) swiperRef.slideTo(e.activeIndex - 1)
+          }}
           effect="fade"
           navigation={{
             prevEl: '.swiper-button-prev',
@@ -117,7 +123,7 @@ const Gallery = () => {
           {[...Array(5)].map((_, i) => (
             <SwiperSlide key={`p${i}`}>
               <img
-                src={`https://picsum.photos/1024/600/?${i}`}
+                src={`https://picsum.photos/id/102${i}/1024/600`}
                 alt="glr"
                 className="modal-pic"
               />
