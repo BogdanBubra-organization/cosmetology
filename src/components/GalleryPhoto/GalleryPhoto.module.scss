@@ -16,7 +16,8 @@
     object-fit: cover;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     box-shadow: 0 0 15px 6px rgba($black, 0.15);
     opacity: 1;
   }

@@ -1,6 +1,6 @@
 const TABS = [
-  { name: 'instagram', text: 'Instagram' },
-  { name: 'gallery', text: 'Результати робіт' },
+  { key: 'instagram', text: 'Instagram' },
+  { key: 'gallery', text: 'Результати робіт' },
 ]
 const BUTTONS = ['prev', 'next']
 

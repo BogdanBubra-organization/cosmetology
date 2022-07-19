@@ -3,14 +3,13 @@ import { Button, Modal as M } from 'react-bootstrap'
 import cn from 'classnames'
 import Icon from '~components/Icon'
 
-const Modal = ({ show, onHide, onExited, title, descr, variant, children }) => {
+const Modal = ({ onHide, title, descr, variant, children, ...rest }) => {
   return (
     <M
-      onExited={onExited}
-      show={show}
       onHide={onHide}
       centered
       className={cn({ [`modal--${variant}`]: variant })}
+      {...rest}
     >
       {title && (
         <M.Header>
