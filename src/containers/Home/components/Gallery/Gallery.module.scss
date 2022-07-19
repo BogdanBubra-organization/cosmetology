@@ -8,6 +8,7 @@
   text-align: center;
 
   &_list {
+    min-height: 448px + 40px;
     padding: 20px 64px;
     margin: -20px -64px;
     mask-image: linear-gradient(

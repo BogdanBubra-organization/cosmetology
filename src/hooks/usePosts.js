@@ -4,7 +4,7 @@ const usePosts = (limit = 12) => {
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
-    const url = `https://graph.instagram.com/me/media?fields=permalink,media_url&limit=${limit}&access_token=${process.env.GATSBY_INSTA_TOKEN}`
+    const url = `https://graph.facebook.com/v14.0/${process.env.GATSBY_INSTA_ID}/media?fields=permalink,media_url&limit=${limit}&access_token=${process.env.GATSBY_INSTA_TOKEN}`
 
     try {
       fetch(url)

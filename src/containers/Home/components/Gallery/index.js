@@ -17,7 +17,12 @@ const Buttons = ({ children, className }) => {
       key={side}
       variant="secondary"
       aria-label={side}
-      className={cn(`swiper-button swiper-button-${side}`, className)}
+      className={cn(
+        'swiper-button',
+        'swiper-button-disabled',
+        `swiper-button-${side}`,
+        className
+      )}
     >
       {children}
     </Button>
@@ -109,8 +114,8 @@ const Gallery = () => {
 
       <Modal show={modal.show} onHide={handleHideModal} variant="swiper">
         <Swiper
-          onProgress={(e) => {
-            if (e.activeIndex) swiperRef.slideTo(e.activeIndex - 1)
+          onSlideChange={(swiper) => {
+            if (swiper.activeIndex) swiperRef.slideTo(swiper.activeIndex - 1)
           }}
           effect="fade"
           navigation={{
