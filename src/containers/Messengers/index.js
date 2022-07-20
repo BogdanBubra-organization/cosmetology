@@ -15,7 +15,7 @@ const Messengers = () => {
       <Container as="section" className={s.messengers}>
         <div className={cn(s.messengers_inner, 'animate')}>
           <p className={s.messengers_descr}>{DATA.description}</p>
-          <Social isMessengers />
+          <Social variant="messengers" isWithIcon />
         </div>
       </Container>
       <Pics />

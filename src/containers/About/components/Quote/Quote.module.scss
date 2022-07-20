@@ -1,0 +1,44 @@
+@import '~styles/mixins';
+
+.quote {
+  position: relative;
+  max-width: 922px;
+  padding: 36px 32px;
+  margin: 0;
+  text-align: center;
+
+  &::before,
+  &::after {
+    position: absolute;
+    width: 32px;
+    height: 28px;
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 32 28'%3E%3Cpath fill='%2371A65D' fill-opacity='.2' d='m13.4.1.4-.1c.2 0 .4.2.6.5.1.3.1.6-.1.7-3 2.3-5.4 4.6-7 7A17 17 0 0 0 4 17.5c0 .7.1 1.4.4 2 .7-.8 1.8-1.2 3.2-1.2a4 4 0 0 1 3.4 1.5c.9.9 1.3 2 1.3 3.3 0 1.5-.5 2.7-1.5 3.6-1 .8-2.4 1.2-4.2 1.2a6 6 0 0 1-4.8-2A8.3 8.3 0 0 1 0 20.5C0 13.4 4.5 6.6 13.4 0ZM31 .1l.4-.1c.2 0 .4.2.6.5.2.3.1.6-.1.7a33 33 0 0 0-7 7 17 17 0 0 0-3.3 9.4c0 .7.1 1.4.4 2 .7-.8 1.8-1.2 3.2-1.2a4 4 0 0 1 3.4 1.5c1 .9 1.3 2 1.3 3.3 0 1.5-.5 2.7-1.5 3.6-1 .8-2.4 1.2-4.1 1.2-2 0-3.7-.6-4.9-2a8.3 8.3 0 0 1-1.8-5.6C17.5 13.4 22 6.6 31 0Z'/%3E%3C/svg%3E");
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+    bottom: 0;
+    transform: rotate(180deg);
+  }
+
+  &_wrapper {
+    display: grid;
+    justify-items: center;
+    padding-top: 60px;
+    padding-bottom: 66px;
+  }
+
+  &_title {
+    font-style: italic;
+    text-transform: none;
+    background: $gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
