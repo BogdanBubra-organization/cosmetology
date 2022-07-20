@@ -2,7 +2,14 @@ import React from 'react'
 
 import * as s from './GalleryPhoto.module.scss'
 
-const GalleryPhoto = ({ action, index, permalink, media_url: pic }) => {
+const GalleryPhoto = ({
+  action,
+  index,
+  permalink,
+  media_url: pic,
+  media_type: type,
+  thumbnail_url: thumbnail,
+}) => {
   return permalink ? (
     <a
       href={permalink}
@@ -10,7 +17,11 @@ const GalleryPhoto = ({ action, index, permalink, media_url: pic }) => {
       className={s.galleryphoto}
       rel="noreferrer"
     >
-      <img src={pic} alt="Gallery" className={s.galleryphoto_pic} />
+      <img
+        src={type === 'VIDEO' ? thumbnail : pic}
+        alt="Gallery"
+        className={s.galleryphoto_pic}
+      />
     </a>
   ) : (
     <button
