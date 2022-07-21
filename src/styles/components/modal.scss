@@ -130,7 +130,15 @@
 
     #{$this}-dialog {
       width: 100%;
-      max-width: 60vw;
+
+      @include b-up(md) {
+        max-width: 60vw;
+      }
+
+      @include b-d(md) {
+        max-width: 80vw;
+        margin: auto;
+      }
     }
 
     #{$this}-pic {
