@@ -4,5 +4,6 @@
   "name": "Мезотерапія",
   "duration": "30 хв",
   "preview": "../img/services/mesotherapy.svg",
-  "isHome": true
+  "isHome": true,
+  "category": "care"
 }

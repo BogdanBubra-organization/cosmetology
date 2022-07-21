@@ -4,5 +4,6 @@
   "name": "Мезотерапія волосяної частини голови",
   "duration": "60 хв",
   "preview": "../img/services/mesotherapy-scalp.svg",
-  "isHome": true
+  "isHome": true,
+  "category": "care"
 }

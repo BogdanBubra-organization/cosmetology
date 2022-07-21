@@ -4,5 +4,6 @@
   "name": "Пілінг",
   "duration": "20-30 хв",
   "preview": "../img/services/peeling.svg",
-  "isHome": true
+  "isHome": true,
+  "category": "injections"
 }

@@ -1,0 +1,11 @@
+.serviceshero {
+  display: grid;
+  row-gap: 16px;
+  justify-content: center;
+  padding-top: 48px;
+  text-align: center;
+
+  &_descr {
+    max-width: 608px;
+  }
+}

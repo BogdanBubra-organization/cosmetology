@@ -4,5 +4,6 @@
   "name": "Карбоксітерапія",
   "duration": "45-60 хв",
   "preview": "../img/services/carboxytherapy.svg",
-  "isHome": true
+  "isHome": true,
+  "category": "care"
 }

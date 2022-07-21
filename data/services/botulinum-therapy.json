@@ -4,5 +4,6 @@
   "name": "Ботулінотерапія",
   "duration": "до 30 хв",
   "preview": "../img/services/botox.svg",
-  "isHome": true
+  "isHome": true,
+  "category": "injections"
 }

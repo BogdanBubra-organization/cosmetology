@@ -4,5 +4,6 @@
   "name": "Процедура «Ice&Fire»",
   "duration": "до 60 хв",
   "preview": "../img/services/ice-fire.svg",
-  "isHome": true
+  "isHome": true,
+  "category": "injections"
 }
