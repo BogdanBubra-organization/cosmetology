@@ -49,7 +49,7 @@ const Gallery = () => {
     <>
       <section className={s.gallery}>
         <Container as="h2">Галерея</Container>
-        <div className={s.gallery_list_wrapper}>
+        <div className={s.gallery_wrapper}>
           <Container>
             <Nav variant="gallery">
               {TABS.map(({ key, text }) => (
@@ -76,7 +76,7 @@ const Gallery = () => {
                   nextEl: '.swiper-button-next',
                 }}
                 breakpoints={{
-                  576: { spaceBetween: 8 },
+                  0: { spaceBetween: 8 },
                   768: { spaceBetween: 16 },
                 }}
                 modules={[Navigation]}
@@ -106,8 +106,7 @@ const Gallery = () => {
             </div>
           </Container>
         </div>
-
-        <Button href="/" variant="secondary">
+        <Button href="/" variant="secondary" className={s.gallery_btn}>
           ПЕРЕГЛЯНУТИ ВСІ ФОТОГРАФІЇ
         </Button>
       </section>

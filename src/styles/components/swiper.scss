@@ -17,10 +17,18 @@
 
   &-button {
     position: absolute;
-    top: calc(50% - 32px);
-    padding: 19px;
     transition: background-color 250ms ease-in-out, color 250ms ease-in-out,
       opacity 250ms ease-in-out;
+
+    @include b-up(lg) {
+      top: calc(50% - 32px);
+      padding: 19px;
+    }
+
+    @include b-d(lg) {
+      top: calc(50% - 28px);
+      padding: 16px;
+    }
 
     &-prev {
       left: 8px;
@@ -37,15 +45,41 @@
 
     &-sm {
       top: calc(50% - 20px);
-      padding: 10px;
       border-radius: 8px;
 
+      @include b-up(md) {
+        padding: 10px;
+      }
+
+      @include b-d(md) {
+        padding: 4px;
+      }
+
       &#{$this}-button-next {
-        right: calc(-40px - 26px);
+        @include b-up(md) {
+          right: calc(-40px - 26px);
+        }
+
+        @include b-d(md) {
+          right: calc(-24px - 8px);
+        }
       }
 
       &#{$this}-button-prev {
-        left: calc(-40px - 26px);
+        @include b-up(md) {
+          left: calc(-40px - 26px);
+        }
+
+        @include b-d(md) {
+          left: calc(-24px - 8px);
+        }
+      }
+
+      svg {
+        @include b-d(md) {
+          width: 16px;
+          height: 16px;
+        }
       }
     }
   }

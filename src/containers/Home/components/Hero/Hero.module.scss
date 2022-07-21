@@ -37,23 +37,17 @@
 
   &_container {
     display: grid;
+    grid-template-rows: 1fr auto;
+    align-items: center;
     height: 100%;
 
     @include b-up(xl) {
       padding-top: 28px;
     }
 
-    @include b-d(xl) {
-      align-items: start;
-    }
-
     @include b-btw(lg, xl) {
       row-gap: 24px;
       padding-top: 77px;
-    }
-
-    @include b-up(lg) {
-      grid-template-rows: 1fr auto;
     }
 
     @include b-btw(md, lg) {

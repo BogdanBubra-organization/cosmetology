@@ -20,8 +20,21 @@ h1 {
 }
 
 h2 {
-  line-height: 1.17;
   color: $gray-800;
+
+  @include b-up(lg) {
+    line-height: 1.17;
+  }
+
+  @include b-btw(md, lg) {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+
+  @include b-d(md) {
+    font-size: 32px;
+    line-height: 1.25;
+  }
 }
 
 p {
