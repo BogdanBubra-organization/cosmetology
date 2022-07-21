@@ -2,15 +2,27 @@
 
 .services {
   display: grid;
-  row-gap: 24px;
   justify-items: center;
-  padding-top: 32px;
-  padding-bottom: 32px;
-  margin-top: 60px;
 
-  // hide on mobile
-  @include b-d(xl) {
-    display: none;
+  @include b-up(lg) {
+    margin-top: 60px;
+  }
+
+  @include b-btw(md, lg) {
+    margin-top: 32px;
+  }
+
+  @include b-up(md) {
+    row-gap: 24px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  @include b-d(md) {
+    row-gap: 16px;
+    padding-top: 24px;
+    padding-bottom: 16px;
+    margin-top: 16px;
   }
 
   &_heading {
@@ -22,9 +34,18 @@
 
   &_descr {
     max-width: 600px;
+
+    @include b-d(md) {
+      font-size: 14px;
+      line-height: 1.57;
+    }
   }
 
   &_btn {
     min-width: 215px;
+
+    @include b-d(md) {
+      width: 100%;
+    }
   }
 }

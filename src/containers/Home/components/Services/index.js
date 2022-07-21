@@ -11,7 +11,7 @@ const Services = () => {
   const data = useStaticQuery(graphql`
     {
       allServicesJson(
-        sort: { fields: id, order: ASC }
+        sort: { fields: jsonId, order: ASC }
         filter: { isHome: { eq: true } }
       ) {
         edges {
@@ -35,7 +35,7 @@ const Services = () => {
         <h2>{title}</h2>
         <p className={s.services_descr}>{descr}</p>
       </div>
-      <Cards data={data.allServicesJson.edges} />
+      <Cards data={data.allServicesJson.edges} variant="homepage" />
       <Button
         as={Link}
         to={btn.link}

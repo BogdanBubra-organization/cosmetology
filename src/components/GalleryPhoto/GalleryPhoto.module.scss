@@ -2,13 +2,24 @@
 
 .galleryphoto {
   display: grid;
-  min-width: 448px;
   min-height: 448px;
   overflow: hidden;
   border-radius: 16px;
   opacity: 0.95;
   transition: opacity 250ms ease-in-out, box-shadow 250ms ease-in-out;
   transform: translateZ(0);
+
+  @include b-up(lg) {
+    min-width: 448px;
+  }
+
+  @include b-btw(md, lg) {
+    min-width: 352px;
+  }
+
+  @include b-d(md) {
+    min-width: 343px;
+  }
 
   &_pic {
     width: 100%;
