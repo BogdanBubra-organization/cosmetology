@@ -1,7 +1,7 @@
 const MENU = [
   {
     name: 'Послуги',
-    link: '#services',
+    link: '/services',
   },
   {
     name: 'Про нас',

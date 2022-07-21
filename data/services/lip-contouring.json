@@ -4,5 +4,6 @@
   "name": "Контурна пластика губ",
   "duration": "до 30 хв",
   "preview": "../img/services/lips.svg",
-  "isHome": true
+  "isHome": true,
+  "category": "care"
 }
