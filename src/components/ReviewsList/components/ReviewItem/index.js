@@ -4,9 +4,9 @@ import Rating from './components/Rating'
 
 import * as s from './ReviewItem.module.scss'
 
-const ReviewItem = ({ name, rating, text, date, index }) => {
+const ReviewItem = ({ name, rating, text, date, index, variant }) => {
   return (
-    <div className={cn(s.reviewitem)}>
+    <div className={cn(s.reviewitem, { [s[variant]]: variant })}>
       <div className={s.reviewitem_heading}>
         <div className={s.reviewitem_pic}>
           <img src={`https://picsum.photos/124?${index}`} alt={name} />

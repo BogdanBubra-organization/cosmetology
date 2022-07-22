@@ -2,8 +2,8 @@
 
 .gallery {
   display: grid;
+  justify-items: center;
   padding-top: 32px;
-  text-align: center;
 
   @include b-up(lg) {
     padding-bottom: 32px;
@@ -53,7 +53,6 @@
   }
 
   &_wrapper {
-    justify-self: center;
     padding-bottom: 20px;
     margin-bottom: -20px;
     overflow: hidden;
@@ -80,10 +79,11 @@
 
   &_btn {
     z-index: 2;
-    display: grid;
 
-    @media (min-width: 440px) {
-      justify-content: center;
+    @include b-d(md) {
+      display: grid;
+      width: 100%;
+      max-width: 420px;
     }
   }
 }

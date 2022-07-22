@@ -1,4 +1,13 @@
+@import '~styles/mixins';
+
 .reviewslist {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  @include b-up(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include b-btw(md, lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

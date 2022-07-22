@@ -57,4 +57,12 @@
     font-weight: 500;
     color: $black;
   }
+
+  &.home {
+    @include b-d(lg) {
+      &:nth-child(n + 3) {
+        display: none;
+      }
+    }
+  }
 }

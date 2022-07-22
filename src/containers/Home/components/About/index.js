@@ -24,20 +24,17 @@ const About = () => {
         </div>
       </div>
       <div className={s.about_content}>
-        <h2>{title}</h2>
+        <h2 className={s.about_title}>{title}</h2>
         <div className={s.about_descr}>
           {descr.map((item, i) => (
             <p key={`p${i}`}>{item}</p>
           ))}
         </div>
-        <Button
-          className={s.about_btn}
-          variant="secondary"
-          as={Link}
-          to={btn.link}
-        >
-          {btn.text}
-        </Button>
+        <div className={s.about_btn}>
+          <Button variant="secondary" as={Link} to={btn.link}>
+            {btn.text}
+          </Button>
+        </div>
       </div>
     </Container>
   )
