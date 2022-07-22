@@ -8,12 +8,15 @@ const usePosts = (limit = 12) => {
       .then((response) => response.json())
       .then((result) => result.data)
 
-  const { data } = useQuery(['posts'], getPosts, {
+  const { data, isLoading } = useQuery(['posts'], getPosts, {
     refetchOnWindowFocus: false,
     refetchOnMount: false,
+    staleTime: 1000 * 60 * 5,
   })
 
-  return data ? data.slice(0, limit) : []
+  const posts = data ? data.slice(0, limit) : []
+
+  return { posts, isLoading }
 }
 
 export default usePosts

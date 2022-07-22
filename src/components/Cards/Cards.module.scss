@@ -75,22 +75,19 @@
     width: 100%;
 
     #{$this}_item {
-      &:last-child,
-      &:nth-last-child(2) {
-        @include b-d(xxl) {
+      &:nth-last-child(-n + 2) {
+        @include b-btw(lg, xxl) {
           display: none;
         }
       }
 
-      &:nth-last-child(3),
-      &:nth-last-child(4) {
-        @include b-d(lg) {
+      &:nth-last-child(-n + 4) {
+        @include b-o(md) {
           display: none;
         }
       }
 
-      &:nth-child(3),
-      &:nth-child(4) {
+      &:nth-last-child(-n + 6) {
         @include b-d(md) {
           display: none;
         }
