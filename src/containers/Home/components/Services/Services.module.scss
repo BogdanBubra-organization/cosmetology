@@ -2,6 +2,7 @@
 
 .services {
   display: grid;
+  justify-items: center;
 
   @include b-up(lg) {
     margin-top: 60px;
@@ -42,10 +43,11 @@
 
   &_btn {
     display: grid;
+    min-width: 215px;
 
-    @media (min-width: 440px) {
-      grid-template-columns: 215px;
-      justify-content: center;
+    @include b-d(md) {
+      width: 100%;
+      max-width: 420px;
     }
   }
 }

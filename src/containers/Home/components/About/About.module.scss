@@ -2,26 +2,75 @@
 
 .about {
   display: grid;
-  grid-template-columns: 448px 1fr;
-  column-gap: 72px;
   align-items: center;
-  padding-top: 86px;
-  padding-bottom: 143px;
 
-  // hide on mobile
-  @include b-d(xl) {
-    display: none;
+  @include b-up(xl) {
+    column-gap: 72px;
+    padding-bottom: 143px;
+  }
+
+  @include b-o(lg) {
+    column-gap: 32px;
+    padding-bottom: 82px;
+  }
+
+  @include b-up(lg) {
+    grid-template-columns: 1fr 2fr;
+    padding-top: 86px;
+  }
+
+  @include b-d(lg) {
+    margin-top: 32px;
+  }
+
+  @include b-o(md) {
+    row-gap: 48px;
+    padding-bottom: 32px;
+  }
+
+  @include b-d(md) {
+    row-gap: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  &_title {
+    @include b-d(lg) {
+      text-align: center;
+    }
+    @include b-o(md) {
+      max-width: 700px;
+    }
+    @include b-o(sm) {
+      max-width: 520px;
+    }
+    @include b-d(sm) {
+      width: min-content;
+    }
   }
 
   &_media {
     position: relative;
-    z-index: 1;
-    height: 680px;
+    z-index: -1;
+
+    @include b-up(xl) {
+      height: 680px;
+    }
+
+    @include b-o(lg) {
+      height: 600px;
+    }
+
+    @include b-d(lg) {
+      justify-self: center;
+      width: 343px;
+    }
 
     &::after {
       position: absolute;
       top: 100%;
       left: 50%;
+      z-index: -1;
       width: 80%;
       height: 20%;
       content: '';
@@ -33,11 +82,13 @@
   }
 
   &_pic {
-    width: 680px;
-    margin-left: -32px;
+    @include b-up(lg) {
+      position: absolute !important;
+      width: 680px;
+      margin-left: -32px;
+    }
 
     &_wrapper {
-      z-index: 2;
       width: 100%;
       height: 100%;
       overflow: hidden;
@@ -48,14 +99,34 @@
 
   &_content {
     display: grid;
-    row-gap: 24px;
-    justify-items: start;
-    max-width: 664px;
+
+    @include b-up(lg) {
+      justify-items: start;
+      max-width: 664px;
+    }
+
+    @include b-d(lg) {
+      justify-items: center;
+    }
+
+    @include b-up(md) {
+      row-gap: 24px;
+    }
+
+    @include b-d(md) {
+      row-gap: 16px;
+    }
   }
 
   &_descr {
     display: grid;
-    row-gap: 36px;
+    row-gap: 1.5em;
+
+    @include b-d(md) {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.57;
+    }
 
     > :last-child {
       color: transparent;
@@ -65,6 +136,14 @@
   }
 
   &_btn {
-    margin-top: 24px;
+    @include b-up(xl) {
+      margin-top: 24px;
+    }
+
+    @include b-d(md) {
+      display: grid;
+      width: 100%;
+      max-width: 420px;
+    }
   }
 }

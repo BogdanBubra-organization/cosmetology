@@ -3,23 +3,40 @@
 .reviews {
   $this: &;
 
-  // hide on mobile
-  @include b-d(xl) {
-    display: none;
-  }
-
   position: relative;
   display: grid;
   row-gap: 24px;
   justify-items: center;
-  padding-top: 100px;
-  padding-bottom: 32px;
   margin-bottom: 60px;
+
+  @include b-up(xl) {
+    padding-top: 100px;
+    padding-bottom: 32px;
+  }
+
+  @include b-d(xl) {
+    padding-top: 32px;
+  }
+
+  @include b-o(lg) {
+    padding-bottom: 10px;
+  }
+
+  @include b-d(lg) {
+    margin-top: 32px;
+  }
+
+  @include b-o(md) {
+    padding-bottom: 24px;
+  }
+
+  @include b-d(md) {
+    row-gap: 16px;
+    padding-bottom: 16px;
+  }
 
   &::before {
     position: absolute;
-    top: 173px;
-    left: 381px;
     z-index: -1;
     width: 407px;
     height: 263px;
@@ -29,10 +46,42 @@
     border-radius: 100%;
     opacity: 0.2;
     transform: rotate(-165deg) translateZ(0);
+
+    @include b-up(lg) {
+      left: 381px;
+    }
+
+    @include b-o(md) {
+      left: 100px;
+    }
+
+    @include b-up(md) {
+      top: 173px;
+    }
+
+    @include b-d(md) {
+      top: 343px;
+      left: -58px;
+    }
   }
 
   &_list {
     grid-gap: 16px;
     max-width: 1304px;
+    @include b-d(md) {
+      margin-top: 8px;
+    }
+  }
+
+  &_btn {
+    @include b-o(lg) {
+      margin-top: 14px;
+    }
+
+    @include b-d(md) {
+      display: grid;
+      width: 100%;
+      max-width: 420px;
+    }
   }
 }
