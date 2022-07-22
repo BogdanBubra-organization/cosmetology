@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react'
-import { Button, Container, Nav } from 'react-bootstrap'
+import { Button, Container, Nav, Placeholder } from 'react-bootstrap'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, EffectFade } from 'swiper'
 import GalleryPhoto from '~components/GalleryPhoto'
@@ -31,7 +31,7 @@ const Buttons = ({ children, className }) => {
 
 const Gallery = () => {
   const [tab, setTab] = useState(TABS[0].key)
-  const posts = usePosts(5)
+  const { posts, isLoading } = usePosts(5)
 
   const [swiperRef, setSwiperRef] = useState(null)
 
@@ -47,69 +47,76 @@ const Gallery = () => {
 
   return (
     <>
-      <section className={s.gallery}>
-        <Container as="h2">Галерея</Container>
+      <Container as="section" className={s.gallery}>
+        <h2>Галерея</h2>
         <div className={s.gallery_wrapper}>
-          <Container>
-            <Nav variant="gallery">
-              {TABS.map(({ key, text }) => (
-                <Nav.Item key={key}>
-                  <Nav.Link
-                    className={cn({
-                      active: key === tab,
-                    })}
-                    as="button"
-                    onClick={() => setTab(key)}
-                  >
-                    <span data-label={text}>{text}</span>
-                  </Nav.Link>
-                </Nav.Item>
-              ))}
-            </Nav>
+          <Nav variant="gallery">
+            {TABS.map(({ key, text }) => (
+              <Nav.Item key={key}>
+                <Nav.Link
+                  className={cn({
+                    active: key === tab,
+                  })}
+                  as="button"
+                  onClick={() => setTab(key)}
+                >
+                  <span data-label={text}>{text}</span>
+                </Nav.Link>
+              </Nav.Item>
+            ))}
+          </Nav>
 
-            <div className={s.gallery_list}>
-              <Swiper
-                onSwiper={setSwiperRef}
-                slidesPerView="auto"
-                navigation={{
-                  prevEl: '.swiper-button-prev',
-                  nextEl: '.swiper-button-next',
-                }}
-                breakpoints={{
-                  0: { spaceBetween: 8 },
-                  768: { spaceBetween: 16 },
-                }}
-                modules={[Navigation]}
-              >
-                {tab === TABS[0].key
-                  ? posts.map(({ id, ...post }) => (
+          <div className={s.gallery_list}>
+            <Swiper
+              className="swiper--gallery"
+              onSwiper={setSwiperRef}
+              slidesPerView="auto"
+              navigation={{
+                prevEl: '.swiper-button-prev',
+                nextEl: '.swiper-button-next',
+              }}
+              modules={[Navigation]}
+            >
+              {tab === TABS[0].key &&
+                (isLoading
+                  ? [...Array(5)].map((_, i) => (
+                      <SwiperSlide className="placeholder-glow" key={`p${i}`}>
+                        <Placeholder
+                          style={{ width: '100%', height: '100%' }}
+                        />
+                      </SwiperSlide>
+                    ))
+                  : posts.map(({ id, ...post }) => (
                       <SwiperSlide key={id}>
                         <GalleryPhoto {...post} />
                       </SwiperSlide>
-                    ))
-                  : [...Array(5)].map((_, i) => (
-                      <SwiperSlide key={`p${i}`}>
-                        <GalleryPhoto
-                          action={(e, id) => {
-                            e.preventDefault()
-                            handleModalShow(id)
-                          }}
-                          index={i}
-                        />
-                      </SwiperSlide>
-                    ))}
+                    )))}
 
-                <Buttons className="btn-round">
-                  <Icon name="swiper-arrow" size={24} />
-                </Buttons>
-              </Swiper>
-            </div>
-          </Container>
+              {tab === TABS[1].key &&
+                [...Array(5)].map((_, i) => (
+                  <SwiperSlide key={`p${i}`}>
+                    <GalleryPhoto
+                      action={(e, id) => {
+                        e.preventDefault()
+                        handleModalShow(id)
+                      }}
+                      index={i}
+                    />
+                  </SwiperSlide>
+                ))}
+
+              <Buttons className="btn-round">
+                <Icon name="swiper-arrow" size={24} />
+              </Buttons>
+            </Swiper>
+          </div>
         </div>
-        <Button href="/" variant="secondary" className={s.gallery_btn}>
-          ПЕРЕГЛЯНУТИ ВСІ ФОТОГРАФІЇ
-        </Button>
-      </section>
+        <div className={s.gallery_btn}>
+          <Button href="/" variant="secondary">
+            ПЕРЕГЛЯНУТИ ВСІ ФОТОГРАФІЇ
+          </Button>
+        </div>
+      </Container>
 
       <Modal show={modal.show} onHide={handleHideModal} variant="swiper">
         <Swiper

@@ -36,14 +36,11 @@ const Services = () => {
         <p className={s.services_descr}>{descr}</p>
       </div>
       <Cards data={data.allServicesJson.edges} variant="homepage" />
-      <Button
-        as={Link}
-        to={btn.link}
-        className={s.services_btn}
-        variant="secondary"
-      >
-        {btn.text}
-      </Button>
+      <div className={s.services_btn}>
+        <Button as={Link} to={btn.link} variant="secondary">
+          {btn.text}
+        </Button>
+      </div>
     </Container>
   )
 }
