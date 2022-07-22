@@ -11,10 +11,12 @@ const Reviews = () => {
   return (
     <Container as="section" className={s.reviews}>
       <h2>{title}</h2>
-      <ReviewsList className={s.reviews_list} limit={3} />
-      <Button variant="secondary" as={Link} to={btn.link}>
-        {btn.text}
-      </Button>
+      <ReviewsList className={s.reviews_list} limit={3} variant="home" />
+      <div className={s.reviews_btn}>
+        <Button variant="secondary" as={Link} to={btn.link}>
+          {btn.text}
+        </Button>
+      </div>
     </Container>
   )
 }
