@@ -1,4 +1,10 @@
 h1,
+h2,
+h4 {
+  text-transform: uppercase;
+}
+
+h1,
 h2 {
   letter-spacing: -1.5px;
 }
@@ -6,7 +12,8 @@ h2 {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
   text-transform: uppercase;
 }
 
@@ -56,6 +63,13 @@ h4 {
   line-height: 1.33;
 }
 
+h5 {
+  font-family: $font-family-sans-serif;
+  font-weight: 400;
+  line-height: 1.33;
+}
+
+h5,
 p {
   color: $gray-890;
   letter-spacing: 0.1px;
