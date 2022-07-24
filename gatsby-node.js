@@ -56,6 +56,8 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
         edges {
           node {
             slug
+            category
+            id
           }
         }
       }
@@ -71,9 +73,11 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     if (node.slug) {
       createPage({
         path: `/services/${node.slug}`,
-        component: path.resolve('src/containers/Product/index.js'),
+        component: path.resolve('src/templates/Product/index.js'),
         context: {
           slug: node.slug,
+          category: node.category,
+          id: node.id,
         },
       })
     }
