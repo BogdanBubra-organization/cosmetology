@@ -1,9 +1,9 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import cn from 'classnames'
-import Icon from '~components/Icon'
 import Social from '~components/Social'
 import Menu from '~components/Menu'
+import AddresPin from '~components/AddressPin'
 import logo from './img/logo-min.svg'
 import * as s from './style.module.scss'
 
@@ -24,15 +24,7 @@ const Footer = ({ isMessengersPage }) => {
       <div className={s.footer_inner}>
         <div className={s.footer_info}>
           <img src={logo} width="31" height="41" alt="Logo" />
-          <a
-            className={s.footer_address}
-            href="/maps"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Icon name="mark" size={20} />
-            м.Чернігів, вул. Гоголя, 3
-          </a>
+          <AddresPin />
         </div>
         <Menu variant="footer" />
         <Social variant="footer" isWithIcon />
