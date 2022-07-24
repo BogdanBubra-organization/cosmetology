@@ -17,7 +17,7 @@ const MENU = [
   },
   {
     name: 'Контакти',
-    link: '#contacts',
+    link: '/contacts',
   },
 ]
 

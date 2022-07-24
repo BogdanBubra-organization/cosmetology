@@ -1,0 +1,32 @@
+@import '~styles/mixins';
+
+.contactsmap {
+  display: grid;
+  row-gap: 16px;
+  justify-items: start;
+  padding: 20px;
+  background: $white;
+  border-radius: 16px;
+
+  &_wrapper {
+    position: relative;
+    width: 100%;
+
+    @include b-up(lg) {
+      min-height: 448px;
+    }
+
+    @include b-d(lg) {
+      min-height: 292px;
+    }
+  }
+
+  &_map {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+}
