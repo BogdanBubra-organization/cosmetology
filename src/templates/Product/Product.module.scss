@@ -1,0 +1,23 @@
+@import '~styles/mixins';
+
+.productTitle {
+  padding-bottom: 12px;
+  font-weight: 400;
+
+  @include b-up(md) {
+    padding-top: 32px;
+  }
+
+  @include b-o(md) {
+    padding-top: 24px;
+  }
+
+  @include b-d(md) {
+    padding-top: 16px;
+  }
+
+  @include b-d(md) {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+}

@@ -1,0 +1,17 @@
+@import '~styles/mixins';
+
+.sameproducts {
+  display: grid;
+  row-gap: 24px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  &_title {
+    @include b-up(lg) {
+      font-weight: 400;
+    }
+    @include b-d(lg) {
+      font-weight: 500;
+    }
+  }
+}

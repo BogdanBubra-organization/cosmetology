@@ -1,10 +1,11 @@
 import React from 'react'
+import cn from 'classnames'
 
 import * as s from './BulletedList.module.scss'
 
-const BulletedList = ({ list = [], isLink }) => {
+const BulletedList = ({ list = [], isLink, className }) => {
   return (
-    <ul className={s.bulletedlist}>
+    <ul className={cn(s.bulletedlist, { className })}>
       {list.map((el) => (
         <li className={s.bulletedlist_item} key={el}>
           {isLink ? <a href={`tel:${el}`}>{el}</a> : el}

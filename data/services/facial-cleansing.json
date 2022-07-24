@@ -5,5 +5,12 @@
   "duration": "1-1:15 год",
   "preview": "../img/services/facial-cleansing.svg",
   "isHome": true,
+  "info": {
+    "workPic": "../img/works/back-cleaning.png",
+    "descr": [
+      "Популярна процедура як серед жінок, так і серед чоловіків – чистка спини. Дана процедура виконується в техніці комбінованої (механічної) чистки для боротьби з комедозними висипами на спині. ",
+      "В   Cosmetology   Clinic   by   Svetlana   Tsikhovskaya в   місті   Чернігові   механічна (комбінована) чистка спини проходить у декілька етапів:"
+    ]
+  },
   "category": "care"
 }

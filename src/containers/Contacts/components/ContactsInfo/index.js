@@ -9,7 +9,7 @@ const ContactsInfo = () => {
   return (
     <aside className={s.contactsinfo}>
       <h5>Телефони</h5>
-      <BulletedList list={MOBILE} isLink />
+      <BulletedList list={MOBILE} isLink className={s.contactsinfo_list} />
       <h5>Соціальні мережі</h5>
       <Social variant="contacts" isWithIcon />
     </aside>
