@@ -9,10 +9,22 @@ const Reviews = () => {
   const { title, btn } = DATA
 
   return (
-    <Container as="section" className={s.reviews}>
-      <h2>{title}</h2>
-      <ReviewsList className={s.reviews_list} limit={3} variant="home" />
-      <div className={s.reviews_btn}>
+    <Container as="section" id="reviews" className={s.reviews}>
+      <h2 data-array="reviews" data-direction="top">
+        {title}
+      </h2>
+      <ReviewsList
+        className={s.reviews_list}
+        limit={3}
+        variant="home"
+        data-array="reviews"
+        data-direction="bottom"
+      />
+      <div
+        className={s.reviews_btn}
+        data-appear="reviews"
+        data-direction="bottom"
+      >
         <Button variant="secondary" as={Link} to={btn.link}>
           {btn.text}
         </Button>
