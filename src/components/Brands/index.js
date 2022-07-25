@@ -32,19 +32,19 @@ const Brands = () => {
 
   return (
     <div className={s.brands}>
-      <span className={s.brands_title}>{title}</span>
+      <span className={s.brands_title} data-appear="hero">
+        {title}
+      </span>
       <div className={s.brands_list_wrapper}>
-        <ul className={s.brands_list}>
-          {list.map(({ key, alt }) => {
-            return (
-              <GatsbyImage
-                key={key}
-                loading="eager"
-                image={images[key].childImageSharp.gatsbyImageData}
-                alt={alt}
-              />
-            )
-          })}
+        <ul className={s.brands_list} data-array="hero" data-direction="bottom">
+          {list.map(({ key, alt }) => (
+            <GatsbyImage
+              key={key}
+              loading="eager"
+              image={images[key].childImageSharp.gatsbyImageData}
+              alt={alt}
+            />
+          ))}
         </ul>
       </div>
     </div>

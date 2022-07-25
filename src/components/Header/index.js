@@ -28,8 +28,8 @@ const Header = ({ siteTitle }) => {
   const isMdDown = useMatchMedia('(max-width: 767px)')
 
   return (
-    <Container as="header" className="animate">
-      <div className={s.header}>
+    <Container id="header" as="header">
+      <div data-appear="header" data-direction="top" className={s.header}>
         {isHomepage ? (
           <Logo alt={siteTitle} />
         ) : (

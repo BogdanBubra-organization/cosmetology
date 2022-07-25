@@ -30,14 +30,33 @@ const Services = () => {
   `)
 
   return (
-    <Container as="section" className={s.services}>
+    <Container as="section" id="services" className={s.services}>
       <div className={s.services_heading}>
-        <h2>{title}</h2>
-        <p className={s.services_descr}>{descr}</p>
+        <h2 data-appear="services" data-direction="top">
+          {title}
+        </h2>
+        <p
+          data-appear="services"
+          data-direction="top"
+          className={s.services_descr}
+        >
+          {descr}
+        </p>
       </div>
-      <Cards data={data.allServicesJson.edges} variant="homepage" />
+      <Cards
+        data={data.allServicesJson.edges}
+        data-array="services"
+        data-direction="bottom"
+        variant="homepage"
+      />
       <div className={s.services_btn}>
-        <Button as={Link} to={btn.link} variant="secondary">
+        <Button
+          data-appear="services"
+          data-direction="bottom"
+          as={Link}
+          to={btn.link}
+          variant="secondary"
+        >
           {btn.text}
         </Button>
       </div>
