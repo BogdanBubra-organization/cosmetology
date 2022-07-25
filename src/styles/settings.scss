@@ -358,7 +358,8 @@ $enable-important-utilities: true !default;
 
 // Prefix for :root CSS variables
 
-$variable-prefix: bs- !default;
+$variable-prefix: bs- !default; // Deprecated in v5.2.0 for the shorter `$prefix`
+$prefix: $variable-prefix !default;
 
 // Gradient
 //
@@ -537,13 +538,17 @@ $border-widths: (
   5: 5px,
 ) !default;
 
+$border-style: solid !default;
 $border-color: $gray-300 !default;
+$border-color-translucent: rgba($black, 0.175) !default;
 // scss-docs-end border-variables
 
 // scss-docs-start border-radius-variables
 $border-radius: 0.25rem !default;
 $border-radius-sm: 0.2rem !default;
 $border-radius-lg: 0.3rem !default;
+$border-radius-xl: 1rem !default;
+$border-radius-2xl: 2rem !default;
 $border-radius-pill: 50rem !default;
 // scss-docs-end border-radius-variables
 
@@ -651,6 +656,8 @@ $display-font-sizes: (
   6: 2.5rem,
 ) !default;
 
+$display-font-family: null !default;
+$display-font-style: null !default;
 $display-font-weight: 300 !default;
 $display-line-height: $headings-line-height !default;
 // scss-docs-end display-headings
@@ -674,7 +681,14 @@ $blockquote-footer-font-size: $small-font-size !default;
 
 $hr-margin-y: $spacer !default;
 $hr-color: inherit !default;
-$hr-height: $border-width !default;
+
+// fusv-disable
+$hr-bg-color: null !default; // Deprecated in v5.2.0
+$hr-height: null !default; // Deprecated in v5.2.0
+// fusv-enable
+
+$hr-border-color: null !default; // Allows for inherited colors
+$hr-border-width: $border-width !default;
 $hr-opacity: 0.25 !default;
 
 $legend-margin-bottom: 0.5rem !default;
@@ -865,6 +879,7 @@ $input-padding-x-lg: $input-btn-padding-x-lg !default;
 $input-font-size-lg: $input-btn-font-size-lg !default;
 
 $input-bg: $white;
+$input-disabled-color: null !default;
 $input-disabled-bg: $gray-200 !default;
 $input-disabled-border-color: null !default;
 
@@ -1466,13 +1481,16 @@ $modal-content-box-shadow-sm-up: $box-shadow !default;
 
 $modal-backdrop-bg: $black !default;
 $modal-backdrop-opacity: 0.5 !default;
-$modal-header-border-color: $border-color !default;
-$modal-footer-border-color: $modal-header-border-color !default;
+
+$modal-header-border-color: var(--#{$prefix}border-color) !default;
 $modal-header-border-width: $modal-content-border-width !default;
-$modal-footer-border-width: $modal-header-border-width !default;
 $modal-header-padding-y: $modal-inner-padding !default;
 $modal-header-padding-x: $modal-inner-padding !default;
 $modal-header-padding: $modal-header-padding-y $modal-header-padding-x !default; // Keep this for backwards compatibility
+
+$modal-footer-bg: null !default;
+$modal-footer-border-color: $modal-header-border-color !default;
+$modal-footer-border-width: $modal-header-border-width !default;
 
 $modal-sm: 300px !default;
 $modal-md: 400px;
