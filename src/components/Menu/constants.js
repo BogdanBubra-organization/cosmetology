@@ -9,7 +9,7 @@ const MENU = [
   },
   {
     name: 'Фотогалерея',
-    link: '#gallery',
+    link: '/gallery',
   },
   {
     name: 'Відгуки',
