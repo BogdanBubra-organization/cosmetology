@@ -1,32 +1,17 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react'
-import { Button, Container, Nav, Placeholder } from 'react-bootstrap'
+import { Button, Container, Placeholder } from 'react-bootstrap'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, EffectFade } from 'swiper'
 import cn from 'classnames'
 import GalleryPhoto from '~components/GalleryPhoto'
 import Icon from '~components/Icon'
 import Modal from '~components/Modal'
+import TabSwitcher from '~components/TabSwitcher'
+import SwiperButtons from '~components/SwiperButtons'
+import { Link } from 'gatsby'
 import * as s from './Gallery.module.scss'
-import { TABS, BUTTONS } from './constants'
-
-const Buttons = ({ children, className }) => {
-  return BUTTONS.map((side) => (
-    <Button
-      key={side}
-      variant="secondary"
-      aria-label={side}
-      className={cn(
-        'swiper-button',
-        'swiper-button-disabled',
-        `swiper-button-${side}`,
-        className
-      )}
-    >
-      {children}
-    </Button>
-  ))
-}
+import TABS from './constants'
 
 const Gallery = ({ posts, isLoading }) => {
   const [tab, setTab] = useState(TABS[0].key)
@@ -41,6 +26,10 @@ const Gallery = ({ posts, isLoading }) => {
     setModal({ show: false, active: 0 })
   }
 
+  const handleTabChange = (key) => {
+    setTab(key)
+  }
+
   return (
     <>
       <section id="gallery" className={s.gallery}>
@@ -48,21 +37,7 @@ const Gallery = ({ posts, isLoading }) => {
           <h2 data-appear="gallery" data-direction="top">
             Галерея
           </h2>
-          <Nav variant="gallery" data-appear="gallery">
-            {TABS.map(({ key, text }) => (
-              <Nav.Item key={key}>
-                <Nav.Link
-                  className={cn({
-                    active: key === tab,
-                  })}
-                  as="button"
-                  onClick={() => setTab(key)}
-                >
-                  <span data-label={text}>{text}</span>
-                </Nav.Link>
-              </Nav.Item>
-            ))}
-          </Nav>
+          <TabSwitcher tabs={TABS} activeTab={tab} action={handleTabChange} />
         </Container>
 
         <div className={s.gallery_wrapper}>
@@ -119,9 +94,9 @@ const Gallery = ({ posts, isLoading }) => {
                   </SwiperSlide>
                 ))}
 
-              <Buttons className="btn-round">
+              <SwiperButtons className="btn-round">
                 <Icon name="swiper-arrow" size={24} />
-              </Buttons>
+              </SwiperButtons>
             </Swiper>
           </Container>
         </div>
@@ -131,7 +106,7 @@ const Gallery = ({ posts, isLoading }) => {
           data-appear="gallery"
           data-direction="bottom"
         >
-          <Button href="/" variant="secondary">
+          <Button as={Link} to="/gallery" state={{ tab }} variant="secondary">
             ПЕРЕГЛЯНУТИ ВСІ ФОТОГРАФІЇ
           </Button>
         </Container>
@@ -150,16 +125,16 @@ const Gallery = ({ posts, isLoading }) => {
           {[...Array(5)].map((_, i) => (
             <SwiperSlide key={`p${i}`}>
               <img
-                src={`https://picsum.photos/id/102${i}/1024/600`}
+                src={`https://picsum.photos/id/2${i}/1024/600`}
                 alt="glr"
                 className="modal-pic"
               />
             </SwiperSlide>
           ))}
 
-          <Buttons className="swiper-button-sm">
+          <SwiperButtons className="swiper-button-sm">
             <Icon name="swiper-arrow-sm" size={20} />
-          </Buttons>
+          </SwiperButtons>
         </Swiper>
       </Modal>
     </>

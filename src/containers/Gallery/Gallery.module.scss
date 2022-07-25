@@ -1,0 +1,17 @@
+@import '~styles/mixins';
+
+.galleryWrapper {
+  display: grid;
+  row-gap: 24px;
+  justify-items: center;
+  padding-top: 32px;
+  margin-bottom: 60px;
+
+  @include b-up(lg) {
+    padding-bottom: 32px;
+  }
+
+  @include b-o(md) {
+    padding-top: 24px;
+  }
+}

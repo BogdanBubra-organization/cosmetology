@@ -30,7 +30,7 @@ const GalleryPhoto = ({
       className={s.galleryphoto}
     >
       <img
-        src={`https://picsum.photos/id/102${index}/800/430`}
+        src={`https://picsum.photos/id/2${index}/800/430`}
         alt="Gallery"
         className={s.galleryphoto_pic}
       />
