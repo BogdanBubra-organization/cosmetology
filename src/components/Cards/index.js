@@ -4,9 +4,9 @@ import { Link } from 'gatsby'
 import cn from 'classnames'
 import * as s from './Cards.module.scss'
 
-const Cards = ({ data, variant }) => {
+const Cards = ({ data, variant, ...rest }) => {
   return (
-    <ul className={cn(s.cards, { [s[variant]]: variant })}>
+    <ul className={cn(s.cards, { [s[variant]]: variant })} {...rest}>
       {data.map(({ node: { id, slug, name, duration, preview } }) => (
         <li key={id} className={s.cards_item}>
           <div className={s.cards_heading}>

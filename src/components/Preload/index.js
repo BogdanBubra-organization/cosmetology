@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import cn from 'classnames'
-import appearAnim from './anim'
 
 import * as s from './Preload.module.scss'
 
@@ -10,7 +9,6 @@ const Preload = ({ handlePreload }) => {
   useEffect(() => {
     setTimeout(() => {
       setLoader(false)
-      appearAnim()
     }, 1000)
     setTimeout(() => {
       handlePreload()
