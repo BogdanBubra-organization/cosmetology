@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Button, Container } from 'react-bootstrap'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
@@ -7,21 +7,42 @@ import Brands from '~components/Brands'
 import ModalOrder from '~components/ModalOrder'
 import DATA from './constants'
 import * as s from './Hero.module.scss'
+import heroAnim from './anim'
 
-const Hero = () => {
+const Hero = ({ isDesktop, isPreloaded }) => {
   const { title, descr, btnOrder, btnServices } = DATA
+  const picRef = useRef(null)
+  const lineRef = useRef(null)
 
   const [showOrder, setShowOrder] = useState(false)
 
+  useEffect(() => {
+    if (!isPreloaded && isDesktop) {
+      heroAnim({ pic: picRef.current, line: lineRef.current })
+    }
+  }, [lineRef, picRef, isDesktop, isPreloaded])
+
   return (
-    <section className={s.hero}>
+    <section className={s.hero} id="hero">
       <Container className={s.hero_container}>
         <div className={s.hero_inner}>
           <div className={s.hero_content}>
-            <h1 className={s.hero_title}>{title}</h1>
-            <p className={s.hero_descr}>{descr}</p>
+            <h1
+              className={s.hero_title}
+              data-appear="hero"
+              data-direction="bottom"
+            >
+              {title}
+            </h1>
+            <p
+              className={s.hero_descr}
+              data-appear="hero"
+              data-direction="bottom"
+            >
+              {descr}
+            </p>
           </div>
-          <div className={s.hero_btns}>
+          <div className={s.hero_btns} data-appear="hero">
             <Button className="btn-icon" onClick={() => setShowOrder(true)}>
               <Icon name="tel" size={20} />
               <span className="btn-icon-text">{btnOrder}</span>
@@ -30,7 +51,7 @@ const Hero = () => {
               {btnServices}
             </Button>
           </div>
-          <div className={s.hero_ill}>
+          <div className={s.hero_ill} ref={picRef}>
             <StaticImage
               src="./img/hero.jpg"
               alt="Надання послуги"
@@ -38,7 +59,7 @@ const Hero = () => {
               placeholder="none"
               loading="eager"
             />
-            <span className={s.hero_ill_line} />
+            <span className={s.hero_ill_line} ref={lineRef} />
           </div>
         </div>
         <Brands />

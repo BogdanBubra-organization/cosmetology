@@ -3,10 +3,9 @@ import React, { useState } from 'react'
 import { Button, Container, Nav, Placeholder } from 'react-bootstrap'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, EffectFade } from 'swiper'
-import GalleryPhoto from '~components/GalleryPhoto'
 import cn from 'classnames'
+import GalleryPhoto from '~components/GalleryPhoto'
 import Icon from '~components/Icon'
-import usePosts from '~hooks/usePosts'
 import Modal from '~components/Modal'
 import * as s from './Gallery.module.scss'
 import { TABS, BUTTONS } from './constants'
@@ -29,9 +28,8 @@ const Buttons = ({ children, className }) => {
   ))
 }
 
-const Gallery = () => {
+const Gallery = ({ posts, isLoading }) => {
   const [tab, setTab] = useState(TABS[0].key)
-  const { posts, isLoading } = usePosts(5)
 
   const [modal, setModal] = useState({ show: false, active: 0 })
 
@@ -45,10 +43,12 @@ const Gallery = () => {
 
   return (
     <>
-      <section className={s.gallery}>
+      <section id="gallery" className={s.gallery}>
         <Container>
-          <h2>Галерея</h2>
-          <Nav variant="gallery">
+          <h2 data-appear="gallery" data-direction="top">
+            Галерея
+          </h2>
+          <Nav variant="gallery" data-appear="gallery">
             {TABS.map(({ key, text }) => (
               <Nav.Item key={key}>
                 <Nav.Link
@@ -81,6 +81,9 @@ const Gallery = () => {
                 1200: { spaceBetween: 16, slidesPerView: 3 },
               }}
               modules={[Navigation]}
+              id="gallery-swiper"
+              data-array="gallery"
+              data-direction="bottom"
             >
               {tab === TABS[0].key &&
                 (isLoading
@@ -123,7 +126,11 @@ const Gallery = () => {
           </Container>
         </div>
 
-        <Container className={s.gallery_btn}>
+        <Container
+          className={s.gallery_btn}
+          data-appear="gallery"
+          data-direction="bottom"
+        >
           <Button href="/" variant="secondary">
             ПЕРЕГЛЯНУТИ ВСІ ФОТОГРАФІЇ
           </Button>
