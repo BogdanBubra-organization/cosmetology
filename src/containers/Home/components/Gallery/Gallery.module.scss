@@ -4,6 +4,7 @@
   display: grid;
   justify-items: center;
   padding-top: 32px;
+  text-align: center;
 
   @include b-up(lg) {
     padding-bottom: 32px;
@@ -27,7 +28,11 @@
     padding-bottom: 16px;
   }
 
-  &_list {
+  &_mask {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: -20px;
+    margin-bottom: -20px;
     mask-image: linear-gradient(
       90deg,
       transparent 0%,
@@ -35,45 +40,29 @@
       white 94%,
       transparent 100%
     );
-
-    @include b-up(lg) {
-      padding: 20px 32px;
-      margin: -20px -32px;
-    }
-
-    @include b-o(md) {
-      padding: 20px 24px;
-      margin: -20px -24px;
-    }
-
-    @include b-d(md) {
-      padding: 20px 16px;
-      margin: -20px -16px;
-    }
   }
 
   &_wrapper {
-    padding-bottom: 20px;
-    margin-bottom: -20px;
+    width: 100%;
+    padding: 20px 0;
+    margin: -20px 0;
     overflow: hidden;
+  }
 
-    @include b-up(lg) {
-      width: calc(100% + 64px);
-      padding-right: 32px;
-      padding-left: 32px;
+  &_placeholder {
+    overflow: hidden;
+    border-radius: 16px;
+
+    @include b-btw(sm, xl) {
+      &:nth-child(n + 3) {
+        display: none;
+      }
     }
 
-    @include b-o(md) {
-      width: calc(100% + 48px);
-      padding-right: 24px;
-      padding-left: 24px;
-    }
-
-    @include b-d(md) {
-      width: calc(100% + 32px);
-      padding-right: 16px;
-      padding-left: 16px;
-      margin-top: 8px;
+    @include b-d(sm) {
+      &:nth-child(n + 2) {
+        display: none;
+      }
     }
   }
 

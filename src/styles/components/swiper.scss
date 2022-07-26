@@ -94,25 +94,16 @@
         column-gap: 8px;
       }
     }
+
     #{$this}-slide {
-      overflow: hidden;
+      margin-right: 0 !important;
       color: $gray-600;
-      border-radius: 16px;
       @include b-up(lg) {
-        min-width: 448px;
         min-height: 448px;
       }
 
       @include b-d(lg) {
         min-height: 380px;
-      }
-
-      @include b-btw(md, lg) {
-        min-width: 352px;
-      }
-
-      @include b-d(md) {
-        min-width: 343px;
       }
     }
   }

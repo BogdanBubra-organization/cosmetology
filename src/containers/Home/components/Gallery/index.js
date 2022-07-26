@@ -33,8 +33,6 @@ const Gallery = () => {
   const [tab, setTab] = useState(TABS[0].key)
   const { posts, isLoading } = usePosts(5)
 
-  const [swiperRef, setSwiperRef] = useState(null)
-
   const [modal, setModal] = useState({ show: false, active: 0 })
 
   const handleModalShow = (active) => {
@@ -47,9 +45,9 @@ const Gallery = () => {
 
   return (
     <>
-      <Container as="section" className={s.gallery}>
-        <h2>Галерея</h2>
-        <div className={s.gallery_wrapper}>
+      <section className={s.gallery}>
+        <Container>
+          <h2>Галерея</h2>
           <Nav variant="gallery">
             {TABS.map(({ key, text }) => (
               <Nav.Item key={key}>
@@ -65,22 +63,35 @@ const Gallery = () => {
               </Nav.Item>
             ))}
           </Nav>
+        </Container>
 
-          <div className={s.gallery_list}>
+        <div className={s.gallery_wrapper}>
+          <Container className={s.gallery_mask}>
             <Swiper
               className="swiper--gallery"
-              onSwiper={setSwiperRef}
-              slidesPerView="auto"
+              slidesPerView={1}
+              spaceBetween={8}
               navigation={{
                 prevEl: '.swiper-button-prev',
                 nextEl: '.swiper-button-next',
+              }}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                768: { spaceBetween: 16, slidesPerView: 2 },
+                1200: { spaceBetween: 16, slidesPerView: 3 },
               }}
               modules={[Navigation]}
             >
               {tab === TABS[0].key &&
                 (isLoading
-                  ? [...Array(5)].map((_, i) => (
-                      <SwiperSlide className="placeholder-glow" key={`p${i}`}>
+                  ? [...Array(3)].map((_, i) => (
+                      <SwiperSlide
+                        className={cn(
+                          'placeholder-glow',
+                          s.gallery_placeholder
+                        )}
+                        key={`p${i}`}
+                      >
                         <Placeholder
                           style={{ width: '100%', height: '100%' }}
                         />
@@ -109,20 +120,18 @@ const Gallery = () => {
                 <Icon name="swiper-arrow" size={24} />
               </Buttons>
             </Swiper>
-          </div>
+          </Container>
         </div>
-        <div className={s.gallery_btn}>
+
+        <Container className={s.gallery_btn}>
           <Button href="/" variant="secondary">
             ПЕРЕГЛЯНУТИ ВСІ ФОТОГРАФІЇ
           </Button>
-        </div>
-      </Container>
+        </Container>
+      </section>
 
       <Modal show={modal.show} onHide={handleHideModal} variant="swiper">
         <Swiper
-          onSlideChange={(swiper) => {
-            if (swiper.activeIndex) swiperRef.slideTo(swiper.activeIndex - 1)
-          }}
           effect="fade"
           navigation={{
             prevEl: '.swiper-button-prev',
