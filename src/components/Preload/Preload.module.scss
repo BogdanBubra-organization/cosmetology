@@ -8,14 +8,8 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  visibility: visible;
   background: $white;
   transition: opacity 500ms ease-out, visibility 500ms ease-out;
-
-  &.hide {
-    visibility: hidden;
-    opacity: 0;
-  }
 
   &::before,
   &::after {
@@ -63,5 +57,10 @@
     @include b-d(md) {
       max-width: 280px;
     }
+  }
+
+  &.hide {
+    visibility: hidden;
+    opacity: 0;
   }
 }
