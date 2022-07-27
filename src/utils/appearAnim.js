@@ -27,10 +27,10 @@ const appearAnim = ({ id }) => {
   const elArray = document.querySelectorAll(`[data-appear="${id}"]`)
 
   const tl = gsap.timeline({
-    delay: id === 'hero' || id === 'header' ? 1 : 0,
+    delay: id === 'hero' || id === 'header' ? 0.5 : 0,
     defaults: {
       opacity: 0,
-      duration: 0.8,
+      duration: id === 'hero' || id === 'header' ? 1.5 : 0.8,
       ease: 'power1.inOut',
     },
   })
