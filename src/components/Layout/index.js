@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import Header from '~components/Header'
@@ -26,6 +26,7 @@ const Layout = ({ children, isMessengersPage }) => {
     }
   `)
 
+  const layoutRef = useRef(null)
   const [isPreloaded, setIsPreloaded] = useState(
     typeof window !== 'undefined'
       ? sessionStorage.getItem('isPreloaded')
@@ -37,9 +38,16 @@ const Layout = ({ children, isMessengersPage }) => {
     setIsPreloaded(true)
   }
 
+  useEffect(() => {
+    if (isPreloaded) {
+      layoutRef.current.style.visibility = 'visible'
+      layoutRef.current.style.opacity = 1
+    }
+  }, [isPreloaded])
+
   return (
     <>
-      <div className={s.layout}>
+      <div className={s.layout} ref={layoutRef}>
         <Header siteTitle={data.site.siteMetadata?.title} />
         <main className="main">{children}</main>
         <Footer

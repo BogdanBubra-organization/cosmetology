@@ -1,22 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import cn from 'classnames'
+import React, { useEffect, useRef } from 'react'
 
 import * as s from './Preload.module.scss'
 
 const Preload = ({ handlePreload }) => {
-  const [loader, setLoader] = useState(true)
+  const preloadRef = useRef(null)
 
   useEffect(() => {
     setTimeout(() => {
-      setLoader(false)
+      preloadRef.current.classList.add(s.hide)
     }, 1000)
     setTimeout(() => {
       handlePreload()
-    }, 2000)
+    }, 1500)
   }, [])
 
   return (
-    <div className={cn(s.preload, { [s.hide]: !loader })}>
+    <div className={s.preload} ref={preloadRef}>
       <div className={s.preload_logo}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
