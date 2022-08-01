@@ -4,24 +4,29 @@ import Icon from '~components/Icon'
 import DATA from './constants'
 import * as s from './Social.module.scss'
 
-const Social = ({ isMessengers }) => {
+const Social = ({ variant, isWithIcon }) => {
   return (
-    <ul className={cn(s.social, { [s.messengers]: isMessengers })}>
+    <ul className={cn(s.social, { [s[variant]]: variant })}>
       {DATA.map((item) => (
         <li key={item.name}>
           <a
             {...item}
             className={
-              !isMessengers
+              variant === 'footer'
                 ? s.social_link
-                : cn('btn btn-secondary btn-icon', [s.social_messengers])
+                : 'btn btn-secondary btn-icon'
             }
           >
-            <Icon name={item.name} size={!isMessengers ? 40 : 20} />
-            {isMessengers && (
+            {isWithIcon && (
+              <Icon name={item.name} size={variant === 'footer' ? 40 : 20} />
+            )}
+
+            {variant !== 'footer' && (
               <>
                 <span className={s.social_name}>{item.name}</span>
-                <Icon name="arrow-right" size={20} />
+                {variant === 'messengers' && (
+                  <Icon name="arrow-right" size={20} />
+                )}
               </>
             )}
           </a>
