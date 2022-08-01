@@ -6,6 +6,7 @@ import S from '~components/seo'
 import useMatchMedia from '~hooks/useMatchMedia'
 import { appearAnim, resetAnim } from '~utils/appearAnim'
 import usePosts from '~hooks/usePosts'
+import Lights from '~components/Lights'
 import Hero from './components/Hero'
 import Services from './components/Services'
 import Reviews from './components/Reviews'
@@ -36,6 +37,7 @@ const Home = () => {
   return (
     <Layout>
       <S />
+      <Lights />
       <Hero isPreloaded={isPreloaded} isDesktop={isDesktop} />
       <Services />
       <Gallery posts={posts} isLoading={isLoading} />

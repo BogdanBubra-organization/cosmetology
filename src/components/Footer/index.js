@@ -35,7 +35,7 @@ const Footer = ({ isMessengersPage }) => {
           </a>
         </div>
         <Menu variant="footer" />
-        <Social variant="footer" />
+        <Social variant="footer" isWithIcon />
         <div className={s.footer_copy}>
           <span>Всі права захищено</span>{' '}
           <span>© Клініка косметології {currentYear}</span>
