@@ -89,7 +89,7 @@
     &::before,
     &::after {
       left: -54px;
-      background: #569a3d;
+      background: $teal;
       filter: blur(46px);
       border-radius: 100%;
       opacity: 0.1;
