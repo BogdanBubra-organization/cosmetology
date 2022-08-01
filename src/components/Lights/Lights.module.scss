@@ -25,7 +25,7 @@
   &::before,
   &::after {
     content: '';
-    background: #569a3d;
+    background: $teal;
   }
 
   &::before {

@@ -1,0 +1,65 @@
+@import '~styles/mixins';
+
+.abouthero {
+  display: grid;
+  row-gap: 64px;
+  justify-items: center;
+  padding-top: 100px;
+  padding-bottom: 60px;
+
+  &_title {
+    justify-self: center;
+    max-width: 867px;
+    text-align: center;
+
+    span {
+      position: relative;
+      color: #1b2f15;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        content: '';
+        background: currentcolor;
+        transform: translate(-3%, -28%);
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath fill='%23000' d='m10 0 1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6L10 0Z'/%3E%3C/svg%3E");
+      }
+    }
+  }
+
+  &_ill {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      bottom: 4%;
+      left: -40%;
+      width: 529px;
+      height: 136px;
+      content: '';
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 472 138'%3E%3Cpath stroke='%23E3E9E0' stroke-width='2' d='M-58 1C56.6 82.5 389.7 195.7 336.6 101.1 270-17 533.6 197 456.8 63.4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  &_infoContainer {
+    display: grid;
+    grid-template-columns: auto 525px;
+    column-gap: 100px;
+    align-items: center;
+  }
+
+  &_content {
+    display: grid;
+    row-gap: 24px;
+  }
+
+  &_descr {
+    margin-bottom: 24px;
+    letter-spacing: normal;
+  }
+}
