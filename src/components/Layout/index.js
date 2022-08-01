@@ -10,7 +10,6 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import Header from '~components/Header'
 import Footer from '~components/Footer'
-import Lights from '~components/Lights'
 import Preload from '~components/Preload'
 import '~styles/app.scss'
 import * as s from './style.module.scss'
@@ -54,7 +53,6 @@ const Layout = ({ children, isMessengersPage }) => {
           isMessengersPage={isMessengersPage}
           siteTitle={data.site.siteMetadata?.title}
         />
-        <Lights />
       </div>
       {!isPreloaded && <Preload handlePreload={handlePreload} />}
     </>

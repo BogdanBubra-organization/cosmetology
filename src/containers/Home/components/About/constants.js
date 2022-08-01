@@ -9,7 +9,7 @@ const DATA = {
   ],
   btn: {
     text: 'Детальніше про клініку',
-    link: '#about',
+    link: '/aboutUs',
   },
 }
 

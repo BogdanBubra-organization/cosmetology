@@ -11,22 +11,6 @@
   margin: 0;
   list-style: none;
 
-  &:not(.messengers) {
-    grid-area: social;
-    grid-auto-flow: column;
-    column-gap: 12px;
-    justify-content: end;
-  }
-
-  &.messengers {
-    row-gap: 12px;
-
-    a {
-      grid-template-columns: auto 1fr auto;
-      padding: 24px;
-    }
-  }
-
   &_link {
     color: $green;
 
@@ -39,18 +23,56 @@
     }
   }
 
-  &_messengers {
-    svg {
-      color: $primary;
+  &_name {
+    font-size: 14px;
+    line-height: 1.43;
+    text-transform: capitalize;
+  }
+
+  &.footer,
+  &.about {
+    grid-auto-flow: column;
+  }
+
+  &.footer {
+    grid-area: social;
+    column-gap: 12px;
+    justify-content: end;
+  }
+
+  &.about {
+    column-gap: 8px;
+    justify-content: start;
+
+    #{$this}_name {
+      font-weight: 400;
+      color: transparent;
+      background: $gradient;
+      background-clip: text;
+    }
+
+    a {
+      padding: 10px 16px;
+      border-radius: 8px;
     }
   }
 
-  &_name {
-    padding-right: 4px;
-    padding-left: 4px;
-    font-size: 14px;
-    line-height: 0.143;
-    text-align: left;
-    text-transform: capitalize;
+  &.messengers {
+    row-gap: 12px;
+
+    #{$this}_name {
+      padding-right: 4px;
+      padding-left: 4px;
+      text-align: left;
+    }
+
+    a {
+      grid-template-columns: auto 1fr auto;
+      padding: 24px;
+    }
+
+    svg {
+      color: $primary;
+    }
   }
 }

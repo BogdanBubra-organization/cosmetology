@@ -58,3 +58,14 @@ $umaplat: (
   $style: italic,
   $unicodeMap: $umapcyr
 );
+@include cormorant.fontFace(
+  $weight: 500,
+  $fontName: 'Cormorant',
+  $unicodeMap: map-merge($umapcyr, $umaplat)
+);
+@include cormorant.fontFace(
+  $weight: 500,
+  $style: italic,
+  $fontName: 'Cormorant',
+  $unicodeMap: map-merge($umapcyr, $umaplat)
+);

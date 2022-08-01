@@ -5,7 +5,7 @@ const MENU = [
   },
   {
     name: 'Про нас',
-    link: '#about',
+    link: '/aboutUs',
   },
   {
     name: 'Фотогалерея',
