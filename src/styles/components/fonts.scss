@@ -1,6 +1,6 @@
 /* stylelint-disable scss/operator-no-unspaced */
-@use '~@fontsource/inter/scss/mixins' as inter;
 @use '~@fontsource/cormorant/scss/mixins' as cormorant;
+@use '~@fontsource/inter/scss/mixins' as inter;
 
 $umapcyr: (
   cyrillic: (
@@ -32,40 +32,14 @@ $umaplat: (
   ),
 );
 
-@include inter.fontFace(
-  $fontName: 'Inter',
-  $unicodeMap: map-merge($umapcyr, $umaplat)
-);
-@include inter.fontFace(
+@include cormorant.fontFace($fontName: 'Cormorant', $unicodeMap: $umapcyr);
+@include cormorant.fontFace(
   $weight: 500,
-  $fontName: 'Inter',
-  $unicodeMap: map-merge($umapcyr, $umaplat)
-);
-@include inter.fontFace(
-  $weight: 600,
-  $fontName: 'Inter',
+  $fontName: 'Cormorant',
   $unicodeMap: map-merge($umapcyr, $umaplat)
 );
 
-@include cormorant.fontFace($fontName: 'Cormorant', $unicodeMap: $umapcyr);
-@include cormorant.fontFace(
-  $fontName: 'Cormorant',
-  $weight: 500,
-  $unicodeMap: $umapcyr
-);
-@include cormorant.fontFace(
-  $fontName: 'Cormorant',
-  $style: italic,
-  $unicodeMap: $umapcyr
-);
-@include cormorant.fontFace(
-  $weight: 500,
-  $fontName: 'Cormorant',
-  $unicodeMap: map-merge($umapcyr, $umaplat)
-);
-@include cormorant.fontFace(
-  $weight: 500,
-  $style: italic,
-  $fontName: 'Cormorant',
+@include inter.fontFaceVariable(
+  $fontName: 'Inter',
   $unicodeMap: map-merge($umapcyr, $umaplat)
 );
