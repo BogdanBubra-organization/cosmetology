@@ -1,3 +1,14 @@
+h1 {
+  @include b-btw(md, lg) {
+    font-size: 48px;
+    line-height: 1.17;
+  }
+
+  @include b-d(md) {
+    font-size: 26px;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -32,15 +43,6 @@ h3 {
   color: transparent;
   background: $gradient;
   background-clip: text;
-
-  @include b-btw(md, lg) {
-    font-size: 48px;
-    line-height: 1.17;
-  }
-
-  @include b-d(md) {
-    font-size: 26px;
-  }
 }
 
 h3 {

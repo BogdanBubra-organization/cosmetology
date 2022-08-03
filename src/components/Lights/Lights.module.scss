@@ -96,3 +96,49 @@
     }
   }
 }
+
+.bottomLights {
+  position: absolute;
+  inset: auto 0 0;
+  height: 100vh;
+
+  &::before,
+  &::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    filter: blur(154px);
+    transform: translateZ(0);
+  }
+
+  &::before {
+    bottom: 0;
+    width: 310px;
+    height: 210px;
+    background: $teal;
+    opacity: 0.3;
+
+    @include b-up(md) {
+      left: calc(50% - 500px);
+    }
+    @include b-d(md) {
+      bottom: 20%;
+      left: -70px;
+    }
+  }
+
+  &::after {
+    width: 159px;
+    height: 159px;
+    background: $yellow;
+
+    @include b-up(md) {
+      right: calc(50% - 159px);
+      bottom: -50px;
+    }
+    @include b-d(md) {
+      right: -50px;
+      bottom: 50%;
+    }
+  }
+}
