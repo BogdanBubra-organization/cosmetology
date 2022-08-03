@@ -62,7 +62,7 @@ const Hero = ({ isDesktop, isPreloaded }) => {
             <span className={s.hero_ill_line} ref={lineRef} />
           </div>
         </div>
-        <Brands />
+        <Brands isWithTitle />
       </Container>
       <ModalOrder
         variant="signup"
