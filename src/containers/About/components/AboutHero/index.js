@@ -24,7 +24,10 @@ const AboutHero = () => {
           />
         </div>
         <div className={s.abouthero_content}>
-          <h3 dangerouslySetInnerHTML={{ __html: DATA.content.title }} />
+          <h3
+            className={s.abouthero_subtitle}
+            dangerouslySetInnerHTML={{ __html: DATA.content.title }}
+          />
           <p className={s.abouthero_descr}>{DATA.content.descr}</p>
           <Social variant="about" isBtn isWithText />
         </div>

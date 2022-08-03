@@ -2,10 +2,23 @@
 
 .quote {
   position: relative;
-  max-width: 922px;
-  padding: 36px 32px;
   margin: 0;
   text-align: center;
+
+  @include b-up(lg) {
+    max-width: 922px;
+    padding: 36px 32px;
+  }
+
+  @include b-o(md) {
+    max-width: 662px;
+    padding: 20px 38px;
+  }
+
+  @include b-d(md) {
+    max-width: 343px;
+    padding: 32px 0;
+  }
 
   &::before,
   &::after {
@@ -30,8 +43,27 @@
   &_wrapper {
     display: grid;
     justify-items: center;
-    padding-top: 60px;
-    padding-bottom: 66px;
+
+    @include b-up(xl) {
+      padding-bottom: 66px;
+    }
+
+    @include b-up(lg) {
+      padding-top: 60px;
+    }
+
+    @include b-btw(md, xl) {
+      padding-bottom: 45px;
+    }
+
+    @include b-o(md) {
+      padding-top: 20px;
+    }
+
+    @include b-d(md) {
+      padding-top: 56px;
+      padding-bottom: 20px;
+    }
   }
 
   &_title {
@@ -41,5 +73,19 @@
     background: $gradient;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    @include b-up(lg) {
+      line-height: 1.08;
+    }
+
+    @include b-o(md) {
+      font-size: 32px;
+      line-height: 1.25;
+    }
+
+    @include b-d(md) {
+      font-size: 24px;
+      line-height: 1.33;
+    }
   }
 }
