@@ -8,10 +8,13 @@ import * as s from './Founder.module.scss'
 
 const Founder = () => {
   return (
-    <Container className={s.founder}>
+    <Container as="section" className={s.founder}>
       <div className={s.founder_infoContainer}>
         <div className={s.founder_content}>
-          <h3 dangerouslySetInnerHTML={{ __html: DATA.name }} />
+          <h3
+            className={s.founder_title}
+            dangerouslySetInnerHTML={{ __html: DATA.name }}
+          />
           <p className={s.founder_position}>
             {DATA.position.map((el, i) => (
               <span key={`s${i}`}>{el}</span>
