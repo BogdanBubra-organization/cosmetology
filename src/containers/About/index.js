@@ -11,11 +11,11 @@ import Quote from './components/Quote'
 const About = () => (
   <Layout>
     <S title="Про нас" />
-    <Lights />
     <AboutHero />
     <Quote />
     <Founder />
     <Collab />
+    <Lights variant="about" />
   </Layout>
 )
 
