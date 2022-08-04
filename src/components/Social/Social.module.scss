@@ -30,16 +30,14 @@
   }
 
   &.footer,
-  &.about, &.contacts {
+  &.about,
+  &.contacts {
     grid-auto-flow: column;
   }
 
-  &.footer,&.contacts{
-      column-gap: 12px;
-  }
-
-  &.footer {
-    grid-area: social;
+  &.footer,
+  &.contacts {
+    column-gap: 12px;
   }
 
   &.footer {
@@ -62,10 +60,6 @@
       padding: 10px 16px;
       border-radius: 8px;
     }
-  }
-
-  &.contacts{
-      justify-content: start;
   }
 
   &.messengers {
