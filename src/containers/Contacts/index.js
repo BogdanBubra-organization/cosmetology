@@ -15,7 +15,7 @@ const Contacts = () => (
     <Lights />
     <S title="Наші контакти" />
     <Container className={contactsWrapper}>
-      <h1 className={cn('h2', contactsTitle)}>наші контакти</h1>
+      <h1 className={cn('h2', contactsTitle)}>Наші контакти</h1>
       <ContactsMap />
       <ContactsInfo />
     </Container>
