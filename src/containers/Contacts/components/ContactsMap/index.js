@@ -6,7 +6,7 @@ import * as s from './ContactsMap.module.scss'
 const ContactsMap = () => {
   return (
     <section className={s.contactsmap}>
-      <h5>адреса</h5>
+      <h5>Адреса</h5>
       <AddresPin />
       <div className={s.contactsmap_wrapper}>
         <iframe
