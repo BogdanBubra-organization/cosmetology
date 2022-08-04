@@ -1,7 +1,7 @@
 import { GatsbyImage } from 'gatsby-plugin-image'
 import React, { useState } from 'react'
 import getImgWithBlurHash from '~utils/getImgWithBlurHash'
-import { Button } from 'react-bootstrap'
+import { Button, Ratio } from 'react-bootstrap'
 
 import ModalOrder from '~components/ModalOrder'
 import BulletedList from '~components/BulletedList'
@@ -17,11 +17,13 @@ const ProductHero = ({ name, info }) => {
       <section className={s.producthero}>
         <div className={s.producthero_ill}>
           <h5>Приклад роботи</h5>
-          <GatsbyImage
-            className={s.producthero_pic}
-            image={getImgWithBlurHash(workPic)}
-            alt={name}
-          />
+          <Ratio aspectRatio={15 / 17}>
+            <GatsbyImage
+              className={s.producthero_pic}
+              image={getImgWithBlurHash(workPic)}
+              alt={name}
+            />
+          </Ratio>
         </div>
         <div className={s.producthero_content}>
           <h3 className="h5">Про процедуру</h3>
