@@ -15,13 +15,13 @@ const Product = ({ data: { product, sameServices } }) => {
 
   return (
     <Layout>
-      <Lights />
       <Container>
         <S title={name} />
         <h1 className={cn('h2', productTitle)}>{name}</h1>
         <ProductHero {...product} />
         <SameProducts list={sameServices.edges} />
       </Container>
+      <Lights />
     </Layout>
   )
 }
@@ -37,12 +37,7 @@ export const pageQuery = graphql`
         list
         workPic {
           childImageSharp {
-            gatsbyImageData(
-              quality: 100
-              width: 680
-              height: 600
-              placeholder: NONE
-            )
+            gatsbyImageData(quality: 100, width: 680, placeholder: NONE)
             blurHash {
               base64Image
             }
