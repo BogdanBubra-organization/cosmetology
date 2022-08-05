@@ -39,7 +39,11 @@ const ProductHero = ({ name, info }) => {
           )}
 
           <div className={s.producthero_btn}>
-            <Button onClick={() => setShowOrder(true)}>
+            <Button
+              href="https://blknt.cc/cosmetology"
+              target="_blank"
+              rel="noreferrer"
+            >
               Записатись на процедуру
             </Button>
           </div>

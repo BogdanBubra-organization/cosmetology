@@ -14,7 +14,7 @@ module.exports = {
   polyfill: false,
   siteMetadata: {
     title: `Сosmetology Clinic`,
-    description: `Сайт знаходиться в розробці`,
+    description: `Це сучасна косметологічна клініка в Чернігові, де ви можете отримати професійні послуги висококваліфікованих спеціалістів з медичною освітою.`,
     domain: process.env.CF_PAGES_URL || 'cosmetology.ua',
   },
   plugins: [

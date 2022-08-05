@@ -43,7 +43,12 @@ const Hero = ({ isDesktop, isPreloaded }) => {
             </p>
           </div>
           <div className={s.hero_btns} data-appear="hero">
-            <Button className="btn-icon" onClick={() => setShowOrder(true)}>
+            <Button
+              className="btn-icon"
+              href="https://blknt.cc/cosmetology"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Icon name="tel" size={20} />
               <span className="btn-icon-text">{btnOrder}</span>
             </Button>
