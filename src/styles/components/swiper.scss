@@ -98,13 +98,6 @@
     #{$this}-slide {
       margin-right: 0 !important;
       color: $gray-600;
-      @include b-up(lg) {
-        min-height: 448px;
-      }
-
-      @include b-d(lg) {
-        min-height: 380px;
-      }
     }
   }
 }
