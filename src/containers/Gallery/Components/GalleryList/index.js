@@ -1,6 +1,5 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react'
-import { Placeholder } from 'react-bootstrap'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, EffectFade } from 'swiper'
 import usePosts from '~hooks/usePosts'
@@ -9,6 +8,7 @@ import TabSwitcher from '~components/TabSwitcher'
 import Icon from '~components/Icon'
 import SwiperButtons from '~components/SwiperButtons'
 import Modal from '~components/Modal'
+import GalleryPlaceholder from '~components/GalleryPlaceholder'
 import TABS from './constants'
 
 import * as s from './GalleryList.module.scss'
@@ -42,26 +42,23 @@ const GalleryList = ({ initialTab }) => {
                     className="placeholder-glow placeholder-gallery"
                     key={`p${i}`}
                   >
-                    <Placeholder />
+                    <GalleryPlaceholder />
                   </div>
                 ))
               : posts.map(({ id, ...post }) => (
-                  <div key={id}>
-                    <GalleryPhoto {...post} />
-                  </div>
+                  <GalleryPhoto key={id} {...post} />
                 )))}
 
           {tab === TABS[1].key &&
             [...Array(12)].map((_, i) => (
-              <div key={`p${i}`}>
-                <GalleryPhoto
-                  action={(e, id) => {
-                    e.preventDefault()
-                    handleModalShow(id)
-                  }}
-                  index={i}
-                />
-              </div>
+              <GalleryPhoto
+                action={(e, id) => {
+                  e.preventDefault()
+                  handleModalShow(id)
+                }}
+                key={`p${i}`}
+                index={i}
+              />
             ))}
         </div>
       </div>
