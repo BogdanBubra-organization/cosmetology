@@ -1,7 +1,32 @@
+@import '~styles/mixins';
+
 .serviceslist {
   display: grid;
-  row-gap: 60px;
-  padding-top: 48px;
-  padding-bottom: 32px;
   margin-bottom: 60px;
+
+  @include b-up(xl) {
+    row-gap: 60px;
+    padding-top: 48px;
+  }
+
+  @include b-d(xl) {
+    padding-top: 40px;
+  }
+
+  @include b-up(lg) {
+    padding-bottom: 32px;
+  }
+
+  @include b-o(lg) {
+    row-gap: 72px;
+  }
+
+  @include b-o(md) {
+    row-gap: 40px;
+    padding-bottom: 24px;
+  }
+
+  @include b-d(md) {
+    row-gap: 8px;
+  }
 }
