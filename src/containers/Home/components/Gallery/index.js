@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react'
-import { Button, Container, Placeholder } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, EffectFade } from 'swiper'
 import cn from 'classnames'
@@ -10,6 +10,7 @@ import Modal from '~components/Modal'
 import TabSwitcher from '~components/TabSwitcher'
 import SwiperButtons from '~components/SwiperButtons'
 import { Link } from 'gatsby'
+import GalleryPlaceholder from '~components/GalleryPlaceholder'
 import * as s from './Gallery.module.scss'
 import TABS from './constants'
 
@@ -66,13 +67,12 @@ const Gallery = ({ posts, isLoading }) => {
                       <SwiperSlide
                         className={cn(
                           'placeholder-glow',
+                          'placeholder-gallery',
                           s.gallery_placeholder
                         )}
                         key={`p${i}`}
                       >
-                        <Placeholder
-                          style={{ width: '100%', height: '100%' }}
-                        />
+                        <GalleryPlaceholder />
                       </SwiperSlide>
                     ))
                   : posts.map(({ id, ...post }) => (
