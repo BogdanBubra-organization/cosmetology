@@ -1,3 +1,5 @@
+@import '~styles/mixins';
+
 .serviceshero {
   display: grid;
   row-gap: 16px;
@@ -6,6 +8,12 @@
   text-align: center;
 
   &_descr {
-    max-width: 608px;
+    @include b-up(lg) {
+      max-width: 680px;
+    }
+
+    @include b-d(lg) {
+      max-width: 432px;
+    }
   }
 }
