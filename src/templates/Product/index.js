@@ -33,8 +33,10 @@ export const pageQuery = graphql`
     product: servicesJson(slug: { eq: $slug }) {
       name
       info {
-        descr
-        list
+        descr {
+          type
+          data
+        }
         workPic {
           childImageSharp {
             gatsbyImageData(quality: 100, width: 680, placeholder: NONE)
