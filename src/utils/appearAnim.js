@@ -56,7 +56,9 @@ const appearAnim = ({ id }) => {
     trigger: `#${id}`,
     start: '25% 75%',
     animation: tl,
-    markers: process.env.CF_PAGES_BRANCH !== 'master',
+    markers:
+      process.env.CF_PAGES_BRANCH !== 'master' ||
+      process.env.CF_PAGES_BRANCH !== 'dev',
   })
 }
 
