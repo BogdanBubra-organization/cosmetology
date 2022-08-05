@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Button, Container } from 'react-bootstrap'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 import Icon from '~components/Icon'
 import Brands from '~components/Brands'
-import ModalOrder from '~components/ModalOrder'
 import DATA from './constants'
 import * as s from './Hero.module.scss'
 import heroAnim from './anim'
@@ -13,8 +12,6 @@ const Hero = ({ isDesktop, isPreloaded }) => {
   const { title, descr, btnOrder, btnServices } = DATA
   const picRef = useRef(null)
   const lineRef = useRef(null)
-
-  const [showOrder, setShowOrder] = useState(false)
 
   useEffect(() => {
     if (!isPreloaded && isDesktop) {
@@ -69,11 +66,6 @@ const Hero = ({ isDesktop, isPreloaded }) => {
         </div>
         <Brands isWithTitle />
       </Container>
-      <ModalOrder
-        variant="signup"
-        show={showOrder}
-        onHide={() => setShowOrder(false)}
-      />
     </section>
   )
 }

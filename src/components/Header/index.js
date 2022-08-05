@@ -59,11 +59,7 @@ const Header = ({ siteTitle }) => {
         </Dropdown>
         <div className="dropdown-overlay" />
       </div>
-      <ModalOrder
-        variant="ask"
-        show={showOrder}
-        onHide={() => setShowOrder(false)}
-      />
+      <ModalOrder show={showOrder} onHide={() => setShowOrder(false)} />
     </Container>
   )
 }
