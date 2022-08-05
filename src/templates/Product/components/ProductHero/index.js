@@ -10,7 +10,7 @@ import * as s from './ProductHero.module.scss'
 const ProductHero = ({ name, info }) => {
   const [showOrder, setShowOrder] = useState(false)
 
-  const { workPic, descr, list } = info
+  const { workPic, descr } = info
 
   return (
     <>
@@ -27,16 +27,29 @@ const ProductHero = ({ name, info }) => {
         </div>
         <div className={s.producthero_content}>
           <h3 className="h5">Про процедуру</h3>
-          <div className={s.producthero_descr}>
-            {descr.map((el, i) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <p key={`p${i}`}>{el}</p>
-            ))}
-          </div>
-
-          {list?.length && (
-            <BulletedList list={list} className={s.producthero_list} />
-          )}
+          {descr.map(({ type, data }) => {
+            switch (type) {
+              case 'text':
+                return (
+                  <div className={s.producthero_descr}>
+                    {data.map((el, i) => (
+                      // eslint-disable-next-line react/no-array-index-key
+                      <p key={`p${i}`}>{el}</p>
+                    ))}
+                  </div>
+                )
+              case 'list':
+                return (
+                  <BulletedList
+                    list={data}
+                    className={s.producthero_list}
+                    withPunctuation
+                  />
+                )
+              default:
+                return null
+            }
+          })}
 
           <div className={s.producthero_btn}>
             <Button
