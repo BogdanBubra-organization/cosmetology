@@ -4,10 +4,8 @@ import { Button, Form } from 'react-bootstrap'
 import Modal from '~components/Modal'
 import { DATA, FEEDBACK } from './constants'
 
-const ModalOrder = ({ show, onHide, variant }) => {
-  const [mode, setMode] = useState(variant)
-
-  const { title, descr, fields, btn } = DATA[mode]
+const ModalOrder = ({ show, onHide }) => {
+  const { title, descr, fields, btn } = DATA
   const { finalTitle, finalDescr } = FEEDBACK
 
   const [state, handleSubmit, reset] = useForm('myForm')
@@ -27,9 +25,6 @@ const ModalOrder = ({ show, onHide, variant }) => {
   const handeExited = () => {
     reset()
     setValidated(false)
-    if (mode !== variant) {
-      setMode(variant)
-    }
   }
 
   return (
@@ -41,39 +36,27 @@ const ModalOrder = ({ show, onHide, variant }) => {
       descr={!state.succeeded ? descr : finalDescr}
     >
       {!state.succeeded && (
-        <>
-          <Form
-            noValidate
-            validated={validated}
-            onSubmit={onSubmit}
-            className="form"
-          >
-            {fields.map((field) => (
-              <Form.Group key={field.label} className="form-group">
-                <Form.Label
-                  className={field.required && 'form-label--required'}
-                >
-                  {field.label}
-                </Form.Label>
-                <Form.Control {...field} />
-              </Form.Group>
-            ))}
+        <Form
+          noValidate
+          validated={validated}
+          onSubmit={onSubmit}
+          className="form"
+        >
+          {fields.map((field) => (
+            <Form.Group key={field.label} className="form-group">
+              <Form.Label className={field.required && 'form-label--required'}>
+                {field.label}
+              </Form.Label>
+              <Form.Control {...field} />
+            </Form.Group>
+          ))}
 
-            <div className="form-btn">
-              <Button disabled={state.submitting} type="submit">
-                {btn}
-              </Button>
-            </div>
-          </Form>
-
-          {mode === 'signup' && (
-            <div className="modal-bottom">
-              <Button onClick={() => setMode('ask')} variant="secondary">
-                Маєте запитання?
-              </Button>
-            </div>
-          )}
-        </>
+          <div className="form-btn">
+            <Button disabled={state.submitting} type="submit">
+              {btn}
+            </Button>
+          </div>
+        </Form>
       )}
     </Modal>
   )
