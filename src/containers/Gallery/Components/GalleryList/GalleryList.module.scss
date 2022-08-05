@@ -14,5 +14,10 @@
     @include b-o(md) {
       grid-template-columns: repeat(2, 1fr);
     }
+
+    @include b-d(md) {
+      max-width: 600px;
+      margin: 0 auto;
+    }
   }
 }
