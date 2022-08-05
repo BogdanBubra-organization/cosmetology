@@ -50,9 +50,6 @@
   }
 
   &_placeholder {
-    overflow: hidden;
-    border-radius: 16px;
-
     @include b-btw(sm, xl) {
       &:nth-child(n + 3) {
         display: none;
