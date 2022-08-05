@@ -4,6 +4,8 @@ import cn from 'classnames'
 import Social from '~components/Social'
 import Menu from '~components/Menu'
 import AddresPin from '~components/AddressPin'
+import { useLocation } from '@gatsbyjs/reach-router'
+import { Link, withPrefix } from 'gatsby'
 import logo from './img/logo-min.svg'
 import * as s from './style.module.scss'
 
@@ -16,14 +18,25 @@ const Author = () => (
   </div>
 )
 
+const Logo = ({ alt }) => <img src={logo} width="31" height="41" alt={alt} />
+
 const Footer = ({ isMessengersPage }) => {
+  const location = useLocation()
+  const isHomepage = location.pathname === withPrefix('/')
+
   const currentYear = new Date().getFullYear()
 
   return !isMessengersPage ? (
     <footer className={s.footer}>
       <div className={s.footer_inner}>
         <div className={s.footer_info}>
-          <img src={logo} width="31" height="41" alt="Logo" />
+          {isHomepage ? (
+            <Logo alt="Cosmetology.ua" />
+          ) : (
+            <Link to="/">
+              <Logo alt="Cosmetology.ua" />
+            </Link>
+          )}
           <AddresPin />
         </div>
         <Menu variant="footer" />
