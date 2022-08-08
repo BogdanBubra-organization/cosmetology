@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button, Container, Dropdown } from 'react-bootstrap'
 import { useLocation } from '@gatsbyjs/reach-router'
 import { withPrefix, Link } from 'gatsby'
@@ -18,14 +18,29 @@ const ButtonAsk = ({ handleShowOrder }) => (
 )
 
 const Header = ({ siteTitle }) => {
+  const dropdownRef = useRef(null)
   const location = useLocation()
   const isHomepage = location.pathname === withPrefix('/')
+  const [show, setShow] = useState(false)
 
   const [showOrder, setShowOrder] = useState(false)
 
   const handleShowOrder = () => setShowOrder(true)
 
   const isMdDown = useMatchMedia('(max-width: 767px)')
+  const isLgDown = useMatchMedia('(max-width: 1023px)')
+
+  const handleToggle = (state) => {
+    document.querySelector('body').style.overflow = state ? 'hidden' : 'auto'
+    setShow(state)
+  }
+
+  useEffect(() => {
+    if (!isLgDown) {
+      document.querySelector('body').style.overflow = 'auto'
+      setShow(false)
+    }
+  }, [isLgDown])
 
   return (
     <Container id="header" as="header">
@@ -46,7 +61,7 @@ const Header = ({ siteTitle }) => {
           </div>
         )}
 
-        <Dropdown>
+        <Dropdown show={show} onToggle={handleToggle} ref={dropdownRef}>
           <Dropdown.Toggle className="dropdown-toggle" as="button" />
           <Dropdown.Menu
             popperConfig={{
