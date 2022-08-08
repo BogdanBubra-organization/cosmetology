@@ -6,10 +6,14 @@ import * as s from './BulletedList.module.scss'
 const BulletedList = ({ list = [], isLink, withPunctuation, className }) => {
   return (
     <ul className={cn(s.bulletedlist, { [className]: className })}>
-      {list.map((el, i) => (
-        <li className={s.bulletedlist_item} key={el}>
+      {list.map((el) => (
+        <li
+          className={cn(s.bulletedlist_item, {
+            [s.punctuation]: withPunctuation,
+          })}
+          key={el}
+        >
           {isLink ? <a href={`tel:${el}`}>{el}</a> : el}
-          {withPunctuation && i + 1 < list.length ? ';' : '.'}
         </li>
       ))}
     </ul>
