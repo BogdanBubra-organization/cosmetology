@@ -13,7 +13,7 @@ const Author = () => (
   <div className={s.footer_author}>
     Дизайн та розробка{' '}
     <a href="https://min.studio" target="_blank" rel="noreferrer">
-      min.studio
+      Мінімал
     </a>
   </div>
 )
