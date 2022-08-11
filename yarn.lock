@@ -1271,15 +1271,15 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@fontsource/cormorant@^4.5.7":
-  version "4.5.7"
-  resolved "https://registry.yarnpkg.com/@fontsource/cormorant/-/cormorant-4.5.7.tgz#0814dc8b74a91d2ecc7acb596797cd56d30fd6ef"
-  integrity sha512-FqHoVbuC5+8PnwkkBVhFnLqfm5K7QbnQIQPQMTdnWnjyxPO9dxmnRH1yRvbHvPz3cQwmgePLnpUatj58746Y8w==
+"@fontsource/cormorant@4.5.8":
+  version "4.5.8"
+  resolved "https://registry.yarnpkg.com/@fontsource/cormorant/-/cormorant-4.5.8.tgz#587cc1af17324db26739a59a6c361bd9894594f5"
+  integrity sha512-E+iZG4vOfOHCR0UFVIYDjGP9i2DUvYiRJlN7ap6Gmd0CSasJjG5F3iUdItm/yyACJ+Sg4re46EbCa1kpK1XMHA==
 
-"@fontsource/inter@4.5.11":
-  version "4.5.11"
-  resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-4.5.11.tgz#3c45014821e8c82b247a291f1944dd2764a2d1ed"
-  integrity sha512-toizzQkfXL8YJcG/f8j3EYXYGQe4OxiDEItThSigvHU+cYNDw8HPp3wLYQX745hddsnHqOGCM4exitFSBOU8+w==
+"@fontsource/inter@4.5.12":
+  version "4.5.12"
+  resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-4.5.12.tgz#a6236379bf710658db048d7087ec588754962cb6"
+  integrity sha512-bGKk4/8tube/nCk8hav0ZDBVbzJzc7m0Vt4xF5p15IN4YImwGdtKG38Oq5bU8xHNS+VfvbFFCepgQNj7Pr/Lvg==
 
 "@formspree/core@^2.7.0":
   version "2.7.0"
