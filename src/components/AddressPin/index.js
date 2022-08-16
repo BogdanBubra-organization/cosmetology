@@ -3,16 +3,12 @@ import Icon from '~components/Icon'
 
 import * as s from './AddressPin.module.scss'
 
-const AddressPin = () => {
+const AddressPin = (props) => {
+  const { title, href } = props || {}
   return (
-    <a
-      className={s.addresspin}
-      href="https://goo.gl/maps/3Z9kQF8BnPTp7f9h8"
-      target="_blank"
-      rel="noreferrer"
-    >
+    <a className={s.addresspin} href={href} target="_blank" rel="noreferrer">
       <Icon name="mark" size={20} />
-      м.Чернігів, вул. Гоголя, 3
+      {title}
     </a>
   )
 }

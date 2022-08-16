@@ -3,13 +3,13 @@ import { Button, Container, Dropdown } from 'react-bootstrap'
 import { useLocation } from '@gatsbyjs/reach-router'
 import { withPrefix, Link } from 'gatsby'
 import useMatchMedia from '~hooks/useMatchMedia'
-import PropTypes from 'prop-types'
 import ModalOrder from '~components/ModalOrder'
-import logo from '~img/logo.svg'
 import Menu from '~components/Menu'
 import * as s from './style.module.scss'
 
-const Logo = ({ alt }) => <img width="244" height="52" src={logo} alt={alt} />
+const Logo = ({ url, alt }) => (
+  <img width="244" height="52" src={url} alt={alt} />
+)
 
 const ButtonAsk = ({ handleShowOrder }) => (
   <Button onClick={handleShowOrder} variant="secondary">
@@ -17,7 +17,7 @@ const ButtonAsk = ({ handleShowOrder }) => (
   </Button>
 )
 
-const Header = ({ siteTitle }) => {
+const Header = ({ logo, menu }) => {
   const dropdownRef = useRef(null)
   const location = useLocation()
   const isHomepage = location.pathname === withPrefix('/')
@@ -46,14 +46,14 @@ const Header = ({ siteTitle }) => {
     <Container id="header" as="header">
       <div data-appear="header" data-direction="top" className={s.header}>
         {isHomepage ? (
-          <Logo alt={siteTitle} />
+          <Logo {...logo} />
         ) : (
           <Link to="/">
-            <Logo alt={siteTitle} />
+            <Logo {...logo} />
           </Link>
         )}
 
-        <Menu variant="header" />
+        <Menu data={menu} variant="header" />
 
         {!isMdDown && (
           <div className={s.header_btn}>
@@ -68,7 +68,7 @@ const Header = ({ siteTitle }) => {
               modifiers: [{ name: 'offset', options: { offset: [0, 16] } }],
             }}
           >
-            <Menu variant="dropdown" />
+            <Menu data={menu} variant="dropdown" />
             {isMdDown && <ButtonAsk handleShowOrder={handleShowOrder} />}
           </Dropdown.Menu>
         </Dropdown>
@@ -77,14 +77,6 @@ const Header = ({ siteTitle }) => {
       <ModalOrder show={showOrder} onHide={() => setShowOrder(false)} />
     </Container>
   )
-}
-
-Header.defaultProps = {
-  siteTitle: '',
-}
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
 }
 
 export default Header
