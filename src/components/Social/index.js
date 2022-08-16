@@ -1,23 +1,31 @@
 import React from 'react'
 import cn from 'classnames'
 import Icon from '~components/Icon'
-import DATA from './constants'
 import * as s from './Social.module.scss'
 
-const Social = ({ variant, isWithIcon, isBtn, isWithText, iconSize = 40 }) => {
+const Social = ({
+  data,
+  variant,
+  isWithIcon,
+  isBtn,
+  isWithText,
+  iconSize = 40,
+}) => {
   return (
     <ul className={cn(s.social, { [s[variant]]: variant })}>
-      {DATA.map((item) => (
-        <li key={item.name}>
+      {data?.map(({ name, href, isExternal }) => (
+        <li key={name}>
           <a
-            {...item}
+            href={href}
+            target={isExternal && '_blank'}
+            rel={isExternal && 'noreferrer'}
             className={isBtn ? 'btn btn-secondary btn-icon' : s.social_link}
           >
-            {isWithIcon && <Icon name={item.name} size={iconSize} />}
+            {isWithIcon && <Icon name={name} size={iconSize} />}
 
             {isWithText && (
               <>
-                <span className={s.social_name}>{item.name}</span>
+                <span className={s.social_name}>{name}</span>
                 {variant === 'messengers' && (
                   <Icon name="arrow-right" size={20} />
                 )}

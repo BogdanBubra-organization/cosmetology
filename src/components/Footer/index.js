@@ -1,26 +1,34 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
+import { StructuredText } from 'react-datocms'
+import { Link, withPrefix } from 'gatsby'
+import { useLocation } from '@gatsbyjs/reach-router'
 import cn from 'classnames'
+
 import Social from '~components/Social'
 import Menu from '~components/Menu'
 import AddresPin from '~components/AddressPin'
-import { useLocation } from '@gatsbyjs/reach-router'
-import { Link, withPrefix } from 'gatsby'
-import logo from './img/logo-min.svg'
 import * as s from './style.module.scss'
 
-const Author = () => (
+const Author = ({ data }) => (
   <div className={s.footer_author}>
-    Дизайн та розробка{' '}
-    <a href="https://min.studio" target="_blank" rel="noreferrer">
-      Мінімал
-    </a>
+    <StructuredText data={data?.value} />
   </div>
 )
 
-const Logo = ({ alt }) => <img src={logo} width="31" height="41" alt={alt} />
+const Logo = ({ url, alt }) => (
+  <img src={url} width="31" height="41" alt={alt} />
+)
 
-const Footer = ({ isMessengersPage }) => {
+const Footer = ({
+  address,
+  logo,
+  menu,
+  copyright,
+  socials,
+  developedBy,
+  isMessengersPage,
+}) => {
   const location = useLocation()
   const isHomepage = location.pathname === withPrefix('/')
 
@@ -31,26 +39,26 @@ const Footer = ({ isMessengersPage }) => {
       <div className={s.footer_inner}>
         <div className={s.footer_info}>
           {isHomepage ? (
-            <Logo alt="Cosmetology.ua" />
+            <Logo {...logo} />
           ) : (
             <Link to="/">
-              <Logo alt="Cosmetology.ua" />
+              <Logo {...logo} />
             </Link>
           )}
-          <AddresPin />
+          {address && <AddresPin {...address} />}
         </div>
-        <Menu variant="footer" />
-        <Social variant="footer" isWithIcon />
+        <Menu data={menu} variant="footer" />
+        <Social data={socials} variant="footer" isWithIcon />
         <div className={s.footer_copy}>
-          <span>Всі права захищено</span>{' '}
-          <span>© Клініка косметології {currentYear}</span>
+          <StructuredText data={copyright?.value} />
+          {currentYear}
         </div>
-        <Author />
+        <Author data={developedBy} />
       </div>
     </footer>
   ) : (
     <Container as="footer" className={cn(s.footer, s.messengers, 'animate')}>
-      <Author />
+      <Author data={developedBy} />
     </Container>
   )
 }
