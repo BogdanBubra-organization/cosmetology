@@ -4,15 +4,13 @@ import { Link } from 'gatsby'
 import { Nav } from 'react-bootstrap'
 import cn from 'classnames'
 
-import MENU from './constants'
-
-const Menu = ({ variant }) => {
+const Menu = ({ data, variant }) => {
   return (
     <Nav className={cn({ [`nav--${variant}`]: variant })} as="ul">
-      {MENU.map(({ name, link }) => (
-        <Nav.Item as="li" key={name}>
-          <Nav.Link as={Link} to={link} activeClassName="active">
-            {name}
+      {data?.map(({ title, to }) => (
+        <Nav.Item as="li" key={title}>
+          <Nav.Link as={Link} to={to} activeClassName="active">
+            {title}
           </Nav.Link>
         </Nav.Item>
       ))}
