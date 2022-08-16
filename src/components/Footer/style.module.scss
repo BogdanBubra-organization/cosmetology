@@ -5,6 +5,10 @@
     background: $white;
   }
 
+  p {
+    letter-spacing: normal;
+  }
+
   &.messengers {
     text-align: center;
 
@@ -99,13 +103,19 @@
   }
 
   &_copy {
+    display: flex;
+    flex-wrap: wrap;
     grid-area: copy;
-    color: $gray-400;
+    column-gap: 5px;
 
-    span {
-      @include b-d(md) {
-        display: block;
-      }
+    @include b-d(md) {
+      justify-content: center;
+      max-width: 250px;
+    }
+
+    &,
+    p {
+      color: $gray-400;
     }
   }
 
@@ -116,7 +126,7 @@
       justify-self: end;
     }
 
-    &,
+    p,
     a {
       color: $gray-600;
     }

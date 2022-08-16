@@ -14,12 +14,44 @@ import Preload from '~components/Preload'
 import '~styles/app.scss'
 import * as s from './style.module.scss'
 
-const Layout = ({ children, isMessengersPage }) => {
+const Layout = ({ isMessengersPage, children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+      datoCmsLayout {
+        header {
+          logo {
+            url
+            alt
+          }
+          menu {
+            title
+            to
+          }
+        }
+        footer {
+          address {
+            title
+            href
+          }
+          logo {
+            url
+            alt
+          }
+          menu {
+            title
+            to
+          }
+          copyright {
+            value
+          }
+          socials {
+            name
+            href
+            isExternal
+          }
+          developedBy {
+            value
+          }
         }
       }
     }
@@ -47,13 +79,14 @@ const Layout = ({ children, isMessengersPage }) => {
   return (
     <>
       <div className={s.layout} ref={layoutRef}>
-        <Header siteTitle={data.site.siteMetadata?.title} />
+        <Header {...data.datoCmsLayout.header?.[0]} />
         <main className="main">{children}</main>
         <Footer
+          {...data.datoCmsLayout.footer?.[0]}
           isMessengersPage={isMessengersPage}
-          siteTitle={data.site.siteMetadata?.title}
         />
       </div>
+
       {!isPreloaded && <Preload handlePreload={handlePreload} />}
     </>
   )
