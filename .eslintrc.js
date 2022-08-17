@@ -43,7 +43,7 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'arrow-body-style': 'off',
     'react/jsx-props-no-spreading': 'off',
-    'react/prop-types': 'warn',
+    'react/prop-types': 'off',
     'react/forbid-prop-types': 'off',
     'react/function-component-definition': [
       'error',

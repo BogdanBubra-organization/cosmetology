@@ -52,13 +52,11 @@ if (process.env.NODE_ENV === `development`) {
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
   const results = await graphql(`
     {
-      allServicesJson {
-        edges {
-          node {
-            slug
-            category
-            id
-          }
+      allDatoCmsService {
+        nodes {
+          slug
+          category
+          id
         }
       }
     }
@@ -69,15 +67,15 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     return
   }
 
-  results.data.allServicesJson.edges.forEach(({ node }) => {
-    if (node.slug) {
+  results.data.allDatoCmsService.nodes.forEach(({ slug, category, id }) => {
+    if (slug) {
       createPage({
-        path: `/services/${node.slug}`,
+        path: `/services/${slug}`,
         component: path.resolve('src/templates/Product/index.js'),
         context: {
-          slug: node.slug,
-          category: node.category,
-          id: node.id,
+          slug,
+          category,
+          id,
         },
       })
     }
