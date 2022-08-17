@@ -17,7 +17,7 @@ const About = (props) => {
     if (isDesktop) floatingAnim(picRef.current)
 
     return () => resetAnim(picRef.current)
-  }, [isDesktop, picRef])
+  }, [isDesktop])
 
   return (
     <Container as="section" id="about" className={s.about}>

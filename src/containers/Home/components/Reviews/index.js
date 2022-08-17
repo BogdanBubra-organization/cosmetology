@@ -11,7 +11,7 @@ const Reviews = ({ heading, reviews, linkText }) => {
         {heading}
       </h2>
       <ReviewsList
-        list={reviews}
+        reviews={reviews}
         className={s.reviews_list}
         variant="home"
         data-array="reviews"

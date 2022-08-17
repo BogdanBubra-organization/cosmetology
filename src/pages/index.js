@@ -87,6 +87,7 @@ export const query = graphql`
       reviews {
         heading
         reviews {
+          id
           name
           rating
           avatar {
