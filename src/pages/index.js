@@ -38,6 +38,34 @@ export const query = graphql`
           }
         }
       }
+      services {
+        heading
+        text
+        services {
+          slug
+          name
+          duration
+          previewImage {
+            url
+          }
+        }
+        link
+      }
+      gallery {
+        heading
+        tabs: galleryTabs {
+          text
+          key
+        }
+        link
+        images {
+          gatsbyImageData(
+            placeholder: NONE
+            forceBlurhash: true
+            imgixParams: { fit: "crop", auto: "compress,format" }
+          )
+        }
+      }
     }
   }
 `

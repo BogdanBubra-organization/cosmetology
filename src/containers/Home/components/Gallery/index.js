@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react'
 import { Button, Container } from 'react-bootstrap'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, EffectFade } from 'swiper'
 import cn from 'classnames'
@@ -12,10 +13,9 @@ import SwiperButtons from '~components/SwiperButtons'
 import { Link } from 'gatsby'
 import GalleryPlaceholder from '~components/GalleryPlaceholder'
 import * as s from './Gallery.module.scss'
-import TABS from './constants'
 
-const Gallery = ({ posts, isLoading }) => {
-  const [tab, setTab] = useState(TABS[0].key)
+const Gallery = ({ heading, tabs, link, images, posts, isLoading }) => {
+  const [tab, setTab] = useState(tabs[0].key)
 
   const [modal, setModal] = useState({ show: false, active: 0 })
 
@@ -36,9 +36,9 @@ const Gallery = ({ posts, isLoading }) => {
       <section id="gallery" className={s.gallery}>
         <Container>
           <h2 data-appear="gallery" data-direction="top">
-            Галерея
+            {heading}
           </h2>
-          <TabSwitcher tabs={TABS} activeTab={tab} action={handleTabChange} />
+          <TabSwitcher tabs={tabs} activeTab={tab} action={handleTabChange} />
         </Container>
 
         <div className={s.gallery_wrapper}>
@@ -61,7 +61,7 @@ const Gallery = ({ posts, isLoading }) => {
               data-array="gallery"
               data-direction="bottom"
             >
-              {tab === TABS[0].key &&
+              {tab === tabs[0].key &&
                 (isLoading
                   ? [...Array(3)].map((_, i) => (
                       <SwiperSlide
@@ -81,14 +81,15 @@ const Gallery = ({ posts, isLoading }) => {
                       </SwiperSlide>
                     )))}
 
-              {tab === TABS[1].key &&
-                [...Array(5)].map((_, i) => (
+              {tab === tabs[1].key &&
+                images.map((image, i) => (
                   <SwiperSlide key={`p${i}`}>
                     <GalleryPhoto
                       action={(e, id) => {
                         e.preventDefault()
                         handleModalShow(id)
                       }}
+                      image={image}
                       index={i}
                     />
                   </SwiperSlide>
@@ -107,7 +108,7 @@ const Gallery = ({ posts, isLoading }) => {
           data-direction="bottom"
         >
           <Button as={Link} to="/gallery" state={{ tab }} variant="secondary">
-            ПЕРЕГЛЯНУТИ ВСІ ФОТОГРАФІЇ
+            {link}
           </Button>
         </Container>
       </section>
@@ -122,12 +123,12 @@ const Gallery = ({ posts, isLoading }) => {
           modules={[Navigation, EffectFade]}
           initialSlide={modal.active}
         >
-          {[...Array(5)].map((_, i) => (
+          {images.map((image, i) => (
             <SwiperSlide key={`p${i}`}>
-              <img
-                src={`https://picsum.photos/id/2${i}/1024/600`}
-                alt="glr"
+              <GatsbyImage
                 className="modal-pic"
+                image={getImage(image)}
+                alt="Gallery"
               />
             </SwiperSlide>
           ))}

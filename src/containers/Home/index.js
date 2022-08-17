@@ -14,7 +14,7 @@ import About from './components/About'
 import Gallery from './components/Gallery'
 
 const Home = (props) => {
-  const { hero } = props
+  const { hero, services, gallery } = props
 
   const isPreloaded =
     typeof window !== 'undefined'
@@ -41,8 +41,8 @@ const Home = (props) => {
       <S />
       <Lights />
       <Hero {...hero[0]} isPreloaded={isPreloaded} isDesktop={isDesktop} />
-      <Services />
-      <Gallery posts={posts} isLoading={isLoading} />
+      <Services {...services[0]} />
+      <Gallery {...gallery[0]} posts={posts} isLoading={isLoading} />
       <About />
       <Reviews />
     </Layout>

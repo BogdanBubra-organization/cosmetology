@@ -1,11 +1,13 @@
 import React from 'react'
 import { Ratio } from 'react-bootstrap'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import * as s from './GalleryPhoto.module.scss'
 
 const GalleryPhoto = ({
   action,
   index,
+  image,
   permalink,
   media_url: pic,
   media_type: type,
@@ -33,10 +35,10 @@ const GalleryPhoto = ({
         onClick={(e) => action(e, index)}
         className={s.galleryphoto}
       >
-        <img
-          src={`https://picsum.photos/id/2${index}/800/430`}
-          alt="Gallery"
+        <GatsbyImage
           className={s.galleryphoto_pic}
+          image={getImage(image)}
+          alt="Gallery"
         />
       </button>
     </Ratio>
