@@ -1,16 +1,26 @@
 import React from 'react'
+import { Container } from 'react-bootstrap'
 
 import Layout from '~components/Layout'
 import S from '~components/seo'
 import ServicesHero from './components/ServicesHero'
-import ServicesList from './components/ServicesList'
+import Category from './components/Category'
+import * as s from './Services.module.scss'
 
-const Services = () => (
-  <Layout>
-    <S title="Послуги" />
-    <ServicesHero />
-    <ServicesList />
-  </Layout>
-)
+const Services = (props) => {
+  const { heading, text, injectionsCosmetology, careCosmetology } = props
+
+  return (
+    <Layout>
+      <S title="Послуги" />
+      <ServicesHero {...{ heading, text }} />
+
+      <Container as="section" className={s.services}>
+        <Category {...injectionsCosmetology[0]} />
+        <Category {...careCosmetology[0]} />
+      </Container>
+    </Layout>
+  )
+}
 
 export default Services
