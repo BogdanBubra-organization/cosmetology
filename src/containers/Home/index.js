@@ -13,7 +13,9 @@ import Reviews from './components/Reviews'
 import About from './components/About'
 import Gallery from './components/Gallery'
 
-const Home = () => {
+const Home = (props) => {
+  const { hero } = props
+
   const isPreloaded =
     typeof window !== 'undefined'
       ? sessionStorage.getItem('isPreloaded')
@@ -38,7 +40,7 @@ const Home = () => {
     <Layout>
       <S />
       <Lights />
-      <Hero isPreloaded={isPreloaded} isDesktop={isDesktop} />
+      <Hero {...hero[0]} isPreloaded={isPreloaded} isDesktop={isDesktop} />
       <Services />
       <Gallery posts={posts} isLoading={isLoading} />
       <About />
