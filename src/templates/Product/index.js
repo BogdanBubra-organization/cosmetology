@@ -10,7 +10,7 @@ import ProductHero from './components/ProductHero'
 import { productTitle } from './Product.module.scss'
 import SameProducts from './components/SameProducts'
 
-const Product = ({ data: { product, sameServices } }) => {
+const Product = ({ data: { product, sameServices, systemInfo } }) => {
   const { name } = product
 
   return (
@@ -18,8 +18,11 @@ const Product = ({ data: { product, sameServices } }) => {
       <Container>
         <S title={name} />
         <h1 className={cn('h2', productTitle)}>{name}</h1>
-        <ProductHero {...product} />
-        <SameProducts list={sameServices.edges} />
+        <ProductHero {...product} {...systemInfo} />
+        <SameProducts
+          list={sameServices.nodes}
+          title={systemInfo?.otherProceduresTitle}
+        />
       </Container>
       <Lights />
     </Layout>
@@ -30,38 +33,40 @@ export default Product
 
 export const pageQuery = graphql`
   query servicesQuery($slug: String!, $id: String!, $category: String!) {
-    product: servicesJson(slug: { eq: $slug }) {
+    product: datoCmsService(slug: { eq: $slug }) {
       name
-      info {
-        descr {
-          type
-          data
+      descr {
+        value
+      }
+      example {
+        url
+        video {
+          thumbnailUrl
         }
-        workPic {
-          childImageSharp {
-            gatsbyImageData(quality: 100, width: 680, placeholder: NONE)
-            blurHash {
-              base64Image
-            }
-          }
-        }
+        gatsbyImageData(
+          placeholder: NONE
+          forceBlurhash: true
+          imgixParams: { fit: "crop", auto: "compress,format" }
+        )
       }
     }
-    sameServices: allServicesJson(
+    sameServices: allDatoCmsService(
       limit: 4
       filter: { category: { eq: $category }, id: { ne: $id } }
     ) {
-      edges {
-        node {
-          id
-          slug
-          name
-          duration
-          preview {
-            publicURL
-          }
+      nodes {
+        slug
+        name
+        duration
+        previewImage {
+          url
         }
       }
+    }
+    systemInfo: datoCmsServiceSystemInfo {
+      imageTitle
+      descrTitle
+      otherProceduresTitle
     }
   }
 `
