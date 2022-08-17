@@ -1,15 +1,19 @@
 import React, { useEffect, useRef } from 'react'
 import { Button, Container } from 'react-bootstrap'
-import { StaticImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Icon from '~components/Icon'
 import Brands from '~components/Brands'
 import DATA from './constants'
 import * as s from './Hero.module.scss'
 import heroAnim from './anim'
 
-const Hero = ({ isDesktop, isPreloaded }) => {
-  const { title, descr, btnOrder, btnServices } = DATA
+const Hero = (props) => {
+  const { heading, text, image, brandsTitle, brands, isDesktop, isPreloaded } =
+    props
+
+  const { btnOrder, btnServices } = DATA
+
   const picRef = useRef(null)
   const lineRef = useRef(null)
 
@@ -29,14 +33,14 @@ const Hero = ({ isDesktop, isPreloaded }) => {
               data-appear="hero"
               data-direction="bottom"
             >
-              {title}
+              {heading}
             </h1>
             <p
               className={s.hero_descr}
               data-appear="hero"
               data-direction="bottom"
             >
-              {descr}
+              {text}
             </p>
           </div>
           <div className={s.hero_btns} data-appear="hero">
@@ -54,17 +58,11 @@ const Hero = ({ isDesktop, isPreloaded }) => {
             </Button>
           </div>
           <div className={s.hero_ill} ref={picRef}>
-            <StaticImage
-              src="./img/hero.jpg"
-              alt="Надання послуги"
-              quality={100}
-              placeholder="none"
-              loading="eager"
-            />
+            <GatsbyImage image={getImage(image)} alt="Надання послуги" />
             <span className={s.hero_ill_line} ref={lineRef} />
           </div>
         </div>
-        <Brands isWithTitle />
+        <Brands title={brandsTitle} list={brands} />
       </Container>
     </section>
   )
