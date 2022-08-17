@@ -7,14 +7,14 @@ import * as s from './Cards.module.scss'
 const Cards = ({ data, variant, ...rest }) => {
   return (
     <ul className={cn(s.cards, { [s[variant]]: variant })} {...rest}>
-      {data.map(({ node: { id, slug, name, duration, preview } }) => (
-        <li key={id} className={s.cards_item}>
+      {data?.map(({ slug, name, duration, previewImage }) => (
+        <li key={slug} className={s.cards_item}>
           <div className={s.cards_heading}>
             <span className={s.cards_name}>{name}</span>
             <span className={s.cards_label}>{duration}</span>
           </div>
           <div className={s.cards_pic}>
-            <img src={preview.publicURL} alt={name} />
+            <img src={previewImage?.url} alt={name} />
           </div>
           <div className={s.cards_btns}>
             <Button as={Link} to={`/services/${slug}`}>
