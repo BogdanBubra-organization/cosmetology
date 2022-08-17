@@ -7,15 +7,17 @@ import GalleryList from './Components/GalleryList'
 
 import { galleryWrapper } from './Gallery.module.scss'
 
-const Gallery = ({ location }) => {
+const Gallery = ({ heading, media, instagramTab, resultsTab, location }) => {
   const { state } = location
+
+  const tabs = [instagramTab, resultsTab]
 
   return (
     <Layout>
       <S title="Галерея" />
       <Container className={galleryWrapper}>
-        <h1>Фотогалерея</h1>
-        <GalleryList initialTab={state?.tab} />
+        <h1>{heading}</h1>
+        <GalleryList tabs={tabs} media={media} initialTab={state?.tab} />
       </Container>
     </Layout>
   )

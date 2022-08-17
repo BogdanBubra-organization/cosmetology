@@ -1,21 +1,23 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, EffectFade } from 'swiper'
+
 import usePosts from '~hooks/usePosts'
 import GalleryMedia from '~components/GalleryMedia'
 import TabSwitcher from '~components/TabSwitcher'
 import Icon from '~components/Icon'
 import SwiperButtons from '~components/SwiperButtons'
 import Modal from '~components/Modal'
+import MediaWrap from '~components/MediaWrap'
 import GalleryPlaceholder from '~components/GalleryPlaceholder'
-import TABS from './constants'
 
 import * as s from './GalleryList.module.scss'
 
 const TAB_KEYS = ['instagram', 'gallery']
 
-const GalleryList = ({ initialTab }) => {
+const GalleryList = ({ tabs, media, initialTab }) => {
   const [tab, setTab] = useState(initialTab || TAB_KEYS[0])
   const [modal, setModal] = useState({ show: false, active: 0 })
   const { posts, isLoading } = usePosts()
@@ -36,7 +38,7 @@ const GalleryList = ({ initialTab }) => {
     <>
       <div className={s.gallerylist}>
         <TabSwitcher
-          tabs={TABS}
+          tabs={tabs}
           tabKeys={TAB_KEYS}
           activeTab={tab}
           action={handleTabChange}
@@ -57,13 +59,14 @@ const GalleryList = ({ initialTab }) => {
                 )))}
 
           {tab === TAB_KEYS[1] &&
-            [...Array(12)].map((_, i) => (
+            media.map((item, i) => (
               <GalleryMedia
                 action={(e, id) => {
                   e.preventDefault()
                   handleModalShow(id)
                 }}
                 key={`p${i}`}
+                media={item}
                 index={i}
               />
             ))}
@@ -80,13 +83,15 @@ const GalleryList = ({ initialTab }) => {
           modules={[Navigation, EffectFade]}
           initialSlide={modal.active}
         >
-          {[...Array(12)].map((_, i) => (
+          {media.map((item, i) => (
             <SwiperSlide key={`p${i}`}>
-              <img
-                src={`https://picsum.photos/id/2${i}/1024/600`}
-                alt="glr"
-                className="modal-pic"
-              />
+              <MediaWrap media={item}>
+                <GatsbyImage
+                  className="modal-pic"
+                  image={getImage(item)}
+                  alt="Gallery"
+                />
+              </MediaWrap>
             </SwiperSlide>
           ))}
 
