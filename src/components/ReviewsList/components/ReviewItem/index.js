@@ -1,15 +1,20 @@
 import React from 'react'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import cn from 'classnames'
 import Rating from './components/Rating'
 
 import * as s from './ReviewItem.module.scss'
 
-const ReviewItem = ({ name, rating, text, date, index, variant }) => {
+const ReviewItem = ({ name, rating, avatar, text, date, variant }) => {
   return (
     <div className={cn(s.reviewitem, { [s[variant]]: variant })}>
       <div className={s.reviewitem_heading}>
         <div className={s.reviewitem_pic}>
-          <img src={`https://picsum.photos/124?${index}`} alt={name} />
+          <GatsbyImage
+            className={s.about_pic}
+            image={getImage(avatar)}
+            alt={name}
+          />
         </div>
         <span className={s.reviewitem_name}>{name}</span>
         <Rating rating={rating} />
@@ -17,7 +22,7 @@ const ReviewItem = ({ name, rating, text, date, index, variant }) => {
       <p className={s.reviewitem_text}>{text}</p>
       <p className={s.reviewitem_date}>
         Дата:{' '}
-        <time className={s.reviewitem_time} dateTime="2022-09-13">
+        <time className={s.reviewitem_time} dateTime={date}>
           {date}
         </time>
       </p>

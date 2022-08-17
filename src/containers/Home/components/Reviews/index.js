@@ -2,20 +2,17 @@ import React from 'react'
 import { Button, Container } from 'react-bootstrap'
 import { Link } from 'gatsby'
 import ReviewsList from '~components/ReviewsList'
-import DATA from './constants'
 import * as s from './Reviews.module.scss'
 
-const Reviews = () => {
-  const { title, btn } = DATA
-
+const Reviews = ({ heading, reviews, link }) => {
   return (
     <Container as="section" id="reviews" className={s.reviews}>
       <h2 data-array="reviews" data-direction="top">
-        {title}
+        {heading}
       </h2>
       <ReviewsList
+        list={reviews}
         className={s.reviews_list}
-        limit={3}
         variant="home"
         data-array="reviews"
         data-direction="bottom"
@@ -25,8 +22,8 @@ const Reviews = () => {
         data-appear="reviews"
         data-direction="bottom"
       >
-        <Button variant="secondary" as={Link} to={btn.link}>
-          {btn.text}
+        <Button variant="secondary" as={Link} to="/reviews">
+          {link}
         </Button>
       </div>
     </Container>
