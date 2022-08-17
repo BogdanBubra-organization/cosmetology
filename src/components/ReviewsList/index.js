@@ -5,14 +5,13 @@ import REVIEWS from './constants'
 
 import * as s from './ReviewsList.module.scss'
 
-const ReviewsList = ({ limit, className, variant, ...rest }) => {
-  const reviews = limit ? REVIEWS.slice(0, limit) : REVIEWS
+const ReviewsList = ({ list, className, variant, ...rest }) => {
+  const reviews = list ?? REVIEWS
 
   return (
     <div className={cn(s.reviewslist, { [className]: className })} {...rest}>
-      {reviews.map((el, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <ReviewItem {...el} key={`l${i}`} index={i} variant={variant} />
+      {reviews.map((review) => (
+        <ReviewItem {...review} key={review.name} variant={variant} />
       ))}
     </div>
   )
