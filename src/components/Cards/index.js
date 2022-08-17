@@ -4,30 +4,28 @@ import { Link } from 'gatsby'
 import cn from 'classnames'
 import * as s from './Cards.module.scss'
 
-const Cards = ({ data, variant, ...rest }) => {
-  return (
-    <ul className={cn(s.cards, { [s[variant]]: variant })} {...rest}>
-      {data?.map(({ slug, name, duration, previewImage }) => (
-        <li key={slug} className={s.cards_item}>
-          <div className={s.cards_heading}>
-            <span className={s.cards_name}>{name}</span>
-            <span className={s.cards_label}>{duration}</span>
-          </div>
-          <div className={s.cards_pic}>
-            <img src={previewImage?.url} alt={name} />
-          </div>
-          <div className={s.cards_btns}>
-            <Button as={Link} to={`/services/${slug}`}>
-              Записатись
-            </Button>
-            <Button as={Link} variant="secondary" to={`/services/${slug}`}>
-              Детальніше
-            </Button>
-          </div>
-        </li>
-      ))}
-    </ul>
-  )
-}
+const Cards = ({ data, variant, ...rest }) => (
+  <ul className={cn(s.cards, { [s[variant]]: variant })} {...rest}>
+    {data?.map(({ slug, name, duration, previewImage }) => (
+      <li key={slug} className={s.cards_item}>
+        <div className={s.cards_heading}>
+          <span className={s.cards_name}>{name}</span>
+          <span className={s.cards_label}>{duration}</span>
+        </div>
+        <div className={s.cards_pic}>
+          <img src={previewImage?.url} alt={name} />
+        </div>
+        <div className={s.cards_btns}>
+          <Button as={Link} to={`/services/${slug}`}>
+            Записатись
+          </Button>
+          <Button as={Link} variant="secondary" to={`/services/${slug}`}>
+            Детальніше
+          </Button>
+        </div>
+      </li>
+    ))}
+  </ul>
+)
 
 export default Cards
