@@ -1,50 +1,28 @@
 import React from 'react'
 import { Button, Container } from 'react-bootstrap'
-import { graphql, useStaticQuery, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import Cards from '~components/Cards'
-import DATA from './constants'
 import * as s from './Services.module.scss'
 
-const Services = () => {
-  const { title, descr, btn } = DATA
-
-  const data = useStaticQuery(graphql`
-    {
-      allServicesJson(
-        sort: { fields: jsonId, order: ASC }
-        filter: { isHome: { eq: true } }
-      ) {
-        edges {
-          node {
-            id
-            slug
-            name
-            duration
-            preview {
-              publicURL
-            }
-          }
-        }
-      }
-    }
-  `)
+const Services = (props) => {
+  const { heading, text, services, link } = props
 
   return (
     <Container as="section" id="services" className={s.services}>
       <div className={s.services_heading}>
         <h2 data-appear="services" data-direction="top">
-          {title}
+          {heading}
         </h2>
         <p
           data-appear="services"
           data-direction="top"
           className={s.services_descr}
         >
-          {descr}
+          {text}
         </p>
       </div>
       <Cards
-        data={data.allServicesJson.edges}
+        data={services}
         data-array="services"
         data-direction="bottom"
         variant="homepage"
@@ -54,10 +32,10 @@ const Services = () => {
           data-appear="services"
           data-direction="bottom"
           as={Link}
-          to={btn.link}
+          to="/services"
           variant="secondary"
         >
-          {btn.text}
+          {link}
         </Button>
       </div>
     </Container>
