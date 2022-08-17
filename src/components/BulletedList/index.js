@@ -3,16 +3,11 @@ import cn from 'classnames'
 
 import * as s from './BulletedList.module.scss'
 
-const BulletedList = ({ list = [], isLink, withPunctuation, className }) => {
+const BulletedList = ({ list = [], isLink, className }) => {
   return (
     <ul className={cn(s.bulletedlist, { [className]: className })}>
       {list.map((el) => (
-        <li
-          className={cn(s.bulletedlist_item, {
-            [s.punctuation]: withPunctuation,
-          })}
-          key={el}
-        >
+        <li className={s.bulletedlist_item} key={el}>
           {isLink ? <a href={`tel:${el}`}>{el}</a> : el}
         </li>
       ))}
