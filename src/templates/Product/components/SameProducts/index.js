@@ -3,12 +3,10 @@ import Cards from '~components/Cards'
 
 import * as s from './SameProducts.module.scss'
 
-const SameProducts = ({ list }) => {
+const SameProducts = ({ list, title }) => {
   return (
     <section className={s.sameproducts}>
-      <h2 className={s.sameproducts_title}>
-        Інші процедури які можуть вас зацікавити
-      </h2>
+      <h2 className={s.sameproducts_title}>{title}</h2>
       <Cards data={list} />
     </section>
   )
