@@ -53,11 +53,10 @@ export const query = graphql`
       }
       gallery {
         heading
-        tabs: galleryTabs {
+        tabs {
           text
           key
         }
-        link
         images {
           gatsbyImageData(
             placeholder: NONE
@@ -65,6 +64,40 @@ export const query = graphql`
             imgixParams: { fit: "crop", auto: "compress,format" }
           )
         }
+        link
+      }
+      about: aboutClinic {
+        heading
+        descr {
+          value
+        }
+        link
+        image {
+          gatsbyImageData(
+            placeholder: NONE
+            forceBlurhash: true
+            imgixParams: { fit: "crop", auto: "compress,format" }
+          )
+        }
+      }
+      reviews {
+        heading
+        reviews {
+          name
+          rating
+          avatar {
+            gatsbyImageData(
+              height: 62
+              width: 62
+              placeholder: NONE
+              forceBlurhash: true
+              imgixParams: { fit: "crop", auto: "compress,format" }
+            )
+          }
+          text
+          date
+        }
+        link
       }
     }
   }
