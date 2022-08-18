@@ -1,17 +1,17 @@
 import React from 'react'
-import BulletedList from '~components/BulletedList'
-import Social from '~components/Social'
-import MOBILE from './constants'
 
+import Social from '~components/Social'
+import PnonesList from '../PhonesList'
 import * as s from './ContactsInfo.module.scss'
 
-const ContactsInfo = () => {
+const ContactsInfo = ({ phonesBlock, socialsBlock }) => {
   return (
     <aside className={s.contactsinfo}>
-      <h5>Телефони</h5>
-      <BulletedList list={MOBILE} isLink className={s.contactsinfo_list} />
-      <h5>Соціальні мережі</h5>
-      <Social variant="contacts" isWithIcon />
+      <h5>{phonesBlock.title}</h5>
+      <PnonesList list={phonesBlock.phones} />
+
+      <h5>{socialsBlock.title}</h5>
+      <Social data={socialsBlock.socials} variant="contacts" isWithIcon />
     </aside>
   )
 }
