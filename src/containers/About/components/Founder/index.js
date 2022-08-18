@@ -1,46 +1,34 @@
-/* eslint-disable react/no-array-index-key */
-import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { StructuredText } from 'react-datocms'
 import { Container } from 'react-bootstrap'
-import DATA from './constants'
 
 import * as s from './Founder.module.scss'
 
-const Founder = () => {
-  return (
-    <Container as="section" className={s.founder}>
-      <div className={s.founder_infoContainer}>
-        <div className={s.founder_content}>
-          <h3
-            className={s.founder_title}
-            dangerouslySetInnerHTML={{ __html: DATA.name }}
-          />
-          <p className={s.founder_position}>
-            {DATA.position.map((el, i) => (
-              <span key={`s${i}`}>{el}</span>
-            ))}
-          </p>
-          <div className={s.founder_textWrapper}>
-            {DATA.descr.map((el, i) => (
-              <p className={s.founder_descr} key={`p${i}`}>
-                {el}
-              </p>
-            ))}
-          </div>
+const Founder = ({ avatar, title, subtitle, descr }) => (
+  <Container as="section" className={s.founder}>
+    <div className={s.founder_infoContainer}>
+      <div className={s.founder_content}>
+        <div className={s.founder_title}>
+          <StructuredText data={title.value} />
         </div>
-        <div className={s.founder_ill}>
-          <StaticImage
-            src="./img/founder.png"
-            alt="Світлана Ціховська"
-            quality={100}
-            width={332}
-            placeholder="none"
-            className={s.founder_pic}
-          />
+        <div className={s.founder_position}>
+          <StructuredText data={subtitle.value} />
+        </div>
+        <div className={s.founder_textWrapper}>
+          <StructuredText data={descr.value} />
         </div>
       </div>
-    </Container>
-  )
-}
+
+      <div className={s.founder_ill}>
+        <GatsbyImage
+          className={s.founder_pic}
+          image={getImage(avatar)}
+          alt="Світлана Ціховська"
+        />
+      </div>
+    </div>
+  </Container>
+)
 
 export default Founder

@@ -8,13 +8,13 @@ import Collab from './components/Collab'
 import Founder from './components/Founder'
 import Quote from './components/Quote'
 
-const About = () => (
+const About = ({ hero, quote, cosmetician, brands }) => (
   <Layout>
     <S title="Про нас" />
-    <AboutHero />
-    <Quote />
-    <Founder />
-    <Collab />
+    <AboutHero {...hero[0]} />
+    <Quote data={quote} />
+    <Founder {...cosmetician[0]} />
+    <Collab brands={brands} />
     <Lights variant="about" />
   </Layout>
 )

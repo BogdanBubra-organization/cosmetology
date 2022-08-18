@@ -1,39 +1,32 @@
-import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { StructuredText } from 'react-datocms'
 import { Container } from 'react-bootstrap'
+
 import Social from '~components/Social'
-
 import * as s from './AboutHero.module.scss'
-import DATA from './constants'
 
-const AboutHero = () => {
-  return (
-    <Container as="section" className={s.abouthero}>
-      <h1
-        className={s.abouthero_title}
-        dangerouslySetInnerHTML={{ __html: DATA.title }}
-      />
-      <div className={s.abouthero_infoContainer}>
-        <div className={s.abouthero_ill}>
-          <StaticImage
-            src="./img/illustration.png"
-            alt="Косметологічна клініка"
-            quality={100}
-            width={484}
-            placeholder="none"
-          />
-        </div>
-        <div className={s.abouthero_content}>
-          <h3
-            className={s.abouthero_subtitle}
-            dangerouslySetInnerHTML={{ __html: DATA.content.title }}
-          />
-          <p className={s.abouthero_descr}>{DATA.content.descr}</p>
-          <Social variant="about" isBtn isWithText />
-        </div>
+const AboutHero = ({ heading, title, descr, image, socials }) => (
+  <Container as="section" className={s.abouthero}>
+    <div className={s.abouthero_title}>
+      <StructuredText data={heading.value} />
+    </div>
+
+    <div className={s.abouthero_infoContainer}>
+      <div className={s.abouthero_ill}>
+        <GatsbyImage image={getImage(image)} alt="Косметологічна клініка" />
       </div>
-    </Container>
-  )
-}
+
+      <div className={s.abouthero_content}>
+        <div className={s.abouthero_subtitle}>
+          <StructuredText data={title.value} />
+        </div>
+
+        <p className={s.abouthero_descr}>{descr}</p>
+        <Social data={socials} variant="about" isBtn isWithText />
+      </div>
+    </div>
+  </Container>
+)
 
 export default AboutHero

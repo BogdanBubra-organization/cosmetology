@@ -34,9 +34,10 @@
       font-size: 24px;
     }
 
-    span {
+    u {
       position: relative;
       color: #1b2f15;
+      text-decoration: none;
 
       &::after {
         position: absolute;
@@ -62,7 +63,9 @@
   }
 
   &_subtitle {
-    letter-spacing: -0.02em;
+    h3 {
+      letter-spacing: -0.02em;
+    }
   }
 
   &_ill {
