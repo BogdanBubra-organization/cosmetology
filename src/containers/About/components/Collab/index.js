@@ -4,14 +4,12 @@ import Brands from '~components/Brands'
 
 import * as s from './Collab.module.scss'
 
-const Collab = () => {
-  return (
-    <section className={s.collab_wrapper}>
-      <Container className={s.collab}>
-        <Brands />
-      </Container>
-    </section>
-  )
-}
+const Collab = ({ brands }) => (
+  <section className={s.collab_wrapper}>
+    <Container className={s.collab}>
+      <Brands list={brands} />
+    </Container>
+  </section>
+)
 
 export default Collab
