@@ -1,6 +1,7 @@
 .bulletedlist {
   display: grid;
   row-gap: 12px;
+  margin-bottom: 8px;
 
   &_item {
     display: grid;
