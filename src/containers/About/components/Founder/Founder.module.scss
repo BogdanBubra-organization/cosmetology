@@ -62,14 +62,17 @@
   &_position {
     display: grid;
     margin-bottom: 20px;
-    font-style: italic;
-    color: $primary;
 
     @include b-up(md) {
       margin-bottom: 20px;
     }
     @include b-d(md) {
       margin-bottom: 12px;
+    }
+
+    p {
+      font-style: italic;
+      color: $primary;
     }
   }
 
@@ -95,13 +98,13 @@
         transform: translate(-50%, 100%);
       }
     }
-  }
 
-  &_descr {
-    letter-spacing: normal;
+    p {
+      letter-spacing: normal;
 
-    &:not(:last-child) {
-      margin-bottom: 1.5em;
+      &:not(:last-child) {
+        margin-bottom: 1.5em;
+      }
     }
   }
 
