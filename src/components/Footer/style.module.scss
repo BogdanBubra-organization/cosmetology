@@ -5,10 +5,6 @@
     background: $white;
   }
 
-  p {
-    letter-spacing: normal;
-  }
-
   &.messengers {
     text-align: center;
 
@@ -126,7 +122,7 @@
       justify-self: end;
     }
 
-    p,
+    &,
     a {
       color: $gray-600;
     }

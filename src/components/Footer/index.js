@@ -10,9 +10,12 @@ import Menu from '~components/Menu'
 import AddresPin from '~components/AddressPin'
 import * as s from './style.module.scss'
 
-const Author = ({ data }) => (
+const Author = () => (
   <div className={s.footer_author}>
-    <StructuredText data={data?.value} />
+    Дизайн та розробка{' '}
+    <a href="https://min.studio" target="_blank" rel="noreferrer">
+      Мінімал
+    </a>
   </div>
 )
 
@@ -26,7 +29,6 @@ const Footer = ({
   menu,
   copyright,
   socials,
-  developedBy,
   isMessengersPage,
 }) => {
   const location = useLocation()
@@ -53,12 +55,12 @@ const Footer = ({
           <StructuredText data={copyright?.value} />
           {currentYear}
         </div>
-        <Author data={developedBy} />
+        <Author />
       </div>
     </footer>
   ) : (
     <Container as="footer" className={cn(s.footer, s.messengers, 'animate')}>
-      <Author data={developedBy} />
+      <Author />
     </Container>
   )
 }
