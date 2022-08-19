@@ -49,9 +49,6 @@ const Layout = ({ isMessengersPage, children }) => {
             href
             isExternal
           }
-          developedBy {
-            value
-          }
         }
       }
     }
