@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, EffectFade } from 'swiper'
 import usePosts from '~hooks/usePosts'
-import GalleryPhoto from '~components/GalleryPhoto'
+import GalleryMedia from '~components/GalleryMedia'
 import TabSwitcher from '~components/TabSwitcher'
 import Icon from '~components/Icon'
 import SwiperButtons from '~components/SwiperButtons'
@@ -46,12 +46,12 @@ const GalleryList = ({ initialTab }) => {
                   </div>
                 ))
               : posts.map(({ id, ...post }) => (
-                  <GalleryPhoto key={id} {...post} />
+                  <GalleryMedia key={id} {...post} />
                 )))}
 
           {tab === TABS[1].key &&
             [...Array(12)].map((_, i) => (
-              <GalleryPhoto
+              <GalleryMedia
                 action={(e, id) => {
                   e.preventDefault()
                   handleModalShow(id)

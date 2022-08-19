@@ -2,12 +2,13 @@ import React from 'react'
 import { Ratio } from 'react-bootstrap'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-import * as s from './GalleryPhoto.module.scss'
+import MediaWrap from '~components/MediaWrap'
+import * as s from './GalleryMedia.module.scss'
 
-const GalleryPhoto = ({
+const GalleryMedia = ({
   action,
   index,
-  image,
+  media,
   permalink,
   media_url: pic,
   media_type: type,
@@ -18,13 +19,13 @@ const GalleryPhoto = ({
       <a
         href={permalink}
         target="_blank"
-        className={s.galleryphoto}
+        className={s.gallerymedia}
         rel="noreferrer"
       >
         <img
           src={type === 'VIDEO' ? thumbnail : pic}
           alt="Gallery"
-          className={s.galleryphoto_pic}
+          className={s.gallerymedia_pic}
         />
       </a>
     </Ratio>
@@ -33,16 +34,18 @@ const GalleryPhoto = ({
       <button
         type="button"
         onClick={(e) => action(e, index)}
-        className={s.galleryphoto}
+        className={s.gallerymedia}
       >
-        <GatsbyImage
-          className={s.galleryphoto_pic}
-          image={getImage(image)}
-          alt="Gallery"
-        />
+        <MediaWrap media={media}>
+          <GatsbyImage
+            className={s.gallerymedia_pic}
+            image={getImage(media)}
+            alt="Gallery"
+          />
+        </MediaWrap>
       </button>
     </Ratio>
   )
 }
 
-export default GalleryPhoto
+export default GalleryMedia

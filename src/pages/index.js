@@ -57,7 +57,11 @@ export const query = graphql`
           text
           key
         }
-        images {
+        media {
+          url
+          video {
+            thumbnailUrl
+          }
           gatsbyImageData(
             placeholder: NONE
             forceBlurhash: true
