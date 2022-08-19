@@ -8,7 +8,7 @@
 }
 
 .pic {
-  &.top {
+  &.right {
     @include b-up(lg) {
       top: 80px;
       right: 0;
@@ -26,7 +26,7 @@
     }
   }
 
-  &.bottom {
+  &.left {
     @include b-up(lg) {
       top: calc(100% - 302px);
       left: 0;
