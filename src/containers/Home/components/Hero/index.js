@@ -42,7 +42,7 @@ const Hero = ({ isDesktop, isPreloaded }) => {
           <div className={s.hero_btns} data-appear="hero">
             <Button
               className="btn-icon"
-              href="https://blknt.cc/cosmetology"
+              href="https://cbox.mobi/go/cosmetology-ua"
               target="_blank"
               rel="noreferrer"
             >

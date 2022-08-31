@@ -49,7 +49,7 @@ const ProductHero = ({ name, info }) => {
 
         <div className={s.producthero_btn}>
           <Button
-            href="https://blknt.cc/cosmetology"
+            href="https://cbox.mobi/go/cosmetology-ua"
             target="_blank"
             rel="noreferrer"
           >
