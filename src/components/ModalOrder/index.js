@@ -8,7 +8,7 @@ const ModalOrder = ({ show, onHide }) => {
   const { title, descr, fields, btn } = DATA
   const { finalTitle, finalDescr } = FEEDBACK
 
-  const [state, handleSubmit, reset] = useForm('myForm')
+  const [state, handleSubmit, reset] = useForm('mzbooegr')
 
   const [validated, setValidated] = useState(false)
 
