@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import ReviewsList from '~components/ReviewsList'
 import * as s from './Reviews.module.scss'
 
-const Reviews = ({ heading, reviews, link }) => {
+const Reviews = ({ heading, reviews, linkText }) => {
   return (
     <Container as="section" id="reviews" className={s.reviews}>
       <h2 data-array="reviews" data-direction="top">
@@ -23,7 +23,7 @@ const Reviews = ({ heading, reviews, link }) => {
         data-direction="bottom"
       >
         <Button variant="secondary" as={Link} to="/reviews">
-          {link}
+          {linkText}
         </Button>
       </div>
     </Container>

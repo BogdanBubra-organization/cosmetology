@@ -13,8 +13,10 @@ import TABS from './constants'
 
 import * as s from './GalleryList.module.scss'
 
+const TAB_KEYS = ['instagram', 'gallery']
+
 const GalleryList = ({ initialTab }) => {
-  const [tab, setTab] = useState(initialTab || TABS[0].key)
+  const [tab, setTab] = useState(initialTab || TAB_KEYS[0])
   const [modal, setModal] = useState({ show: false, active: 0 })
   const { posts, isLoading } = usePosts()
 
@@ -33,9 +35,14 @@ const GalleryList = ({ initialTab }) => {
   return (
     <>
       <div className={s.gallerylist}>
-        <TabSwitcher tabs={TABS} activeTab={tab} action={handleTabChange} />
+        <TabSwitcher
+          tabs={TABS}
+          tabKeys={TAB_KEYS}
+          activeTab={tab}
+          action={handleTabChange}
+        />
         <div className={s.gallerylist_list}>
-          {tab === TABS[0].key &&
+          {tab === TAB_KEYS[0] &&
             (isLoading
               ? [...Array(12)].map((_, i) => (
                   <div
@@ -49,7 +56,7 @@ const GalleryList = ({ initialTab }) => {
                   <GalleryMedia key={id} {...post} />
                 )))}
 
-          {tab === TABS[1].key &&
+          {tab === TAB_KEYS[1] &&
             [...Array(12)].map((_, i) => (
               <GalleryMedia
                 action={(e, id) => {
