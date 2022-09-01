@@ -17,10 +17,21 @@ import GalleryPlaceholder from '~components/GalleryPlaceholder'
 
 import * as s from './Gallery.module.scss'
 
-const Gallery = ({ heading, tabs, link, media, posts, isLoading }) => {
-  const [tab, setTab] = useState(tabs[0].key)
+const TAB_KEYS = ['instagram', 'gallery']
 
+const Gallery = ({
+  heading,
+  instagramTab,
+  resultsTab,
+  linkText,
+  media,
+  posts,
+  isLoading,
+}) => {
+  const [tab, setTab] = useState(TAB_KEYS[0])
   const [modal, setModal] = useState({ show: false, active: 0 })
+
+  const tabs = [instagramTab, resultsTab]
 
   const handleModalShow = (active) => {
     setModal({ show: true, active })
@@ -41,7 +52,12 @@ const Gallery = ({ heading, tabs, link, media, posts, isLoading }) => {
           <h2 data-appear="gallery" data-direction="top">
             {heading}
           </h2>
-          <TabSwitcher tabs={tabs} activeTab={tab} action={handleTabChange} />
+          <TabSwitcher
+            tabs={tabs}
+            tabKeys={TAB_KEYS}
+            activeTab={tab}
+            action={handleTabChange}
+          />
         </Container>
 
         <div className={s.gallery_wrapper}>
@@ -64,7 +80,7 @@ const Gallery = ({ heading, tabs, link, media, posts, isLoading }) => {
               data-array="gallery"
               data-direction="bottom"
             >
-              {tab === tabs[0].key &&
+              {tab === TAB_KEYS[0] &&
                 (isLoading
                   ? [...Array(3)].map((_, i) => (
                       <SwiperSlide
@@ -84,7 +100,7 @@ const Gallery = ({ heading, tabs, link, media, posts, isLoading }) => {
                       </SwiperSlide>
                     )))}
 
-              {tab === tabs[1].key &&
+              {tab === TAB_KEYS[1] &&
                 media?.map((item, i) => (
                   <SwiperSlide key={`p${i}`}>
                     <GalleryMedia
@@ -111,7 +127,7 @@ const Gallery = ({ heading, tabs, link, media, posts, isLoading }) => {
           data-direction="bottom"
         >
           <Button as={Link} to="/gallery" state={{ tab }} variant="secondary">
-            {link}
+            {linkText}
           </Button>
         </Container>
       </section>
