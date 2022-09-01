@@ -5,7 +5,7 @@ import Cards from '~components/Cards'
 import * as s from './Services.module.scss'
 
 const Services = (props) => {
-  const { heading, text, services, link } = props
+  const { heading, text, services, linkText } = props
 
   return (
     <Container as="section" id="services" className={s.services}>
@@ -35,7 +35,7 @@ const Services = (props) => {
           to="/services"
           variant="secondary"
         >
-          {link}
+          {linkText}
         </Button>
       </div>
     </Container>

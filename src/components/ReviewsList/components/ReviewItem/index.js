@@ -10,11 +10,7 @@ const ReviewItem = ({ name, rating, avatar, text, date, variant }) => {
     <div className={cn(s.reviewitem, { [s[variant]]: variant })}>
       <div className={s.reviewitem_heading}>
         <div className={s.reviewitem_pic}>
-          <GatsbyImage
-            className={s.about_pic}
-            image={getImage(avatar)}
-            alt={name}
-          />
+          <GatsbyImage image={getImage(avatar)} alt={name} />
         </div>
         <span className={s.reviewitem_name}>{name}</span>
         <Rating rating={rating} />

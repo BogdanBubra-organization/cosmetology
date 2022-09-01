@@ -25,6 +25,8 @@ export const query = graphql`
             imgixParams: { fit: "crop", auto: "compress,format" }
           )
         }
+        btnOrder
+        btnService
         brandsTitle
         brands {
           name
@@ -49,14 +51,12 @@ export const query = graphql`
             url
           }
         }
-        link
+        linkText
       }
       gallery {
         heading
-        tabs {
-          text
-          key
-        }
+        instagramTab
+        resultsTab
         media {
           url
           video {
@@ -68,14 +68,14 @@ export const query = graphql`
             imgixParams: { fit: "crop", auto: "compress,format" }
           )
         }
-        link
+        linkText
       }
       about: aboutClinic {
         heading
         descr {
           value
         }
-        link
+        linkText
         image {
           gatsbyImageData(
             placeholder: NONE
@@ -101,7 +101,7 @@ export const query = graphql`
           text
           date
         }
-        link
+        linkText
       }
     }
   }

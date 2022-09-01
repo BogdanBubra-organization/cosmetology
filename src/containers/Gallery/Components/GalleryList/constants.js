@@ -1,6 +1,3 @@
-const TABS = [
-  { key: 'instagram', text: 'Instagram' },
-  { key: 'gallery', text: 'Результати робіт' },
-]
+const TABS = ['Instagram', 'Результати робіт']
 
 export default TABS

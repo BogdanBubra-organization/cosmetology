@@ -4,15 +4,21 @@ import { Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Icon from '~components/Icon'
 import Brands from '~components/Brands'
-import DATA from './constants'
 import * as s from './Hero.module.scss'
 import heroAnim from './anim'
 
 const Hero = (props) => {
-  const { heading, text, image, brandsTitle, brands, isDesktop, isPreloaded } =
-    props
-
-  const { btnOrder, btnServices } = DATA
+  const {
+    heading,
+    text,
+    image,
+    btnOrder,
+    btnService,
+    brandsTitle,
+    brands,
+    isDesktop,
+    isPreloaded,
+  } = props
 
   const picRef = useRef(null)
   const lineRef = useRef(null)
@@ -54,7 +60,7 @@ const Hero = (props) => {
               <span className="btn-icon-text">{btnOrder}</span>
             </Button>
             <Button as={Link} to="/services" variant="secondary">
-              {btnServices}
+              {btnService}
             </Button>
           </div>
           <div className={s.hero_ill} ref={picRef}>

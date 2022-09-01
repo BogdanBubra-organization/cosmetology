@@ -8,7 +8,7 @@ import * as s from './About.module.scss'
 import { resetAnim, floatingAnim } from './anim'
 
 const About = (props) => {
-  const { heading, descr, link, image } = props
+  const { heading, descr, linkText, image } = props
 
   const picRef = useRef(null)
   const isDesktop = useMatchMedia('(min-width: 1200px)')
@@ -45,7 +45,7 @@ const About = (props) => {
         </div>
         <div className={s.about_btn}>
           <Button variant="secondary" as={Link} to="/about">
-            {link}
+            {linkText}
           </Button>
         </div>
       </div>

@@ -10,6 +10,7 @@ const MediaWrap = ({ media, className, children }) =>
       src={media?.url}
       loop
       autoPlay
+      playsInline
       muted
     />
   ) : (
