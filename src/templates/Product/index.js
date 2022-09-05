@@ -38,6 +38,9 @@ export const pageQuery = graphql`
       descr {
         value
       }
+      previewImage {
+        url
+      }
       example {
         url
         video {
