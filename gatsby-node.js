@@ -67,11 +67,13 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     return
   }
 
+  const serviceTemplate = path.resolve('src/templates/Product/index.js')
+
   results.data.allDatoCmsService.nodes.forEach(({ slug, category, id }) => {
     if (slug) {
       createPage({
         path: `/services/${slug}`,
-        component: path.resolve('src/templates/Product/index.js'),
+        component: serviceTemplate,
         context: {
           slug,
           category,
