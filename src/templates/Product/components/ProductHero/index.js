@@ -6,19 +6,30 @@ import { Button, Ratio } from 'react-bootstrap'
 import MediaWrap from '~components/MediaWrap'
 import * as s from './ProductHero.module.scss'
 
-const ProductHero = ({ name, example, descr, imageTitle, descrTitle }) => (
+const ProductHero = ({
+  name,
+  example,
+  descr,
+  imageTitle,
+  descrTitle,
+  previewImage,
+}) => (
   <section className={s.producthero}>
     <div className={s.producthero_ill}>
       <h5>{imageTitle}</h5>
-      <Ratio aspectRatio={15 / 17}>
-        <MediaWrap media={example}>
-          <GatsbyImage
-            className={s.producthero_pic}
-            image={getImage(example)}
-            alt={name}
-          />
-        </MediaWrap>
-      </Ratio>
+      {example ? (
+        <Ratio aspectRatio={15 / 17}>
+          <MediaWrap media={example}>
+            <GatsbyImage
+              className={s.producthero_pic}
+              image={getImage(example)}
+              alt={name}
+            />
+          </MediaWrap>
+        </Ratio>
+      ) : (
+        <img src={previewImage?.url} alt={name} />
+      )}
     </div>
 
     <div className={s.producthero_content}>
