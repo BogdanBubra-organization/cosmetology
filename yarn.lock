@@ -2480,7 +2480,7 @@
   resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.2.3.tgz#52d75430c9662cc85c160761c1421de483c7791f"
   integrity sha512-zdt5lYWs1dZaA3IxJbCgtAfHZJScRZONpiLL7YkeOkrme5MfjQqTpjq7LYbzpyuwPOh2Jx68le0PLl57JFv5hQ==
 
-"@tanstack/react-query@^4.0.5":
+"@tanstack/react-query@4.2.3":
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-4.2.3.tgz#782fd0f84553ba6219f1137a12ea28ab8cd3a3f3"
   integrity sha512-JLaMOxoJTkiAu7QpevRCt2uI/0vd3E8K/rSlCuRgWlcW5DeJDFpDS5kfzmLO5MOcD97fgsJRrDbxDORxR1FdJA==
@@ -5284,7 +5284,7 @@ dotenv-expand@^5.1.0:
   resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-5.1.0.tgz#3fbaf020bfd794884072ea26b1e9791d45a629f0"
   integrity sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==
 
-dotenv@^16.0.1:
+dotenv@16.0.2:
   version "16.0.2"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.2.tgz#0b0f8652c016a3858ef795024508cddc4bffc5bf"
   integrity sha512-JvpYKUmzQhYoIFgK2MOnF3bciIZoItIIoryihy0rIA+H4Jy0FmgyKYAHCTN98P5ybGSJcIFbh6QKeJdtZd1qhA==
@@ -6810,7 +6810,7 @@ gatsby-sharp@^0.16.0:
     "@types/sharp" "^0.30.5"
     sharp "^0.30.7"
 
-gatsby-source-datocms@^4.0.4:
+gatsby-source-datocms@4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/gatsby-source-datocms/-/gatsby-source-datocms-4.0.4.tgz#a2d041743fb154af4e36e2c7126ced8cd44f6524"
   integrity sha512-KRMZVg8MFoTPtZ55PPyTE/hGxLqUE5aS/+ATTMqeP88qnRMiQjIT0twsT55X2mJ5aeHJjmIAZSXgglVyfWel0g==
@@ -10376,7 +10376,7 @@ react-bootstrap@2.5.0:
     uncontrollable "^7.2.1"
     warning "^4.0.3"
 
-react-datocms@^3.0.15:
+react-datocms@3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-3.1.0.tgz#2c4d9ff84c653e42ec1e6c639b309d1db667ce99"
   integrity sha512-a+sAfhsuBTuC0+E2YtJzxOBa7QxXRI+7sdHNJKBKPQIB9DA5Yc/atbspOjZw6DlWnTtEouAE37wHQBJW6616Aw==
@@ -11860,7 +11860,7 @@ swap-case@^2.0.2:
   dependencies:
     tslib "^2.0.3"
 
-swiper@^8.3.0:
+swiper@8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/swiper/-/swiper-8.3.2.tgz#55a2637125b0514e58715aa51e040dc070203b47"
   integrity sha512-8wsC7ORYvVSnLUoxs2+xmfLrDPNjBVQXMCFbOlqtHeON6wtu/blOyySDr8TCBCdse1bdcIbn7m8xJNxVFL8o4Q==
