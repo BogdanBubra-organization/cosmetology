@@ -22,7 +22,10 @@ export const query = graphql`
           gatsbyImageData(
             placeholder: NONE
             forceBlurhash: true
+            width: 596
             imgixParams: { fit: "crop", auto: "compress,format" }
+            sizes: "(max-width: 767.98px) 347px, (max-width: 1023.98px) 411px, (max-width: 1199.98px) 366px, (max-width: 1399.98px) calc((100vw - 32px * 2) * 0.40), 596px"
+            breakpoints: [347, 411, 596, 694, 822, 894, 1041, 1192]
           )
         }
         btnOrder

@@ -3,9 +3,12 @@ import { Button, Container, Dropdown } from 'react-bootstrap'
 import { useLocation } from '@gatsbyjs/reach-router'
 import { withPrefix, Link } from 'gatsby'
 import useMatchMedia from '~hooks/useMatchMedia'
-import ModalOrder from '~components/ModalOrder'
 import Menu from '~components/Menu'
 import * as s from './style.module.scss'
+
+const ModalOrder = React.lazy(() =>
+  import(/* webpackChunkName: "modal-order" */ '~components/ModalOrder')
+)
 
 const Logo = ({ url, alt }) => (
   <img width="244" height="52" src={url} alt={alt} />

@@ -8,6 +8,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
+import { SSRProvider } from 'react-bootstrap'
+
 import Header from '~components/Header'
 import Footer from '~components/Footer'
 import Preload from '~components/Preload'
@@ -74,7 +76,7 @@ const Layout = ({ isMessengersPage, children }) => {
   }, [isPreloaded])
 
   return (
-    <>
+    <SSRProvider>
       <div className={s.layout} ref={layoutRef}>
         <Header {...data.datoCmsLayout.header?.[0]} />
         <main className="main">{children}</main>
@@ -85,7 +87,7 @@ const Layout = ({ isMessengersPage, children }) => {
       </div>
 
       {!isPreloaded && <Preload handlePreload={handlePreload} />}
-    </>
+    </SSRProvider>
   )
 }
 

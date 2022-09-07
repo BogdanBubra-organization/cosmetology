@@ -14,10 +14,11 @@ const Social = ({
   <ul className={cn(s.social, { [s[variant]]: variant })}>
     {data?.map(({ name, href, isExternal }) => (
       <li key={name}>
+        {/* eslint-disable-next-line react/jsx-no-target-blank */}
         <a
           href={href}
-          target={isExternal && '_blank'}
-          rel={isExternal && 'noreferrer'}
+          target={isExternal ? '_blank' : undefined}
+          rel={isExternal ? 'noreferrer' : undefined}
           className={isBtn ? 'btn btn-secondary btn-icon' : s.social_link}
         >
           {isWithIcon && <Icon name={name} size={iconSize} />}

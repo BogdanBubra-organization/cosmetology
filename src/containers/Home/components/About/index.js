@@ -31,6 +31,9 @@ const About = (props) => {
             className={s.about_pic}
             image={getImage(image)}
             alt="Косметологічна клініка"
+            width="100%"
+            height="100%"
+            objectFit="cover"
           />
         </div>
       </div>

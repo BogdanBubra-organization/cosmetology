@@ -13,7 +13,13 @@ const Cards = ({ data, variant, ...rest }) => (
           <span className={s.cards_label}>{duration}</span>
         </div>
         <div className={s.cards_pic}>
-          <img src={previewImage?.url} alt={name} />
+          <img
+            src={previewImage?.url}
+            alt={name}
+            loading="lazy"
+            width="100%"
+            height="100%"
+          />
         </div>
         <div className={s.cards_btns}>
           <Button as={Link} to={`/services/${slug}`}>

@@ -26,6 +26,7 @@ const GalleryMedia = ({
           src={type === 'VIDEO' ? thumbnail : pic}
           alt="Gallery"
           className={s.gallerymedia_pic}
+          loading="lazy"
         />
       </a>
     </Ratio>
