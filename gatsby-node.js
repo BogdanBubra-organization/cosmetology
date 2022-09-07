@@ -35,6 +35,15 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
     it.options = it.options || {}
     it.options.limit = 5_000 // Embed all Fonts into CSS to reduce outbound connections
   })
+
+  /* Set ignoreOrder: true to remove warnings when using css modules */
+  const miniCssExtractPlugin = config.plugins.find(
+    (plugin) => plugin.constructor.name === 'MiniCssExtractPlugin'
+  )
+  if (miniCssExtractPlugin) {
+    miniCssExtractPlugin.options.ignoreOrder = true
+  }
+
   actions.replaceWebpackConfig(config)
 }
 
