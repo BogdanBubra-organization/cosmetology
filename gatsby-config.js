@@ -5,7 +5,7 @@ require('dotenv').config()
 module.exports = {
   /*
   Experimental flags that increase DX and build times with different technics (may require to use `yarn clean` time to time)
-  Current avaliable flags: https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby/src/utils/flags.ts
+  Current available flags: https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby/src/utils/flags.ts
   */
   // flags: {
   //   FAST_DEV: true,
