@@ -2,8 +2,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Button, Container, Dropdown } from 'react-bootstrap'
 import { useLocation } from '@gatsbyjs/reach-router'
 import { withPrefix, Link } from 'gatsby'
+import cn from 'classnames'
+
 import useMatchMedia from '~hooks/useMatchMedia'
 import Menu from '~components/Menu'
+
 import * as s from './style.module.scss'
 
 const ModalOrder = React.lazy(() =>
@@ -20,7 +23,7 @@ const ButtonAsk = ({ handleShowOrder }) => (
   </Button>
 )
 
-const Header = ({ logo, menu }) => {
+const Header = ({ logo, menu, isNavHidden }) => {
   const dropdownRef = useRef(null)
   const location = useLocation()
   const isHomepage = location.pathname === withPrefix('/')
@@ -30,8 +33,8 @@ const Header = ({ logo, menu }) => {
 
   const handleShowOrder = () => setShowOrder(true)
 
-  const isMdDown = useMatchMedia('(max-width: 767px)')
-  const isLgDown = useMatchMedia('(max-width: 1023px)')
+  const isMdDown = useMatchMedia('(max-width: 767.98px)')
+  const isLgDown = useMatchMedia('(max-width: 1023.98px)')
 
   const handleToggle = (state) => {
     document.querySelector('body').style.overflow = state ? 'hidden' : 'auto'
@@ -47,7 +50,11 @@ const Header = ({ logo, menu }) => {
 
   return (
     <Container id="header" as="header">
-      <div data-appear="header" data-direction="top" className={s.header}>
+      <div
+        data-appear="header"
+        data-direction="top"
+        className={cn(s.header, { [s.isNavHidden]: isNavHidden })}
+      >
         {isHomepage ? (
           <Logo {...logo} />
         ) : (
@@ -56,7 +63,7 @@ const Header = ({ logo, menu }) => {
           </Link>
         )}
 
-        <Menu data={menu} variant="header" />
+        {!isNavHidden && <Menu data={menu} variant="header" />}
 
         {!isMdDown && (
           <div className={s.header_btn}>
@@ -64,17 +71,19 @@ const Header = ({ logo, menu }) => {
           </div>
         )}
 
-        <Dropdown show={show} onToggle={handleToggle} ref={dropdownRef}>
-          <Dropdown.Toggle className="dropdown-toggle" as="button" />
-          <Dropdown.Menu
-            popperConfig={{
-              modifiers: [{ name: 'offset', options: { offset: [0, 16] } }],
-            }}
-          >
-            <Menu data={menu} variant="dropdown" />
-            {isMdDown && <ButtonAsk handleShowOrder={handleShowOrder} />}
-          </Dropdown.Menu>
-        </Dropdown>
+        {(!isNavHidden || isMdDown) && (
+          <Dropdown show={show} onToggle={handleToggle} ref={dropdownRef}>
+            <Dropdown.Toggle className="dropdown-toggle" as="button" />
+            <Dropdown.Menu
+              popperConfig={{
+                modifiers: [{ name: 'offset', options: { offset: [0, 16] } }],
+              }}
+            >
+              {!isNavHidden && <Menu data={menu} variant="dropdown" />}
+              {isMdDown && <ButtonAsk handleShowOrder={handleShowOrder} />}
+            </Dropdown.Menu>
+          </Dropdown>
+        )}
         <div className="dropdown-overlay" />
       </div>
       <ModalOrder show={showOrder} onHide={() => setShowOrder(false)} />

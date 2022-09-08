@@ -15,12 +15,16 @@
     justify-self: center;
     width: 100%;
     max-width: 720px;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding: 16px 0;
 
-    @include b-up(lg) {
-      position: sticky;
-      top: 0;
+    &_wrapper {
+      display: grid;
+      padding-bottom: 16px;
+
+      @include b-up(lg) {
+        position: sticky;
+        top: 0;
+      }
     }
   }
 
@@ -74,4 +78,15 @@
   &_btn {
     margin-top: 8px;
   }
+}
+
+.price {
+  justify-self: start;
+  margin-top: -8px;
+  font-size: 2.5rem;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  color: transparent;
+  text-transform: none;
+  background-image: linear-gradient(89.79deg, #162113 9.67%, #2e721c 99.85%);
+  background-clip: text;
 }

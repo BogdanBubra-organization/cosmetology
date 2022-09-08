@@ -7,22 +7,32 @@ import S from '~components/seo'
 import Lights from '~components/Lights'
 import ProductHero from './components/ProductHero'
 
-import { productTitle } from './Product.module.scss'
+import * as s from './Product.module.scss'
 import SameProducts from './components/SameProducts'
 
-const Product = ({ data: { product, sameServices, systemInfo } }) => {
+const Product = (props) => {
+  const {
+    pageContext: { isPricingPage },
+    data: { product, sameServices, systemInfo },
+  } = props
   const { name } = product
 
   return (
-    <Layout>
-      <Container>
+    <Layout isShortVariant={isPricingPage}>
+      <Container className={cn({ [s.shortContainer]: isPricingPage })}>
         <S title={name} />
-        <h1 className={cn('h2', productTitle)}>{name}</h1>
-        <ProductHero {...product} {...systemInfo} />
-        <SameProducts
-          list={sameServices.nodes}
-          title={systemInfo?.otherProceduresTitle}
+        <h1 className={cn('h2', s.productTitle)}>{name}</h1>
+        <ProductHero
+          {...product}
+          {...systemInfo}
+          isPriceVisible={isPricingPage}
         />
+        {!isPricingPage && (
+          <SameProducts
+            list={sameServices.nodes}
+            title={systemInfo?.otherProceduresTitle}
+          />
+        )}
       </Container>
       <Lights />
     </Layout>
@@ -38,6 +48,7 @@ export const pageQuery = graphql`
       descr {
         value
       }
+      price
       previewImage {
         url
       }

@@ -8,16 +8,22 @@ import Category from './components/Category'
 import * as s from './Services.module.scss'
 
 const Services = (props) => {
-  const { heading, text, injectionsCosmetology, careCosmetology } = props
+  const {
+    heading,
+    text,
+    injectionsCosmetology,
+    careCosmetology,
+    isPricesPage,
+  } = props
 
   return (
-    <Layout>
+    <Layout isShortVariant={isPricesPage}>
       <S title="Послуги" />
       <ServicesHero {...{ heading, text }} />
 
       <Container as="section" className={s.services}>
-        <Category {...injectionsCosmetology[0]} />
-        <Category {...careCosmetology[0]} />
+        <Category {...injectionsCosmetology[0]} isPricesPage={isPricesPage} />
+        <Category {...careCosmetology[0]} isPricesPage={isPricesPage} />
       </Container>
     </Layout>
   )
