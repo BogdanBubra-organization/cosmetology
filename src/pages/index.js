@@ -3,17 +3,25 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Home from '~containers/Home'
+import Placeholder from '~containers/Placeholder'
 
 const queryClient = new QueryClient()
 
 const HomePage = ({ data }) => (
   <QueryClientProvider client={queryClient}>
-    <Home {...data.datoCmsHomepage} />
+    {data.datoCmsPlaceholder.isInDevelopment ? (
+      <Placeholder {...data.datoCmsHomepage} />
+    ) : (
+      <Home {...data.datoCmsHomepage} />
+    )}
   </QueryClientProvider>
 )
 
 export const query = graphql`
   query HomePageQuery {
+    datoCmsPlaceholder {
+      isInDevelopment
+    }
     datoCmsHomepage {
       hero {
         heading
