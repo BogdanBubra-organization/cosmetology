@@ -6,7 +6,7 @@ import useMatchMedia from '~hooks/useMatchMedia'
 
 import * as s from './Category.module.scss'
 
-const Category = ({ title, descr, services }) => {
+const Category = ({ title, descr, services, isPricesPage }) => {
   const [open, setOpen] = useState(true)
   const isMobile = useMatchMedia('(max-width: 767px)')
 
@@ -27,7 +27,7 @@ const Category = ({ title, descr, services }) => {
       <Collapse in={!isMobile || open}>
         <div className={s.category_wrapper}>
           <p className={s.category_descr}>{descr}</p>
-          <Cards data={services} variant="cards" />
+          <Cards data={services} variant="cards" isPricesPage={isPricesPage} />
         </div>
       </Collapse>
     </div>

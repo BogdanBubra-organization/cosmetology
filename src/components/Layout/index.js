@@ -16,7 +16,7 @@ import Preload from '~components/Preload'
 import '~styles/app.scss'
 import * as s from './style.module.scss'
 
-const Layout = ({ isMessengersPage, children }) => {
+const Layout = ({ isMessengersPage, children, isShortVariant }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       datoCmsLayout {
@@ -78,12 +78,17 @@ const Layout = ({ isMessengersPage, children }) => {
   return (
     <SSRProvider>
       <div className={s.layout} ref={layoutRef}>
-        <Header {...data.datoCmsLayout.header?.[0]} />
-        <main className="main">{children}</main>
-        <Footer
-          {...data.datoCmsLayout.footer?.[0]}
-          isMessengersPage={isMessengersPage}
+        <Header
+          {...data.datoCmsLayout.header?.[0]}
+          isNavHidden={isShortVariant}
         />
+        <main className="main">{children}</main>
+        {!isShortVariant && (
+          <Footer
+            {...data.datoCmsLayout.footer?.[0]}
+            isMessengersPage={isMessengersPage}
+          />
+        )}
       </div>
 
       {!isPreloaded && <Preload handlePreload={handlePreload} />}

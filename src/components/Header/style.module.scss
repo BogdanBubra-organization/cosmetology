@@ -33,4 +33,8 @@
   &_btn {
     justify-self: end;
   }
+
+  &.isNavHidden {
+    grid-template-columns: auto auto;
+  }
 }

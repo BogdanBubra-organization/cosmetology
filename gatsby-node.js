@@ -6,6 +6,7 @@
  */
 
 const path = require('path')
+const { SERVICE_PAGE_SLUG } = require('./src/constants')
 
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
   actions.setWebpackConfig({
@@ -13,6 +14,7 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
       alias: {
         '~components': path.resolve(__dirname, 'src/components'),
         '~containers': path.resolve(__dirname, 'src/containers'),
+        '~constants': path.resolve(__dirname, 'src/constants'),
         '~contexts': path.resolve(__dirname, 'src/contexts'),
         '~pages': path.resolve(__dirname, 'src/pages'),
         '~hooks': path.resolve(__dirname, 'src/hooks'),
@@ -80,15 +82,18 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
 
   results.data.allDatoCmsService.nodes.forEach(({ slug, category, id }) => {
     if (slug) {
-      createPage({
-        path: `/services/${slug}`,
-        component: serviceTemplate,
-        context: {
-          slug,
-          category,
-          id,
-        },
-      })
+      SERVICE_PAGE_SLUG.forEach((pageSlug) =>
+        createPage({
+          path: `/${pageSlug}/${slug}`,
+          component: serviceTemplate,
+          context: {
+            isPricingPage: pageSlug === SERVICE_PAGE_SLUG[1],
+            slug,
+            category,
+            id,
+          },
+        })
+      )
     }
   })
 }

@@ -24,6 +24,7 @@ module.exports = {
         map: [
           ['~components', './src/components'],
           ['~containers', './src/containers'],
+          ['~constants', './src/constants'],
           ['~contexts', './src/contexts'],
           ['~pages', './src/pages'],
           ['~hooks', './src/hooks'],
