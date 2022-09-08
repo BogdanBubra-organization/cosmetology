@@ -1,0 +1,32 @@
+@import '~styles/mixins';
+
+.header {
+  display: grid;
+  align-self: start;
+  justify-content: center;
+
+  @include b-up(xl) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  @include b-o(lg) {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  @include b-o(md) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+  @include b-d(md) {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  img {
+    @include b-d(md) {
+      width: 114px;
+      height: 64px;
+      object-fit: contain;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@import '~styles/mixins';
+
+.social {
+  $this: &;
+
+  position: relative;
+  z-index: 2;
+  display: grid;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  &.footer {
+    grid-auto-flow: column;
+    column-gap: 8px;
+    justify-content: start;
+
+    @include b-btw(md, xl) {
+      grid-area: social;
+      justify-self: center;
+    }
+
+    #{$this}_name {
+      @include b-d(md) {
+        display: none;
+      }
+    }
+  }
+
+  &.messengers {
+    row-gap: 12px;
+
+    a {
+      grid-template-columns: auto 1fr auto;
+      padding: 24px;
+    }
+
+    #{$this}_name {
+      padding-right: 4px;
+      padding-left: 4px;
+      font-size: 14px;
+      line-height: 0.143;
+      text-align: left;
+    }
+  }
+
+  &_name {
+    text-transform: capitalize;
+  }
+
+  /* stylelint-disable-next-line */
+  a {
+    font-weight: 400;
+
+    svg {
+      color: #71a65d;
+    }
+  }
+}

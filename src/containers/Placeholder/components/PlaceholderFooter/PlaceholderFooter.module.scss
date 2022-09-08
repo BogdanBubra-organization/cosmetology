@@ -1,0 +1,116 @@
+@import '~styles/mixins';
+
+.footer {
+  align-self: end;
+  width: 100%;
+
+  @include b-up(md) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  &_inner {
+    display: grid;
+
+    &.center {
+      justify-content: center;
+    }
+
+    &:not(.center) {
+      @include b-up(md) {
+        grid-auto-flow: column;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      @include b-up(xl) {
+        grid-template-columns: auto 1fr auto;
+        column-gap: 32px;
+      }
+
+      @include b-btw(md, xl) {
+        grid-template-areas:
+          'social social'
+          'address author';
+        grid-gap: 32px;
+      }
+    }
+
+    @include b-up(xl) {
+      padding: 16px;
+    }
+
+    @include b-o(lg) {
+      padding: 8px 32px;
+    }
+
+    @include b-o(md) {
+      padding: 8px 16px;
+    }
+
+    @include b-d(md) {
+      row-gap: 16px;
+      justify-items: center;
+      padding: 16px;
+    }
+  }
+
+  &_address {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 4px;
+    align-items: center;
+    justify-content: start;
+    font-size: 14px;
+    line-height: 1.43;
+
+    @include b-btw(md, xl) {
+      grid-area: address;
+    }
+  }
+
+  &_author {
+    font-size: 14px;
+    line-height: 1.43;
+
+    @include b-btw(md, xl) {
+      grid-area: author;
+    }
+
+    &,
+    a {
+      color: $gray-600;
+    }
+
+    @include b-up(lg) {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+
+    @include b-d(md) {
+      margin-top: 8px;
+    }
+
+    a {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        content: '';
+        background: currentcolor;
+        transition: opacity 200ms;
+      }
+
+      &:hover,
+      &:focus {
+        &::after {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
