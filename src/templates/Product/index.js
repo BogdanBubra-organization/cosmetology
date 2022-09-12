@@ -13,7 +13,7 @@ import SameProducts from './components/SameProducts'
 const Product = (props) => {
   const {
     pageContext: { isPricingPage },
-    data: { product, sameServices, systemInfo },
+    data: { product, sameServices, sameServicesUncategorized, systemInfo },
   } = props
   const { name } = product
 
@@ -29,7 +29,11 @@ const Product = (props) => {
         />
         {!isPricingPage && (
           <SameProducts
-            list={sameServices.nodes}
+            list={
+              sameServices.nodes.length
+                ? sameServices.nodes
+                : sameServicesUncategorized.nodes
+            }
             title={systemInfo?.otherProceduresTitle}
           />
         )}
@@ -67,6 +71,19 @@ export const pageQuery = graphql`
     sameServices: allDatoCmsService(
       limit: 4
       filter: { category: { eq: $category }, id: { ne: $id } }
+    ) {
+      nodes {
+        slug
+        name
+        duration
+        previewImage {
+          url
+        }
+      }
+    }
+    sameServicesUncategorized: allDatoCmsService(
+      limit: 4
+      filter: { id: { ne: $id } }
     ) {
       nodes {
         slug
