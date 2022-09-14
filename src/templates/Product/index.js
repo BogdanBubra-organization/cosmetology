@@ -53,6 +53,8 @@ export const pageQuery = graphql`
         value
       }
       price
+      priceFrom
+      priceTo
       previewImage {
         url
       }
