@@ -19,7 +19,7 @@
     "@gvrs/gatsby-transformer-blurhash": "1.0.4",
     "@percy/cli": "1.10.2",
     "@svgr/webpack": "6.3.1",
-    "@tanstack/react-query": "4.2.3",
+    "@tanstack/react-query": "4.3.4",
     "bootstrap": "5.2.1",
     "classnames": "2.3.1",
     "dotenv": "16.0.2",
