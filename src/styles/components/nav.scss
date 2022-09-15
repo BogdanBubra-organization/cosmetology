@@ -30,20 +30,11 @@
   }
 
   &--footer {
-    grid-area: menu;
-
-    @include b-up(xxl) {
-      margin-left: -12px;
-    }
-
-    @include b-o(md) {
-      margin-left: -12px;
-    }
+    margin: -8px -12px;
 
     @include b-d(md) {
       flex-direction: column;
       row-gap: 8px;
-      margin-bottom: -8px;
     }
   }
 

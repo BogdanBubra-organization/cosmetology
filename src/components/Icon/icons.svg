@@ -29,13 +29,16 @@
     <path fill="#71A65D"
       d="M15.303 14.47 10 19.773 4.697 14.47a7.5 7.5 0 1 1 10.606 0ZM10 10.833a1.666 1.666 0 1 0 0-3.332 1.666 1.666 0 0 0 0 3.332Z" />
   </symbol>
+  <symbol id="time" fill="none" viewBox="0 0 20 20">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 10a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Zm-6.63-3a.88.88 0 0 0-1.74 0v3c0 .23.09.45.25.62l2 2a.87.87 0 1 0 1.24-1.24l-1.74-1.74V7Z" fill="#71A65D"/>
+  </symbol>
   <symbol id="star" viewBox="0 0 15 15">
     <path stroke="#FFD542" d="m7.5 1.3 1.52 3.66.12.28.3.03 3.95.31-3 2.58-.24.2.07.3.92 3.85-3.38-2.06-.26-.16-.26.16-3.38 2.06.92-3.85.07-.3-.23-.2L1.6 5.58l3.95-.31.3-.03.12-.28L7.5 1.3Z"/>
   </symbol>
-  <symbol id='swiper-arrow' fill="none" viewBox="0 0 24 24">
+  <symbol id="swiper-arrow" fill="none" viewBox="0 0 24 24">
     <path fill="currentColor" d="m17 5.7 6.3 6.3-6.4 6.3-1-1 4.5-4.6H.8v-1.4h19.6l-4.5-4.5 1-1.1Z" />
   </symbol>
-  <symbol id='swiper-arrow-sm' fill="none" viewBox="0 0 20 20">
+  <symbol id="swiper-arrow-sm" fill="none" viewBox="0 0 20 20">
     <path fill="currentColor" fill-rule="evenodd" d="M13.5 10 8.2 4.7 7 5.9l4.1 4.1L7 14.1l1.2 1.2 5.3-5.3Z"
       clip-rule="evenodd" />
   </symbol>

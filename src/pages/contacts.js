@@ -15,6 +15,10 @@ export const query = graphql`
           title
           href
         }
+        workingHours {
+          weekdaysFull
+          time
+        }
         link
       }
       phonesBlock {
