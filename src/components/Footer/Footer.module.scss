@@ -1,0 +1,215 @@
+@import '~styles/mixins';
+
+.footer {
+  &:not(.messengers) {
+    background: $white;
+  }
+
+  &.messengers {
+    text-align: center;
+
+    @include b-up(md) {
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+
+    @include b-d(md) {
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+  }
+}
+
+.footerInner {
+  display: grid;
+  grid-gap: 24px;
+  align-items: center;
+  max-width: 1440px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include b-up(xxl) {
+    grid-template-areas:
+      'logo menu social'
+      'info copy author';
+    padding: 40px 60px 32px;
+  }
+
+  @include b-btw(md, xxl) {
+    justify-content: space-between;
+  }
+
+  @include b-btw(lg, xxl) {
+    grid-template-areas:
+      'logo menu social'
+      'info author author'
+      'info copy copy';
+    padding: 40px 60px 32px;
+  }
+
+  @include b-up(lg) {
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  @include b-btw(md, lg) {
+    grid-template-areas:
+      'logo logo logo'
+      'info info info'
+      'menu menu social'
+      'copy copy author';
+    padding: 24px 60px 32px;
+  }
+
+  @include b-d(md) {
+    grid-template-areas:
+      'logo'
+      'info'
+      'menu'
+      'social'
+      'author'
+      'copy';
+    row-gap: 32px;
+    justify-items: center;
+    padding: 32px;
+    text-align: center;
+  }
+}
+
+.footerLogoWrapper {
+  grid-area: logo;
+
+  @include b-btw(md, lg) {
+    justify-self: center;
+  }
+}
+
+.logoLink {
+  display: inline-block;
+}
+
+.footerLogoFull {
+  @include b-d(md) {
+    display: none;
+  }
+}
+
+.footerLogo {
+  @include b-up(md) {
+    display: none;
+  }
+}
+
+.footerMenu {
+  grid-area: menu;
+
+  @include b-d(md) {
+    margin-top: 8px;
+  }
+}
+
+.footerSocial {
+  grid-area: social;
+}
+
+.footerInfo {
+  display: grid;
+  grid-area: info;
+  row-gap: 8px;
+  column-gap: 24px;
+
+  @include b-up(xxl) {
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: start;
+  }
+
+  @include b-d(lg) {
+    justify-self: center;
+  }
+
+  @include b-btw(md, lg) {
+    grid-auto-flow: column;
+    margin-top: -8px;
+  }
+
+  @include b-d(md) {
+    justify-items: center;
+    margin-top: -16px;
+  }
+
+  img {
+    width: 48px;
+    height: 64px;
+  }
+}
+
+.footerCopy,
+.footerAuthor {
+  font-size: 14px;
+  line-height: 1.43;
+}
+
+.footerCopy {
+  display: flex;
+  grid-area: copy;
+  column-gap: 5px;
+
+  @include b-up(xxl) {
+    justify-content: center;
+  }
+
+  @include b-btw(lg, xxl) {
+    justify-self: end;
+    margin-top: -16px;
+  }
+
+  @include b-btw(md, lg) {
+    justify-self: start;
+  }
+
+  @include b-d(md) {
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 250px;
+  }
+
+  &,
+  p {
+    color: $gray-400;
+  }
+}
+
+.footerAuthor {
+  grid-area: author;
+
+  @include b-up(md) {
+    justify-self: end;
+  }
+
+  &,
+  a {
+    color: $gray-600;
+  }
+
+  a {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      content: '';
+      background: currentcolor;
+      transition: opacity 200ms;
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+}

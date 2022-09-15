@@ -3,7 +3,6 @@
 .contactsmap {
   display: grid;
   row-gap: 16px;
-  justify-items: start;
   padding: 20px;
   background: $white;
   border-radius: 16px;
@@ -28,5 +27,22 @@
     height: 100%;
     overflow: hidden;
     border-radius: 4px;
+  }
+}
+
+.heading {
+  justify-self: start;
+}
+
+.gridInfoBadges {
+  display: grid;
+  justify-content: space-between;
+
+  @include b-up(md) {
+    grid-auto-flow: column;
+  }
+
+  @include b-d(md) {
+    row-gap: 10px;
   }
 }

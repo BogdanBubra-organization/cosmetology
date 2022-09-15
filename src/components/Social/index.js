@@ -10,8 +10,9 @@ const Social = ({
   isBtn,
   isWithText,
   iconSize = 40,
+  className,
 }) => (
-  <ul className={cn(s.social, { [s[variant]]: variant })}>
+  <ul className={cn(s.social, { [s[variant]]: variant }, className)}>
     {data?.map(({ name, href, isExternal }) => (
       <li key={name}>
         {/* eslint-disable-next-line react/jsx-no-target-blank */}

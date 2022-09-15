@@ -35,7 +35,15 @@ const Layout = ({ isMessengersPage, children, isShortVariant }) => {
             title
             href
           }
+          workingHours {
+            weekdaysShort
+            time
+          }
           logo {
+            url
+            alt
+          }
+          logoFull {
             url
             alt
           }
