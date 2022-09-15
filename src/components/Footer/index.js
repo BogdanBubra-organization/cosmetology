@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createElement } from 'react'
 import { Container } from 'react-bootstrap'
 import { StructuredText } from 'react-datocms'
 import { Link, withPrefix } from 'gatsby'
@@ -7,25 +7,39 @@ import cn from 'classnames'
 
 import Social from '~components/Social'
 import Menu from '~components/Menu'
-import AddresPin from '~components/AddressPin'
-import * as s from './style.module.scss'
+import AddressPin from '~components/AddressPin'
+import WorkingHours from '~components/WorkingHours'
 
-const Author = () => (
-  <div className={s.footer_author}>
+import * as s from './Footer.module.scss'
+
+const Author = (props) => (
+  <div {...props}>
     Дизайн та розробка{' '}
     <a href="https://min.studio" target="_blank" rel="noreferrer">
-      Мінімал
+      min.studio
     </a>
   </div>
 )
 
 const Logo = ({ url, alt }) => (
-  <img src={url} width="31" height="41" alt={alt} />
+  <img src={url} width="48" height="64" alt={alt} className={s.footerLogo} />
+)
+
+const LogoFull = ({ url, alt }) => (
+  <img
+    src={url}
+    width="188"
+    height="40"
+    alt={alt}
+    className={s.footerLogoFull}
+  />
 )
 
 const Footer = ({
   address,
+  workingHours,
   logo,
+  logoFull,
   menu,
   copyright,
   socials,
@@ -38,24 +52,33 @@ const Footer = ({
 
   return !isMessengersPage ? (
     <footer className={s.footer}>
-      <div className={s.footer_inner}>
-        <div className={s.footer_info}>
-          {isHomepage ? (
-            <Logo {...logo} />
-          ) : (
-            <Link to="/">
+      <div className={s.footerInner}>
+        <div className={s.footerLogoWrapper}>
+          {createElement(
+            isHomepage ? React.Fragment : Link,
+            isHomepage ? {} : { to: '/', className: s.logoLink },
+            <>
               <Logo {...logo} />
-            </Link>
+              <LogoFull {...logoFull} />
+            </>
           )}
-          {address && <AddresPin {...address} />}
         </div>
-        <Menu data={menu} variant="footer" />
-        <Social data={socials} variant="footer" isWithIcon />
-        <div className={s.footer_copy}>
+        <div className={s.footerInfo}>
+          <AddressPin {...address} />
+          <WorkingHours {...workingHours} />
+        </div>
+        <Menu data={menu} variant="footer" className={s.footerMenu} />
+        <Social
+          data={socials}
+          variant="footer"
+          isWithIcon
+          className={s.footerSocial}
+        />
+        <div className={s.footerCopy}>
           <StructuredText data={copyright?.value} />
           {currentYear}
         </div>
-        <Author />
+        <Author className={s.footerAuthor} />
       </div>
     </footer>
   ) : (
