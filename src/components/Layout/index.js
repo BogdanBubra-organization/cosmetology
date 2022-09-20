@@ -13,10 +13,16 @@ import { SSRProvider } from 'react-bootstrap'
 import Header from '~components/Header'
 import Footer from '~components/Footer'
 import Preload from '~components/Preload'
+import NavBtns from '~components/NavBtns'
 import '~styles/app.scss'
 import * as s from './style.module.scss'
 
-const Layout = ({ isMessengersPage, children, isShortVariant }) => {
+const Layout = ({
+  isMessengersPage,
+  isServicesPage,
+  children,
+  isShortVariant,
+}) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       datoCmsLayout {
@@ -90,12 +96,18 @@ const Layout = ({ isMessengersPage, children, isShortVariant }) => {
           {...data.datoCmsLayout.header?.[0]}
           isNavHidden={isShortVariant}
         />
+
         <main className="main">{children}</main>
+
         {!isShortVariant && (
-          <Footer
-            {...data.datoCmsLayout.footer?.[0]}
-            isMessengersPage={isMessengersPage}
-          />
+          <>
+            <Footer
+              {...data.datoCmsLayout.footer?.[0]}
+              isMessengersPage={isMessengersPage}
+            />
+
+            <NavBtns isServicesPage={isServicesPage} />
+          </>
         )}
       </div>
 
