@@ -64,6 +64,7 @@
     @include b-d(lg) {
       justify-self: center;
       width: 343px;
+      height: 343px;
     }
 
     &::after {

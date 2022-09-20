@@ -51,7 +51,7 @@ const Footer = ({
   const currentYear = new Date().getFullYear()
 
   return !isMessengersPage ? (
-    <footer className={s.footer}>
+    <footer id="footer" className={s.footer}>
       <div className={s.footerInner}>
         <div className={s.footerLogoWrapper}>
           {createElement(

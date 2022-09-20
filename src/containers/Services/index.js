@@ -17,7 +17,7 @@ const Services = (props) => {
   } = props
 
   return (
-    <Layout isShortVariant={isPricesPage}>
+    <Layout isShortVariant={isPricesPage} isServicesPage>
       <S title="Послуги" />
       <ServicesHero {...{ heading, text }} />
 

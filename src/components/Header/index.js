@@ -42,6 +42,10 @@ const Header = ({ logo, menu, isNavHidden }) => {
   }
 
   useEffect(() => {
+    document.querySelector('body').style.overflow = null
+  }, [])
+
+  useEffect(() => {
     if (!isLgDown) {
       document.querySelector('body').style.overflow = 'auto'
       setShow(false)
