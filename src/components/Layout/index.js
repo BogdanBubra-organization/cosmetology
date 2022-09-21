@@ -97,17 +97,16 @@ const Layout = ({
           isNavHidden={isShortVariant}
         />
 
-        <main className="main">{children}</main>
+        <main className="main">
+          {children}
+          {!isShortVariant && <NavBtns isServicesPage={isServicesPage} />}
+        </main>
 
         {!isShortVariant && (
-          <>
-            <Footer
-              {...data.datoCmsLayout.footer?.[0]}
-              isMessengersPage={isMessengersPage}
-            />
-
-            <NavBtns isServicesPage={isServicesPage} />
-          </>
+          <Footer
+            {...data.datoCmsLayout.footer?.[0]}
+            isMessengersPage={isMessengersPage}
+          />
         )}
       </div>
 
