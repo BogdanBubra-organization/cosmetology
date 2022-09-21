@@ -10,7 +10,7 @@ import * as s from './NavBtns.module.scss'
 const NavBtns = ({ isServicesPage }) => {
   const [showCallback, setShowCallback] = useState(false)
   const [showNav, setShowNav] = useState(false)
-  const [nav, setNav] = useState({ fixed: false, fixPosition: 0 })
+  const [fixed, setFixed] = useState(false)
 
   const navRef = useRef(null)
 
@@ -23,12 +23,11 @@ const NavBtns = ({ isServicesPage }) => {
 
     const footer = document.querySelector('#footer')
     const footerOffsetTop = footer.offsetTop
-    const footerHeight = footer.clientHeight
 
     if (footerOffsetTop < window.innerHeight + window.scrollY) {
-      setNav({ fixed: true, fixPosition: `${footerHeight}px` })
+      setFixed(true)
     } else {
-      setNav({ fixed: false, fixPosition: 0 })
+      setFixed(false)
     }
   }
 
@@ -49,34 +48,31 @@ const NavBtns = ({ isServicesPage }) => {
     <>
       <div
         ref={navRef}
-        className={cn(s.nav, { [s.show]: showNav }, { [s.fixed]: nav.fixed })}
-        style={{ bottom: nav.fixPosition }}
+        className={cn(s.nav, { [s.show]: showNav }, { [s.fixed]: fixed })}
       >
         <div className={s.nav_btns}>
-          <div className={s.nav_btnWrap}>
-            <button
-              onClick={() => setShowCallback(true)}
-              className={cn(s.nav_btn, s.tel)}
-              type="button"
-            >
-              <Icon name="tel" />
-            </button>
-          </div>
+          <button
+            onClick={() => setShowCallback(true)}
+            className={cn(s.nav_btn, s.tel)}
+            type="button"
+          >
+            <Icon name="tel" />
+          </button>
 
           {!isServicesPage && (
-            <div className={s.nav_btnWrap}>
-              <Link className={s.nav_btn} to="/services">
-                <Icon name="grid" />
-              </Link>
-            </div>
+            <Link className={s.nav_btn} to="/services">
+              <Icon name="grid" />
+            </Link>
           )}
         </div>
 
-        <div className={cn(s.nav_btnWrap, s.up)}>
-          <button onClick={scrollToTop} type="button" className={s.nav_btn}>
-            <Icon name="arrow-up" />
-          </button>
-        </div>
+        <button
+          onClick={scrollToTop}
+          type="button"
+          className={cn(s.nav_btn, s.up)}
+        >
+          <Icon name="arrow-up" />
+        </button>
       </div>
 
       <ModalCallback
