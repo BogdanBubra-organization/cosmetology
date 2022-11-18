@@ -39,7 +39,7 @@
     "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-bootstrap": "2.6.0",
-    "react-datocms": "4.0.3",
+    "react-datocms": "4.0.6",
     "react-dom": "18.2.0",
     "react-helmet": "6.1.0",
     "react-input-mask": "3.0.0-alpha.2",
