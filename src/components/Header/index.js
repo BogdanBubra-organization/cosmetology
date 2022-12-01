@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Button, Container, Dropdown } from 'react-bootstrap'
-import { useLocation } from '@gatsbyjs/reach-router'
+import { useLocation } from '@reach/router'
 import { withPrefix, Link } from 'gatsby'
 import cn from 'classnames'
 

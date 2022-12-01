@@ -2,7 +2,7 @@ import React, { createElement } from 'react'
 import { Container } from 'react-bootstrap'
 import { StructuredText } from 'react-datocms'
 import { Link, withPrefix } from 'gatsby'
-import { useLocation } from '@gatsbyjs/reach-router'
+import { useLocation } from '@reach/router'
 import cn from 'classnames'
 
 import Social from '~components/Social'
