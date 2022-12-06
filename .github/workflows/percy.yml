@@ -31,6 +31,12 @@ jobs:
         run: yarn
       - name: Build
         run: yarn build
+        env:
+          DATOCMS_API_TOKEN: ${{ secrets.DATOCMS_API_TOKEN }}
+          GATSBY_CRM_TOKEN: ${{ secrets.GATSBY_CRM_TOKEN }}
+          GATSBY_CRM_URL: ${{ secrets.GATSBY_CRM_URL }}
+          GATSBY_INSTA_ID: ${{ secrets.GATSBY_INSTA_ID }}
+          GATSBY_INSTA_TOKEN: ${{ secrets.GATSBY_INSTA_TOKEN }}
       - name: Percy Test
         run: yarn percy snapshot ./public
         env:
