@@ -69,6 +69,7 @@ export const pageQuery = graphql`
           imgixParams: { fit: "crop", auto: "compress,format" }
         )
       }
+      instagramLink
     }
     sameServices: allDatoCmsService(
       limit: 4
