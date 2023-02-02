@@ -12,7 +12,10 @@ const HomePage = ({ data }) => (
     {data.datoCmsPlaceholder.isInDevelopment ? (
       <Placeholder {...data.datoCmsHomepage} />
     ) : (
-      <Home {...data.datoCmsHomepage} />
+      <Home
+        {...data.datoCmsHomepage}
+        categoriesList={data.allDatoCmsCategory.nodes}
+      />
     )}
   </QueryClientProvider>
 )
@@ -51,6 +54,11 @@ export const query = graphql`
           }
         }
       }
+      categories {
+        heading
+        text
+        linkText
+      }
       services {
         heading
         text
@@ -62,7 +70,6 @@ export const query = graphql`
             url
           }
         }
-        linkText
       }
       gallery {
         heading
@@ -114,6 +121,16 @@ export const query = graphql`
           date
         }
         linkText
+      }
+    }
+    allDatoCmsCategory {
+      nodes {
+        slug
+        title
+        descr
+        image {
+          url
+        }
       }
     }
   }

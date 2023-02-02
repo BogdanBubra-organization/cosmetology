@@ -60,15 +60,19 @@
   }
 
   &-menu {
-    display: grid !important;
-    row-gap: 16px;
+    width: calc(100vw - 32px);
+    max-width: 343px;
+    max-height: calc(100vh - 116px);
+    overflow: auto;
     visibility: hidden;
     opacity: 0;
     transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
 
-    @include b-d(md) {
-      width: calc(100vw - 32px);
-      max-width: 400px;
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
     }
 
     &.show {
@@ -77,6 +81,11 @@
       opacity: 1;
       transform: translate3d(0, 68px, 0) !important;
     }
+  }
+
+  &-inner {
+    display: grid;
+    row-gap: 16px;
   }
 
   &-overlay {

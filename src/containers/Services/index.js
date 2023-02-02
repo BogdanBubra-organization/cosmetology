@@ -3,18 +3,12 @@ import { Container } from 'react-bootstrap'
 
 import Layout from '~components/Layout'
 import S from '~components/seo'
+import Category from '~components/Category'
 import ServicesHero from './components/ServicesHero'
-import Category from './components/Category'
 import * as s from './Services.module.scss'
 
 const Services = (props) => {
-  const {
-    heading,
-    text,
-    injectionsCosmetology,
-    careCosmetology,
-    isPricesPage,
-  } = props
+  const { heading, text, categories, isPricesPage } = props
 
   return (
     <Layout isShortVariant={isPricesPage} isServicesPage>
@@ -22,8 +16,14 @@ const Services = (props) => {
       <ServicesHero {...{ heading, text }} />
 
       <Container as="section" className={s.services}>
-        <Category {...injectionsCosmetology[0]} isPricesPage={isPricesPage} />
-        <Category {...careCosmetology[0]} isPricesPage={isPricesPage} />
+        {categories.map((item) => (
+          <Category
+            isServices
+            key={item.title}
+            {...item}
+            isPricesPage={isPricesPage}
+          />
+        ))}
       </Container>
     </Layout>
   )

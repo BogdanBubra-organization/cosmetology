@@ -1,0 +1,52 @@
+@import '~styles/mixins';
+
+.categories {
+  display: grid;
+  row-gap: 24px;
+  justify-items: center;
+
+  @include b-up(lg) {
+    margin-top: 60px;
+  }
+
+  @include b-btw(md, lg) {
+    margin-top: 32px;
+  }
+
+  @include b-up(md) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  @include b-d(md) {
+    padding-top: 24px;
+    padding-bottom: 16px;
+    margin-top: 16px;
+  }
+
+  &_heading {
+    display: grid;
+    row-gap: 16px;
+    justify-items: center;
+    text-align: center;
+  }
+
+  &_descr {
+    max-width: 640px;
+
+    @include b-d(md) {
+      font-size: 14px;
+      line-height: 1.57;
+    }
+  }
+
+  &_btn {
+    display: grid;
+    min-width: 215px;
+
+    @include b-d(md) {
+      width: 100%;
+      max-width: 420px;
+    }
+  }
+}

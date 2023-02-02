@@ -40,11 +40,16 @@
     }
   }
 
+  &_wrapper {
+    display: grid;
+    justify-items: center;
+  }
+
   &_descr {
     position: relative;
     display: grid;
     grid-gap: 20px;
-    margin-bottom: 16px;
+    width: 100%;
 
     @include b-up(xl) {
       grid-template-columns: max(680px) 437px;
@@ -109,5 +114,11 @@
         padding-bottom: 24px;
       }
     }
+  }
+
+  &_btn {
+    display: grid;
+    min-width: 215px;
+    margin-top: 24px;
   }
 }

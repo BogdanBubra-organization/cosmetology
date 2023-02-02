@@ -7,6 +7,8 @@ import Icon from '~components/Icon'
 import ModalCallback from '~components/ModalCallback'
 import * as s from './NavBtns.module.scss'
 
+gsap.registerPlugin(ScrollToPlugin)
+
 const NavBtns = ({ isServicesPage }) => {
   const [showCallback, setShowCallback] = useState(false)
   const [showNav, setShowNav] = useState(false)
@@ -30,8 +32,6 @@ const NavBtns = ({ isServicesPage }) => {
       setFixed(false)
     }
   }
-
-  gsap.registerPlugin(ScrollToPlugin)
 
   const scrollToTop = () => {
     gsap.to(window, { scrollTo: 0, ease: 'power2' })

@@ -1,0 +1,100 @@
+@import '~styles/mixins';
+
+.category {
+  &_heading {
+    display: grid;
+    row-gap: 16px;
+    justify-items: center;
+    text-align: center;
+
+    @include b-up(xl) {
+      padding-top: 48px;
+    }
+
+    @include b-btw(md, xl) {
+      padding-top: 56px;
+    }
+
+    @include b-d(md) {
+      padding-top: 24px;
+    }
+  }
+
+  &_title {
+    @include b-d(md) {
+      font-size: 40px;
+      line-height: 1.2;
+    }
+  }
+
+  &_descr {
+    @include b-up(lg) {
+      max-width: 680px;
+    }
+
+    @include b-d(lg) {
+      max-width: 432px;
+    }
+  }
+
+  &_content {
+    display: grid;
+
+    @include b-up(xl) {
+      padding-top: 64px;
+      margin-bottom: 100px;
+    }
+
+    @include b-d(xl) {
+      padding-top: 40px;
+    }
+
+    @include b-up(lg) {
+      row-gap: 72px;
+    }
+
+    @include b-o(md) {
+      row-gap: 40px;
+    }
+
+    @include b-btw(md, xl) {
+      margin-bottom: 80px;
+    }
+
+    @include b-d(md) {
+      row-gap: 8px;
+      margin-bottom: 60px;
+    }
+  }
+
+  &_other {
+    display: grid;
+    justify-items: center;
+    margin-top: 12px;
+
+    @include b-up(md) {
+      row-gap: 32px;
+    }
+
+    @include b-up(xl) {
+      margin-bottom: 100px;
+    }
+
+    @include b-btw(md, xl) {
+      margin-bottom: 80px;
+    }
+
+    @include b-d(md) {
+      row-gap: 16px;
+      margin-bottom: 60px;
+    }
+  }
+
+  &_otherTitle {
+    width: fit-content;
+    color: transparent;
+    text-align: center;
+    background-image: $gradient;
+    background-clip: text;
+  }
+}

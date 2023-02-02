@@ -41,7 +41,7 @@ $umaplat: (
 @include cormorant.fontFace(
   $weight: 600,
   $fontName: 'Cormorant',
-  $unicodeMap: $umapcyr
+  $unicodeMap: map-merge($umapcyr, $umaplat)
 );
 
 @include inter.fontFaceVariable(

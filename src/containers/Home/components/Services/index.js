@@ -1,11 +1,10 @@
 import React from 'react'
-import { Button, Container } from 'react-bootstrap'
-import { Link } from 'gatsby'
+import { Container } from 'react-bootstrap'
 import Cards from '~components/Cards'
 import * as s from './Services.module.scss'
 
 const Services = (props) => {
-  const { heading, text, services, linkText } = props
+  const { heading, text, services } = props
 
   return (
     <Container as="section" id="services" className={s.services}>
@@ -27,17 +26,6 @@ const Services = (props) => {
         data-direction="bottom"
         variant="homepage"
       />
-      <div className={s.services_btn}>
-        <Button
-          data-appear="services"
-          data-direction="bottom"
-          as={Link}
-          to="/services"
-          variant="secondary"
-        >
-          {linkText}
-        </Button>
-      </div>
     </Container>
   )
 }

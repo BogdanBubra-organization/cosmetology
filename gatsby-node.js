@@ -70,6 +70,11 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
           id
         }
       }
+      allDatoCmsCategory {
+        nodes {
+          slug
+        }
+      }
     }
   `)
 
@@ -79,6 +84,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
   }
 
   const serviceTemplate = path.resolve('src/templates/Product/index.js')
+  const categoryTemplate = path.resolve('src/templates/CategoryPage/index.js')
 
   results.data.allDatoCmsService.nodes.forEach(({ slug, category, id }) => {
     if (slug) {
@@ -94,6 +100,18 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
           },
         })
       )
+    }
+  })
+
+  results.data.allDatoCmsCategory.nodes.forEach(({ slug }) => {
+    if (slug) {
+      createPage({
+        path: `/${SERVICE_PAGE_SLUG[0]}/${slug}`,
+        component: categoryTemplate,
+        context: {
+          slug,
+        },
+      })
     }
   })
 }

@@ -4,8 +4,19 @@
   display: grid;
   row-gap: 16px;
   justify-content: center;
-  padding-top: 48px;
   text-align: center;
+
+  @include b-up(xl) {
+    padding-top: 48px;
+  }
+
+  @include b-btw(md, xl) {
+    padding-top: 56px;
+  }
+
+  @include b-d(md) {
+    padding-top: 24px;
+  }
 
   &_descr {
     @include b-up(lg) {

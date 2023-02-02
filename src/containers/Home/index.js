@@ -8,13 +8,22 @@ import { appearAnim, resetAnim } from '~utils/appearAnim'
 import usePosts from '~hooks/usePosts'
 import Lights from '~components/Lights'
 import Hero from './components/Hero'
+import Categories from './components/Categories'
 import Services from './components/Services'
 import Reviews from './components/Reviews'
 import About from './components/About'
 import Gallery from './components/Gallery'
 
 const Home = (props) => {
-  const { hero, services, gallery, about, reviews } = props
+  const {
+    hero,
+    categories,
+    categoriesList,
+    services,
+    gallery,
+    about,
+    reviews,
+  } = props
 
   const isPreloaded =
     typeof window !== 'undefined'
@@ -41,6 +50,7 @@ const Home = (props) => {
       <S />
       <Lights />
       <Hero {...hero[0]} isPreloaded={isPreloaded} isDesktop={isDesktop} />
+      <Categories {...categories[0]} categoriesList={categoriesList} />
       <Services {...services[0]} />
       <Gallery {...gallery[0]} posts={posts} isLoading={isLoading} />
       <About {...about[0]} />

@@ -3,7 +3,6 @@
 .nav {
   $this: &;
 
-  position: sticky;
   bottom: 0;
   z-index: 3;
   display: grid;
@@ -14,6 +13,14 @@
   opacity: 0;
   transition: opacity 0.3s, transform 0.3s;
 
+  @include b-up(md) {
+    position: sticky;
+  }
+
+  @include b-d(md) {
+    position: fixed;
+  }
+
   &.show {
     opacity: 1;
     transform: translateY(-5px);
@@ -21,7 +28,6 @@
 
   &.fixed {
     @include b-d(md) {
-      position: fixed;
       right: 0;
       grid-template-areas:
         'btns'

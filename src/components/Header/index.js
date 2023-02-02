@@ -23,7 +23,7 @@ const ButtonAsk = ({ handleShowOrder }) => (
   </Button>
 )
 
-const Header = ({ logo, menu, isNavHidden }) => {
+const Header = ({ logo, menu, isNavHidden, categories }) => {
   const dropdownRef = useRef(null)
   const location = useLocation()
   const isHomepage = location.pathname === withPrefix('/')
@@ -67,7 +67,9 @@ const Header = ({ logo, menu, isNavHidden }) => {
           </Link>
         )}
 
-        {!isNavHidden && <Menu data={menu} variant="header" />}
+        {!isNavHidden && (
+          <Menu categories={categories} data={menu} variant="header" />
+        )}
 
         {!isMdDown && (
           <div className={s.header_btn}>
@@ -83,8 +85,16 @@ const Header = ({ logo, menu, isNavHidden }) => {
                 modifiers: [{ name: 'offset', options: { offset: [0, 16] } }],
               }}
             >
-              {!isNavHidden && <Menu data={menu} variant="dropdown" />}
-              {isMdDown && <ButtonAsk handleShowOrder={handleShowOrder} />}
+              <div className="dropdown-inner">
+                {!isNavHidden && (
+                  <Menu
+                    categories={categories}
+                    data={menu}
+                    variant="dropdown"
+                  />
+                )}
+                {isMdDown && <ButtonAsk handleShowOrder={handleShowOrder} />}
+              </div>
             </Dropdown.Menu>
           </Dropdown>
         )}
