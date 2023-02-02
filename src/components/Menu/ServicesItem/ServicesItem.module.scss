@@ -1,0 +1,169 @@
+/* stylelint-disable no-descending-specificity */
+@import '~styles/mixins';
+
+.item {
+  $this: &;
+
+  position: relative;
+  border-radius: 8px;
+
+  @include b-d(md) {
+    padding-right: 8px !important;
+    padding-left: 8px !important;
+  }
+
+  &.active {
+    background: #f2f2f2;
+
+    #{$this}_heading {
+      svg {
+        @include b-d(lg) {
+          transform: scaleY(-1);
+        }
+      }
+    }
+  }
+
+  &:hover,
+  &:focus {
+    #{$this}_inner {
+      @include b-up(lg) {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #{$this}_heading {
+      @include b-up(lg) {
+        color: $green;
+      }
+    }
+
+    svg {
+      @include b-up(lg) {
+        transform: scaleY(-1);
+      }
+    }
+  }
+
+  &_heading {
+    display: grid !important;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    transition: color 150ms ease-in-out;
+
+    @include b-d(md) {
+      padding-right: 4px;
+      padding-left: 4px;
+    }
+
+    svg {
+      margin-bottom: -3px;
+      transition: transform 150ms ease-in-out;
+    }
+  }
+
+  &_inner {
+    @include b-up(lg) {
+      position: absolute;
+      top: 100%;
+      left: -16px;
+      z-index: 3;
+      display: block !important;
+      width: 464px;
+      padding-top: 4px;
+      visibility: hidden;
+      opacity: 0;
+      transition-timing-function: ease-in-out;
+      transition-duration: 150ms;
+      transition-property: visibility, opacity, transform;
+      transform: translateY(-5px);
+    }
+  }
+
+  &_submenu {
+    display: grid;
+    row-gap: 8px;
+    border-radius: 14px;
+
+    @include b-up(lg) {
+      padding: 8px;
+      background: $white;
+    }
+
+    @include b-d(lg) {
+      padding-top: 12px;
+    }
+  }
+
+  &_link {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    border-radius: 8px;
+    transition: background-color 200ms;
+
+    @include b-up(lg) {
+      column-gap: 8px;
+      padding: 8px;
+    }
+
+    @include b-d(lg) {
+      column-gap: 4px;
+      padding: 6px 4px 6px 8px;
+      background: $white;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: #f2f2f2;
+    }
+  }
+
+  &_pic {
+    @include b-d(md) {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &_content {
+    display: grid;
+    row-gap: 2px;
+    max-width: 260px;
+  }
+
+  &_title {
+    color: $black;
+    letter-spacing: 0.1px;
+
+    @include b-d(lg) {
+      font-size: 14px;
+      line-height: 1.57;
+    }
+  }
+
+  &_descr {
+    display: block;
+    display: -webkit-box;
+    height: 40px;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.43;
+    color: $gray-600;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  &_icon {
+    display: grid;
+    place-content: center;
+    width: 48px;
+    height: 48px;
+    color: $green;
+  }
+}

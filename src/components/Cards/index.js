@@ -19,7 +19,7 @@ const Cards = ({ data, variant, isPricesPage, ...rest }) => {
           <li key={slug} className={s.cards_item}>
             <div className={s.cards_heading}>
               <span className={s.cards_name}>{name}</span>
-              <span className={s.cards_label}>{duration}</span>
+              {duration && <span className={s.cards_label}>{duration}</span>}
             </div>
             <div className={s.cards_pic}>
               <img
