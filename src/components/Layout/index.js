@@ -67,6 +67,16 @@ const Layout = ({
           }
         }
       }
+      allDatoCmsCategory {
+        nodes {
+          slug
+          title
+          descr
+          image {
+            url
+          }
+        }
+      }
     }
   `)
 
@@ -94,6 +104,7 @@ const Layout = ({
       <div className={s.layout} ref={layoutRef}>
         <Header
           {...data.datoCmsLayout.header?.[0]}
+          categories={data.allDatoCmsCategory.nodes}
           isNavHidden={isShortVariant}
         />
 

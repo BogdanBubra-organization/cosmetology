@@ -8,7 +8,9 @@ export const query = graphql`
   fragment ServicesPageData on DatoCmsServicesPage {
     heading
     text
-    injectionsCosmetology {
+    categories {
+      slug
+      buttonText
       title
       descr
       services {
@@ -19,16 +21,15 @@ export const query = graphql`
           url
         }
       }
-    }
-    careCosmetology {
-      title
-      descr
-      services {
-        slug
-        name
-        duration
-        previewImage {
-          url
+      subcategory {
+        title
+        services {
+          slug
+          name
+          duration
+          previewImage {
+            url
+          }
         }
       }
     }

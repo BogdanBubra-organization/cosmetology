@@ -5,8 +5,7 @@
   margin-bottom: 60px;
 
   @include b-up(xl) {
-    row-gap: 60px;
-    padding-top: 48px;
+    padding-top: 64px;
   }
 
   @include b-d(xl) {
@@ -14,11 +13,8 @@
   }
 
   @include b-up(lg) {
-    padding-bottom: 32px;
-  }
-
-  @include b-o(lg) {
     row-gap: 72px;
+    padding-bottom: 32px;
   }
 
   @include b-o(md) {
