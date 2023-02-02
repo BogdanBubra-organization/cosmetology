@@ -6,6 +6,7 @@ import cn from 'classnames'
 
 import MediaWrap from '~components/MediaWrap'
 
+import Icon from '~components/Icon'
 import { formatPrice } from './utils'
 import * as s from './ProductHero.module.scss'
 
@@ -20,6 +21,7 @@ const ProductHero = ({
   descrTitle,
   previewImage,
   isPriceVisible,
+  instagramLink,
 }) => {
   const showAnyPrice = price || priceTo || priceFrom
   const showExactPrice = !priceTo && !priceFrom
@@ -59,7 +61,7 @@ const ProductHero = ({
         <h3 className="h5">{descrTitle}</h3>
         <StructuredText data={descr?.value} />
 
-        <div className={s.producthero_btn}>
+        <div className={s.producthero_btns}>
           <Button
             href="https://cbox.mobi/go/cosmetology-ua"
             target="_blank"
@@ -67,6 +69,19 @@ const ProductHero = ({
           >
             Записатись на процедуру
           </Button>
+
+          {instagramLink && (
+            <Button
+              variant="secondary"
+              href={instagramLink}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-icon"
+            >
+              <Icon name="instagram" size={20} />
+              Більше наших робіт
+            </Button>
+          )}
         </div>
       </div>
     </section>
