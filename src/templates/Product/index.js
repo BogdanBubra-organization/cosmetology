@@ -70,6 +70,12 @@ export const pageQuery = graphql`
         )
       }
       instagramLink
+      warningSection {
+        title
+        warningList {
+          name
+        }
+      }
     }
     sameServices: allDatoCmsService(
       limit: 4

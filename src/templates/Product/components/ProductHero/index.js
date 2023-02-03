@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { StructuredText } from 'react-datocms'
@@ -22,9 +23,15 @@ const ProductHero = ({
   previewImage,
   isPriceVisible,
   instagramLink,
+  warningSection,
 }) => {
   const showAnyPrice = price || priceTo || priceFrom
   const showExactPrice = !priceTo && !priceFrom
+
+  const { title: warningTitle, warningList } = warningSection[0] || {}
+
+  const isWarningList = !!warningList?.filter((item) => !!item.name).length
+  const isWarningSection = !!warningTitle || isWarningList
 
   return (
     <section className={s.producthero}>
@@ -60,6 +67,29 @@ const ProductHero = ({
       <div className={s.producthero_content}>
         <h3 className="h5">{descrTitle}</h3>
         <StructuredText data={descr?.value} />
+
+        {isWarningSection && (
+          <div className={s.producthero_warning}>
+            {!!warningTitle && (
+              <span className={s.producthero_warning_title}>
+                {warningTitle}
+              </span>
+            )}
+
+            {isWarningList && (
+              <ul className={s.producthero_warning_list}>
+                {warningList.map(
+                  (item, i) =>
+                    item.name && (
+                      <li key={`w${i}`} className={s.producthero_warning_item}>
+                        {item.name}
+                      </li>
+                    )
+                )}
+              </ul>
+            )}
+          </div>
+        )}
 
         <div className={s.producthero_btns}>
           <Button
