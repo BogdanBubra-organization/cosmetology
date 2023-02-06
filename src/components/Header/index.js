@@ -42,11 +42,13 @@ const Header = ({ logo, menu, isNavHidden, categories }) => {
   }
 
   useEffect(() => {
-    document.querySelector('body').style.overflow = null
+    if (sessionStorage.getItem('isPreloaded')) {
+      document.querySelector('body').style.overflow = null
+    }
   }, [])
 
   useEffect(() => {
-    if (!isLgDown) {
+    if (!isLgDown && sessionStorage.getItem('isPreloaded')) {
       document.querySelector('body').style.overflow = 'auto'
       setShow(false)
     }

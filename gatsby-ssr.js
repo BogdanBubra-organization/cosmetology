@@ -4,6 +4,10 @@
  * See: https://www.gatsbyjs.com/docs/ssr-apis/
  */
 
+export const onRenderBody = ({ setBodyAttributes }) => {
+  setBodyAttributes({ style: { overflow: 'hidden' } })
+}
+
 // Hack, to reorder the helmet components as first in <head> tag
 export const onPreRenderHTML = ({
   getHeadComponents,
