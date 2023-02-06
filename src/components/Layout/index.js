@@ -9,7 +9,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { SSRProvider } from 'react-bootstrap'
-
 import Header from '~components/Header'
 import Footer from '~components/Footer'
 import Preload from '~components/Preload'
@@ -96,6 +95,7 @@ const Layout = ({
     if (isPreloaded) {
       layoutRef.current.style.visibility = 'visible'
       layoutRef.current.style.opacity = 1
+      document.body.style.overflow = 'auto'
     }
   }, [isPreloaded])
 
