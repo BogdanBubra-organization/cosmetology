@@ -45,7 +45,7 @@
     "react-input-mask": "3.0.0-alpha.2",
     "sass": "1.57.1",
     "svg-parser": "2.0.4",
-    "swiper": "8.4.5"
+    "swiper": "8.4.7"
   },
   "devDependencies": {
     "@commitlint/cli": "17.4.4",
