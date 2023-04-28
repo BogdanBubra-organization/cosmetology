@@ -43,7 +43,7 @@
     "react-dom": "18.2.0",
     "react-helmet": "6.1.0",
     "react-input-mask": "3.0.0-alpha.2",
-    "sass": "1.62.0",
+    "sass": "1.62.1",
     "svg-parser": "2.0.4",
     "swiper": "8.4.7"
   },
