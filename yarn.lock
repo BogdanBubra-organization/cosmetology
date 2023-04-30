@@ -10788,15 +10788,15 @@ react-bootstrap@2.7.4:
     uncontrollable "^7.2.1"
     warning "^4.0.3"
 
-react-datocms@4.0.11:
-  version "4.0.11"
-  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-4.0.11.tgz#8791dfa48450d46ab12221cebd126f0315dcddf9"
-  integrity sha512-+vXWgevKriE6OrVi9eFIcJvXG9vJK/1kqDgY1wCG6LVe4IZ9Bwh8qYCRpPhAaMRfNbdgPrp7PZ8ZedEeS3kv8w==
+react-datocms@4.0.13:
+  version "4.0.13"
+  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-4.0.13.tgz#edd310a5dbfc7ff0264ab61ed841007da3fa1ee3"
+  integrity sha512-0QBKt8KlUb6UInqnyLDLazVUsjSAGiT6rrfXRqskH7+IwPp87kDtaLiwaKW5rBoi4393X88eJdSj/Ax9TIMotg==
   dependencies:
     datocms-listen "^0.1.9"
     datocms-structured-text-generic-html-renderer "^2.0.1"
     datocms-structured-text-utils "^2.0.1"
-    react-intersection-observer "^8.33.1"
+    react-intersection-observer "^9.4.3"
     react-string-replace "^1.1.0"
     universal-base64 "^2.1.0"
     use-deep-compare-effect "^1.6.1"
@@ -10868,10 +10868,10 @@ react-input-mask@3.0.0-alpha.2:
     prop-types "^15.7.2"
     warning "^4.0.3"
 
-react-intersection-observer@^8.33.1:
-  version "8.34.0"
-  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-8.34.0.tgz#6f6e67831c52e6233f6b6cc7eb55814820137c42"
-  integrity sha512-TYKh52Zc0Uptp5/b4N91XydfSGKubEhgZRtcg1rhTKABXijc4Sdr1uTp5lJ8TN27jwUsdXxjHXtHa0kPj704sw==
+react-intersection-observer@^9.4.3:
+  version "9.4.3"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-9.4.3.tgz#ec84ce0c25cad548075130ea045ac5c7adf908f3"
+  integrity sha512-WNRqMQvKpupr6MzecAQI0Pj0+JQong307knLP4g/nBex7kYfIaZsPpXaIhKHR+oV8z+goUbH9e10j6lGRnTzlQ==
 
 react-is@^16.13.1, react-is@^16.3.2:
   version "16.13.1"
