@@ -15,7 +15,7 @@
     "@fontsource/inter": "4.5.15",
     "@formspree/core": "2.8.1",
     "@formspree/react": "2.4.1",
-    "@gvrs/gatsby-transformer-blurhash": "1.0.4",
+    "@gvrs/gatsby-transformer-blurhash": "2.0.0",
     "@percy/cli": "1.24.0",
     "@reach/router": "^1.3.4",
     "@svgr/webpack": "6.5.1",
