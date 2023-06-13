@@ -1792,10 +1792,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.42.0.tgz#484a1d638de2911e6f5a30c12f49c7e4a3270fb6"
   integrity sha512-6SWlXpWU5AvId8Ac7zjzmIOqMOba/JWY8XZ4A7q7Gn1Vlfg/SFFIlrtHXt9nPn4op9ZPAkl91Jao+QQv3r/ukw==
 
-"@fontsource/cormorant@4.5.10":
-  version "4.5.10"
-  resolved "https://registry.yarnpkg.com/@fontsource/cormorant/-/cormorant-4.5.10.tgz#a3126f0c7ec425ae424756016192a2d9a6fdba27"
-  integrity sha512-hcerRmT8ML4+MMnasHKMMIaeNL/uR/Gs2nm5/w24ytCEW2JI2gwqP7YHjJbfS1GlblEC7AKNxYuv0w4Nfn3h9g==
+"@fontsource/cormorant@5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/cormorant/-/cormorant-5.0.3.tgz#61690f5fe26c41dc24c80f1438e370a40a155382"
+  integrity sha512-vrxLz5fpYgqgOr0CJw6tVVmO3U3ERp1Q1qEX3gpHuhSRi9bdNe1xqLUlBZloQW6mKBNtwMHfOkcZPWg1PZU9CQ==
 
 "@fontsource/inter@4.5.15":
   version "4.5.15"
