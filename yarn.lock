@@ -11200,10 +11200,10 @@ react-bootstrap@2.7.4:
     uncontrollable "^7.2.1"
     warning "^4.0.3"
 
-react-datocms@4.0.17:
-  version "4.0.17"
-  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-4.0.17.tgz#ac2b7add34231ffc260639f8ef541d73645c803b"
-  integrity sha512-atwFOJPGLH1xPHvvBplpM2G6VGa5ntSoLDNRLJBClLLs6AVgdqRjtAsBdxLBluLTSVwBvib3nNHIHddXREPpTA==
+react-datocms@4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-4.1.0.tgz#819d8af6a0c8d4696cff0e9f0d5cdb4873aff97b"
+  integrity sha512-KcGY2hASAMs6UXqCJ+VCiNBLy30QL16jMrkG50u8DMmBh+HmMq+Y5nD2Z0WZRItEBJNvgXlKh+wakBf7boG3Cg==
   dependencies:
     datocms-listen "^0.1.9"
     datocms-structured-text-generic-html-renderer "^2.0.1"
