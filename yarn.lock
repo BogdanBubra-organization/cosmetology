@@ -1802,7 +1802,14 @@
   resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-4.5.15.tgz#eed1873d68755d3b52d6fcfcfa3493118430a512"
   integrity sha512-FzleM9AxZQK2nqsTDtBiY0PMEVWvnKnuu2i09+p6DHvrHsuucoV2j0tmw+kAT3L4hvsLdAIDv6MdGehsPIdT+Q==
 
-"@formspree/core@2.8.1", "@formspree/core@^2.8.1":
+"@formspree/core@2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@formspree/core/-/core-2.8.2.tgz#135141acffa9d32bbdcd5831f5238af9ab861814"
+  integrity sha512-hmwb2b5aKp4YRzTUj8gCkvftzSvAUtffLEmSIUSlU3Qutw8NED0hzXbkw22ZnmA19a6rRkrZdnDSV/lVaL6jwQ==
+  dependencies:
+    "@stripe/stripe-js" "^1.35.0"
+
+"@formspree/core@^2.8.1":
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/@formspree/core/-/core-2.8.1.tgz#020485c030deb2213526d24c4d87e86991a2ad74"
   integrity sha512-MkMWcI8EnIIy3ryB3tdRynC134BTMVLzSq5i/ACrcD/F10tbSffOPOOVpQ/tz9BSrCuCyeBJShAwllfifz52zg==
