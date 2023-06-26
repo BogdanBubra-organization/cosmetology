@@ -11,8 +11,8 @@
     }
   ],
   "dependencies": {
-    "@fontsource/cormorant": "4.5.10",
-    "@fontsource/inter": "4.5.15",
+    "@fontsource/cormorant": "5.0.3",
+    "@fontsource/inter": "5.0.3",
     "@formspree/core": "2.8.2",
     "@formspree/react": "2.4.2",
     "@gvrs/gatsby-transformer-blurhash": "2.0.0",

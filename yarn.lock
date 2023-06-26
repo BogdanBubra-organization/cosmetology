@@ -1792,15 +1792,15 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.43.0.tgz#559ca3d9ddbd6bf907ad524320a0d14b85586af0"
   integrity sha512-s2UHCoiXfxMvmfzqoN+vrQ84ahUSYde9qNO1MdxmoEhyHWsfmwOpFlwYV+ePJEVc7gFnATGUi376WowX1N7tFg==
 
-"@fontsource/cormorant@4.5.10":
-  version "4.5.10"
-  resolved "https://registry.yarnpkg.com/@fontsource/cormorant/-/cormorant-4.5.10.tgz#a3126f0c7ec425ae424756016192a2d9a6fdba27"
-  integrity sha512-hcerRmT8ML4+MMnasHKMMIaeNL/uR/Gs2nm5/w24ytCEW2JI2gwqP7YHjJbfS1GlblEC7AKNxYuv0w4Nfn3h9g==
+"@fontsource/cormorant@5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/cormorant/-/cormorant-5.0.3.tgz#61690f5fe26c41dc24c80f1438e370a40a155382"
+  integrity sha512-vrxLz5fpYgqgOr0CJw6tVVmO3U3ERp1Q1qEX3gpHuhSRi9bdNe1xqLUlBZloQW6mKBNtwMHfOkcZPWg1PZU9CQ==
 
-"@fontsource/inter@4.5.15":
-  version "4.5.15"
-  resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-4.5.15.tgz#eed1873d68755d3b52d6fcfcfa3493118430a512"
-  integrity sha512-FzleM9AxZQK2nqsTDtBiY0PMEVWvnKnuu2i09+p6DHvrHsuucoV2j0tmw+kAT3L4hvsLdAIDv6MdGehsPIdT+Q==
+"@fontsource/inter@5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-5.0.3.tgz#30a1c0b974e29d72eddaec0c45655597ffa0bf80"
+  integrity sha512-JJvh5xht71F6e0E5r2+Ffu8g+CYAxMvnGJm9ZMg5IIjy8UwxLp+8C99TgPJupdEyBpEJv0wuMG2Rd183z/bV8g==
 
 "@formspree/core@2.8.2":
   version "2.8.2"
