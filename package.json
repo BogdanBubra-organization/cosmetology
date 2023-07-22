@@ -48,8 +48,8 @@
     "swiper": "9.4.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.6.6",
-    "@commitlint/config-conventional": "17.6.6",
+    "@commitlint/cli": "17.6.7",
+    "@commitlint/config-conventional": "17.6.7",
     "commitizen": "4.3.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.45.0",
