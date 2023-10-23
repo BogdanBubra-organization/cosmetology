@@ -66,9 +66,55 @@
     }
   }
 
+  &_place {
+    display: grid;
+    width: 100%;
+    padding: 24px;
+    background: $white;
+    border-radius: 14px;
+
+    @include b-up(sm) {
+      grid-auto-flow: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @include b-d(sm) {
+      row-gap: 24px;
+    }
+
+    &_title {
+      display: grid;
+      grid-auto-flow: column;
+      column-gap: 0.5em;
+      align-items: center;
+      justify-content: start;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    &_info {
+      display: grid;
+      grid-auto-flow: column;
+      column-gap: 1em;
+      align-items: center;
+      justify-content: start;
+      font-size: 12px;
+    }
+
+    &_rating {
+      display: grid;
+      grid-auto-flow: column;
+      column-gap: 0.5em;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+
   &_list {
     grid-gap: 16px;
-    max-width: 1304px;
     @include b-d(md) {
       margin-top: 8px;
     }

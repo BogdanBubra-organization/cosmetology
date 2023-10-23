@@ -9,17 +9,21 @@ import ServicesItem from './ServicesItem'
 const Menu = ({ data, categories, variant, className }) => {
   return (
     <Nav className={cn({ [`nav--${variant}`]: variant }, className)} as="ul">
-      {data?.map(({ title, to }) => (
-        <Nav.Item as="li" key={title}>
-          {to === '/services' && variant !== 'footer' ? (
-            <ServicesItem categories={categories} title={title} />
-          ) : (
-            <Nav.Link as={Link} to={to} activeClassName="active">
-              {title}
-            </Nav.Link>
-          )}
-        </Nav.Item>
-      ))}
+      {data?.map(({ title, to, isExternal }) => {
+        const linkProps = isExternal
+          ? { href: to, target: '_blank', rel: 'noopener noreferrer' }
+          : { to, as: Link, activeClassName: 'active' }
+
+        return (
+          <Nav.Item as="li" key={title}>
+            {to === '/services' && variant !== 'footer' ? (
+              <ServicesItem categories={categories} title={title} />
+            ) : (
+              <Nav.Link {...linkProps}>{title}</Nav.Link>
+            )}
+          </Nav.Item>
+        )
+      })}
     </Nav>
   )
 }
