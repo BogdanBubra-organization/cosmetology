@@ -4,7 +4,7 @@ import cn from 'classnames'
 import Icon from '~components/Icon'
 import * as s from './Rating.module.scss'
 
-const Rating = ({ rating }) => {
+const Rating = ({ rating, isBig }) => {
   return (
     <ul className={s.rating}>
       {[...Array(5)].map((_, i) => {
@@ -16,7 +16,7 @@ const Rating = ({ rating }) => {
             // eslint-disable-next-line react/no-array-index-key
             key={`r${i}`}
           >
-            <Icon name="star" size={15} />
+            <Icon name="star" size={isBig ? 20 : 15} />
           </li>
         )
       })}

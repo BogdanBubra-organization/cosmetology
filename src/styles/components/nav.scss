@@ -18,7 +18,7 @@
         padding-left: 10px;
       }
 
-      &.active {
+      &.active:not([target]) {
         font-weight: 600;
 
         &:hover,

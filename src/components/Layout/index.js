@@ -33,6 +33,7 @@ const Layout = ({
           menu {
             title
             to
+            isExternal
           }
         }
         footer {
@@ -55,6 +56,7 @@ const Layout = ({
           menu {
             title
             to
+            isExternal
           }
           copyright {
             value

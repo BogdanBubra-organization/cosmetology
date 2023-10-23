@@ -1,27 +1,32 @@
+/* eslint-disable camelcase */
 import React from 'react'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import cn from 'classnames'
-import Rating from './components/Rating'
+import Rating from '~components/Rating'
 
 import * as s from './ReviewItem.module.scss'
 
-const ReviewItem = ({ name, rating, avatar, text, date, variant }) => {
+const ReviewItem = ({
+  author_name,
+  rating,
+  profile_photo_url,
+  text,
+  variant,
+}) => {
   return (
     <div className={cn(s.reviewitem, { [s[variant]]: variant })}>
       <div className={s.reviewitem_heading}>
         <div className={s.reviewitem_pic}>
-          <GatsbyImage image={getImage(avatar)} alt={name} />
+          <img
+            width="64"
+            height="64"
+            src={profile_photo_url}
+            alt={author_name}
+          />
         </div>
-        <span className={s.reviewitem_name}>{name}</span>
+        <span className={s.reviewitem_name}>{author_name}</span>
         <Rating rating={rating} />
       </div>
       <p className={s.reviewitem_text}>{text}</p>
-      <p className={s.reviewitem_date}>
-        Дата:{' '}
-        <time className={s.reviewitem_time} dateTime={date}>
-          {date}
-        </time>
-      </p>
     </div>
   )
 }

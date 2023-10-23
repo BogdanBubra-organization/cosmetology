@@ -3,7 +3,6 @@
 .rating {
   display: grid;
   grid-auto-flow: column;
-  column-gap: 4px;
   justify-content: start;
 
   &_star {

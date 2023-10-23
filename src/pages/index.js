@@ -7,23 +7,38 @@ import Placeholder from '~containers/Placeholder'
 
 const queryClient = new QueryClient()
 
-const HomePage = ({ data }) => (
-  <QueryClientProvider client={queryClient}>
-    {data.datoCmsPlaceholder.isInDevelopment ? (
-      <Placeholder {...data.datoCmsHomepage} />
-    ) : (
-      <Home
-        {...data.datoCmsHomepage}
-        categoriesList={data.allDatoCmsCategory.nodes}
-      />
-    )}
-  </QueryClientProvider>
-)
+const HomePage = ({ data }) => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      {data.datoCmsPlaceholder.isInDevelopment ? (
+        <Placeholder {...data.datoCmsHomepage} />
+      ) : (
+        <Home
+          {...data.datoCmsHomepage}
+          categoriesList={data.allDatoCmsCategory.nodes}
+          googlePlace={data.googlePlacesPlace}
+        />
+      )}
+    </QueryClientProvider>
+  )
+}
 
 export const query = graphql`
   query HomePageQuery {
     datoCmsPlaceholder {
       isInDevelopment
+    }
+
+    googlePlacesPlace {
+      name
+      rating
+      childrenGooglePlacesReview {
+        author_name
+        text
+        rating
+        profile_photo_url
+      }
+      user_ratings_total
     }
     datoCmsHomepage {
       hero {
@@ -104,22 +119,6 @@ export const query = graphql`
       }
       reviews {
         heading
-        reviews {
-          id
-          name
-          rating
-          avatar {
-            gatsbyImageData(
-              height: 62
-              width: 62
-              placeholder: NONE
-              forceBlurhash: true
-              imgixParams: { fit: "crop", auto: "compress,format" }
-            )
-          }
-          text
-          date
-        }
         linkText
       }
     }

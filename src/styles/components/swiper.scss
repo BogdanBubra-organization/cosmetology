@@ -17,7 +17,9 @@
 
   &-button {
     position: absolute;
-    transition: background-color 250ms ease-in-out, color 250ms ease-in-out,
+    transition:
+      background-color 250ms ease-in-out,
+      color 250ms ease-in-out,
       opacity 250ms ease-in-out;
 
     @include b-up(lg) {
@@ -39,7 +41,7 @@
       right: 8px;
     }
 
-    &-disabled {
+    &-disabled:disabled {
       opacity: 0;
     }
 
