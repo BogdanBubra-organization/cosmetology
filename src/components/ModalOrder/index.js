@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+/* eslint-disable import/no-extraneous-dependencies */
+import React, { useState, useEffect } from 'react'
 import { useForm } from '@formspree/react'
+import { useLocation } from '@gatsbyjs/reach-router'
 import { Button, Form } from 'react-bootstrap'
 import Modal from '~components/Modal'
 import { DATA, FEEDBACK } from './constants'
 
-const ModalOrder = ({ show, onHide }) => {
-  const { title, descr, fields, btn } = DATA
+const ModalOrder = ({ show, onHide, service }) => {
+  const { title, titleService, descr, fields, btn } = DATA
   const { finalTitle, finalDescr } = FEEDBACK
 
   const [state, handleSubmit, reset] = useForm('mzbooegr')
@@ -27,12 +29,25 @@ const ModalOrder = ({ show, onHide }) => {
     setValidated(false)
   }
 
+  const formHeader = service ? titleService : title
+  const formFields = service
+    ? fields.filter((field) => field.as !== 'textarea')
+    : fields
+
+  const location = useLocation()
+
+  const [utmData, setUtmData] = useState(null)
+
+  useEffect(() => {
+    setUtmData(sessionStorage.getItem('utmData') || location.pathname)
+  }, [])
+
   return (
     <Modal
       show={show}
       onHide={onHide}
       onExited={handeExited}
-      title={!state.succeeded ? title : finalTitle}
+      title={!state.succeeded ? formHeader : finalTitle}
       descr={!state.succeeded ? descr : finalDescr}
     >
       {!state.succeeded && (
@@ -42,7 +57,7 @@ const ModalOrder = ({ show, onHide }) => {
           onSubmit={onSubmit}
           className="form"
         >
-          {fields.map((field) => (
+          {formFields.map((field) => (
             <Form.Group key={field.label} className="form-group">
               <Form.Label className={field.required && 'form-label--required'}>
                 {field.label}
@@ -50,6 +65,13 @@ const ModalOrder = ({ show, onHide }) => {
               <Form.Control {...field} />
             </Form.Group>
           ))}
+
+          {service && (
+            <>
+              <Form.Control type="hidden" name="Service" value={service} />
+              <Form.Control type="hidden" name="Url" value={utmData} />
+            </>
+          )}
 
           <div className="form-btn">
             <Button disabled={state.submitting} type="submit">

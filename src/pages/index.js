@@ -16,7 +16,6 @@ const HomePage = ({ data }) => {
         <Home
           {...data.datoCmsHomepage}
           categoriesList={data.allDatoCmsCategory.nodes}
-          googlePlace={data.googlePlacesPlace}
         />
       )}
     </QueryClientProvider>
@@ -27,18 +26,6 @@ export const query = graphql`
   query HomePageQuery {
     datoCmsPlaceholder {
       isInDevelopment
-    }
-
-    googlePlacesPlace {
-      name
-      rating
-      childrenGooglePlacesReview {
-        author_name
-        text
-        rating
-        profile_photo_url
-      }
-      user_ratings_total
     }
     datoCmsHomepage {
       hero {
@@ -119,7 +106,6 @@ export const query = graphql`
       }
       reviews {
         heading
-        linkText
       }
     }
     allDatoCmsCategory {
