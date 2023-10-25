@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /**
  * Layout component that queries for data
  * with Gatsby's useStaticQuery component
@@ -8,6 +9,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
+import { useLocation } from '@gatsbyjs/reach-router'
 import { SSRProvider } from 'react-bootstrap'
 import Header from '~components/Header'
 import Footer from '~components/Footer'
@@ -80,6 +82,14 @@ const Layout = ({
       }
     }
   `)
+
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.search.includes('utm')) {
+      sessionStorage.setItem('utmData', location.pathname + location.search)
+    }
+  }, [])
 
   const layoutRef = useRef(null)
   const [isPreloaded, setIsPreloaded] = useState(

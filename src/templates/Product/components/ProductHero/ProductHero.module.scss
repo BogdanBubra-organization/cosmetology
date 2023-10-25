@@ -86,7 +86,7 @@
     grid-gap: 16px 8px;
     align-items: center;
     justify-content: start;
-    margin-top: 8px;
+    margin-top: 1em;
 
     @include b-d(sm) {
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -95,6 +95,18 @@
     :global(.btn-secondary) {
       box-shadow: inset 0 0 1px 1px #f2f2f2;
     }
+  }
+
+  &_insta {
+    grid-column: 1 / -1;
+
+    @include b-up(sm) {
+      max-width: 468px;
+    }
+  }
+
+  &_topBtns {
+    margin-bottom: 1em;
   }
 
   &_warning {
@@ -129,7 +141,9 @@
   justify-self: start;
   margin-top: -8px;
   font-size: 2.5rem;
-  font-feature-settings: 'pnum' on, 'lnum' on;
+  font-feature-settings:
+    'pnum' on,
+    'lnum' on;
   color: transparent;
   text-transform: none;
   background-image: linear-gradient(89.79deg, #162113 9.67%, #2e721c 99.85%);

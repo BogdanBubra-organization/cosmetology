@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react'
+import React, { useState } from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { StructuredText } from 'react-datocms'
 import { Button, Ratio } from 'react-bootstrap'
@@ -10,6 +10,38 @@ import MediaWrap from '~components/MediaWrap'
 import Icon from '~components/Icon'
 import { formatPrice } from './utils'
 import * as s from './ProductHero.module.scss'
+
+const ModalOrder = React.lazy(() =>
+  import(/* webpackChunkName: "modal-order" */ '~components/ModalOrder')
+)
+
+const Btns = ({ handleShowOrder, instagramLink, className }) => (
+  <div className={cn(s.producthero_btns, className)}>
+    <Button onClick={handleShowOrder}>Записатись на процедуру</Button>
+
+    <Button
+      variant="outline"
+      href="https://cbox.mobi/go/cosmetology-ua"
+      target="_blank"
+      rel="noreferrer"
+    >
+      Обрати спеціаліста та час
+    </Button>
+
+    {instagramLink && (
+      <Button
+        variant="secondary"
+        href={instagramLink}
+        target="_blank"
+        rel="noreferrer"
+        className={cn('btn-icon', s.producthero_insta)}
+      >
+        <Icon name="instagram" size={20} />
+        Більше наших робіт
+      </Button>
+    )}
+  </div>
+)
 
 const ProductHero = ({
   name,
@@ -25,6 +57,9 @@ const ProductHero = ({
   instagramLink,
   warningSection,
 }) => {
+  const [showOrder, setShowOrder] = useState(false)
+  const handleShowOrder = () => setShowOrder(true)
+
   const showAnyPrice = price || priceTo || priceFrom
   const showExactPrice = !priceTo && !priceFrom
 
@@ -66,6 +101,12 @@ const ProductHero = ({
 
       <div className={s.producthero_content}>
         <h3 className="h5">{descrTitle}</h3>
+
+        <Btns
+          handleShowOrder={handleShowOrder}
+          className={s.producthero_topBtns}
+        />
+
         <StructuredText data={descr?.value} />
 
         {isWarningSection && (
@@ -79,41 +120,20 @@ const ProductHero = ({
             {isWarningList && (
               <ul className={s.producthero_warning_list}>
                 {warningList.map(
-                  (item, i) =>
-                    item.name && (
-                      <li key={`w${i}`} className={s.producthero_warning_item}>
-                        {item.name}
-                      </li>
-                    )
+                  (item, i) => item.name && <li key={`w${i}`}>{item.name}</li>
                 )}
               </ul>
             )}
           </div>
         )}
 
-        <div className={s.producthero_btns}>
-          <Button
-            href="https://cbox.mobi/go/cosmetology-ua"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Записатись на процедуру
-          </Button>
-
-          {instagramLink && (
-            <Button
-              variant="secondary"
-              href={instagramLink}
-              target="_blank"
-              rel="noreferrer"
-              className="btn-icon"
-            >
-              <Icon name="instagram" size={20} />
-              Більше наших робіт
-            </Button>
-          )}
-        </div>
+        <Btns handleShowOrder={handleShowOrder} instagramLink={instagramLink} />
       </div>
+      <ModalOrder
+        show={showOrder}
+        onHide={() => setShowOrder(false)}
+        service={name}
+      />
     </section>
   )
 }

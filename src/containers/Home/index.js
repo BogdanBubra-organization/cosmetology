@@ -23,7 +23,6 @@ const Home = (props) => {
     gallery,
     about,
     reviews,
-    googlePlace,
   } = props
 
   const isPreloaded =
@@ -55,7 +54,7 @@ const Home = (props) => {
       <Services {...services[0]} />
       <Gallery {...gallery[0]} posts={posts} isLoading={isLoading} />
       <About {...about[0]} />
-      <Reviews {...reviews[0]} googlePlace={googlePlace} />
+      <Reviews {...reviews[0]} />
     </Layout>
   )
 }

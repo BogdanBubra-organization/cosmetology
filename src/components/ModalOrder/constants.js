@@ -2,6 +2,7 @@ import InputMask from 'react-input-mask'
 
 const DATA = {
   title: 'Запитайте нас',
+  titleService: 'Записатися на процедуру',
   descr: 'Після відправки наші менеджери зателефонують вам протягом дня.',
   fields: [
     {
