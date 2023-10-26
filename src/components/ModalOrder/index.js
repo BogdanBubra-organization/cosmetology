@@ -49,6 +49,8 @@ const ModalOrder = ({ show, onHide, service }) => {
       onExited={handeExited}
       title={!state.succeeded ? formHeader : finalTitle}
       descr={!state.succeeded ? descr : finalDescr}
+      isSucceeded={state.succeeded}
+      isService={!!service}
     >
       {!state.succeeded && (
         <Form
