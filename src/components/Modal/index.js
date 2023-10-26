@@ -3,7 +3,19 @@ import { Button, Modal as M } from 'react-bootstrap'
 import cn from 'classnames'
 import Icon from '~components/Icon'
 
-const Modal = ({ onHide, title, descr, variant, children, ...rest }) => {
+const Modal = ({
+  onHide,
+  title,
+  descr,
+  variant,
+  isSucceeded,
+  isService,
+  children,
+  ...rest
+}) => {
+  const classSuccess =
+    isSucceeded && `modal-title-success${isService ? '-service' : ''}`
+
   return (
     <M
       onHide={onHide}
@@ -13,7 +25,7 @@ const Modal = ({ onHide, title, descr, variant, children, ...rest }) => {
     >
       {title && (
         <M.Header>
-          <M.Title>{title}</M.Title>
+          <M.Title className={classSuccess}>{title}</M.Title>
           {descr && <p className="modal-descr">{descr}</p>}
         </M.Header>
       )}
