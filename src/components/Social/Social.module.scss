@@ -31,7 +31,8 @@
 
   &.footer,
   &.about,
-  &.contacts {
+  &.contacts,
+  &.topbar {
     grid-auto-flow: column;
   }
 
@@ -40,7 +41,18 @@
     column-gap: 12px;
   }
 
-  &.footer {
+  &.topbar {
+    @include b-up(sm) {
+      column-gap: 12px;
+    }
+
+    @include b-d(sm) {
+      column-gap: 8px;
+    }
+  }
+
+  &.footer,
+  &.topbar {
     justify-content: end;
   }
 

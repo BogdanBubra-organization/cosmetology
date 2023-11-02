@@ -1,16 +1,28 @@
 import React, { useEffect, useState, useRef } from 'react'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import cn from 'classnames'
 import gsap from 'gsap'
 import ScrollToPlugin from 'gsap/ScrollToPlugin'
-import { Link } from 'gatsby'
 import Icon from '~components/Icon'
-import ModalCallback from '~components/ModalCallback'
 import * as s from './NavBtns.module.scss'
 
 gsap.registerPlugin(ScrollToPlugin)
 
 const NavBtns = ({ isServicesPage }) => {
-  const [showCallback, setShowCallback] = useState(false)
+  const data = useStaticQuery(graphql`
+    query {
+      datoCmsContactsPage {
+        phonesBlock {
+          phones {
+            phone
+          }
+        }
+      }
+    }
+  `)
+
+  const { phone } = data.datoCmsContactsPage.phonesBlock[0].phones[0]
+
   const [showNav, setShowNav] = useState(false)
   const [fixed, setFixed] = useState(false)
 
@@ -45,41 +57,33 @@ const NavBtns = ({ isServicesPage }) => {
     }
   }, [])
   return (
-    <>
-      <div
-        ref={navRef}
-        className={cn(s.nav, { [s.show]: showNav }, { [s.fixed]: fixed })}
-      >
-        <div className={s.nav_btns}>
-          <button
-            onClick={() => setShowCallback(true)}
-            className={cn(s.nav_btn, s.tel)}
-            type="button"
-          >
-            <Icon name="tel" />
-          </button>
-
-          {!isServicesPage && (
-            <Link className={s.nav_btn} to="/services">
-              <Icon name="grid" />
-            </Link>
-          )}
-        </div>
-
-        <button
-          onClick={scrollToTop}
-          type="button"
-          className={cn(s.nav_btn, s.up)}
+    <div
+      ref={navRef}
+      className={cn(s.nav, { [s.show]: showNav }, { [s.fixed]: fixed })}
+    >
+      <div className={s.nav_btns}>
+        <a
+          href={`tel:${phone.replace(/[^+\d]/g, '')}`}
+          className={cn(s.nav_btn, s.tel)}
         >
-          <Icon name="arrow-up" />
-        </button>
+          <Icon name="tel" />
+        </a>
+
+        {!isServicesPage && (
+          <Link className={s.nav_btn} to="/services">
+            <Icon name="grid" />
+          </Link>
+        )}
       </div>
 
-      <ModalCallback
-        show={showCallback}
-        onHide={() => setShowCallback(false)}
-      />
-    </>
+      <button
+        onClick={scrollToTop}
+        type="button"
+        className={cn(s.nav_btn, s.up)}
+      >
+        <Icon name="arrow-up" />
+      </button>
+    </div>
   )
 }
 

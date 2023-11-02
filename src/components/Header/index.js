@@ -6,7 +6,7 @@ import cn from 'classnames'
 
 import useMatchMedia from '~hooks/useMatchMedia'
 import Menu from '~components/Menu'
-
+import Topbar from '~components/Topbar'
 import * as s from './style.module.scss'
 
 const ModalOrder = React.lazy(() =>
@@ -61,46 +61,50 @@ const Header = ({ logo, menu, isNavHidden, categories }) => {
         data-direction="top"
         className={cn(s.header, { [s.isNavHidden]: isNavHidden })}
       >
-        {isHomepage ? (
-          <Logo {...logo} />
-        ) : (
-          <Link to="/">
+        <Topbar />
+
+        <div className={cn(s.header_inner, { [s.isNavHidden]: isNavHidden })}>
+          {isHomepage ? (
             <Logo {...logo} />
-          </Link>
-        )}
+          ) : (
+            <Link to="/">
+              <Logo {...logo} />
+            </Link>
+          )}
 
-        {!isNavHidden && (
-          <Menu categories={categories} data={menu} variant="header" />
-        )}
+          {!isNavHidden && (
+            <Menu categories={categories} data={menu} variant="header" />
+          )}
 
-        {!isMdDown && (
-          <div className={s.header_btn}>
-            <ButtonAsk handleShowOrder={handleShowOrder} />
-          </div>
-        )}
+          {!isMdDown && (
+            <div className={s.header_btn}>
+              <ButtonAsk handleShowOrder={handleShowOrder} />
+            </div>
+          )}
 
-        {(!isNavHidden || isMdDown) && (
-          <Dropdown show={show} onToggle={handleToggle} ref={dropdownRef}>
-            <Dropdown.Toggle className="dropdown-toggle" as="button" />
-            <Dropdown.Menu
-              popperConfig={{
-                modifiers: [{ name: 'offset', options: { offset: [0, 16] } }],
-              }}
-            >
-              <div className="dropdown-inner">
-                {!isNavHidden && (
-                  <Menu
-                    categories={categories}
-                    data={menu}
-                    variant="dropdown"
-                  />
-                )}
-                {isMdDown && <ButtonAsk handleShowOrder={handleShowOrder} />}
-              </div>
-            </Dropdown.Menu>
-          </Dropdown>
-        )}
-        <div className="dropdown-overlay" />
+          {(!isNavHidden || isMdDown) && (
+            <Dropdown show={show} onToggle={handleToggle} ref={dropdownRef}>
+              <Dropdown.Toggle className="dropdown-toggle" as="button" />
+              <Dropdown.Menu
+                popperConfig={{
+                  modifiers: [{ name: 'offset', options: { offset: [0, 16] } }],
+                }}
+              >
+                <div className="dropdown-inner">
+                  {!isNavHidden && (
+                    <Menu
+                      categories={categories}
+                      data={menu}
+                      variant="dropdown"
+                    />
+                  )}
+                  {isMdDown && <ButtonAsk handleShowOrder={handleShowOrder} />}
+                </div>
+              </Dropdown.Menu>
+            </Dropdown>
+          )}
+          <div className="dropdown-overlay" />
+        </div>
       </div>
       <ModalOrder show={showOrder} onHide={() => setShowOrder(false)} />
     </Container>
