@@ -6,7 +6,7 @@ const PnonesList = ({ list }) => (
   <ul className={s.bulletedlist}>
     {list?.map((el) => (
       <li className={s.bulletedlist_item} key={el?.phone}>
-        <a href={`tel:${el?.phone}`}>{el?.phone}</a>
+        <a href={`tel:${el?.phone.replace(/[^+\d]/g, '')}`}>{el?.phone}</a>
       </li>
     ))}
   </ul>

@@ -114,8 +114,7 @@
 .footerInfo {
   display: grid;
   grid-area: info;
-  row-gap: 8px;
-  column-gap: 24px;
+  gap: 8px 24px;
 
   @include b-up(xxl) {
     grid-auto-flow: column;
