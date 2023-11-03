@@ -1,0 +1,17 @@
+@import '~styles/mixins';
+
+.experts {
+  margin-bottom: 80px;
+
+  &_title {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  &_list {
+    display: grid;
+    row-gap: 64px;
+    max-width: 1106px;
+    margin: 0 auto;
+  }
+}
