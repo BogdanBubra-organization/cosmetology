@@ -61,6 +61,25 @@ export const query = graphql`
           )
         }
       }
+      experts {
+        title
+        list {
+          title
+          subtitle
+          description {
+            value
+          }
+          photo {
+            gatsbyImageData(
+              width: 310
+              height: 464
+              placeholder: NONE
+              forceBlurhash: true
+              imgixParams: { fit: "crop", auto: "compress,format" }
+            )
+          }
+        }
+      }
     }
   }
 `

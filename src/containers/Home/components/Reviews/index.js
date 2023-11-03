@@ -7,7 +7,7 @@ import * as s from './Reviews.module.scss'
 const Reviews = ({ heading }) => {
   return (
     <Container as="section" id="reviews" className={s.reviews}>
-      <h2 data-array="reviews" data-direction="top">
+      <h2 data-array="reviews" data-direction="top" className={s.reviews_title}>
         {heading}
       </h2>
 
