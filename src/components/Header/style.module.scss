@@ -3,18 +3,17 @@
 .header {
   display: grid;
   row-gap: 16px;
-  padding-top: 16px;
   padding-bottom: 16px;
-
-  @include b-up(lg) {
-    padding-right: 16px;
-    padding-left: 16px;
-  }
 
   &_inner {
     display: grid;
     align-items: center;
     justify-content: space-between;
+
+    @include b-up(lg) {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
 
     @include b-up(xl) {
       grid-template-columns: 1fr auto 1fr;
