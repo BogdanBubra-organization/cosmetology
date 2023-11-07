@@ -11,7 +11,9 @@
   height: 0;
   margin-left: auto;
   opacity: 0;
-  transition: opacity 0.3s, transform 0.3s;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
 
   @include b-up(md) {
     position: sticky;
@@ -113,7 +115,9 @@
     background: $white;
     border: solid 4px $white;
     border-radius: 100%;
-    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    transition:
+      color 0.3s ease-in-out,
+      background-color 0.3s ease-in-out;
 
     &:hover,
     &.tel {
@@ -130,6 +134,26 @@
 
     &:not(.up):first-child {
       order: -1;
+    }
+
+    &.tel {
+      position: relative;
+      overflow: hidden;
+
+      a,
+      svg {
+        position: absolute;
+        inset: 0;
+      }
+
+      a {
+        opacity: 0;
+      }
+    }
+
+    &_icon {
+      margin: auto;
+      pointer-events: none;
     }
 
     &.up {

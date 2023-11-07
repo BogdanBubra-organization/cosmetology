@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 import React, { useEffect, useState, useRef } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import cn from 'classnames'
@@ -62,12 +63,14 @@ const NavBtns = ({ isServicesPage }) => {
       className={cn(s.nav, { [s.show]: showNav }, { [s.fixed]: fixed })}
     >
       <div className={s.nav_btns}>
-        <a
-          href={`tel:${phone.replace(/[^+\d]/g, '')}`}
-          className={cn(s.nav_btn, s.tel)}
-        >
-          <Icon name="tel" />
-        </a>
+        <button type="button" className={cn(s.nav_btn, s.tel)}>
+          <a
+            href={`tel:${phone.replace(/[^+\d]/g, '')}`}
+            aria-label="Зателефонувати"
+            className="binct-phone-number-1"
+          />
+          <Icon name="tel" className={s.nav_btn_icon} />
+        </button>
 
         {!isServicesPage && (
           <Link className={s.nav_btn} to="/services">
