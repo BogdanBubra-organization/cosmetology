@@ -19,14 +19,14 @@ const Btns = ({ handleShowOrder, instagramLink, className }) => (
   <div className={cn(s.producthero_btns, className)}>
     <Button onClick={handleShowOrder}>Записатись на процедуру</Button>
 
-    <Button
+    {/* <Button
       variant="outline"
       href="https://cbox.mobi/go/cosmetology-ua"
       target="_blank"
       rel="noreferrer"
     >
       Обрати спеціаліста та час
-    </Button>
+    </Button> */}
 
     {instagramLink && (
       <Button
