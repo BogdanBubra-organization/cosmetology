@@ -22,15 +22,6 @@
         padding-right: 10px;
         padding-left: 10px;
       }
-
-      &.active:not([target]) {
-        font-weight: 600;
-
-        &:hover,
-        &:focus {
-          color: $black;
-        }
-      }
     }
   }
 
@@ -40,6 +31,20 @@
     @include b-d(md) {
       flex-direction: column;
       row-gap: 8px;
+    }
+  }
+
+  &--header,
+  &--footer {
+    #{$this}-link {
+      &.active:not([target]) {
+        font-weight: 600;
+
+        &:hover,
+        &:focus {
+          color: $black;
+        }
+      }
     }
   }
 

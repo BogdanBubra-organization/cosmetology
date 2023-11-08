@@ -1,0 +1,41 @@
+@import '~styles/mixins';
+
+.price {
+  @include b-up(xl) {
+    padding-top: 48px;
+    padding-bottom: 100px;
+  }
+
+  @include b-btw(md, xl) {
+    padding-top: 56px;
+    padding-bottom: 80px;
+  }
+
+  @include b-d(md) {
+    padding-top: 24px;
+    padding-bottom: 64px;
+  }
+
+  &_title {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  &_list {
+    display: grid;
+
+    @include b-up(md) {
+      width: calc(100% - 160px);
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    @include b-up(md) {
+      row-gap: 24px;
+    }
+
+    @include b-d(md) {
+      row-gap: 16px;
+    }
+  }
+}

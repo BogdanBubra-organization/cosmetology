@@ -1,0 +1,118 @@
+@import '~styles/mixins';
+
+.section {
+  @include b-up(md) {
+    --space: 25px;
+  }
+
+  @include b-d(md) {
+    --space: 13px;
+  }
+
+  &_title {
+    letter-spacing: 0;
+  }
+
+  &_btn {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 16px;
+    align-items: center;
+
+    @include b-up(md) {
+      justify-content: start;
+    }
+
+    @include b-d(md) {
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    &::after {
+      width: 16px;
+      height: 16px;
+      content: '';
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3E%3Cpath stroke='%23466B38' stroke-linecap='round' stroke-linejoin='round' d='m2 11 6-6 6 6'/%3E%3C/svg%3E");
+      transition: transform 250ms ease-in-out;
+    }
+
+    &:not(.show) {
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &_list {
+    display: grid;
+    row-gap: var(--space);
+    margin-top: var(--space);
+    margin-bottom: var(--space);
+  }
+
+  &_item {
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+
+    @include b-up(md) {
+      font-size: 18px;
+    }
+
+    @include b-d(md) {
+      font-size: 16px;
+    }
+
+    &:not(:last-child) {
+      &::after {
+        position: absolute;
+        top: calc(100% + ((var(--space) - 1px) / 2));
+        left: 50%;
+        display: block;
+        width: 100%;
+        height: 1px;
+        content: '';
+        background: linear-gradient(
+          to right,
+          transparent 0%,
+          $primary 50%,
+          transparent 100%
+        );
+        transform: translate(-50%);
+      }
+    }
+  }
+
+  &_descr {
+    font-size: 0.9em;
+
+    &.sub {
+      color: $green-dark;
+    }
+  }
+
+  &_price {
+    min-width: 100px;
+    font-weight: 500;
+    text-align: right;
+  }
+
+  &_note {
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    margin-bottom: var(--space);
+    font-style: italic;
+    text-align: right;
+
+    @include b-up(md) {
+      font-size: 16px;
+    }
+
+    @include b-d(md) {
+      font-size: 14px;
+    }
+  }
+}
