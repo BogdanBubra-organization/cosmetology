@@ -22,11 +22,7 @@ const Product = (props) => {
       <Container className={cn({ [s.shortContainer]: isPricingPage })}>
         <S title={name} />
         <h1 className={cn('h2', s.productTitle)}>{name}</h1>
-        <ProductHero
-          {...product}
-          {...systemInfo}
-          isPriceVisible={isPricingPage}
-        />
+        <ProductHero {...product} {...systemInfo} />
         {!isPricingPage && (
           <SameProducts
             list={

@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
@@ -53,7 +54,6 @@ const ProductHero = ({
   imageTitle,
   descrTitle,
   previewImage,
-  isPriceVisible,
   instagramLink,
   warningSection,
 }) => {
@@ -72,31 +72,23 @@ const ProductHero = ({
     <section className={s.producthero}>
       <div className={s.producthero_ill_wrapper}>
         <div className={s.producthero_ill}>
-          <h5>{imageTitle}</h5>
           {example ? (
-            <Ratio aspectRatio={15 / 17}>
-              <MediaWrap media={example}>
-                <GatsbyImage
-                  className={s.producthero_pic}
-                  image={getImage(example)}
-                  alt={name}
-                />
-              </MediaWrap>
-            </Ratio>
+            <>
+              <h5>{imageTitle}</h5>
+              <Ratio aspectRatio={15 / 17}>
+                <MediaWrap media={example}>
+                  <GatsbyImage
+                    className={s.producthero_pic}
+                    image={getImage(example)}
+                    alt={name}
+                  />
+                </MediaWrap>
+              </Ratio>
+            </>
           ) : (
             <img src={previewImage?.url} alt={name} />
           )}
         </div>
-        {isPriceVisible && !!showAnyPrice && (
-          <div className={s.producthero_content}>
-            <h3 className="h5">Вартість</h3>
-            <span className={cn('h2', s.price)}>
-              {!!priceFrom && `від ${formatPrice(priceFrom)}`}{' '}
-              {!!priceTo && `до ${formatPrice(priceTo)}`}
-              {showExactPrice && formatPrice(price)} грн
-            </span>
-          </div>
-        )}
       </div>
 
       <div className={s.producthero_content}>
@@ -124,6 +116,17 @@ const ProductHero = ({
                 )}
               </ul>
             )}
+          </div>
+        )}
+
+        {!!showAnyPrice && (
+          <div className={s.producthero_price}>
+            <h3 className="h5">Вартість</h3>
+            <span className={cn('h2', s.price)}>
+              {!!priceFrom && `від ${formatPrice(priceFrom)}`}{' '}
+              {!!priceTo && `до ${formatPrice(priceTo)}`}
+              {showExactPrice && formatPrice(price)} грн
+            </span>
           </div>
         )}
 
