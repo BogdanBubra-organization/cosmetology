@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { StructuredText } from 'react-datocms'
-import { Button, Ratio } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import cn from 'classnames'
 
 import MediaWrap from '~components/MediaWrap'
@@ -75,15 +75,13 @@ const ProductHero = ({
           {example ? (
             <>
               <h5>{imageTitle}</h5>
-              <Ratio aspectRatio={15 / 17}>
-                <MediaWrap media={example}>
-                  <GatsbyImage
-                    className={s.producthero_pic}
-                    image={getImage(example)}
-                    alt={name}
-                  />
-                </MediaWrap>
-              </Ratio>
+              <MediaWrap media={example}>
+                <GatsbyImage
+                  className={s.producthero_pic}
+                  image={getImage(example)}
+                  alt={name}
+                />
+              </MediaWrap>
             </>
           ) : (
             <img src={previewImage?.url} alt={name} />
