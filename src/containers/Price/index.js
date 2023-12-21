@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react'
 import { Container } from 'react-bootstrap'
 
@@ -16,8 +17,8 @@ const Price = ({ title, content }) => {
         <h1 className={s.price_title}>{title}</h1>
 
         <section className={s.price_list}>
-          {content.map((item) => (
-            <PriceSection key={item.title} {...item} />
+          {content.map((item, i) => (
+            <PriceSection key={item.title + i} {...item} />
           ))}
         </section>
       </Container>

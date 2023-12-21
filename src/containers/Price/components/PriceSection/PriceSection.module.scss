@@ -95,9 +95,28 @@
   }
 
   &_price {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 16px;
+    justify-content: end;
     min-width: 100px;
     font-weight: 500;
-    text-align: right;
+  }
+
+  &_priceOld {
+    position: relative;
+    display: grid;
+    place-items: center;
+    white-space: nowrap;
+
+    &::after {
+      position: absolute;
+      width: 120%;
+      height: 2px;
+      content: '';
+      background: currentcolor;
+      transform: rotate(-30deg);
+    }
   }
 
   &_note {
