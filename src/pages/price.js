@@ -15,6 +15,7 @@ export const query = graphql`
           title
           description
           price
+          pricePromo
           priceDescription
           link {
             slug

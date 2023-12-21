@@ -29,6 +29,7 @@ const PriceSection = ({ title, items, note }) => {
                   title: itemTitle,
                   description,
                   price,
+                  pricePromo,
                   priceDescription,
                   link,
                 },
@@ -57,7 +58,13 @@ const PriceSection = ({ title, items, note }) => {
                     )}
                   </div>
 
-                  <div className={s.section_price}>{price}</div>
+                  <div className={s.section_price}>
+                    <span className={cn({ [s.section_priceOld]: pricePromo })}>
+                      {price}
+                    </span>
+
+                    {pricePromo && pricePromo}
+                  </div>
                 </div>
               )
             )}
