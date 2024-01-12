@@ -3,6 +3,7 @@
 
   position: relative;
   overflow: visible;
+  touch-action: pan-y;
 
   &-wrapper {
     display: grid;
@@ -17,20 +18,13 @@
 
   &-button {
     position: absolute;
+    top: calc(50% - 26px);
+    padding: 14px;
+    box-shadow: 0 0 15px 6px rgba($black, 0.15);
     transition:
       background-color 250ms ease-in-out,
       color 250ms ease-in-out,
       opacity 250ms ease-in-out;
-
-    @include b-up(lg) {
-      top: calc(50% - 32px);
-      padding: 19px;
-    }
-
-    @include b-d(lg) {
-      top: calc(50% - 28px);
-      padding: 16px;
-    }
 
     &-prev {
       left: 8px;
@@ -86,6 +80,73 @@
     }
   }
 
+  &-autoheight {
+    &:not(.swipper--autoheightMobile) {
+      #{$this}-wrapper {
+        display: flex;
+        align-items: start;
+      }
+
+      #{$this}-slide {
+        flex-shrink: 0;
+      }
+
+      .ratio {
+        padding-bottom: 0;
+      }
+
+      .ratio > * {
+        position: static;
+      }
+    }
+
+    &.swipper--autoheightMobile {
+      @include b-up(md) {
+        #{$this}-wrapper {
+          height: auto !important;
+        }
+      }
+    }
+
+    @include b-d(md) {
+      #{$this}-wrapper {
+        display: flex;
+        align-items: start;
+      }
+
+      #{$this}-slide {
+        flex-shrink: 0;
+      }
+
+      .ratio {
+        padding-bottom: 0;
+      }
+
+      .ratio > * {
+        position: static;
+      }
+    }
+
+    &.swiper--modal {
+      #{$this}-wrapper {
+        display: flex;
+        align-items: start;
+      }
+
+      #{$this}-slide {
+        flex-shrink: 0;
+      }
+
+      .ratio {
+        padding-bottom: 0;
+      }
+
+      .ratio > * {
+        position: static;
+      }
+    }
+  }
+
   &--gallery {
     #{$this}-wrapper {
       @include b-up(md) {
@@ -100,6 +161,32 @@
     #{$this}-slide {
       margin-right: 0 !important;
       color: $gray-600;
+    }
+  }
+
+  &--modal {
+    #{$this}-slide {
+      display: grid;
+      place-content: center;
+      height: calc(100vh - 112px);
+      height: calc(100svh - 112px);
+    }
+
+    img,
+    video {
+      width: fit-content;
+      margin-inline: auto;
+      overflow: hidden;
+      border-radius: 16px;
+      object-fit: contain !important;
+    }
+  }
+
+  &-fade {
+    #{$this}-slide {
+      &:not(.swiper-slide-active) {
+        opacity: 0 !important;
+      }
     }
   }
 }

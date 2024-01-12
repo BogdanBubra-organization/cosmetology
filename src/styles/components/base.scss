@@ -52,8 +52,14 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-img {
+img,
+video {
   max-width: 100%;
+
+  @media (height >= 640px) {
+    max-height: calc(100vh - 112px);
+    max-height: calc(100svh - 112px);
+  }
 }
 
 svg {

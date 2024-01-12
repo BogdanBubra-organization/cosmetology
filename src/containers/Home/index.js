@@ -7,23 +7,15 @@ import useMatchMedia from '~hooks/useMatchMedia'
 import { appearAnim, resetAnim } from '~utils/appearAnim'
 import usePosts from '~hooks/usePosts'
 import Lights from '~components/Lights'
+import Reviews from '~components/Reviews'
 import Hero from './components/Hero'
 import Categories from './components/Categories'
 import Services from './components/Services'
-import Reviews from './components/Reviews'
 import About from './components/About'
 import Gallery from './components/Gallery'
 
 const Home = (props) => {
-  const {
-    hero,
-    categories,
-    categoriesList,
-    services,
-    gallery,
-    about,
-    reviews,
-  } = props
+  const { hero, categories, categoriesList, services, gallery, about } = props
 
   const isPreloaded =
     typeof window !== 'undefined'
@@ -54,7 +46,7 @@ const Home = (props) => {
       <Services {...services[0]} />
       <Gallery {...gallery[0]} posts={posts} isLoading={isLoading} />
       <About {...about[0]} />
-      <Reviews {...reviews[0]} />
+      <Reviews variant="home" />
     </Layout>
   )
 }
