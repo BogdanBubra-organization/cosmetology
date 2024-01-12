@@ -1,21 +1,12 @@
 import React from 'react'
-import { Ratio } from 'react-bootstrap'
 import cn from 'classnames'
-
 import * as s from './MediaWrap.module.scss'
 
-const MediaWrap = ({ media, children, className }) =>
+const MediaWrap = ({ media, isProduct, children }) =>
   media?.video ? (
-    <Ratio aspectRatio={100}>
-      <video
-        className={cn(s.mediawrap, className)}
-        src={media?.url}
-        loop
-        autoPlay
-        playsInline
-        muted
-      />
-    </Ratio>
+    <div className={cn(s.media, { [s.product]: isProduct })}>
+      <video src={media?.url} loop autoPlay playsInline muted />
+    </div>
   ) : (
     children
   )

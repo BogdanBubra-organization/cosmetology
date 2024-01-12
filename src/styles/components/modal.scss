@@ -129,6 +129,10 @@
       padding: 0;
     }
 
+    #{$this}-content {
+      background: none;
+    }
+
     #{$this}-dialog {
       width: 100%;
 
@@ -138,18 +142,12 @@
 
       @include b-d(md) {
         max-width: 80vw;
-        margin: auto;
       }
     }
 
-    #{$this}-pic {
-      display: grid;
-      width: 100%;
-      height: 100%;
-      max-height: 80vh;
-      border-radius: 16px;
-      transform: translateZ(0);
-      object-fit: cover;
+    img,
+    video {
+      max-height: 100%;
     }
   }
 }

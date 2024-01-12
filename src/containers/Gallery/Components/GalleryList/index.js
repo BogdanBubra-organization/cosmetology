@@ -80,8 +80,10 @@ const GalleryList = ({ tabs, media, initialTab }) => {
             prevEl: '.swiper-button-prev',
             nextEl: '.swiper-button-next',
           }}
+          autoHeight
           modules={[Navigation, EffectFade]}
           initialSlide={modal.active}
+          className="swiper--modal swipper--autoheightMobile"
         >
           {media.map((item, i) => (
             <SwiperSlide key={`p${i}`}>

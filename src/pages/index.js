@@ -104,9 +104,6 @@ export const query = graphql`
           )
         }
       }
-      reviews {
-        heading
-      }
     }
     allDatoCmsCategory {
       nodes {

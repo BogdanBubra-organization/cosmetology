@@ -7,7 +7,7 @@ const SameProducts = ({ list, title }) => {
   return (
     <section className={s.sameproducts}>
       <h2 className={s.sameproducts_title}>{title}</h2>
-      <Cards data={list} />
+      <Cards data={list} variant="other" />
     </section>
   )
 }

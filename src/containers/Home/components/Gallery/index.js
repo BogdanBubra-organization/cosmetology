@@ -63,7 +63,8 @@ const Gallery = ({
         <div className={s.gallery_wrapper}>
           <Container className={s.gallery_mask}>
             <Swiper
-              className="swiper--gallery"
+              className="swiper--gallery swipper--autoheightMobile"
+              autoHeight
               slidesPerView={1}
               spaceBetween={8}
               navigation={{
@@ -71,7 +72,6 @@ const Gallery = ({
                 nextEl: '.swiper-button-next',
               }}
               breakpoints={{
-                640: { slidesPerView: 2 },
                 768: { spaceBetween: 16, slidesPerView: 2 },
                 1200: { spaceBetween: 16, slidesPerView: 3 },
               }}
@@ -139,8 +139,10 @@ const Gallery = ({
             prevEl: '.swiper-button-prev',
             nextEl: '.swiper-button-next',
           }}
+          autoHeight
           modules={[Navigation, EffectFade]}
           initialSlide={modal.active}
+          className="swiper--modal"
         >
           {media?.map((item, i) => (
             <SwiperSlide key={`p${i}`}>

@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable no-irregular-whitespace */
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react'
@@ -5,8 +6,11 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { StructuredText } from 'react-datocms'
 import { Button } from 'react-bootstrap'
 import cn from 'classnames'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, EffectFade } from 'swiper'
 
 import MediaWrap from '~components/MediaWrap'
+import SwiperButtons from '~components/SwiperButtons'
 
 import Icon from '~components/Icon'
 import { formatPrice } from './utils'
@@ -46,7 +50,7 @@ const Btns = ({ handleShowOrder, instagramLink, className }) => (
 
 const ProductHero = ({
   name,
-  example,
+  media,
   descr,
   price,
   priceFrom,
@@ -72,16 +76,48 @@ const ProductHero = ({
     <section className={s.producthero}>
       <div className={s.producthero_ill_wrapper}>
         <div className={s.producthero_ill}>
-          {example ? (
+          {media.length ? (
             <>
-              <h5>{imageTitle}</h5>
-              <MediaWrap media={example}>
-                <GatsbyImage
-                  className={s.producthero_pic}
-                  image={getImage(example)}
-                  alt={name}
-                />
-              </MediaWrap>
+              <h5 className={s.producthero_title}>{imageTitle}</h5>
+              {media.length > 1 ? (
+                <Swiper
+                  spaceBetween={16}
+                  modules={[Navigation, EffectFade]}
+                  navigation={{
+                    prevEl: '.swiper-button-prev',
+                    nextEl: '.swiper-button-next',
+                  }}
+                  effect="fade"
+                  autoHeight
+                  className={s.producthero_slider}
+                >
+                  {media.map((item, i) => (
+                    <SwiperSlide key={`m${i}`} className={s.producthero_slide}>
+                      <MediaWrap media={item} isProduct>
+                        <GatsbyImage
+                          className={s.producthero_pic}
+                          image={getImage(item)}
+                          alt={name}
+                          objectFit="contain"
+                        />
+                      </MediaWrap>
+                    </SwiperSlide>
+                  ))}
+
+                  <SwiperButtons className="btn-round">
+                    <Icon name="swiper-arrow" size={24} />
+                  </SwiperButtons>
+                </Swiper>
+              ) : (
+                <MediaWrap media={media[0]} isProduct>
+                  <GatsbyImage
+                    className={s.producthero_pic}
+                    image={getImage(media[0])}
+                    alt={name}
+                    objectFit="contain"
+                  />
+                </MediaWrap>
+              )}
             </>
           ) : (
             <img src={previewImage?.url} alt={name} />

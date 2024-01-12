@@ -5,6 +5,7 @@ import cn from 'classnames'
 import Layout from '~components/Layout'
 import S from '~components/seo'
 import Lights from '~components/Lights'
+import Reviews from '~components/Reviews'
 import ProductHero from './components/ProductHero'
 
 import * as s from './Product.module.scss'
@@ -33,6 +34,7 @@ const Product = (props) => {
             title={systemInfo?.otherProceduresTitle}
           />
         )}
+        <Reviews variant="product" />
       </Container>
       <Lights />
     </Layout>
@@ -54,7 +56,7 @@ export const pageQuery = graphql`
       previewImage {
         url
       }
-      example {
+      media {
         url
         video {
           thumbnailUrl

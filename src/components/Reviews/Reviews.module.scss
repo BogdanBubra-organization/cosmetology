@@ -5,35 +5,52 @@
 
   position: relative;
   display: grid;
-  row-gap: 24px;
   justify-items: center;
-  margin-bottom: 60px;
 
-  @include b-up(xl) {
-    padding-top: 100px;
-    padding-bottom: 32px;
-  }
-
-  @include b-d(xl) {
-    padding-top: 32px;
-  }
-
-  @include b-o(lg) {
-    padding-bottom: 10px;
-  }
-
-  @include b-d(lg) {
-    margin-top: 32px;
-  }
-
-  @include b-o(md) {
-    padding-bottom: 24px;
+  @include b-up(md) {
+    row-gap: 24px;
   }
 
   @include b-d(md) {
     row-gap: 16px;
-    padding-bottom: 16px;
-    overflow: hidden;
+    overflow-x: clip;
+  }
+
+  &.home {
+    margin-bottom: 60px;
+
+    @include b-up(xl) {
+      padding-top: 100px;
+      padding-bottom: 32px;
+    }
+
+    @include b-d(xl) {
+      padding-top: 32px;
+    }
+
+    @include b-o(lg) {
+      padding-bottom: 10px;
+    }
+
+    @include b-d(lg) {
+      margin-top: 32px;
+    }
+
+    @include b-o(md) {
+      padding-bottom: 24px;
+    }
+
+    @include b-d(md) {
+      padding-bottom: 16px;
+    }
+
+    #{$this}_title {
+      text-align: center;
+    }
+  }
+
+  &.product {
+    padding: 0 0 80px;
   }
 
   &::before {
@@ -64,10 +81,6 @@
       top: 343px;
       left: -58px;
     }
-  }
-
-  &_title {
-    text-align: center;
   }
 
   > * {
