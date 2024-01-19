@@ -70,13 +70,5 @@ module.exports = {
         trackViewContent: false, // skip track ViewContent on route update
       },
     },
-    {
-      resolve: `gatsby-source-google-places`,
-      options: {
-        placeIds: ['ChIJO6P4wJxJ1UYRZadfEYVoh6s'],
-        apiKey: process.env.GATSBY_GOOGLE_API_KEY,
-        language: 'uk-UA',
-      },
-    },
   ],
 }
