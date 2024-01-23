@@ -34,6 +34,10 @@
     margin-bottom: 12px;
     color: $gray-600;
 
+    @include b-d(md) {
+      order: 2;
+    }
+
     &::after {
       width: 16px;
       height: 16px;
@@ -53,6 +57,10 @@
   &_description {
     @include b-up(lg) {
       overflow: hidden;
+    }
+
+    @include b-d(md) {
+      order: 2;
     }
 
     p {
@@ -77,6 +85,19 @@
 
     @include b-d(md) {
       justify-self: center;
+      margin-bottom: 24px;
+    }
+  }
+
+  &_cta {
+    @include b-up(md) {
+      margin-top: 24px;
+      clear: both;
+      text-align: center;
+    }
+
+    @include b-d(md) {
+      margin-top: 12px;
       margin-bottom: 24px;
     }
   }
