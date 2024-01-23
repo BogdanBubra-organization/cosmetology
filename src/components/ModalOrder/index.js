@@ -6,7 +6,7 @@ import { Button, Form } from 'react-bootstrap'
 import Modal from '~components/Modal'
 import { DATA, FEEDBACK } from './constants'
 
-const ModalOrder = ({ show, onHide, service }) => {
+const ModalOrder = ({ show, onHide, service, expert }) => {
   const { title, titleService, descr, fields, btn } = DATA
   const { finalTitle, finalDescr } = FEEDBACK
 
@@ -29,10 +29,11 @@ const ModalOrder = ({ show, onHide, service }) => {
     setValidated(false)
   }
 
-  const formHeader = service ? titleService : title
-  const formFields = service
-    ? fields.filter((field) => field.as !== 'textarea')
-    : fields
+  const formHeader = service || expert ? titleService : title
+  const formFields =
+    service || expert
+      ? fields.filter((field) => field.as !== 'textarea')
+      : fields
 
   const location = useLocation()
 
@@ -73,6 +74,10 @@ const ModalOrder = ({ show, onHide, service }) => {
               <Form.Control type="hidden" name="Service" value={service} />
               <Form.Control type="hidden" name="Url" value={utmData} />
             </>
+          )}
+
+          {expert && (
+            <Form.Control type="hidden" name="Expert" value={expert} />
           )}
 
           <div className="form-btn">

@@ -1,14 +1,22 @@
 import React, { useState } from 'react'
-import { Collapse } from 'react-bootstrap'
+import { Button, Collapse } from 'react-bootstrap'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { StructuredText } from 'react-datocms'
 import useMatchMedia from '~hooks/useMatchMedia'
 import cn from 'classnames'
 import * as s from './ExpertsItem.module.scss'
 
+const ModalOrder = React.lazy(() =>
+  import(/* webpackChunkName: "modal-order" */ '~components/ModalOrder')
+)
+
 const ExpertsItem = ({ title, subtitle, description, photo }) => {
   const [open, setOpen] = useState(false)
   const isMobile = useMatchMedia('(max-width: 767px)')
+
+  const [showOrder, setShowOrder] = useState(false)
+
+  const handleShowOrder = () => setShowOrder(true)
   return (
     <div className={s.expert}>
       <GatsbyImage
@@ -36,6 +44,18 @@ const ExpertsItem = ({ title, subtitle, description, photo }) => {
           <StructuredText data={description.value} />
         </div>
       </Collapse>
+
+      <div className={s.expert_cta}>
+        <Button onClick={handleShowOrder} variant="secondary">
+          Записатись на процедуру
+        </Button>
+      </div>
+
+      <ModalOrder
+        show={showOrder}
+        onHide={() => setShowOrder(false)}
+        expert={title}
+      />
     </div>
   )
 }
