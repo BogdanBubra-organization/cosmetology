@@ -3,6 +3,14 @@
 
   backdrop-filter: blur(12px);
 
+  &--event {
+    --bs-modal-width: min(calc(100% - var(--bs-modal-margin) * 2), 720px);
+
+    #{$this}-content {
+      background-image: none;
+    }
+  }
+
   &-header {
     display: grid;
     row-gap: 8px;
@@ -10,12 +18,15 @@
   }
 
   &-title {
-    color: transparent;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: -0.04em;
-    background-image: $gradient;
-    background-clip: text;
+
+    &:not(.modal-title--event) {
+      color: transparent;
+      background-image: $gradient;
+      background-clip: text;
+    }
   }
 
   &-descr {
@@ -99,20 +110,20 @@
 
     &::before {
       top: -13px;
-      width: 200px;
+      width: 50%;
       height: 130px;
     }
 
     &::after {
       top: 148px;
-      width: 638px;
+      width: 160%;
       height: 100%;
     }
 
     span {
       top: 0;
       right: 9px;
-      width: 69px;
+      width: 17.25%;
       height: 69px;
       background: $yellow;
       filter: blur(82px);

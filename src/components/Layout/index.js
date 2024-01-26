@@ -15,6 +15,7 @@ import Header from '~components/Header'
 import Footer from '~components/Footer'
 import Preload from '~components/Preload'
 import NavBtns from '~components/NavBtns'
+import Promo from '~components/Promo'
 import '~styles/app.scss'
 import * as s from './style.module.scss'
 
@@ -80,6 +81,26 @@ const Layout = ({
           }
         }
       }
+      datoCmsPromo {
+        meta {
+          updatedAt
+        }
+        title
+        isActive
+        description {
+          value
+        }
+        picture {
+          gatsbyImageData(
+            width: 320
+            height: 320
+            placeholder: NONE
+            forceBlurhash: true
+            imgixParams: { fit: "crop", auto: "compress,format" }
+          )
+        }
+        button
+      }
     }
   `)
 
@@ -123,6 +144,7 @@ const Layout = ({
         <main className="main">
           {children}
           {!isShortVariant && <NavBtns isServicesPage={isServicesPage} />}
+          {data.datoCmsPromo.isActive && <Promo {...data.datoCmsPromo} />}
         </main>
 
         {!isShortVariant && (
