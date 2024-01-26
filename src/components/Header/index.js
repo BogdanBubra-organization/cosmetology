@@ -112,7 +112,12 @@ const Header = ({ logo, menu, isNavHidden, categories }) => {
           </div>
         </Container>
       </div>
-      <ModalOrder show={showOrder} onHide={() => setShowOrder(false)} />
+      <ModalOrder
+        show={showOrder}
+        onHide={() => setShowOrder(false)}
+        title="Запитайте нас"
+        withTextarea
+      />
     </header>
   )
 }

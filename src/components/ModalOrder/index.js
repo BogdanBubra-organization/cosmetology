@@ -1,92 +1,75 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { useState, useEffect } from 'react'
-import { useForm } from '@formspree/react'
-import { useLocation } from '@gatsbyjs/reach-router'
-import { Button, Form } from 'react-bootstrap'
+/* eslint-disable no-nested-ternary */
+import React, { useState } from 'react'
+import cn from 'classnames'
+import { StructuredText } from 'react-datocms'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Modal from '~components/Modal'
+import Form from '~components/Form'
 import { DATA, FEEDBACK } from './constants'
+import * as s from './ModalOrder.module.scss'
 
-const ModalOrder = ({ show, onHide, service, expert }) => {
-  const { title, titleService, descr, fields, btn } = DATA
+const { header, description } = DATA
+
+const ModalOrder = ({
+  show,
+  onHide,
+  title = header,
+  descr = description,
+  btnText,
+  picture,
+  isPromo,
+  withTextarea,
+  service,
+  expert,
+}) => {
   const { finalTitle, finalDescr } = FEEDBACK
 
-  const [state, handleSubmit, reset] = useForm('mzbooegr')
-
-  const [validated, setValidated] = useState(false)
-
-  const onSubmit = (e) => {
-    e.preventDefault()
-    setValidated(true)
-
-    const form = e.currentTarget
-    if (form.checkValidity()) {
-      handleSubmit(e)
-    }
-  }
-
-  const handeExited = () => {
-    reset()
-    setValidated(false)
-  }
-
-  const formHeader = service || expert ? titleService : title
-  const formFields =
-    service || expert
-      ? fields.filter((field) => field.as !== 'textarea')
-      : fields
-
-  const location = useLocation()
-
-  const [utmData, setUtmData] = useState(null)
-
-  useEffect(() => {
-    setUtmData(sessionStorage.getItem('utmData') || location.pathname)
-  }, [])
+  const [succeeded, setSucceeded] = useState(false)
 
   return (
     <Modal
       show={show}
       onHide={onHide}
-      onExited={handeExited}
-      title={!state.succeeded ? formHeader : finalTitle}
-      descr={!state.succeeded ? descr : finalDescr}
-      isSucceeded={state.succeeded}
+      title={!succeeded ? title : finalTitle}
+      descr={!succeeded ? (isPromo ? null : descr) : finalDescr}
+      isSucceeded={succeeded}
       isService={!!service}
+      isPromo={isPromo}
     >
-      {!state.succeeded && (
-        <Form
-          noValidate
-          validated={validated}
-          onSubmit={onSubmit}
-          className="form"
-        >
-          {formFields.map((field) => (
-            <Form.Group key={field.label} className="form-group">
-              <Form.Label className={field.required && 'form-label--required'}>
-                {field.label}
-              </Form.Label>
-              <Form.Control {...field} />
-            </Form.Group>
-          ))}
+      {!succeeded &&
+        (isPromo ? (
+          <div className={cn(s.promo, { [s.wide]: picture })}>
+            {picture && (
+              <GatsbyImage
+                image={getImage(picture)}
+                alt={title}
+                className={s.promo_pic}
+              />
+            )}
 
-          {service && (
-            <>
-              <Form.Control type="hidden" name="Service" value={service} />
-              <Form.Control type="hidden" name="Url" value={utmData} />
-            </>
-          )}
+            <div className={s.promo_content}>
+              {descr && (
+                <div className={s.promo_descr}>
+                  <StructuredText data={descr.value} />
+                </div>
+              )}
 
-          {expert && (
-            <Form.Control type="hidden" name="Expert" value={expert} />
-          )}
-
-          <div className="form-btn">
-            <Button disabled={state.submitting} type="submit">
-              {btn}
-            </Button>
+              <Form
+                setSucceeded={setSucceeded}
+                btnText={btnText}
+                promo={title}
+              />
+            </div>
           </div>
-        </Form>
-      )}
+        ) : (
+          <Form
+            setSucceeded={setSucceeded}
+            btnText={btnText}
+            withTextarea={withTextarea}
+            service={service}
+            expert={expert}
+          />
+        ))}
     </Modal>
   )
 }
