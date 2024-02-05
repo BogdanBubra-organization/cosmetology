@@ -31,14 +31,17 @@ const Header = ({ logo, menu, isNavHidden, categories }) => {
 
   const [showOrder, setShowOrder] = useState(false)
 
-  const handleShowOrder = () => setShowOrder(true)
-
   const isMdDown = useMatchMedia('(max-width: 767.98px)')
   const isLgDown = useMatchMedia('(max-width: 1023.98px)')
 
   const handleToggle = (state) => {
     document.querySelector('body').style.overflow = state ? 'hidden' : 'auto'
     setShow(state)
+  }
+
+  const handleShowOrderMd = () => {
+    handleToggle()
+    setShowOrder(true)
   }
 
   useEffect(() => {
@@ -79,7 +82,7 @@ const Header = ({ logo, menu, isNavHidden, categories }) => {
 
             {!isMdDown && (
               <div className={s.header_btn}>
-                <ButtonAsk handleShowOrder={handleShowOrder} />
+                <ButtonAsk handleShowOrder={() => setShowOrder(true)} />
               </div>
             )}
 
@@ -102,7 +105,7 @@ const Header = ({ logo, menu, isNavHidden, categories }) => {
                       />
                     )}
                     {isMdDown && (
-                      <ButtonAsk handleShowOrder={handleShowOrder} />
+                      <ButtonAsk handleShowOrder={handleShowOrderMd} />
                     )}
                   </div>
                 </Dropdown.Menu>
