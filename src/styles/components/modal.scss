@@ -161,4 +161,8 @@
       max-height: 100%;
     }
   }
+
+  &--search {
+    --bs-modal-width: min(calc(100% - var(--bs-modal-margin) * 2), 480px);
+  }
 }

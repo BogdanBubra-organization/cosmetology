@@ -47,7 +47,12 @@
     }
 
     @include b-d(sm) {
-      column-gap: 8px;
+      column-gap: 4px;
+
+      svg {
+        width: 32px;
+        height: 32px;
+      }
     }
   }
 

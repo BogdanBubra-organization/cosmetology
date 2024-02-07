@@ -1,10 +1,6 @@
 /* stylelint-disable selector-pseudo-class-no-unknown */
 @import '~styles/mixins';
 
-.wrapper {
-  height: 56px;
-}
-
 .topbar {
   position: fixed;
   top: 0;
@@ -59,6 +55,67 @@
 
     @include b-d(md) {
       order: -1;
+    }
+  }
+
+  &_right {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: end;
+
+    @include b-up(sm) {
+      column-gap: 12px;
+    }
+
+    @include b-d(sm) {
+      column-gap: 4px;
+
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+
+  &_search {
+    position: relative;
+    color: $green;
+    transition: color 200ms;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 1px;
+      height: 50%;
+      content: '';
+      background: $gray-890;
+      transform: translateY(-50%);
+
+      @include b-up(sm) {
+        left: calc(100% + 12px);
+      }
+
+      @include b-d(sm) {
+        left: calc(100% + 4px);
+      }
+    }
+
+    &:hover {
+      color: $green-dark;
+    }
+
+    &:focus-visible {
+      color: $green-deep;
+    }
+
+    @include b-up(sm) {
+      margin-right: 13px;
+    }
+
+    @include b-d(sm) {
+      margin-right: 5px;
     }
   }
 }
