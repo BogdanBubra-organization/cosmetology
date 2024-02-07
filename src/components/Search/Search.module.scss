@@ -1,0 +1,18 @@
+.search {
+  display: grid;
+  row-gap: 24px;
+
+  &_result {
+    height: clamp(100px, calc(100vh - 112px - 145px), 200px);
+    overflow: auto;
+  }
+
+  &_list {
+    display: grid;
+    row-gap: 0.5em;
+  }
+
+  &_link {
+    display: block;
+  }
+}

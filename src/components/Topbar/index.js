@@ -6,7 +6,10 @@ import cn from 'classnames'
 import Social from '~components/Social'
 import AddressPin from '~components/AddressPin'
 import WorkingHours from '~components/WorkingHours'
+import Icon from '~components/Icon'
+import Modal from '~components/Modal'
 
+import Search from '~components/Search'
 import * as s from './Topbar.module.scss'
 
 const Topbar = () => {
@@ -47,6 +50,8 @@ const Topbar = () => {
   const [hide, setHide] = useState(false)
   const [height, setHeight] = useState(false)
 
+  const [show, setShow] = useState(false)
+
   useEffect(() => {
     let lastScrollPosition = window.scrollY
 
@@ -76,27 +81,41 @@ const Topbar = () => {
   }, [])
 
   return (
-    <div style={{ height: `${height}px` }}>
-      <div ref={topbarRef} className={cn(s.topbar, { [s.hide]: hide })}>
-        <Container className={s.topbar_inner}>
-          <div className={s.topbar_info}>
-            <AddressPin {...address} />
-            <WorkingHours {...workingHours} />
-          </div>
+    <>
+      <div style={{ height: `${height}px` }}>
+        <div ref={topbarRef} className={cn(s.topbar, { [s.hide]: hide })}>
+          <Container className={s.topbar_inner}>
+            <div className={s.topbar_info}>
+              <AddressPin {...address} />
+              <WorkingHours {...workingHours} />
+            </div>
+            <span className={s.topbar_phone}>
+              <a
+                href={`tel:${phones[0].phone.replace(/[^+\d]/g, '')}`}
+                className="binct-phone-number-1"
+              >
+                {phones[0].phone}
+              </a>
+            </span>
 
-          <span className={s.topbar_phone}>
-            <a
-              href={`tel:${phones[0].phone.replace(/[^+\d]/g, '')}`}
-              className="binct-phone-number-1"
-            >
-              {phones[0].phone}
-            </a>
-          </span>
-
-          <Social data={socials} variant="topbar" isWithIcon />
-        </Container>
+            <div className={s.topbar_right}>
+              <button
+                type="button"
+                onClick={() => setShow(true)}
+                className={s.topbar_search}
+              >
+                <Icon name="search" size={40} />
+              </button>
+              <Social data={socials} variant="topbar" isWithIcon withSearch />
+            </div>
+          </Container>
+        </div>
       </div>
-    </div>
+
+      <Modal show={show} onHide={() => setShow(false)} variant="search">
+        <Search />
+      </Modal>
+    </>
   )
 }
 
