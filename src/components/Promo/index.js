@@ -18,7 +18,7 @@ const Promo = ({ title, description, picture, button, meta }) => {
     setTimeout(() => {
       handleShow()
       localStorage.setItem('promoId', meta.updatedAt)
-    }, 120000)
+    }, 30000)
   }
 
   return (
