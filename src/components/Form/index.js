@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { useState, useEffect } from 'react'
-import { useForm } from '@formspree/react'
+import React, { useState, useEffect, useRef } from 'react'
+import { useForm } from 'react-hook-form'
 import { useLocation } from '@gatsbyjs/reach-router'
 import { Button, Form as F } from 'react-bootstrap'
 import { DATA } from './constants'
@@ -15,23 +15,29 @@ const Form = ({
 }) => {
   const { fields, btn } = DATA
 
-  const [state, handleSubmit] = useForm('mzbooegr')
+  const formRef = useRef(null)
 
-  const [validated, setValidated] = useState(false)
+  const {
+    register,
+    formState: { isSubmitted, isSubmitting, isSubmitSuccessful },
+    handleSubmit,
+  } = useForm({ defaultValues: { 'fields[38995_1][60361]': '' } })
 
-  const onSubmit = (e) => {
-    e.preventDefault()
-    setValidated(true)
-
-    const form = e.currentTarget
-    if (form.checkValidity()) {
-      handleSubmit(e)
+  const onValidSubmit = () => {
+    try {
+      const newData = new FormData(formRef.current)
+      fetch('https://forms.kommo.com/queue/add/', {
+        method: 'POST',
+        body: newData,
+      })
+    } catch (e) {
+      console.error(e)
     }
   }
 
   useEffect(() => {
-    setSucceeded(state.succeeded)
-  }, [state.succeeded])
+    setSucceeded(isSubmitSuccessful)
+  }, [isSubmitSuccessful])
 
   const formFields = withTextarea
     ? fields
@@ -45,27 +51,56 @@ const Form = ({
     setUtmData(sessionStorage.getItem('utmData') || location.pathname)
   }, [])
 
+  const theme = service || expert || promo || ''
+
   return (
-    <F noValidate validated={validated} onSubmit={onSubmit} className="form">
-      {formFields.map((field) => (
-        <F.Group key={field.label} className="form-group">
-          <F.Label className={field.required && 'form-label--required'}>
-            {field.label}
+    <F
+      ref={formRef}
+      noValidate
+      validated={isSubmitted}
+      onSubmit={handleSubmit(onValidSubmit)}
+      className="form"
+    >
+      {formFields.map(({ label, name, pattern, required, ...rest }) => (
+        <F.Group key={label} className="form-group">
+          <F.Label className={required && 'form-label--required'}>
+            {label}
           </F.Label>
-          <F.Control {...field} />
+
+          <F.Control
+            {...register(name, {
+              required,
+              pattern: pattern && {
+                value: new RegExp(pattern),
+              },
+            })}
+            pattern={pattern}
+            autoComplete="off"
+            required={required}
+            {...rest}
+          />
         </F.Group>
       ))}
 
-      {service && <F.Control type="hidden" name="Service" value={service} />}
+      <F.Control
+        type="hidden"
+        name="fields[1695992_1]"
+        value={`${utmData} ${theme}`}
+      />
 
-      {expert && <F.Control type="hidden" name="Expert" value={expert} />}
-
-      {promo && <F.Control type="hidden" name="Promo" value={promo} />}
-
-      <F.Control type="hidden" name="Url" value={utmData} />
+      <input
+        name="form_id"
+        type="hidden"
+        value={process.env.GATSBY_CRM_FORM_ID}
+      />
+      <input
+        name="hash"
+        type="hidden"
+        value={process.env.GATSBY_CRM_FORM_HASH}
+      />
 
       <div className="form-btn">
-        <Button disabled={state.submitting} type="submit">
+        <Button disabled={isSubmitting} type="submit">
           {btnText || btn}
         </Button>
       </div>
