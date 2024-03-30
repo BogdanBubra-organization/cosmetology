@@ -3,13 +3,13 @@ import InputMask from 'react-input-mask'
 const DATA = {
   fields: [
     {
-      name: 'Name',
+      name: 'fields[name_1]',
       label: 'Ваше імʼя',
       placeholder: 'Наприклад, “Тетяна”',
       required: true,
     },
     {
-      name: 'Phone',
+      name: 'fields[1695994_1][1075258]',
       as: InputMask,
       type: 'tel',
       label: 'Номер телефону',
@@ -19,7 +19,7 @@ const DATA = {
       required: true,
     },
     {
-      name: 'Message',
+      name: 'fields[note_2]',
       as: 'textarea',
       label: 'Що вас цікавить?',
       placeholder: 'Введіть текст',

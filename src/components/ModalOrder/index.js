@@ -26,10 +26,17 @@ const ModalOrder = ({
 
   const [succeeded, setSucceeded] = useState(false)
 
+  const handleClose = () => {
+    onHide()
+    setTimeout(() => {
+      setSucceeded(false)
+    }, 150)
+  }
+
   return (
     <Modal
       show={show}
-      onHide={onHide}
+      onHide={handleClose}
       title={!succeeded ? title : finalTitle}
       descr={!succeeded ? (isPromo ? null : descr) : finalDescr}
       isSucceeded={succeeded}
