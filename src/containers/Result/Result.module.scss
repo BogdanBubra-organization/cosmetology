@@ -1,0 +1,28 @@
+/* stylelint-disable selector-pseudo-class-no-unknown */
+@import '~styles/mixins';
+
+.result {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 12px;
+  background: rgba(0, 0, 0, 80%);
+
+  &_pic {
+    max-width: 1200px;
+
+    img {
+      max-height: calc(100vh - 24px);
+      max-height: calc(100dvh - 24px);
+      object-fit: contain;
+      border-radius: 8px;
+    }
+  }
+}
+
+:global(#bingc-phone-button),
+:global(#bingc-active),
+:global(#bingc-passive) {
+  display: none !important;
+}
