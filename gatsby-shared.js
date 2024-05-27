@@ -5,6 +5,7 @@ const wrapPageElement = ({ element }) => {
   return (
     <>
       {element}
+
       <Script>
         {`
           (function (d, w, s) {
