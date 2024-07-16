@@ -64,7 +64,11 @@ const Hero = (props) => {
             </Button>
           </div>
           <div className={s.hero_ill} ref={picRef}>
-            <GatsbyImage image={getImage(image)} alt="Надання послуги" />
+            <GatsbyImage
+              image={getImage(image)}
+              alt="Надання послуги"
+              className={s.hero_pic}
+            />
             <span className={s.hero_ill_line} ref={lineRef} />
           </div>
         </div>

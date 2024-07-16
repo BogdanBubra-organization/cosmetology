@@ -70,9 +70,13 @@
 
   &_ill {
     position: relative;
+    overflow: hidden;
+    border-radius: 700px;
+    transform: translateZ(0);
 
     @include b-d(lg) {
       max-width: 343px;
+      margin-bottom: 8px;
     }
 
     &::before {
