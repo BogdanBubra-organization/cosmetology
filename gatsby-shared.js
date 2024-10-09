@@ -19,7 +19,6 @@ const wrapPageElement = ({ element }) => {
           })(document, window, 'script');
         `}
       </Script>
-
       <Script id="binotel-calltracking" strategy="idle">
         {`
           (function(d, w, s) {
