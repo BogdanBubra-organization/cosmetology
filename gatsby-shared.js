@@ -6,7 +6,7 @@ const wrapPageElement = ({ element }) => {
     <>
       {element}
 
-      <Script>
+      <Script id="binotel-getcall" strategy="idle">
         {`
           (function (d, w, s) {
             var widgetHash = '31u86oxavevvl478yngs',
@@ -20,7 +20,7 @@ const wrapPageElement = ({ element }) => {
         `}
       </Script>
 
-      <Script>
+      <Script id="binotel-calltracking" strategy="idle">
         {`
           (function(d, w, s) {
             var widgetHash = 'zpgbdw1s5gao7e6ez9hr',
