@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Button, Container } from 'react-bootstrap'
 import { Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
@@ -6,6 +6,10 @@ import Icon from '~components/Icon'
 import Brands from '~components/Brands'
 import * as s from './Hero.module.scss'
 import heroAnim from './anim'
+
+const ModalOrder = React.lazy(() =>
+  import(/* webpackChunkName: "modal-order" */ '~components/ModalOrder')
+)
 
 const Hero = (props) => {
   const {
@@ -22,6 +26,9 @@ const Hero = (props) => {
 
   const picRef = useRef(null)
   const lineRef = useRef(null)
+
+  const [showOrder, setShowOrder] = useState(false)
+  const handleShowOrder = () => setShowOrder(true)
 
   useEffect(() => {
     if (!isPreloaded && isDesktop) {
@@ -50,12 +57,7 @@ const Hero = (props) => {
             </p>
           </div>
           <div className={s.hero_btns} data-appear="hero">
-            <Button
-              className="btn-icon"
-              href="https://cbox.mobi/go/cosmetology-ua"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <Button onClick={handleShowOrder} className="btn-icon">
               <Icon name="tel" size={20} />
               <span className="btn-icon-text">{btnOrder}</span>
             </Button>
@@ -74,6 +76,7 @@ const Hero = (props) => {
         </div>
         <Brands title={brandsTitle} list={brands} />
       </Container>
+      <ModalOrder show={showOrder} onHide={() => setShowOrder(false)} />
     </section>
   )
 }
