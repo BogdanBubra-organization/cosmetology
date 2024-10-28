@@ -1,0 +1,78 @@
+/* stylelint-disable selector-pseudo-class-no-unknown */
+@import '~styles/mixins';
+
+.events {
+  display: grid;
+  @include b-up(xl) {
+    padding-top: 48px;
+    padding-bottom: 100px;
+  }
+
+  @include b-btw(md, xl) {
+    padding-top: 56px;
+    padding-bottom: 80px;
+  }
+
+  @include b-d(md) {
+    padding-top: 24px;
+    padding-bottom: 64px;
+  }
+
+  &_title {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  &_slider {
+    overflow: hidden;
+
+    @include b-d(md) {
+      width: calc(100% + 32px);
+      padding-inline: 16px;
+      padding-bottom: 96px;
+      margin-inline: -16px;
+    }
+
+    img {
+      border-radius: 16px;
+    }
+  }
+
+  :global(.swiper-button) {
+    @include b-up(md) {
+      &:not(:hover) {
+        opacity: 0.6;
+      }
+    }
+
+    @include b-d(md) {
+      top: unset;
+      bottom: 20px;
+    }
+  }
+
+  :global(.swiper-button-prev) {
+    @include b-d(md) {
+      left: calc(50% - 72px);
+    }
+  }
+
+  :global(.swiper-button-next) {
+    @include b-d(md) {
+      right: calc(50% - 72px);
+    }
+  }
+
+  &_btn {
+    margin-inline: auto;
+
+    @include b-up(md) {
+      margin-top: 40px;
+    }
+
+    @include b-d(md) {
+      min-width: min(100%, 420px);
+      margin-top: 24px;
+    }
+  }
+}
