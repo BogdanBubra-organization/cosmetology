@@ -21,6 +21,27 @@
     text-align: center;
   }
 
+  &_descr {
+    display: grid;
+    row-gap: 0.5em;
+    margin-bottom: 52px;
+
+    @include b-up(md) {
+      width: calc(100% - 160px);
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    ul,
+    ol {
+      padding-left: 2em;
+    }
+
+    ul {
+      list-style-type: disc;
+    }
+  }
+
   &_list {
     display: grid;
 
