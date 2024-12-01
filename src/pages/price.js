@@ -9,6 +9,9 @@ export const query = graphql`
   query PricePageQuery {
     datoCmsPricePage {
       title
+      description {
+        value
+      }
       content {
         title
         items {
