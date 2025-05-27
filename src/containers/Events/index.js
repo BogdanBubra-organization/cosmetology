@@ -77,7 +77,11 @@ const Events = ({ title, pictures, btnOrder }) => {
       </Container>
       <Lights />
 
-      <ModalOrder show={showOrder} onHide={() => setShowOrder(false)} />
+      <ModalOrder
+        show={showOrder}
+        onHide={() => setShowOrder(false)}
+        fieldsSet="order"
+      />
     </Layout>
   )
 }

@@ -7,11 +7,11 @@ import { DATA } from './constants'
 
 const Form = ({
   setSucceeded,
-  withTextarea,
   service,
   expert,
   promo,
   btnText,
+  fieldsSet = 'promo',
 }) => {
   const { fields, btn } = DATA
 
@@ -39,10 +39,6 @@ const Form = ({
     setSucceeded(isSubmitSuccessful)
   }, [isSubmitSuccessful])
 
-  const formFields = withTextarea
-    ? fields
-    : fields.filter((field) => field.as !== 'textarea')
-
   const location = useLocation()
 
   const [utmData, setUtmData] = useState('')
@@ -53,6 +49,8 @@ const Form = ({
 
   const theme = service || expert || promo || ''
 
+  const fieldsData = fields[fieldsSet] || fields.promo
+
   return (
     <F
       ref={formRef}
@@ -61,7 +59,7 @@ const Form = ({
       onSubmit={handleSubmit(onValidSubmit)}
       className="form"
     >
-      {formFields.map(({ label, name, pattern, required, ...rest }) => (
+      {fieldsData.map(({ label, name, pattern, required, ...rest }) => (
         <F.Group key={label} className="form-group">
           <F.Label className={required && 'form-label--required'}>
             {label}

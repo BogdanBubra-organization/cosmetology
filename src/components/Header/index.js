@@ -119,7 +119,6 @@ const Header = ({ logo, menu, isNavHidden, categories }) => {
         show={showOrder}
         onHide={() => setShowOrder(false)}
         title="Запитайте нас"
-        withTextarea
       />
     </header>
   )

@@ -55,6 +55,7 @@ const ExpertsItem = ({ title, subtitle, description, photo }) => {
         show={showOrder}
         onHide={() => setShowOrder(false)}
         expert={title}
+        fieldsSet="promo"
       />
     </div>
   )
