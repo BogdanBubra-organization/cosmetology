@@ -170,6 +170,7 @@ const ProductHero = ({
         show={showOrder}
         onHide={() => setShowOrder(false)}
         service={name}
+        fieldsSet="order"
       />
     </section>
   )

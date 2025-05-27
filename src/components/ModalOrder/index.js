@@ -18,9 +18,9 @@ const ModalOrder = ({
   btnText,
   picture,
   isPromo,
-  withTextarea,
   service,
   expert,
+  fieldsSet,
 }) => {
   const { finalTitle, finalDescr } = FEEDBACK
 
@@ -65,6 +65,7 @@ const ModalOrder = ({
                 setSucceeded={setSucceeded}
                 btnText={btnText}
                 promo={title}
+                fieldsSet="promo"
               />
             </div>
           </div>
@@ -72,9 +73,9 @@ const ModalOrder = ({
           <Form
             setSucceeded={setSucceeded}
             btnText={btnText}
-            withTextarea={withTextarea}
             service={service}
             expert={expert}
+            fieldsSet={fieldsSet}
           />
         ))}
     </Modal>

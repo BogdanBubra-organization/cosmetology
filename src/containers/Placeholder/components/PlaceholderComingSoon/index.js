@@ -32,7 +32,11 @@ const ComingSoon = () => {
         show={showCallback}
         onHide={() => setShowCallback(false)}
       />
-      <ModalOrder show={showOrder} onHide={() => setShowOrder(false)} />
+      <ModalOrder
+        show={showOrder}
+        onHide={() => setShowOrder(false)}
+        fieldsSet="order"
+      />
     </Container>
   )
 }
