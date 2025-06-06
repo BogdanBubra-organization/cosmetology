@@ -30,8 +30,8 @@
 
   @include b-up(xxl) {
     grid-template-areas:
-      'logo menu social'
-      'info copy author';
+      'logo menu menu menu social'
+      'info info copy author author';
     padding: 40px 60px 32px;
   }
 
@@ -41,14 +41,14 @@
 
   @include b-btw(lg, xxl) {
     grid-template-areas:
-      'logo menu social'
-      'info author author'
-      'info copy copy';
+      'logo menu menu menu social'
+      'info info . author author'
+      'info info . copy copy';
     padding: 40px 60px 32px;
   }
 
   @include b-up(lg) {
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr 1fr auto 1fr 1fr;
   }
 
   @include b-btw(md, lg) {
@@ -101,6 +101,10 @@
 
 .footerMenu {
   grid-area: menu;
+
+  @include b-up(lg) {
+    justify-content: center;
+  }
 
   @include b-d(md) {
     margin-top: 8px;
