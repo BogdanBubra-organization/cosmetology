@@ -45,9 +45,8 @@ const Events = ({ title, pictures, btnOrder }) => {
               className={s.events_slider}
             >
               {pictures.map((item, i) => (
-                <SwiperSlide key={`m${i}`} className={s.events_slide}>
+                <SwiperSlide key={`m${i}`}>
                   <GatsbyImage
-                    className={s.events_pic}
                     image={getImage(item)}
                     alt={item.alt || item.basename}
                     objectFit="contain"
@@ -61,7 +60,6 @@ const Events = ({ title, pictures, btnOrder }) => {
             </Swiper>
           ) : (
             <GatsbyImage
-              className={s.events_pic}
               image={getImage(pictures[0])}
               alt={pictures[0].alt || pictures[0].basename}
               objectFit="contain"
