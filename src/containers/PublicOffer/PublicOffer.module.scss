@@ -1,0 +1,95 @@
+@import '~styles/mixins';
+
+.publicOffer {
+  @include b-up(xl) {
+    padding-top: 48px;
+    padding-bottom: 100px;
+  }
+
+  @include b-btw(md, xl) {
+    padding-top: 56px;
+    padding-bottom: 80px;
+  }
+
+  @include b-d(md) {
+    padding-top: 24px;
+    padding-bottom: 64px;
+  }
+
+  &_title {
+    display: none;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  h2 {
+    margin-bottom: 40px;
+    text-align: center;
+    text-transform: none;
+  }
+
+  &_content {
+    display: grid;
+    row-gap: 0.5em;
+    counter-reset: public-offer-section;
+
+    @include b-up(md) {
+      width: calc(100% - 160px);
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    h3 {
+      margin-top: 1.25em;
+      margin-bottom: 0.5em;
+      text-align: center;
+    }
+
+    h3:has(~ :is(ol, ul)) {
+      counter-reset: public-offer-item;
+      counter-increment: public-offer-section;
+    }
+
+    h3:has(~ :is(ol, ul))::before {
+      content: counter(public-offer-section) '. ';
+    }
+
+    ul,
+    ol {
+      padding: 0.25em 0;
+    }
+
+    h3 ~ :is(ol, ul) {
+      list-style: none;
+    }
+
+    h3 ~ :is(ol, ul) :is(ol, ul) {
+      grid-column: 1 / -1;
+      padding-left: 0;
+      counter-reset: public-offer-item;
+    }
+
+    h3 ~ :is(ol, ul) li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 0.35em;
+      list-style: none;
+      counter-increment: public-offer-item;
+    }
+
+    h3 ~ :is(ol, ul) > li {
+      margin-top: 0.25em;
+    }
+
+    h3 ~ :is(ol, ul) li > :not(:is(ol, ul)) {
+      grid-column: 2;
+    }
+
+    h3 ~ :is(ol, ul) li::before {
+      grid-column: 1;
+      min-width: 3em;
+      content: counter(public-offer-section) '.'
+        counters(public-offer-item, '.') '. ';
+    }
+  }
+}
