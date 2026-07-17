@@ -5,6 +5,7 @@
     "paths": {
       "~img": ["src/assets/img"],
       "~fonts": ["src/assets/fonts"],
+      "~service-icons": ["src/service-icons"],
       "~*": ["./src/*"]
     }
   },

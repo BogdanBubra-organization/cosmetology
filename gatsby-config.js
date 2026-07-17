@@ -51,6 +51,7 @@ module.exports = {
       resolve: `gatsby-source-datocms`,
       options: {
         apiToken: process.env.DATOCMS_API_TOKEN,
+        environment: process.env.DATOCMS_ENVIRONMENT,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

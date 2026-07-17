@@ -1,0 +1,968 @@
+[
+  {
+    "key": "cooling",
+    "source": "snowflake",
+    "category": "popular",
+    "labelUk": "Охолодження",
+    "labelEn": "Cooling",
+    "keywords": "холод лід cooling ice"
+  },
+  {
+    "key": "medical",
+    "source": "stethoscope",
+    "category": "popular",
+    "labelUk": "Медицина",
+    "labelEn": "Medical",
+    "keywords": "лікар медицина doctor clinic"
+  },
+  {
+    "key": "equipment",
+    "source": "scan-line",
+    "category": "popular",
+    "labelUk": "Обладнання",
+    "labelEn": "Equipment",
+    "keywords": "апарат лазер device machine"
+  },
+  {
+    "key": "location",
+    "source": "map-pin",
+    "category": "popular",
+    "labelUk": "Розташування",
+    "labelEn": "Location",
+    "keywords": "адреса мапа address map"
+  },
+  {
+    "key": "comfort",
+    "source": "heart-handshake",
+    "category": "popular",
+    "labelUk": "Комфорт",
+    "labelEn": "Comfort",
+    "keywords": "турбота зручність care cozy"
+  },
+  {
+    "key": "speed",
+    "source": "gauge",
+    "category": "popular",
+    "labelUk": "Швидкість",
+    "labelEn": "Speed",
+    "keywords": "швидко час fast time"
+  },
+  {
+    "key": "safety",
+    "source": "shield-check",
+    "category": "popular",
+    "labelUk": "Безпека",
+    "labelEn": "Safety",
+    "keywords": "захист надійність secure protection"
+  },
+  {
+    "key": "skin",
+    "source": "sparkles",
+    "category": "popular",
+    "labelUk": "Делікатність до шкіри",
+    "labelEn": "Skin care",
+    "keywords": "шкіра догляд ніжність beauty care"
+  },
+  {
+    "key": "check",
+    "source": "circle-check",
+    "category": "popular",
+    "labelUk": "Позначка",
+    "labelEn": "Check",
+    "keywords": "готово так done yes"
+  },
+
+  {
+    "key": "activity",
+    "source": "activity",
+    "category": "medical",
+    "labelUk": "Активність",
+    "labelEn": "Activity",
+    "keywords": "пульс здоров'я pulse health"
+  },
+  {
+    "key": "ambulance",
+    "source": "ambulance",
+    "category": "medical",
+    "labelUk": "Швидка допомога",
+    "labelEn": "Ambulance",
+    "keywords": "допомога emergency"
+  },
+  {
+    "key": "bandage",
+    "source": "bandage",
+    "category": "medical",
+    "labelUk": "Пластир",
+    "labelEn": "Bandage",
+    "keywords": "загоєння wound healing"
+  },
+  {
+    "key": "bone",
+    "source": "bone",
+    "category": "medical",
+    "labelUk": "Кістка",
+    "labelEn": "Bone",
+    "keywords": "ортопедія anatomy"
+  },
+  {
+    "key": "brain",
+    "source": "brain",
+    "category": "medical",
+    "labelUk": "Мозок",
+    "labelEn": "Brain",
+    "keywords": "нерви neuro"
+  },
+  {
+    "key": "briefcase-medical",
+    "source": "briefcase-medical",
+    "category": "medical",
+    "labelUk": "Медична валіза",
+    "labelEn": "Medical case",
+    "keywords": "аптечка first aid"
+  },
+  {
+    "key": "capsules",
+    "source": "pill-bottle",
+    "category": "medical",
+    "labelUk": "Капсули",
+    "labelEn": "Capsules",
+    "keywords": "ліки medicine"
+  },
+  {
+    "key": "circle-alert",
+    "source": "circle-alert",
+    "category": "medical",
+    "labelUk": "Медичне попередження",
+    "labelEn": "Alert",
+    "keywords": "увага warning"
+  },
+  {
+    "key": "dna",
+    "source": "dna",
+    "category": "medical",
+    "labelUk": "ДНК",
+    "labelEn": "DNA",
+    "keywords": "генетика genetics"
+  },
+  {
+    "key": "droplets",
+    "source": "droplets",
+    "category": "medical",
+    "labelUk": "Краплі",
+    "labelEn": "Droplets",
+    "keywords": "кров рідина blood liquid"
+  },
+  {
+    "key": "ear",
+    "source": "ear",
+    "category": "medical",
+    "labelUk": "Вухо",
+    "labelEn": "Ear",
+    "keywords": "слух hearing"
+  },
+  {
+    "key": "eye",
+    "source": "eye",
+    "category": "medical",
+    "labelUk": "Око",
+    "labelEn": "Eye",
+    "keywords": "зір vision"
+  },
+  {
+    "key": "heart-pulse",
+    "source": "heart-pulse",
+    "category": "medical",
+    "labelUk": "Серцевий пульс",
+    "labelEn": "Heart pulse",
+    "keywords": "серце кардіо cardio"
+  },
+  {
+    "key": "hospital",
+    "source": "hospital",
+    "category": "medical",
+    "labelUk": "Клініка",
+    "labelEn": "Hospital",
+    "keywords": "лікарня clinic"
+  },
+  {
+    "key": "microscope",
+    "source": "microscope",
+    "category": "medical",
+    "labelUk": "Мікроскоп",
+    "labelEn": "Microscope",
+    "keywords": "аналіз лабораторія lab"
+  },
+  {
+    "key": "pill",
+    "source": "pill",
+    "category": "medical",
+    "labelUk": "Пігулка",
+    "labelEn": "Pill",
+    "keywords": "ліки medicine"
+  },
+  {
+    "key": "scan-heart",
+    "source": "scan-heart",
+    "category": "medical",
+    "labelUk": "Сканування серця",
+    "labelEn": "Heart scan",
+    "keywords": "діагностика diagnostic"
+  },
+  {
+    "key": "shield-plus",
+    "source": "shield-plus",
+    "category": "medical",
+    "labelUk": "Медичний захист",
+    "labelEn": "Medical protection",
+    "keywords": "захист допомога protection"
+  },
+  {
+    "key": "stethoscope",
+    "source": "stethoscope",
+    "category": "medical",
+    "labelUk": "Стетоскоп",
+    "labelEn": "Stethoscope",
+    "keywords": "лікар doctor"
+  },
+  {
+    "key": "syringe",
+    "source": "syringe",
+    "category": "medical",
+    "labelUk": "Шприц",
+    "labelEn": "Syringe",
+    "keywords": "ін'єкція injection"
+  },
+  {
+    "key": "thermometer",
+    "source": "thermometer",
+    "category": "medical",
+    "labelUk": "Термометр",
+    "labelEn": "Thermometer",
+    "keywords": "температура temperature"
+  },
+
+  {
+    "key": "sparkles",
+    "source": "sparkles",
+    "category": "beauty",
+    "labelUk": "Сяйво",
+    "labelEn": "Sparkles",
+    "keywords": "краса блиск glow beauty"
+  },
+  {
+    "key": "flower",
+    "source": "flower-2",
+    "category": "beauty",
+    "labelUk": "Квітка",
+    "labelEn": "Flower",
+    "keywords": "ніжність blossom"
+  },
+  {
+    "key": "leaf",
+    "source": "leaf",
+    "category": "beauty",
+    "labelUk": "Листок",
+    "labelEn": "Leaf",
+    "keywords": "природа еко nature eco"
+  },
+  {
+    "key": "feather",
+    "source": "feather",
+    "category": "beauty",
+    "labelUk": "Легкість",
+    "labelEn": "Feather",
+    "keywords": "легкий ніжний light gentle"
+  },
+  {
+    "key": "gem",
+    "source": "gem",
+    "category": "beauty",
+    "labelUk": "Діамант",
+    "labelEn": "Gem",
+    "keywords": "преміум premium diamond"
+  },
+  {
+    "key": "hand-heart",
+    "source": "hand-heart",
+    "category": "beauty",
+    "labelUk": "Турбота",
+    "labelEn": "Care",
+    "keywords": "догляд любов care love"
+  },
+  {
+    "key": "heart",
+    "source": "heart",
+    "category": "beauty",
+    "labelUk": "Серце",
+    "labelEn": "Heart",
+    "keywords": "любов love"
+  },
+  {
+    "key": "smile",
+    "source": "smile",
+    "category": "beauty",
+    "labelUk": "Усмішка",
+    "labelEn": "Smile",
+    "keywords": "радість happy"
+  },
+  {
+    "key": "sun",
+    "source": "sun",
+    "category": "beauty",
+    "labelUk": "Сонце",
+    "labelEn": "Sun",
+    "keywords": "світло light"
+  },
+  {
+    "key": "moon-star",
+    "source": "moon-star",
+    "category": "beauty",
+    "labelUk": "Нічний догляд",
+    "labelEn": "Night care",
+    "keywords": "ніч сон night sleep"
+  },
+  {
+    "key": "wand-sparkles",
+    "source": "wand-sparkles",
+    "category": "beauty",
+    "labelUk": "Перетворення",
+    "labelEn": "Transformation",
+    "keywords": "магія результат magic result"
+  },
+  {
+    "key": "droplet",
+    "source": "droplet",
+    "category": "beauty",
+    "labelUk": "Зволоження",
+    "labelEn": "Hydration",
+    "keywords": "вода волога water moisture"
+  },
+  {
+    "key": "waves",
+    "source": "waves",
+    "category": "beauty",
+    "labelUk": "Хвилі",
+    "labelEn": "Waves",
+    "keywords": "релакс вода relax water"
+  },
+  {
+    "key": "wind",
+    "source": "wind",
+    "category": "beauty",
+    "labelUk": "Свіжість",
+    "labelEn": "Freshness",
+    "keywords": "повітря fresh air"
+  },
+  {
+    "key": "shower-head",
+    "source": "shower-head",
+    "category": "beauty",
+    "labelUk": "Душ",
+    "labelEn": "Shower",
+    "keywords": "очищення clean"
+  },
+  {
+    "key": "spray-can",
+    "source": "spray-can",
+    "category": "beauty",
+    "labelUk": "Спрей",
+    "labelEn": "Spray",
+    "keywords": "косметика mist cosmetics"
+  },
+  {
+    "key": "bath",
+    "source": "bath",
+    "category": "beauty",
+    "labelUk": "Спа",
+    "labelEn": "Spa",
+    "keywords": "ванна релакс relax"
+  },
+  {
+    "key": "scissors",
+    "source": "scissors",
+    "category": "beauty",
+    "labelUk": "Ножиці",
+    "labelEn": "Scissors",
+    "keywords": "догляд волосся hair"
+  },
+  {
+    "key": "paintbrush",
+    "source": "paintbrush",
+    "category": "beauty",
+    "labelUk": "Пензлик",
+    "labelEn": "Brush",
+    "keywords": "макіяж makeup"
+  },
+  {
+    "key": "palette",
+    "source": "palette",
+    "category": "beauty",
+    "labelUk": "Палітра",
+    "labelEn": "Palette",
+    "keywords": "колір макіяж color makeup"
+  },
+
+  {
+    "key": "cpu",
+    "source": "cpu",
+    "category": "equipment",
+    "labelUk": "Процесор",
+    "labelEn": "Processor",
+    "keywords": "технологія technology"
+  },
+  {
+    "key": "monitor",
+    "source": "monitor",
+    "category": "equipment",
+    "labelUk": "Монітор",
+    "labelEn": "Monitor",
+    "keywords": "екран screen"
+  },
+  {
+    "key": "scan",
+    "source": "scan",
+    "category": "equipment",
+    "labelUk": "Сканер",
+    "labelEn": "Scanner",
+    "keywords": "діагностика diagnostic"
+  },
+  {
+    "key": "scan-line",
+    "source": "scan-line",
+    "category": "equipment",
+    "labelUk": "Лазерне сканування",
+    "labelEn": "Laser scan",
+    "keywords": "лазер апарат laser device"
+  },
+  {
+    "key": "radio-tower",
+    "source": "radio-tower",
+    "category": "equipment",
+    "labelUk": "Сигнал",
+    "labelEn": "Signal",
+    "keywords": "хвиля wave radio"
+  },
+  {
+    "key": "bluetooth",
+    "source": "bluetooth",
+    "category": "equipment",
+    "labelUk": "Bluetooth",
+    "labelEn": "Bluetooth",
+    "keywords": "зв'язок connection"
+  },
+  {
+    "key": "zap",
+    "source": "zap",
+    "category": "equipment",
+    "labelUk": "Імпульс",
+    "labelEn": "Pulse",
+    "keywords": "енергія блискавка energy"
+  },
+  {
+    "key": "power",
+    "source": "power",
+    "category": "equipment",
+    "labelUk": "Живлення",
+    "labelEn": "Power",
+    "keywords": "увімкнення start"
+  },
+  {
+    "key": "gauge",
+    "source": "gauge",
+    "category": "equipment",
+    "labelUk": "Потужність",
+    "labelEn": "Power gauge",
+    "keywords": "швидкість рівень level speed"
+  },
+  {
+    "key": "settings",
+    "source": "settings",
+    "category": "equipment",
+    "labelUk": "Налаштування",
+    "labelEn": "Settings",
+    "keywords": "параметри options"
+  },
+  {
+    "key": "sliders",
+    "source": "sliders-horizontal",
+    "category": "equipment",
+    "labelUk": "Регулювання",
+    "labelEn": "Adjustments",
+    "keywords": "параметри control"
+  },
+  {
+    "key": "cable",
+    "source": "cable",
+    "category": "equipment",
+    "labelUk": "Кабель",
+    "labelEn": "Cable",
+    "keywords": "підключення connection"
+  },
+  {
+    "key": "plug",
+    "source": "plug",
+    "category": "equipment",
+    "labelUk": "Підключення",
+    "labelEn": "Plug",
+    "keywords": "живлення power"
+  },
+  {
+    "key": "battery-charging",
+    "source": "battery-charging",
+    "category": "equipment",
+    "labelUk": "Заряджання",
+    "labelEn": "Charging",
+    "keywords": "батарея battery"
+  },
+  {
+    "key": "lightbulb",
+    "source": "lightbulb",
+    "category": "equipment",
+    "labelUk": "Світлова технологія",
+    "labelEn": "Light technology",
+    "keywords": "світло ідея light"
+  },
+  {
+    "key": "radar",
+    "source": "radar",
+    "category": "equipment",
+    "labelUk": "Радар",
+    "labelEn": "Radar",
+    "keywords": "сканування scan"
+  },
+  {
+    "key": "fan",
+    "source": "fan",
+    "category": "equipment",
+    "labelUk": "Вентиляція",
+    "labelEn": "Fan",
+    "keywords": "повітря cooling air"
+  },
+  {
+    "key": "snowflake",
+    "source": "snowflake",
+    "category": "equipment",
+    "labelUk": "Кріотехнологія",
+    "labelEn": "Cryotherapy",
+    "keywords": "холод ice cooling"
+  },
+  {
+    "key": "thermometer-snowflake",
+    "source": "thermometer-snowflake",
+    "category": "equipment",
+    "labelUk": "Контроль холоду",
+    "labelEn": "Cold control",
+    "keywords": "температура cooling"
+  },
+  {
+    "key": "air-vent",
+    "source": "air-vent",
+    "category": "equipment",
+    "labelUk": "Повітряне охолодження",
+    "labelEn": "Air cooling",
+    "keywords": "вентиляція air"
+  },
+
+  {
+    "key": "shield-check",
+    "source": "shield-check",
+    "category": "comfort",
+    "labelUk": "Перевірений захист",
+    "labelEn": "Verified protection",
+    "keywords": "безпека safe"
+  },
+  {
+    "key": "shield",
+    "source": "shield",
+    "category": "comfort",
+    "labelUk": "Захист",
+    "labelEn": "Protection",
+    "keywords": "безпека safety"
+  },
+  {
+    "key": "lock-keyhole",
+    "source": "lock-keyhole",
+    "category": "comfort",
+    "labelUk": "Конфіденційність",
+    "labelEn": "Privacy",
+    "keywords": "безпека privacy secure"
+  },
+  {
+    "key": "heart-handshake",
+    "source": "heart-handshake",
+    "category": "comfort",
+    "labelUk": "Довіра",
+    "labelEn": "Trust",
+    "keywords": "турбота trust care"
+  },
+  {
+    "key": "thumbs-up",
+    "source": "thumbs-up",
+    "category": "comfort",
+    "labelUk": "Схвалено",
+    "labelEn": "Approved",
+    "keywords": "якість quality like"
+  },
+  {
+    "key": "badge-check",
+    "source": "badge-check",
+    "category": "comfort",
+    "labelUk": "Сертифіковано",
+    "labelEn": "Certified",
+    "keywords": "сертифікат quality"
+  },
+  {
+    "key": "circle-check-big",
+    "source": "circle-check-big",
+    "category": "comfort",
+    "labelUk": "Виконано",
+    "labelEn": "Completed",
+    "keywords": "готово done"
+  },
+  {
+    "key": "circle-help",
+    "source": "circle-help",
+    "category": "comfort",
+    "labelUk": "Консультація",
+    "labelEn": "Consultation",
+    "keywords": "питання help question"
+  },
+  {
+    "key": "info",
+    "source": "info",
+    "category": "comfort",
+    "labelUk": "Інформація",
+    "labelEn": "Information",
+    "keywords": "деталі details"
+  },
+  {
+    "key": "accessibility",
+    "source": "accessibility",
+    "category": "comfort",
+    "labelUk": "Доступність",
+    "labelEn": "Accessibility",
+    "keywords": "зручність inclusive"
+  },
+  {
+    "key": "armchair",
+    "source": "armchair",
+    "category": "comfort",
+    "labelUk": "Зручне крісло",
+    "labelEn": "Comfortable chair",
+    "keywords": "комфорт relax"
+  },
+  {
+    "key": "clock",
+    "source": "clock-3",
+    "category": "comfort",
+    "labelUk": "Зручний час",
+    "labelEn": "Convenient time",
+    "keywords": "години schedule"
+  },
+  {
+    "key": "calendar-check",
+    "source": "calendar-check",
+    "category": "comfort",
+    "labelUk": "Підтверджений запис",
+    "labelEn": "Confirmed booking",
+    "keywords": "календар appointment"
+  },
+  {
+    "key": "calendar-heart",
+    "source": "calendar-heart",
+    "category": "comfort",
+    "labelUk": "Турботливий запис",
+    "labelEn": "Care appointment",
+    "keywords": "календар booking"
+  },
+  {
+    "key": "coffee",
+    "source": "coffee",
+    "category": "comfort",
+    "labelUk": "Гостинність",
+    "labelEn": "Hospitality",
+    "keywords": "кава затишок cozy"
+  },
+  {
+    "key": "bed",
+    "source": "bed-single",
+    "category": "comfort",
+    "labelUk": "Відпочинок",
+    "labelEn": "Rest",
+    "keywords": "сон relax"
+  },
+  {
+    "key": "house-heart",
+    "source": "house-heart",
+    "category": "comfort",
+    "labelUk": "Домашній комфорт",
+    "labelEn": "Home comfort",
+    "keywords": "затишок cozy"
+  },
+  {
+    "key": "person-standing",
+    "source": "person-standing",
+    "category": "comfort",
+    "labelUk": "Для кожного",
+    "labelEn": "For everyone",
+    "keywords": "людина person"
+  },
+  {
+    "key": "hand",
+    "source": "hand",
+    "category": "comfort",
+    "labelUk": "Делікатний дотик",
+    "labelEn": "Gentle touch",
+    "keywords": "рука touch"
+  },
+  {
+    "key": "hand-coins",
+    "source": "hand-coins",
+    "category": "comfort",
+    "labelUk": "Вигідна ціна",
+    "labelEn": "Good value",
+    "keywords": "ціна гроші price money"
+  },
+
+  {
+    "key": "map-pin",
+    "source": "map-pin",
+    "category": "location",
+    "labelUk": "Мітка на мапі",
+    "labelEn": "Map pin",
+    "keywords": "адреса location"
+  },
+  {
+    "key": "navigation",
+    "source": "navigation",
+    "category": "location",
+    "labelUk": "Навігація",
+    "labelEn": "Navigation",
+    "keywords": "маршрут direction"
+  },
+  {
+    "key": "route",
+    "source": "route",
+    "category": "location",
+    "labelUk": "Маршрут",
+    "labelEn": "Route",
+    "keywords": "дорога path"
+  },
+  {
+    "key": "compass",
+    "source": "compass",
+    "category": "location",
+    "labelUk": "Орієнтир",
+    "labelEn": "Compass",
+    "keywords": "напрям direction"
+  },
+  {
+    "key": "phone",
+    "source": "phone",
+    "category": "location",
+    "labelUk": "Телефон",
+    "labelEn": "Phone",
+    "keywords": "дзвінок call"
+  },
+  {
+    "key": "message-circle",
+    "source": "message-circle",
+    "category": "location",
+    "labelUk": "Повідомлення",
+    "labelEn": "Message",
+    "keywords": "чат chat"
+  },
+  {
+    "key": "send",
+    "source": "send",
+    "category": "location",
+    "labelUk": "Надіслати",
+    "labelEn": "Send",
+    "keywords": "telegram повідомлення message"
+  },
+  {
+    "key": "mail",
+    "source": "mail",
+    "category": "location",
+    "labelUk": "Пошта",
+    "labelEn": "Email",
+    "keywords": "лист contact"
+  },
+  {
+    "key": "external-link",
+    "source": "external-link",
+    "category": "location",
+    "labelUk": "Зовнішнє посилання",
+    "labelEn": "External link",
+    "keywords": "перехід url"
+  },
+  {
+    "key": "link",
+    "source": "link",
+    "category": "location",
+    "labelUk": "Посилання",
+    "labelEn": "Link",
+    "keywords": "url сайт website"
+  },
+  {
+    "key": "map",
+    "source": "map",
+    "category": "location",
+    "labelUk": "Мапа",
+    "labelEn": "Map",
+    "keywords": "адреса location"
+  },
+  {
+    "key": "building",
+    "source": "building-2",
+    "category": "location",
+    "labelUk": "Будівля клініки",
+    "labelEn": "Clinic building",
+    "keywords": "офіс clinic"
+  },
+  {
+    "key": "house",
+    "source": "house",
+    "category": "location",
+    "labelUk": "Головна",
+    "labelEn": "Home",
+    "keywords": "будинок home"
+  },
+  {
+    "key": "car",
+    "source": "car-front",
+    "category": "location",
+    "labelUk": "Автомобілем",
+    "labelEn": "By car",
+    "keywords": "транспорт transport"
+  },
+  {
+    "key": "parking",
+    "source": "circle-parking",
+    "category": "location",
+    "labelUk": "Паркування",
+    "labelEn": "Parking",
+    "keywords": "авто car"
+  },
+
+  {
+    "key": "calendar-plus",
+    "source": "calendar-plus",
+    "category": "actions",
+    "labelUk": "Записатися",
+    "labelEn": "Book appointment",
+    "keywords": "календар appointment"
+  },
+  {
+    "key": "clipboard-check",
+    "source": "clipboard-check",
+    "category": "actions",
+    "labelUk": "Перевірений план",
+    "labelEn": "Checked plan",
+    "keywords": "список checklist"
+  },
+  {
+    "key": "list-checks",
+    "source": "list-checks",
+    "category": "actions",
+    "labelUk": "Список переваг",
+    "labelEn": "Checklist",
+    "keywords": "пункти list"
+  },
+  {
+    "key": "search",
+    "source": "search",
+    "category": "actions",
+    "labelUk": "Пошук",
+    "labelEn": "Search",
+    "keywords": "знайти find"
+  },
+  {
+    "key": "star",
+    "source": "star",
+    "category": "actions",
+    "labelUk": "Зірка",
+    "labelEn": "Star",
+    "keywords": "рейтинг rating"
+  },
+  {
+    "key": "award",
+    "source": "award",
+    "category": "actions",
+    "labelUk": "Нагорода",
+    "labelEn": "Award",
+    "keywords": "якість quality"
+  },
+  {
+    "key": "gift",
+    "source": "gift",
+    "category": "actions",
+    "labelUk": "Подарунок",
+    "labelEn": "Gift",
+    "keywords": "бонус bonus"
+  },
+  {
+    "key": "ticket-check",
+    "source": "ticket-check",
+    "category": "actions",
+    "labelUk": "Підтверджений талон",
+    "labelEn": "Confirmed ticket",
+    "keywords": "запис booking"
+  },
+  {
+    "key": "badge-percent",
+    "source": "badge-percent",
+    "category": "actions",
+    "labelUk": "Акційна пропозиція",
+    "labelEn": "Special offer",
+    "keywords": "знижка discount sale"
+  },
+  {
+    "key": "percent",
+    "source": "percent",
+    "category": "actions",
+    "labelUk": "Знижка",
+    "labelEn": "Discount",
+    "keywords": "акція sale"
+  },
+  {
+    "key": "circle-plus",
+    "source": "circle-plus",
+    "category": "actions",
+    "labelUk": "Додати",
+    "labelEn": "Add",
+    "keywords": "плюс more"
+  },
+  {
+    "key": "check-mark",
+    "source": "check",
+    "category": "actions",
+    "labelUk": "Готово",
+    "labelEn": "Done",
+    "keywords": "підтвердити confirm"
+  },
+  {
+    "key": "chevron-right",
+    "source": "chevron-right",
+    "category": "actions",
+    "labelUk": "Далі",
+    "labelEn": "Next",
+    "keywords": "стрілка arrow"
+  },
+  {
+    "key": "download",
+    "source": "download",
+    "category": "actions",
+    "labelUk": "Завантажити",
+    "labelEn": "Download",
+    "keywords": "файл file"
+  },
+  {
+    "key": "upload",
+    "source": "upload",
+    "category": "actions",
+    "labelUk": "Вивантажити",
+    "labelEn": "Upload",
+    "keywords": "файл file"
+  }
+]
