@@ -34,6 +34,7 @@ module.exports = {
           ['~images', './src/images'],
           ['~utils', './src/utils'],
           ['~routes', './src/routes.js'],
+          ['~service-icons', './src/service-icons'],
         ],
         extensions: ['.ts', '.js', '.jsx', '.json'],
       },

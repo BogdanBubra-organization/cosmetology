@@ -41,13 +41,21 @@ const Form = ({
 
   const location = useLocation()
 
-  const [utmData, setUtmData] = useState('')
+  const [pageContext, setPageContext] = useState('')
 
   useEffect(() => {
-    setUtmData(sessionStorage.getItem('utmData') || location.pathname)
-  }, [])
+    const pagePath = `${location.pathname}${location.search}`
+    const pageUrl = `${window.location.origin}${pagePath}`
+    const utmData = sessionStorage.getItem('utmData')
 
-  const theme = service || expert || promo || ''
+    setPageContext(
+      utmData && utmData !== pagePath ? `${pageUrl} | UTM: ${utmData}` : pageUrl
+    )
+  }, [location.pathname, location.search])
+
+  const submissionContext = [pageContext, service, expert, promo]
+    .filter(Boolean)
+    .join(' | ')
 
   const fieldsData = fields[fieldsSet] || fields.promo
 
@@ -83,7 +91,7 @@ const Form = ({
       <F.Control
         type="hidden"
         name="fields[1695992_1]"
-        value={`${utmData} ${theme}`}
+        value={submissionContext}
       />
 
       <input

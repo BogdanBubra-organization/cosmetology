@@ -57,6 +57,7 @@ typings/
 # gatsby files
 .cache/
 public
+static/dato-icon-picker/
 
 # Mac files
 .DS_Store
@@ -73,3 +74,6 @@ yarn-error.log
 .idea
 
 .stylelintcache
+
+# Local CMS backups
+output/datocms-backups/

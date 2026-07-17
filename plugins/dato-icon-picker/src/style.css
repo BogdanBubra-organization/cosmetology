@@ -1,0 +1,174 @@
+:root {
+  color: var(--base-body-color);
+  background: var(--base-body-bg-color);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  font: inherit;
+}
+
+.picker {
+  display: grid;
+  gap: 16px;
+  padding-bottom: 12px;
+}
+
+.picker__selected,
+.picker__empty-selection {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  min-height: 64px;
+  padding: 10px 12px;
+  background: var(--light-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.picker__empty-selection {
+  grid-template-columns: minmax(0, 1fr) auto;
+  min-height: 52px;
+}
+
+.picker__empty-selection span {
+  font-size: 13px;
+  color: var(--light-body-color);
+}
+
+.picker__selected svg {
+  width: 36px;
+  height: 36px;
+  color: var(--accent-color);
+}
+
+.picker__selected-copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.picker__selected-copy span {
+  font-size: 11px;
+  color: var(--light-body-color);
+}
+
+.picker__selected-copy strong {
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.picker__selected-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.picker__selected-actions button,
+.picker__empty-selection button,
+.picker__categories button {
+  padding: 6px 10px;
+  color: inherit;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+}
+
+.picker__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.picker__catalog {
+  display: grid;
+  gap: 16px;
+}
+
+.picker__categories button {
+  font-size: 12px;
+}
+
+.picker__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+  gap: 8px;
+  max-height: 440px;
+  padding: 2px;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.picker__grid > button {
+  display: grid;
+  gap: 8px;
+  place-items: center;
+  min-height: 94px;
+  padding: 12px 8px;
+  color: inherit;
+  text-align: center;
+  cursor: pointer;
+  background: var(--light-bg-color);
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+
+.picker__selected-actions button:hover,
+.picker__empty-selection button:hover,
+.picker__categories button:hover,
+.picker__categories button.is-active {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.picker__grid > button:hover,
+.picker__grid > button:focus-visible,
+.picker__grid > button.is-selected {
+  border-color: var(--accent-color);
+  outline: 0;
+}
+
+.picker__grid > button.is-selected {
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color) 8%, var(--light-bg-color));
+}
+
+.picker__grid svg {
+  width: 30px;
+  height: 30px;
+}
+
+.picker__grid span {
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.picker__empty {
+  padding: 24px;
+  margin: 0;
+  text-align: center;
+  background: var(--light-bg-color);
+  border-radius: 6px;
+}
+
+@media (width <= 640px) {
+  .picker__selected {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .picker__selected-actions {
+    grid-column: 1 / -1;
+  }
+
+  .picker__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

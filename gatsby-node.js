@@ -8,6 +8,66 @@
 const path = require('path')
 const { SERVICE_PAGE_SLUG } = require('./src/constants')
 
+const serviceLandingSingleBlocks = {
+  landingHero: ['landing_hero', 'DatoCmsServiceLandingHero'],
+  landingAbout: ['landing_about', 'DatoCmsServiceLandingAbout'],
+  landingPrices: ['landing_prices', 'DatoCmsServiceLandingPriceSection'],
+  landingEquipment: ['landing_equipment', 'DatoCmsServiceLandingEquipment'],
+  landingResults: ['landing_results', 'DatoCmsServiceLandingResultsSection'],
+  landingDoctors: ['landing_doctors', 'DatoCmsServiceLandingDoctorSection'],
+  landingCertificates: [
+    'landing_certificates',
+    'DatoCmsServiceLandingCertificateSection',
+  ],
+  landingPreparation: [
+    'landing_preparation',
+    'DatoCmsServiceLandingPreparation',
+  ],
+  landingContraindications: [
+    'landing_contraindications',
+    'DatoCmsServiceLandingContraindicationSection',
+  ],
+  landingClinicGallery: [
+    'landing_clinic_gallery',
+    'DatoCmsServiceLandingClinicGallery',
+  ],
+  landingReviews: ['landing_reviews', 'DatoCmsServiceLandingReviewSection'],
+  landingFinalCta: ['landing_final_cta', 'DatoCmsServiceLandingFinalCta'],
+}
+
+const getBlockId = (value) => {
+  if (typeof value === 'string') return value
+  return value?.id || value?.data?.id || null
+}
+
+const createSingleBlockResolver = (apiKey, type) => ({
+  type,
+  async resolve(source, args, context) {
+    const blockId = getBlockId(source.entityPayload?.attributes?.[apiKey])
+    if (!blockId) return null
+
+    const { entries } = await context.nodeModel.findAll({ type, query: {} })
+
+    return (
+      Array.from(entries).find((node) => node.entityPayload?.id === blockId) ||
+      null
+    )
+  },
+})
+
+exports.createResolvers = ({ createResolvers }) => {
+  createResolvers({
+    DatoCmsService: Object.fromEntries(
+      Object.entries(serviceLandingSingleBlocks).map(
+        ([fieldName, [apiKey, type]]) => [
+          fieldName,
+          createSingleBlockResolver(apiKey, type),
+        ]
+      )
+    ),
+  })
+}
+
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
   actions.setWebpackConfig({
     resolve: {
@@ -24,6 +84,7 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
         '~images': path.resolve(__dirname, 'src/images'),
         '~utils': path.resolve(__dirname, 'src/utils'),
         '~routes': path.resolve(__dirname, 'src/routes.js'),
+        '~service-icons': path.resolve(__dirname, 'src/service-icons'),
       },
     },
   })
