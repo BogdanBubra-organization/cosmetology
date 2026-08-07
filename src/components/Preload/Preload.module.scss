@@ -9,7 +9,10 @@
   justify-content: center;
   overflow: hidden;
   background: $white;
-  transition: opacity 500ms ease-out, visibility 500ms ease-out;
+  transition:
+    opacity 500ms ease-out,
+    visibility 500ms ease-out;
+  animation: hide-preload 500ms ease-out 1s forwards;
 
   &::before,
   &::after {
@@ -60,6 +63,14 @@
   }
 
   &.hide {
+    visibility: hidden;
+    opacity: 0;
+    animation: none;
+  }
+}
+
+@keyframes hide-preload {
+  to {
     visibility: hidden;
     opacity: 0;
   }
