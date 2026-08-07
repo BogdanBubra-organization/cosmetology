@@ -13,7 +13,7 @@
   "dependencies": {
     "@fontsource/cormorant": "4.5.10",
     "@fontsource/inter": "4.5.15",
-    "@formspree/core": "2.8.3",
+    "@formspree/core": "3.0.1",
     "@formspree/react": "2.5.1",
     "@gvrs/gatsby-transformer-blurhash": "2.0.0",
     "@percy/cli": "1.27.3",
