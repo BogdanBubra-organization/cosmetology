@@ -113,16 +113,18 @@ const Layout = ({
   }, [])
 
   const layoutRef = useRef(null)
-  const [isPreloaded, setIsPreloaded] = useState(
-    typeof window !== 'undefined'
-      ? sessionStorage.getItem('isPreloaded')
-      : false
-  )
+  const [isPreloaded, setIsPreloaded] = useState(false)
 
   const handlePreload = () => {
     sessionStorage.setItem('isPreloaded', true)
     setIsPreloaded(true)
   }
+
+  useEffect(() => {
+    if (sessionStorage.getItem('isPreloaded')) {
+      setIsPreloaded(true)
+    }
+  }, [])
 
   useEffect(() => {
     if (isPreloaded) {
