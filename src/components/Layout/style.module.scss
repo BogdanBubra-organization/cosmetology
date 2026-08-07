@@ -6,7 +6,9 @@
   grid-template-rows: auto 1fr auto;
   min-width: 375px;
   min-height: 100vh;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 350ms ease-in-out, visibility 350ms ease-in-out;
+  visibility: visible;
+  opacity: 1;
+  transition:
+    opacity 350ms ease-in-out,
+    visibility 350ms ease-in-out;
 }
