@@ -8,12 +8,17 @@ const Preload = ({ handlePreload }) => {
 
   useEffect(() => {
     preloadRef.current.classList.remove(s.hide)
-    setTimeout(() => {
-      preloadRef.current.classList.add(s.hide)
+    const hideTimeout = setTimeout(() => {
+      preloadRef.current?.classList.add(s.hide)
     }, 1000)
-    setTimeout(() => {
+    const completeTimeout = setTimeout(() => {
       handlePreload()
     }, 1500)
+
+    return () => {
+      clearTimeout(hideTimeout)
+      clearTimeout(completeTimeout)
+    }
   }, [])
 
   return (
