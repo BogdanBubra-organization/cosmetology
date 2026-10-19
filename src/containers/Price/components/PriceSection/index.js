@@ -39,11 +39,14 @@ const PriceSection = ({ title, items, note }) => {
                   <div>
                     {createElement(
                       link ? Link : 'span',
-                      link
-                        ? {
-                            to: `/services/${link.slug}`,
-                          }
-                        : {},
+                      {
+                        className: s.section_itemTitle,
+                        ...(link
+                          ? {
+                              to: `/services/${link.slug}`,
+                            }
+                          : {}),
+                      },
                       itemTitle
                     )}
 

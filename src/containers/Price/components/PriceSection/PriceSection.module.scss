@@ -86,6 +86,10 @@
     }
   }
 
+  &_itemTitle {
+    overflow-wrap: anywhere;
+  }
+
   &_descr {
     font-size: 0.9em;
 
