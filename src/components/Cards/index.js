@@ -16,20 +16,27 @@ const Cards = ({ data, variant, isPricesPage, ...rest }) => {
         const servicePageUrl = `/${servicePageSlug}/${slug}`
 
         return (
-          <li key={slug} className={s.cards_item}>
+          <li
+            key={slug}
+            className={cn(s.cards_item, {
+              [s.withoutMedia]: !previewImage?.url,
+            })}
+          >
             <div className={s.cards_heading}>
               <span className={s.cards_name}>{name}</span>
               {duration && <span className={s.cards_label}>{duration}</span>}
             </div>
-            <div className={s.cards_pic}>
-              <img
-                src={previewImage?.url}
-                alt={name}
-                loading="lazy"
-                width="100%"
-                height="100%"
-              />
-            </div>
+            {previewImage?.url && (
+              <div className={s.cards_pic}>
+                <img
+                  src={previewImage?.url}
+                  alt={name}
+                  loading="lazy"
+                  width="100%"
+                  height="100%"
+                />
+              </div>
+            )}
             <div className={s.cards_btns}>
               <Button as={Link} to={servicePageUrl}>
                 Записатись

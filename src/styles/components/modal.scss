@@ -1,3 +1,7 @@
+body.modal-open #bingc-active {
+  display: none !important;
+}
+
 .modal {
   $this: &;
 

@@ -4,6 +4,10 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import * as s from './Brands.module.scss'
 
 const Brands = ({ title, list }) => {
+  const visibleBrands = list || []
+
+  if (!visibleBrands.length) return null
+
   return (
     <div className={s.brands}>
       {title && (
@@ -13,14 +17,18 @@ const Brands = ({ title, list }) => {
       )}
       <div className={s.brands_list_wrapper}>
         <ul className={s.brands_list} data-array="hero" data-direction="bottom">
-          {list?.map(({ name, logo }) => (
-            <GatsbyImage
-              key={name}
-              loading="eager"
-              image={getImage(logo)}
-              alt={name}
-            />
-          ))}
+          {visibleBrands.map(({ name, logo }) =>
+            getImage(logo) ? (
+              <GatsbyImage
+                key={name}
+                loading="eager"
+                image={getImage(logo)}
+                alt={name}
+              />
+            ) : (
+              <span key={name}>{name}</span>
+            )
+          )}
         </ul>
       </div>
     </div>

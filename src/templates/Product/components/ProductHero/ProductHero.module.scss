@@ -183,3 +183,7 @@
     font-size: 2.5rem;
   }
 }
+
+.withoutMedia {
+  grid-template-columns: minmax(0, 1fr);
+}

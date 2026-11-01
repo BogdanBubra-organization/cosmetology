@@ -1,6 +1,7 @@
 @import '~styles/mixins';
 
 .media {
+  position: relative;
   display: grid;
   place-content: center;
   height: 100%;
@@ -11,7 +12,38 @@
     background: $white;
   }
 
-  video {
+  video,
+  .poster {
+    width: 100%;
     height: 100%;
+    object-fit: contain;
   }
+}
+
+.play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  color: $white;
+  cursor: pointer;
+  background: rgba($black, 0.12);
+  border: 0;
+
+  &:focus-visible {
+    outline: 3px solid currentcolor;
+    outline-offset: -4px;
+  }
+}
+
+.playIcon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  font-size: 28px;
+  line-height: 1;
+  background: rgba($black, 0.75);
+  border-radius: 50%;
 }

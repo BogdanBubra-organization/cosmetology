@@ -15,14 +15,16 @@ const ReviewItem = ({
   return (
     <div className={cn(s.reviewitem, { [s[variant]]: variant })}>
       <div className={s.reviewitem_heading}>
-        <div className={s.reviewitem_pic}>
-          <img
-            width="64"
-            height="64"
-            src={profile_photo_url}
-            alt={author_name}
-          />
-        </div>
+        {profile_photo_url && (
+          <div className={s.reviewitem_pic}>
+            <img
+              width="64"
+              height="64"
+              src={profile_photo_url}
+              alt={author_name}
+            />
+          </div>
+        )}
         <span className={s.reviewitem_name}>{author_name}</span>
         <Rating rating={rating} />
       </div>

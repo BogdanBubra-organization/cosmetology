@@ -1,3 +1,4 @@
+import SEO from '~components/seo'
 import React from 'react'
 import { graphql } from 'gatsby'
 import Services from '~containers/Services'
@@ -43,3 +44,5 @@ export const query = graphql`
 `
 
 export default ServicesPage
+
+export const Head = () => <SEO title="Послуги" />

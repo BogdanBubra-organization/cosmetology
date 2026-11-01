@@ -27,15 +27,17 @@ const CategoriesPreview = ({ data }) => {
               </span>
             </span>
 
-            <span className={s.preview_pic}>
-              <img
-                width="196"
-                height="196"
-                src={image?.url}
-                alt={title}
-                loading="lazy"
-              />
-            </span>
+            {image?.url && (
+              <span className={s.preview_pic}>
+                <img
+                  width="196"
+                  height="196"
+                  src={image?.url}
+                  alt={title}
+                  loading="lazy"
+                />
+              </span>
+            )}
           </Link>
         </li>
       ))}

@@ -1,6 +1,5 @@
 import React from 'react'
 
-import S from '~components/seo'
 import Lights from '~components/Lights'
 
 import PlaceholderHeader from './components/PlaceholderHeader'
@@ -14,7 +13,6 @@ const IndexPage = () => (
   <div className={s.layout}>
     <PlaceholderHeader />
     <main>
-      <S />
       <PlaceholderComingSoon />
       <PlaceholderPics />
     </main>

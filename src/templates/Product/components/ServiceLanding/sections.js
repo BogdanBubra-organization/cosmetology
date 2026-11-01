@@ -209,7 +209,9 @@ export const HeroSection = ({
 
   return (
     <section className={cn(s.section, s.hero)}>
-      <Container className={s.heroGrid}>
+      <Container
+        className={cn(s.heroGrid, { [s.withoutMedia]: !getImage(image) })}
+      >
         <div className={s.heroContent}>
           {visibleBadge && <span className={s.badge}>{visibleBadge}</span>}
           {visibleTitle && (
@@ -321,7 +323,9 @@ export const PriceSection = ({ title, description, categories, note }) => {
 
 export const EquipmentSection = ({ title, description, image, features }) => (
   <section className={cn(s.section, s.equipment)}>
-    <Container className={s.splitGrid}>
+    <Container
+      className={cn(s.splitGrid, { [s.withoutMedia]: !getImage(image) })}
+    >
       <div className={s.splitContent}>
         <SectionIntro
           title={title}
@@ -554,7 +558,9 @@ export const FinalCtaSection = ({
 
   return (
     <section className={cn(s.section, s.finalCta)}>
-      <Container className={s.finalCtaCard}>
+      <Container
+        className={cn(s.finalCtaCard, { [s.withoutMedia]: !getImage(image) })}
+      >
         <div className={s.finalCtaContent}>
           {visibleBadge && <span className={s.badge}>{visibleBadge}</span>}
           {visibleTitle && <h2>{visibleTitle}</h2>}

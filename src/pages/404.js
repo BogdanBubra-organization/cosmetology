@@ -10,3 +10,5 @@ const NotFoundPage = () => {
 }
 
 export default NotFoundPage
+
+export const Head = () => <html lang="uk" />

@@ -50,7 +50,7 @@ const Btns = ({ handleShowOrder, instagramLink, className }) => (
 
 const ProductHero = ({
   name,
-  media,
+  media = [],
   descr,
   price,
   priceFrom,
@@ -64,6 +64,8 @@ const ProductHero = ({
   const [showOrder, setShowOrder] = useState(false)
   const handleShowOrder = () => setShowOrder(true)
 
+  const hasMedia = media.length > 0 || Boolean(previewImage?.url)
+
   const showAnyPrice = price || priceTo || priceFrom
   const showExactPrice = !priceTo && !priceFrom
 
@@ -73,57 +75,62 @@ const ProductHero = ({
   const isWarningSection = !!warningTitle || isWarningList
 
   return (
-    <section className={s.producthero}>
-      <div className={s.producthero_ill_wrapper}>
-        <div className={s.producthero_ill}>
-          {media.length ? (
-            <>
-              <h5 className={s.producthero_title}>{imageTitle}</h5>
-              {media.length > 1 ? (
-                <Swiper
-                  spaceBetween={16}
-                  modules={[Navigation, EffectFade]}
-                  navigation={{
-                    prevEl: '.swiper-button-prev',
-                    nextEl: '.swiper-button-next',
-                  }}
-                  effect="fade"
-                  autoHeight
-                  className={s.producthero_slider}
-                >
-                  {media.map((item, i) => (
-                    <SwiperSlide key={`m${i}`} className={s.producthero_slide}>
-                      <MediaWrap media={item} isProduct>
-                        <GatsbyImage
-                          className={s.producthero_pic}
-                          image={getImage(item)}
-                          alt={name}
-                          objectFit="contain"
-                        />
-                      </MediaWrap>
-                    </SwiperSlide>
-                  ))}
+    <section className={cn(s.producthero, { [s.withoutMedia]: !hasMedia })}>
+      {hasMedia && (
+        <div className={s.producthero_ill_wrapper}>
+          <div className={s.producthero_ill}>
+            {media.length ? (
+              <>
+                <h5 className={s.producthero_title}>{imageTitle}</h5>
+                {media.length > 1 ? (
+                  <Swiper
+                    spaceBetween={16}
+                    modules={[Navigation, EffectFade]}
+                    navigation={{
+                      prevEl: '.swiper-button-prev',
+                      nextEl: '.swiper-button-next',
+                    }}
+                    effect="fade"
+                    autoHeight
+                    className={s.producthero_slider}
+                  >
+                    {media.map((item, i) => (
+                      <SwiperSlide
+                        key={`m${i}`}
+                        className={s.producthero_slide}
+                      >
+                        <MediaWrap media={item} isProduct>
+                          <GatsbyImage
+                            className={s.producthero_pic}
+                            image={getImage(item)}
+                            alt={name}
+                            objectFit="contain"
+                          />
+                        </MediaWrap>
+                      </SwiperSlide>
+                    ))}
 
-                  <SwiperButtons className="btn-round">
-                    <Icon name="swiper-arrow" size={24} />
-                  </SwiperButtons>
-                </Swiper>
-              ) : (
-                <MediaWrap media={media[0]} isProduct>
-                  <GatsbyImage
-                    className={s.producthero_pic}
-                    image={getImage(media[0])}
-                    alt={name}
-                    objectFit="contain"
-                  />
-                </MediaWrap>
-              )}
-            </>
-          ) : (
-            <img src={previewImage?.url} alt={name} />
-          )}
+                    <SwiperButtons className="btn-round">
+                      <Icon name="swiper-arrow" size={24} />
+                    </SwiperButtons>
+                  </Swiper>
+                ) : (
+                  <MediaWrap media={media[0]} isProduct>
+                    <GatsbyImage
+                      className={s.producthero_pic}
+                      image={getImage(media[0])}
+                      alt={name}
+                      objectFit="contain"
+                    />
+                  </MediaWrap>
+                )}
+              </>
+            ) : (
+              <img src={previewImage?.url} alt={name} />
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
       <div className={s.producthero_content}>
         <h3 className="h5">{descrTitle}</h3>

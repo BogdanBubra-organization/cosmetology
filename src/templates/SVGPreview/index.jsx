@@ -1,8 +1,8 @@
+import SEO from '~components/seo'
 import React from 'react'
 
-import * as style from './SVGPreview.module.scss'
 import SVGSprite from '~components/SVGSprite'
-import S from '~components/seo'
+import * as style from './SVGPreview.module.scss'
 
 /**
  * SVGPreview component
@@ -10,10 +10,11 @@ import S from '~components/seo'
 const SVGPreview = () => {
   return (
     <div className={style.svgPreview}>
-      <S title="SVG Preview" />
       <SVGSprite className={style.table} />
     </div>
   )
 }
 
 export default SVGPreview
+
+export const Head = () => <SEO title="SVG Preview" />

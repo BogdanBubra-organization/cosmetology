@@ -621,3 +621,7 @@
     aspect-ratio: 4 / 3;
   }
 }
+
+.withoutMedia {
+  grid-template-columns: minmax(0, 1fr);
+}

@@ -21,19 +21,25 @@ const Author = (props) => (
   </div>
 )
 
-const Logo = ({ url, alt }) => (
-  <img src={url} width="48" height="64" alt={alt} className={s.footerLogo} />
-)
+const Logo = ({ url, alt }) =>
+  url ? (
+    <img src={url} width="48" height="64" alt={alt} className={s.footerLogo} />
+  ) : (
+    <span>{alt || 'Cosmetology.ua'}</span>
+  )
 
-const LogoFull = ({ url, alt }) => (
-  <img
-    src={url}
-    width="188"
-    height="40"
-    alt={alt}
-    className={s.footerLogoFull}
-  />
-)
+const LogoFull = ({ url, alt }) =>
+  url ? (
+    <img
+      src={url}
+      width="188"
+      height="40"
+      alt={alt}
+      className={s.footerLogoFull}
+    />
+  ) : (
+    <span>{alt || 'Cosmetology.ua'}</span>
+  )
 
 const Footer = ({
   address,

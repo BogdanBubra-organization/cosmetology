@@ -1,3 +1,4 @@
+import SEO from '~components/seo'
 import React from 'react'
 import { graphql } from 'gatsby'
 
@@ -39,3 +40,5 @@ export const query = graphql`
 `
 
 export default ContactsPage
+
+export const Head = () => <SEO title="Наші контакти" />

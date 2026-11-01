@@ -1,4 +1,5 @@
 import React from 'react'
+import cn from 'classnames'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { StructuredText } from 'react-datocms'
 import { Container } from 'react-bootstrap'
@@ -12,10 +13,16 @@ const AboutHero = ({ heading, title, descr, image, socials }) => (
       <StructuredText data={heading.value} />
     </div>
 
-    <div className={s.abouthero_infoContainer}>
-      <div className={s.abouthero_ill}>
-        <GatsbyImage image={getImage(image)} alt="Косметологічна клініка" />
-      </div>
+    <div
+      className={cn(s.abouthero_infoContainer, {
+        [s.withoutMedia]: !getImage(image),
+      })}
+    >
+      {getImage(image) && (
+        <div className={s.abouthero_ill}>
+          <GatsbyImage image={getImage(image)} alt="Косметологічна клініка" />
+        </div>
+      )}
 
       <div className={s.abouthero_content}>
         <div className={s.abouthero_subtitle}>

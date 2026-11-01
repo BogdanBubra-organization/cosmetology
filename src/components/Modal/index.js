@@ -51,7 +51,12 @@ const Modal = ({
 
       {children && <M.Body>{children}</M.Body>}
 
-      <Button variant="secondary" className="modal-close" onClick={onHide}>
+      <Button
+        variant="secondary"
+        className="modal-close"
+        aria-label="Закрити"
+        onClick={onHide}
+      >
         <Icon name="close" size={20} />
       </Button>
       {variant !== 'swiper' && (

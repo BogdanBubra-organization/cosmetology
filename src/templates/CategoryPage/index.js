@@ -1,9 +1,9 @@
 /* eslint-disable no-shadow */
+import SEO from '~components/seo'
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import { graphql } from 'gatsby'
 import Layout from '~components/Layout'
-import S from '~components/seo'
 import Lights from '~components/Lights'
 import Category from '~components/Category'
 import Cards from '~components/Cards'
@@ -19,7 +19,6 @@ const CategoryPage = (props) => {
   return (
     <Layout>
       <Container>
-        <S title={title} />
         <div className={s.category_heading}>
           <h1 className="h2">{title}</h1>
           <p className={s.category_descr}>{descr}</p>
@@ -88,3 +87,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export const Head = ({ data }) => <SEO title={data.category.title} />

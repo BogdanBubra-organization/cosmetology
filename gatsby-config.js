@@ -20,7 +20,6 @@ module.exports = {
   plugins: [
     // https://www.gatsbyjs.com/plugins/gatsby-plugin-webpack-bundle-analyser-v2/
     // `gatsby-plugin-webpack-bundle-analyser-v2`,
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-minify-classnames`,
@@ -52,6 +51,15 @@ module.exports = {
       options: {
         apiToken: process.env.DATOCMS_API_TOKEN,
         environment: process.env.DATOCMS_ENVIRONMENT,
+      },
+    },
+    {
+      resolve: `${__dirname}/plugins/gatsby-plugin-local-media`,
+      options: {
+        cacheDirectory: process.env.LOCAL_MEDIA_CACHE_DIRECTORY,
+        backupDirectory: process.env.LOCAL_MEDIA_BACKUP_DIRECTORY,
+        legacyDirectory: process.env.LOCAL_MEDIA_LEGACY_DIRECTORY,
+        previousManifestUrl: 'https://cosmetology.ua/media-index.json',
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

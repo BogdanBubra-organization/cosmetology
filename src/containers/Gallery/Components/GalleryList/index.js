@@ -17,8 +17,13 @@ import * as s from './GalleryList.module.scss'
 
 const TAB_KEYS = ['instagram', 'gallery']
 
-const GalleryList = ({ tabs, media, initialTab }) => {
-  const [tab, setTab] = useState(initialTab || TAB_KEYS[0])
+const GalleryList = ({ tabs, media: suppliedMedia, initialTab }) => {
+  const media = (suppliedMedia || []).filter((item) =>
+    item?.video ? Boolean(item.url) : Boolean(getImage(item))
+  )
+  const [tab, setTab] = useState(
+    media.length ? initialTab || TAB_KEYS[0] : TAB_KEYS[0]
+  )
   const [modal, setModal] = useState({ show: false, active: 0 })
   const { posts, isLoading } = usePosts()
 
@@ -38,8 +43,8 @@ const GalleryList = ({ tabs, media, initialTab }) => {
     <>
       <div className={s.gallerylist}>
         <TabSwitcher
-          tabs={tabs}
-          tabKeys={TAB_KEYS}
+          tabs={media.length ? tabs : tabs.slice(0, 1)}
+          tabKeys={media.length ? TAB_KEYS : TAB_KEYS.slice(0, 1)}
           activeTab={tab}
           action={handleTabChange}
         />
@@ -73,35 +78,39 @@ const GalleryList = ({ tabs, media, initialTab }) => {
         </div>
       </div>
 
-      <Modal show={modal.show} onHide={handleHideModal} variant="swiper">
-        <Swiper
-          effect="fade"
-          navigation={{
-            prevEl: '.swiper-button-prev',
-            nextEl: '.swiper-button-next',
-          }}
-          autoHeight
-          modules={[Navigation, EffectFade]}
-          initialSlide={modal.active}
-          className="swiper--modal swipper--autoheightMobile"
-        >
-          {media.map((item, i) => (
-            <SwiperSlide key={`p${i}`}>
-              <MediaWrap media={item}>
-                <GatsbyImage
-                  className="modal-pic"
-                  image={getImage(item)}
-                  alt="Gallery"
-                />
-              </MediaWrap>
-            </SwiperSlide>
-          ))}
+      {media.length > 0 && (
+        <Modal show={modal.show} onHide={handleHideModal} variant="swiper">
+          <Swiper
+            effect="fade"
+            navigation={{
+              prevEl: '.swiper-button-prev',
+              nextEl: '.swiper-button-next',
+            }}
+            autoHeight
+            modules={[Navigation, EffectFade]}
+            initialSlide={modal.active}
+            className="swiper--modal swipper--autoheightMobile"
+          >
+            {media.map((item, i) => (
+              <SwiperSlide key={`p${i}`}>
+                <MediaWrap media={item}>
+                  <GatsbyImage
+                    className="modal-pic"
+                    image={getImage(item)}
+                    alt="Gallery"
+                  />
+                </MediaWrap>
+              </SwiperSlide>
+            ))}
 
-          <SwiperButtons className="swiper-button-sm">
-            <Icon name="swiper-arrow-sm" size={20} />
-          </SwiperButtons>
-        </Swiper>
-      </Modal>
+            {media.length > 1 && (
+              <SwiperButtons className="swiper-button-sm">
+                <Icon name="swiper-arrow-sm" size={20} />
+              </SwiperButtons>
+            )}
+          </Swiper>
+        </Modal>
+      )}
     </>
   )
 }

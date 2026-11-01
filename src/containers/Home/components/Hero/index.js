@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import cn from 'classnames'
 import { Button, Container } from 'react-bootstrap'
 import { Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
@@ -31,13 +32,16 @@ const Hero = (props) => {
   const handleShowOrder = () => setShowOrder(true)
 
   useEffect(() => {
-    if (!isPreloaded && isDesktop) {
+    if (!isPreloaded && isDesktop && picRef.current && lineRef.current) {
       heroAnim({ pic: picRef.current, line: lineRef.current })
     }
   }, [lineRef, picRef, isDesktop, isPreloaded])
 
   return (
-    <section className={s.hero} id="hero">
+    <section
+      className={cn(s.hero, { [s.withoutMedia]: !getImage(image) })}
+      id="hero"
+    >
       <Container className={s.hero_container}>
         <div className={s.hero_inner}>
           <div className={s.hero_content}>
@@ -65,14 +69,16 @@ const Hero = (props) => {
               {btnService}
             </Button>
           </div>
-          <div className={s.hero_ill} ref={picRef}>
-            <GatsbyImage
-              image={getImage(image)}
-              alt="Надання послуги"
-              className={s.hero_pic}
-            />
-            <span className={s.hero_ill_line} ref={lineRef} />
-          </div>
+          {getImage(image) && (
+            <div className={s.hero_ill} ref={picRef}>
+              <GatsbyImage
+                image={getImage(image)}
+                alt="Надання послуги"
+                className={s.hero_pic}
+              />
+              <span className={s.hero_ill_line} ref={lineRef} />
+            </div>
+          )}
         </div>
         <Brands title={brandsTitle} list={brands} />
       </Container>

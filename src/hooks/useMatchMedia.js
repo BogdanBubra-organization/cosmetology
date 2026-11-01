@@ -1,22 +1,21 @@
 import { useEffect, useState } from 'react'
 
 const useMatchMedia = (query) => {
-  const [mQuery, setMQuery] = useState({
-    matches:
-      typeof window === 'undefined' ? false : window.matchMedia(query).matches,
-  })
+  const [matches, setMatches] = useState(false)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
 
     const mediaQuery = window.matchMedia(query)
-    mediaQuery.addEventListener('change', setMQuery)
+    const updateMatches = () => setMatches(mediaQuery.matches)
+    updateMatches()
+    mediaQuery.addEventListener('change', updateMatches)
 
     // eslint-disable-next-line consistent-return
-    return () => mediaQuery.removeEventListener('change', setMQuery)
+    return () => mediaQuery.removeEventListener('change', updateMatches)
   }, [query])
 
-  return mQuery?.matches
+  return matches
 }
 
 export default useMatchMedia

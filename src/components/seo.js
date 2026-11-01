@@ -7,25 +7,22 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import ogImage from '~img/og-image.png'
 
 const SEO = ({ description, lang, meta, title, image }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            domain
-          }
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          domain
         }
       }
-    `
-  )
+    }
+  `)
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
@@ -33,12 +30,10 @@ const SEO = ({ description, lang, meta, title, image }) => {
   const titleTemplate = title ? `${title} – ${defaultTitle}` : defaultTitle
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={titleTemplate}
-      meta={[
+    <>
+      <html lang={lang} />
+      <title>{titleTemplate}</title>
+      {[
         {
           name: `description`,
           content: metaDescription,
@@ -90,8 +85,15 @@ const SEO = ({ description, lang, meta, title, image }) => {
           name: 'theme-color',
           content: '#f8f8f8',
         },
-      ].concat(meta)}
-    >
+      ]
+        .concat(meta)
+        .map((attributes) => (
+          <meta
+            key={JSON.stringify(attributes)}
+            id={attributes.name || attributes.property}
+            {...attributes}
+          />
+        ))}
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -111,12 +113,12 @@ const SEO = ({ description, lang, meta, title, image }) => {
       />
       <link rel="manifest" href="/site.webmanifest" />
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#162113" />
-    </Helmet>
+    </>
   )
 }
 
 SEO.defaultProps = {
-  lang: 'en',
+  lang: 'uk',
   meta: [],
   description: '',
   title: '',

@@ -19,11 +19,13 @@ const ExpertsItem = ({ title, subtitle, description, photo }) => {
   const handleShowOrder = () => setShowOrder(true)
   return (
     <div className={s.expert}>
-      <GatsbyImage
-        image={getImage(photo)}
-        alt={title}
-        className={s.expert_photo}
-      />
+      {getImage(photo) && (
+        <GatsbyImage
+          image={getImage(photo)}
+          alt={title}
+          className={s.expert_photo}
+        />
+      )}
       <h3 className={s.expert_title}>{title}</h3>
       <span className={s.expert_subtitle}>{subtitle}</span>
 

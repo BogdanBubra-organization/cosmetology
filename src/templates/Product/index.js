@@ -1,9 +1,9 @@
+import SEO from '~components/seo'
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import { graphql } from 'gatsby'
 import cn from 'classnames'
 import Layout from '~components/Layout'
-import S from '~components/seo'
 import Lights from '~components/Lights'
 import Reviews from '~components/Reviews'
 import ProductHero from './components/ProductHero'
@@ -23,13 +23,9 @@ const Product = (props) => {
   return (
     <Layout isShortVariant={isPricingPage}>
       {useLandingTemplate ? (
-        <>
-          <S title={name} />
-          <ServiceLanding {...product} />
-        </>
+        <ServiceLanding {...product} />
       ) : (
         <Container className={cn({ [s.shortContainer]: isPricingPage })}>
-          <S title={name} />
           <h1 className={cn('h2', s.productTitle)}>{name}</h1>
           <ProductHero {...product} {...systemInfo} />
           {!isPricingPage && (
@@ -68,6 +64,8 @@ export const pageQuery = graphql`
       }
       media {
         url
+        width
+        height
         video {
           thumbnailUrl
         }
@@ -358,3 +356,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export const Head = ({ data }) => <SEO title={data.product.name} />

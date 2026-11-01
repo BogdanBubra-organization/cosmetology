@@ -30,17 +30,19 @@ const ServicesItem = ({ title, categories }) => {
             {categories.map(({ slug, title, descr, image }) => (
               <li key={title}>
                 <Link
-                  className={s.item_link}
+                  className={cn(s.item_link, { [s.withoutMedia]: !image?.url })}
                   to={`/${SERVICE_PAGE_SLUG[0]}/${slug}`}
                 >
-                  <img
-                    width="72"
-                    height="72"
-                    src={image?.url}
-                    alt={title}
-                    loading="lazy"
-                    className={s.item_pic}
-                  />
+                  {image?.url && (
+                    <img
+                      width="72"
+                      height="72"
+                      src={image?.url}
+                      alt={title}
+                      loading="lazy"
+                      className={s.item_pic}
+                    />
+                  )}
 
                   <span className={s.item_content}>
                     <span className={s.item_title}>{title}</span>

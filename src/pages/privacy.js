@@ -1,3 +1,4 @@
+import SEO from '~components/seo'
 import React from 'react'
 import { graphql } from 'gatsby'
 
@@ -17,3 +18,5 @@ export const query = graphql`
 `
 
 export default PrivacyPage
+
+export const Head = () => <SEO title="Політика конфіденційності" />

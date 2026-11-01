@@ -1,3 +1,4 @@
+import SEO from '~components/seo'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import React from 'react'
 import { graphql } from 'gatsby'
@@ -79,6 +80,8 @@ export const query = graphql`
         resultsTab
         media {
           url
+          width
+          height
           video {
             thumbnailUrl
           }
@@ -119,3 +122,5 @@ export const query = graphql`
 `
 
 export default HomePage
+
+export const Head = () => <SEO />

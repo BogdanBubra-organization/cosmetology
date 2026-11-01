@@ -33,10 +33,11 @@ const GalleryMedia = ({
       ) : (
         <button
           type="button"
+          aria-label={media?.video ? 'Відкрити відео' : 'Відкрити фото'}
           onClick={(e) => action(e, index)}
           className={s.gallerymedia}
         >
-          <MediaWrap media={media}>
+          <MediaWrap media={media} preview>
             <GatsbyImage
               className={s.gallerymedia_pic}
               image={getImage(media)}

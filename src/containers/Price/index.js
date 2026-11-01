@@ -3,7 +3,6 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import { StructuredText } from 'react-datocms'
 import Layout from '~components/Layout'
-import S from '~components/seo'
 import Lights from '~components/Lights'
 import PriceSection from './components/PriceSection'
 
@@ -15,7 +14,6 @@ const Price = ({ title, description, content }) => {
   )
   return (
     <Layout>
-      <S title="Прайс" />
       <Container as="section" className={s.price}>
         <h1 className={s.price_title}>{title}</h1>
 

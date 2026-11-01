@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 
 import Layout from '~components/Layout'
-import S from '~components/seo'
 
 import useMatchMedia from '~hooks/useMatchMedia'
 import { appearAnim, resetAnim } from '~utils/appearAnim'
@@ -39,7 +38,6 @@ const Home = (props) => {
   }, [isPreloaded, isDesktop, posts])
   return (
     <Layout>
-      <S />
       <Lights />
       <Hero {...hero[0]} isPreloaded={isPreloaded} isDesktop={isDesktop} />
       <Categories {...categories[0]} categoriesList={categoriesList} />

@@ -1,0 +1,9 @@
+{
+  "name": "gatsby-plugin-local-media",
+  "version": "1.0.0",
+  "private": true,
+  "main": "gatsby-node.js",
+  "dependencies": {
+    "sharp": "^0.32.6"
+  }
+}

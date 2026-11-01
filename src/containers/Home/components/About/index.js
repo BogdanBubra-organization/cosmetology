@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import cn from 'classnames'
 import { Button, Container } from 'react-bootstrap'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
@@ -14,29 +15,38 @@ const About = (props) => {
   const isDesktop = useMatchMedia('(min-width: 1200px)')
 
   useEffect(() => {
-    if (isDesktop) floatingAnim(picRef.current)
+    const picture = picRef.current
+    if (isDesktop && picture) floatingAnim(picture)
 
-    return () => resetAnim(picRef.current)
+    return () => {
+      if (picture) resetAnim(picture)
+    }
   }, [isDesktop])
 
   return (
-    <Container as="section" id="about" className={s.about}>
-      <div
-        className={s.about_media}
-        data-appear="about"
-        data-direction="bottom"
-      >
-        <div className={s.about_pic_wrapper} ref={picRef}>
-          <GatsbyImage
-            className={s.about_pic}
-            image={getImage(image)}
-            alt="Косметологічна клініка"
-            width="100%"
-            height="100%"
-            objectFit="cover"
-          />
+    <Container
+      as="section"
+      id="about"
+      className={cn(s.about, { [s.withoutMedia]: !getImage(image) })}
+    >
+      {getImage(image) && (
+        <div
+          className={s.about_media}
+          data-appear="about"
+          data-direction="bottom"
+        >
+          <div className={s.about_pic_wrapper} ref={picRef}>
+            <GatsbyImage
+              className={s.about_pic}
+              image={getImage(image)}
+              alt="Косметологічна клініка"
+              width="100%"
+              height="100%"
+              objectFit="cover"
+            />
+          </div>
         </div>
-      </div>
+      )}
       <div
         className={s.about_content}
         data-appear="about"

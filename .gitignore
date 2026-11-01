@@ -58,6 +58,7 @@ typings/
 .cache/
 public
 static/dato-icon-picker/
+.vercel/
 
 # Mac files
 .DS_Store
@@ -77,6 +78,19 @@ yarn-error.log
 
 # Local CMS backups
 output/datocms-backups/
+output/media-recovery/
+output/media-deploy/
+
+# Local browser verification artifacts
+.playwright-cli/
+output/playwright/
 
 # Local project documentation
 /README.md
+
+# Local development plans
+/docs/media-optimization-plan.md
+/docs/media-recovery-plan.md
+
+# Local Markdown documentation
+*.[mM][dD]

@@ -13,9 +13,12 @@ const ModalOrder = React.lazy(() =>
   import(/* webpackChunkName: "modal-order" */ '~components/ModalOrder')
 )
 
-const Logo = ({ url, alt }) => (
-  <img width="244" height="52" src={url} alt={alt} />
-)
+const Logo = ({ url, alt }) =>
+  url ? (
+    <img width="244" height="52" src={url} alt={alt} />
+  ) : (
+    <span>{alt || 'Cosmetology.ua'}</span>
+  )
 
 const ButtonAsk = ({ handleShowOrder }) => (
   <Button onClick={handleShowOrder} variant="secondary">

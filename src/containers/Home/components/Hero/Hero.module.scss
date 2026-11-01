@@ -197,3 +197,9 @@
     }
   }
 }
+
+.hero.withoutMedia {
+  height: auto;
+  min-height: 0;
+  padding-bottom: 40px;
+}

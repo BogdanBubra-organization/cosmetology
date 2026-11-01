@@ -1,3 +1,4 @@
+import SEO from '~components/seo'
 import React from 'react'
 import { graphql } from 'gatsby'
 
@@ -34,3 +35,5 @@ export const query = graphql`
 `
 
 export default EventsPage
+
+export const Head = () => <SEO title="Акції" />

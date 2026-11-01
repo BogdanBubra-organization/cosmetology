@@ -1,3 +1,4 @@
+import SEO from '~components/seo'
 import React from 'react'
 import { graphql } from 'gatsby'
 
@@ -36,3 +37,7 @@ export const query = graphql`
   }
 `
 export default MessengersPage
+
+export const Head = ({ data }) => (
+  <SEO title="Звʼязок" description={data.datoCmsMessengersPage.text} />
+)

@@ -7,7 +7,6 @@ import { Autoplay, Navigation } from 'swiper'
 import cn from 'classnames'
 
 import Layout from '~components/Layout'
-import S from '~components/seo'
 import Lights from '~components/Lights'
 import SwiperButtons from '~components/SwiperButtons'
 import Icon from '~components/Icon'
@@ -23,10 +22,9 @@ const Events = ({ title, pictures, btnOrder }) => {
   const handleShowOrder = () => setShowOrder(true)
   return (
     <Layout>
-      <S title="Акції" />
       <Container as="section" className={s.events}>
         <h1 className={s.events_title}>{title}</h1>
-        {pictures.length &&
+        {pictures.length > 0 &&
           (pictures.length > 1 ? (
             <Swiper
               spaceBetween={16}

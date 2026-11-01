@@ -14,10 +14,8 @@ const apiToken =
 const environment = process.env.DATOCMS_BACKUP_ENVIRONMENT || 'main'
 const backupRoot =
   process.env.DATOCMS_BACKUP_DIRECTORY || 'output/datocms-backups'
-const timestamp = new Date()
-  .toISOString()
-  .replaceAll(':', '-')
-  .replace('.', '-')
+const startedAt = new Date().toISOString()
+const timestamp = startedAt.replaceAll(':', '-').replace('.', '-')
 const backupDirectory =
   process.argv[2] || join(backupRoot, `datocms-${environment}-${timestamp}`)
 
@@ -54,12 +52,26 @@ const downloadAsset = async (upload, assetsDirectory) => {
   )}`
   const filePath = join(assetsDirectory, fileName)
   const partialFilePath = `${filePath}.partial`
+  const downloadUrl = new URL(upload.url)
+
+  if (upload.format === 'svg') {
+    downloadUrl.searchParams.set('svg-sanitize', 'false')
+  }
+
   let fileStats
+  let actualMd5
 
   try {
     fileStats = await stat(filePath)
-  } catch {
-    const response = await fetch(upload.url)
+    actualMd5 = await fileHash(filePath, 'md5')
+  } catch (error) {
+    if (error.code !== 'ENOENT') throw error
+  }
+
+  if (fileStats?.size !== upload.size || actualMd5 !== upload.md5) {
+    const response = await fetch(downloadUrl, {
+      signal: AbortSignal.timeout(60000),
+    })
 
     if (!response.ok || !response.body) {
       throw new Error(
@@ -68,19 +80,24 @@ const downloadAsset = async (upload, assetsDirectory) => {
     }
 
     await pipeline(response.body, createWriteStream(partialFilePath))
+    fileStats = await stat(partialFilePath)
+    actualMd5 = await fileHash(partialFilePath, 'md5')
+
+    if (fileStats.size !== upload.size || actualMd5 !== upload.md5) {
+      throw new Error(`Original asset ${upload.id} failed integrity checks`)
+    }
+
     await rename(partialFilePath, filePath)
-    fileStats = await stat(filePath)
   }
 
   if (fileStats.size === 0) {
     throw new Error(`Downloaded asset ${upload.id} is empty`)
   }
 
-  const actualMd5 = await fileHash(filePath, 'md5')
-
   return {
     uploadId: upload.id,
     sourceUrl: upload.url,
+    downloadUrl: downloadUrl.href,
     path: `assets/${fileName}`,
     size: fileStats.size,
     expectedSize: upload.size,
@@ -249,6 +266,22 @@ const run = async () => {
   console.log(`Downloaded ${uploads.length} assets`)
 
   const warnings = await exportOptionalResources(settingsDirectory)
+  const [siteAfter, environmentsAfter] = await Promise.all([
+    client.site.find(),
+    client.environments.list(),
+  ])
+  const environmentAfter = environmentsAfter.find(
+    ({ id }) => id === environment
+  )
+
+  if (
+    site.last_data_change_at !== siteAfter.last_data_change_at ||
+    sourceEnvironment.meta.primary !== environmentAfter?.meta.primary
+  ) {
+    throw new Error('CMS changed during backup; a fresh export is required')
+  }
+
+  await writeJson(join(settingsDirectory, 'site-after.json'), siteAfter)
   const assetMetadataMismatches = assetManifest.filter(
     ({ sizeMatches, md5Matches }) => !sizeMatches || !md5Matches
   )
@@ -260,10 +293,17 @@ const run = async () => {
   }
   const manifest = {
     format: 'datocms-offline-backup',
-    version: 1,
+    version: 2,
+    startedAt,
     createdAt: new Date().toISOString(),
     environment,
     primary: sourceEnvironment.meta.primary,
+    consistency: {
+      lastDataChangeAtBefore: site.last_data_change_at,
+      lastDataChangeAtAfter: siteAfter.last_data_change_at,
+      unchangedDuringExport: true,
+      primaryUnchanged: true,
+    },
     counts: {
       itemTypes: itemTypes.length,
       models: models.length,
