@@ -2,16 +2,18 @@
 import React, { useState } from 'react'
 import { Button, Container } from 'react-bootstrap'
 import { Link } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { getImage } from 'gatsby-plugin-image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, EffectFade } from 'swiper'
 import cn from 'classnames'
+import useSwiperKey from '~hooks/useSwiperKey'
 
 import GalleryMedia from '~components/GalleryMedia'
 import Icon from '~components/Icon'
 import Modal from '~components/Modal'
 import TabSwitcher from '~components/TabSwitcher'
 import SwiperButtons from '~components/SwiperButtons'
+import SlideImage from '~components/SlideImage'
 import MediaWrap from '~components/MediaWrap'
 import GalleryPlaceholder from '~components/GalleryPlaceholder'
 
@@ -28,6 +30,7 @@ const Gallery = ({
   posts,
   isLoading,
 }) => {
+  const swiperKey = useSwiperKey()
   const media = (suppliedMedia || []).filter((item) =>
     item?.video ? Boolean(item.url) : Boolean(getImage(item))
   )
@@ -66,6 +69,8 @@ const Gallery = ({
         <div className={s.gallery_wrapper}>
           <Container className={s.gallery_mask}>
             <Swiper
+              key={swiperKey}
+              watchSlidesProgress
               className="swiper--gallery swipper--autoheightMobile"
               autoHeight
               slidesPerView={1}
@@ -142,6 +147,7 @@ const Gallery = ({
       {media.length > 0 && (
         <Modal show={modal.show} onHide={handleHideModal} variant="swiper">
           <Swiper
+            watchSlidesProgress
             effect="fade"
             navigation={{
               prevEl: '.swiper-button-prev',
@@ -155,7 +161,10 @@ const Gallery = ({
             {media?.map((item, i) => (
               <SwiperSlide key={`p${i}`}>
                 <MediaWrap media={item}>
-                  <GatsbyImage
+                  <SlideImage
+                    initiallyVisible={
+                      i === modal.active || i === modal.active + 1
+                    }
                     className="modal-pic"
                     image={getImage(item)}
                     alt="Gallery"

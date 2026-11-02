@@ -5,12 +5,14 @@ import { StructuredText } from 'react-datocms'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectFade, Keyboard, Navigation } from 'swiper'
 import cn from 'classnames'
+import useSwiperKey from '~hooks/useSwiperKey'
 
 import Icon from '~components/Icon'
 import MediaWrap from '~components/MediaWrap'
 import Modal from '~components/Modal'
 import ServiceIcon, { hasServiceIcon } from '~components/ServiceIcon'
 import SwiperButtons from '~components/SwiperButtons'
+import SlideImage from '~components/SlideImage'
 
 import {
   compactContent,
@@ -79,6 +81,7 @@ const FeatureGrid = ({ features, compact = false }) => {
 }
 
 const LandingGallery = ({ media, title, variant }) => {
+  const swiperKey = useSwiperKey()
   const [modal, setModal] = useState({ show: false, active: 0 })
   const visibleMedia = compactContent(media)
 
@@ -91,6 +94,8 @@ const LandingGallery = ({ media, title, variant }) => {
     <>
       <div className={s.galleryMask}>
         <Swiper
+          key={swiperKey}
+          watchSlidesProgress
           className={cn('swiper--gallery', s.gallery, s[`gallery-${variant}`], {
             [s.gallerySingle]: visibleMedia.length === 1,
           })}
@@ -125,7 +130,8 @@ const LandingGallery = ({ media, title, variant }) => {
                 onClick={() => setModal({ show: true, active: index })}
                 aria-label={`Відкрити зображення ${index + 1}`}
               >
-                <GatsbyImage
+                <SlideImage
+                  initiallyVisible={index < 2}
                   className={s.galleryImage}
                   image={getImage(item)}
                   alt={mediaAlt(item, title)}
@@ -149,6 +155,7 @@ const LandingGallery = ({ media, title, variant }) => {
         variant="swiper"
       >
         <Swiper
+          watchSlidesProgress
           effect="fade"
           keyboard={{ enabled: true }}
           navigation={
@@ -164,10 +171,13 @@ const LandingGallery = ({ media, title, variant }) => {
           initialSlide={modal.active}
           className="swiper--modal swipper--autoheightMobile"
         >
-          {visibleMedia.map((item) => (
+          {visibleMedia.map((item, index) => (
             <SwiperSlide key={item.url}>
               <MediaWrap media={item}>
-                <GatsbyImage
+                <SlideImage
+                  initiallyVisible={
+                    index === modal.active || index === modal.active + 1
+                  }
                   className="modal-pic"
                   image={getImage(item)}
                   alt={mediaAlt(item, title)}
@@ -454,6 +464,7 @@ export const ContraindicationsSection = (props) => (
 )
 
 export const ReviewsSection = ({ title, description, reviews }) => {
+  const swiperKey = useSwiperKey()
   const visibleReviews = (reviews || []).filter(hasReviewContent)
   const showNavigation = visibleReviews.length > 3
 
@@ -463,6 +474,8 @@ export const ReviewsSection = ({ title, description, reviews }) => {
         <SectionIntro title={title} description={description} />
         {!!visibleReviews.length && (
           <Swiper
+            key={swiperKey}
+            watchSlidesProgress
             className={cn(s.reviewSlider, {
               [s.reviewSliderSingle]: visibleReviews.length === 1,
             })}
@@ -483,7 +496,7 @@ export const ReviewsSection = ({ title, description, reviews }) => {
             }}
             modules={[Keyboard, Navigation]}
           >
-            {visibleReviews.map((review) => {
+            {visibleReviews.map((review, reviewIndex) => {
               const rating = Math.min(5, Math.max(0, review.rating || 0))
               const name = textContent(review.name)
               const reviewText = textContent(review.text)
@@ -493,7 +506,8 @@ export const ReviewsSection = ({ title, description, reviews }) => {
                   <article className={s.reviewCard}>
                     <div className={s.reviewHeader}>
                       {review.photo?.gatsbyImageData && (
-                        <GatsbyImage
+                        <SlideImage
+                          initiallyVisible={reviewIndex < 2}
                           className={s.reviewAvatar}
                           image={getImage(review.photo)}
                           alt={mediaAlt(review.photo, name)}

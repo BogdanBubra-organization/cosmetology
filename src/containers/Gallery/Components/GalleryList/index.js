@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { getImage } from 'gatsby-plugin-image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, EffectFade } from 'swiper'
 
@@ -9,6 +9,7 @@ import GalleryMedia from '~components/GalleryMedia'
 import TabSwitcher from '~components/TabSwitcher'
 import Icon from '~components/Icon'
 import SwiperButtons from '~components/SwiperButtons'
+import SlideImage from '~components/SlideImage'
 import Modal from '~components/Modal'
 import MediaWrap from '~components/MediaWrap'
 import GalleryPlaceholder from '~components/GalleryPlaceholder'
@@ -81,6 +82,7 @@ const GalleryList = ({ tabs, media: suppliedMedia, initialTab }) => {
       {media.length > 0 && (
         <Modal show={modal.show} onHide={handleHideModal} variant="swiper">
           <Swiper
+            watchSlidesProgress
             effect="fade"
             navigation={{
               prevEl: '.swiper-button-prev',
@@ -94,7 +96,10 @@ const GalleryList = ({ tabs, media: suppliedMedia, initialTab }) => {
             {media.map((item, i) => (
               <SwiperSlide key={`p${i}`}>
                 <MediaWrap media={item}>
-                  <GatsbyImage
+                  <SlideImage
+                    initiallyVisible={
+                      i === modal.active || i === modal.active + 1
+                    }
                     className="modal-pic"
                     image={getImage(item)}
                     alt="Gallery"

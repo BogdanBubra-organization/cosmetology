@@ -1,8 +1,9 @@
 import React from 'react'
 import { Ratio } from 'react-bootstrap'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { getImage } from 'gatsby-plugin-image'
 
 import MediaWrap from '~components/MediaWrap'
+import SlideImage from '~components/SlideImage'
 import * as s from './GalleryMedia.module.scss'
 
 const GalleryMedia = ({
@@ -38,7 +39,8 @@ const GalleryMedia = ({
           className={s.gallerymedia}
         >
           <MediaWrap media={media} preview>
-            <GatsbyImage
+            <SlideImage
+              initiallyVisible={index < 2}
               className={s.gallerymedia_pic}
               image={getImage(media)}
               alt="Gallery"

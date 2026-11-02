@@ -8,9 +8,11 @@ import { Button } from 'react-bootstrap'
 import cn from 'classnames'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, EffectFade } from 'swiper'
+import useSwiperKey from '~hooks/useSwiperKey'
 
 import MediaWrap from '~components/MediaWrap'
 import SwiperButtons from '~components/SwiperButtons'
+import SlideImage from '~components/SlideImage'
 
 import Icon from '~components/Icon'
 import { formatPrice } from './utils'
@@ -62,6 +64,7 @@ const ProductHero = ({
   warningSection,
 }) => {
   const [showOrder, setShowOrder] = useState(false)
+  const swiperKey = useSwiperKey()
   const handleShowOrder = () => setShowOrder(true)
 
   const hasMedia = media.length > 0 || Boolean(previewImage?.url)
@@ -84,6 +87,8 @@ const ProductHero = ({
                 <h5 className={s.producthero_title}>{imageTitle}</h5>
                 {media.length > 1 ? (
                   <Swiper
+                    key={swiperKey}
+                    watchSlidesProgress
                     spaceBetween={16}
                     modules={[Navigation, EffectFade]}
                     navigation={{
@@ -100,7 +105,8 @@ const ProductHero = ({
                         className={s.producthero_slide}
                       >
                         <MediaWrap media={item} isProduct>
-                          <GatsbyImage
+                          <SlideImage
+                            initiallyVisible={i < 2}
                             className={s.producthero_pic}
                             image={getImage(item)}
                             alt={name}

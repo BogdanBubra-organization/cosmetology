@@ -5,10 +5,12 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Navigation } from 'swiper'
 import cn from 'classnames'
+import useSwiperKey from '~hooks/useSwiperKey'
 
 import Layout from '~components/Layout'
 import Lights from '~components/Lights'
 import SwiperButtons from '~components/SwiperButtons'
+import SlideImage from '~components/SlideImage'
 import Icon from '~components/Icon'
 
 import * as s from './Events.module.scss'
@@ -18,6 +20,7 @@ const ModalOrder = React.lazy(() =>
 )
 
 const Events = ({ title, pictures, btnOrder }) => {
+  const swiperKey = useSwiperKey()
   const [showOrder, setShowOrder] = useState(false)
   const handleShowOrder = () => setShowOrder(true)
   return (
@@ -27,6 +30,8 @@ const Events = ({ title, pictures, btnOrder }) => {
         {pictures.length > 0 &&
           (pictures.length > 1 ? (
             <Swiper
+              key={swiperKey}
+              watchSlidesProgress
               spaceBetween={16}
               slidesPerView={1}
               modules={[Autoplay, Navigation]}
@@ -44,7 +49,8 @@ const Events = ({ title, pictures, btnOrder }) => {
             >
               {pictures.map((item, i) => (
                 <SwiperSlide key={`m${i}`}>
-                  <GatsbyImage
+                  <SlideImage
+                    initiallyVisible={i < 2}
                     image={getImage(item)}
                     alt={item.alt || item.basename}
                     objectFit="contain"
